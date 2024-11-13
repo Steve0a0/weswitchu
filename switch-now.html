@@ -652,13 +652,15 @@ function toggleSelection(element) {
 }
     </script>
     <script>
-        function showStep1() {
+       function showStep1() {
     document.getElementById('step1Fields').style.display = 'block';
     document.getElementById('step2Fields').style.display = 'none';
     document.getElementById('step3Fields').style.display = 'none';
     document.getElementById('stepIndicator').textContent = 'Step 1:';
 }
-         function showStep2() {
+
+// Show Step 2 after validating Step 1
+function showStep2() {
     // Validate Step 1 fields (basic check)
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
@@ -703,25 +705,19 @@ function toggleSelection(element) {
         isValid = false;
     }
 
-    // If any field is invalid, alert the user and stop the function
-    if (!isValid) {
-        console.log('Please fill out all required fields correctly before proceeding to the next step.');
-        return;
-    }
+    // If validation fails, stop here
+    if (!isValid) return;
 
-    // Hide Step 1 fields and errors
+    // Show Step 2, hide Step 1, and update the step indicator
     document.getElementById('step1Fields').style.display = 'none';
-
-    // Show Step 2 fields
     document.getElementById('step2Fields').style.display = 'block';
-
-    // Update the step indicator
+    document.getElementById('step3Fields').style.display = 'none';
     document.getElementById('stepIndicator').textContent = 'Step 2:';
 }
 
-
+// Show Step 3 after validating Step 2
 function showStep3() {
-    // Eircode and service selection validation
+    // Validate Step 2 fields
     const eircode = document.getElementById('eir-code').value;
     const eircodeError = document.getElementById('eircodeError');
     const selectedServices = document.querySelectorAll('.option-card.selected');
@@ -742,17 +738,15 @@ function showStep3() {
         isValid = false;
     }
 
-    // If any validation fails, stop here
+    // If validation fails, stop here
     if (!isValid) return;
 
-    // Hide Step 2 fields and show Step 3 fields
+    // Show Step 3, hide Step 2, and update the step indicator
+    document.getElementById('step1Fields').style.display = 'none';
     document.getElementById('step2Fields').style.display = 'none';
     document.getElementById('step3Fields').style.display = 'block';
-
-    // Update the step indicator to reflect the current step
     document.getElementById('stepIndicator').textContent = 'Step 3:';
 }
-
 // Hide dropdown when clicking outside of it
 document.addEventListener('click', function(event) {
     const dropdownMenu = document.getElementById('dropdown-menu');
