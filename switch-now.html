@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeSwitchU - Form</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Custom styles */
-        body {
+
+body {
             background-color: #eceaf1;
         }
         .navbar-container {
@@ -19,9 +18,8 @@
             padding: 10px 0;
             width: 100%;
             height: 100px;
-            background-color: #31264B; /* Background color */
+            background-color: #31264B; 
         }
-
         .navbar-content {
             display: flex;
             flex-direction: row;
@@ -31,15 +29,12 @@
             max-width: 1174px;
             padding: 0 15px;
         }
-
-        /* Navbar Links */
         .nav-links {
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 10px;
         }
-
         .nav-item {
             font-family: 'Cabin', sans-serif;
             font-size: 16px;
@@ -49,17 +44,12 @@
             border-bottom: 2px solid transparent;
             transition: border-color 0.3s;
         }
-
         .nav-item:hover {
-            border-bottom: 2px solid #69CCA2; /* Hover effect for links */
+            border-bottom: 2px solid #69CCA2;
         }
-
-        /* Active Link */
         .nav-item.active {
-            border-bottom: 2px solid #69CCA2; /* Fixed underline for active link */
+            border-bottom: 2px solid #69CCA2; 
         }
-
-        /* Switch Now & Login Buttons (no underline on hover) */
         .nav-btn {
             display: flex;
             align-items: center;
@@ -72,17 +62,14 @@
             font-size: 16px;
             box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
             text-decoration: none;
-            border-bottom: none !important; /* Remove underline on hover */
+            border-bottom: none !important; 
         }
-
         .nav-btn:hover {
-            background-color: #4caf50; /* Example of hover effect */
+            background-color: #4caf50; 
         }
-
         .nav-btn.login {
             margin-left: 10px;
         }
-
         .form-section {
             padding: 50px 0;
         }
@@ -106,120 +93,170 @@
             border-radius: 4px;
             display: inline-block;
         }
-        .instruction-list, .process-header {
+     
+        .form-box {
+            max-width: 100%;
+        }
+        .additional-text p {
+            font-size: 1rem;
+            color: #352754;
+            margin: 8px 0;
+        }
+        .additional-text a {
+            text-decoration: none;
+            color: #352754;
+            font-weight: bold;
+        }
+        .additional-text a:hover {
+            text-decoration: underline;
+            color: #2a9d8f;
+        }
+        .hidden-content {
+            display: none;
+        }
+        
+        .form-box {
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+       
+        .form-label {
+            font-weight: bold;
+            color: #495057;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .nextbtn {
+            background-color: #352754;
+            color: white;
+        }
+        .nextbtn:hover {
+            background-color: #191325;
+            color: white;
+        }
+        .prevbtn {
+            background-color: #352754;
+            color: white;
+        }
+        .prevbtn:hover {
+            background-color: #191325;
+            color: white;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.875rem;
+            margin-top: 5px;
+            display: none; /* Initially hidden */
+        }
+
+        
+       
+        .dropdown-menu {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        #addressDiv {
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
             color: #352754;
         }
-        .process-header {
-            font-weight: bold;
-            font-size: 1.25rem;
+        
+        .sendbutton {
+            background-color: #352754;
+            color: white;
         }
-        .step-header {
-            color: #2a9d8f;
-            font-weight: bold;
-            font-size: 1.125rem;
+        .sendbutton:hover {
+            background-color: #191325;
+            color: white;
         }
         .option-card {
-        border: 2px solid #352754;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        background-color: #f8f9fa;
-    }
-    .option-card p {
-        font-size: 1rem;
-        color: #352754;
-        font-weight: bold;
-        margin: 0;
-    }
-    .option-card:hover {
-        background-color: #352754;
-        color: #ffffff;
-    }
-    .form-box {
-        max-width: 100%;
-    }
-    .additional-text p {
-        font-size: 1rem;
-        color: #352754;
-        margin: 8px 0;
-    }
-    .additional-text a {
-        text-decoration: none;
-        color: #352754;
-        font-weight: bold;
-    }
-    .additional-text a:hover {
-        text-decoration: underline;
-        color: #2a9d8f;
-    }
-    .hidden-content {
-        display: none;
-        margin-top: 10px;
-        color: #352754;
-        font-size: 0.9rem;
-    }
-    .upload-box {
-        border: 2px dashed #007bff;
-        border-radius: 8px;
-        padding: 30px;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    .upload-box h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-    .upload-box p {
-        color: #6c757d;
-    }
-    .upload-icon img {
-        display: block;
-        margin: 0 auto;
-    }
-    .upload-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-    .form-box {
-        max-width: 500px;
-        margin: 0 auto;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        background-color: #ffffff;
-    }
-    .input-box {
-        text-align: left;
-    }
-    .form-label {
-        font-weight: bold;
-        color: #495057;
-        font-size: 1rem;
-        margin-bottom: 5px;
-    }
-    .form-control {
-        
-        border-radius: 8px;
-        padding: 10px;
-        font-size: 1rem;
-    }
-    .form-control:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        
-    }
-    .btn-primary {
-        background-color: #007bff;
-        border: none;
-        padding: 12px;
-        font-size: 1rem;
-        font-weight: bold;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-    }
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
+    border: 2px solid #352754;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+.option-card p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Selected State */
+.option-card.selected {
+    background-color: #352754;
+    color: #ffffff;
+}
+.geb{
+    padding-top: 40px;
+}
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Aligns it in the center vertically */
+}
+.drop-area {
+    border: 2px dashed #007bff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.drop-area.dragover {
+    background-color: #e9f7ff;
+}
+
+.file-list {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.file-item span {
+    flex: 1;
+}
+
+.file-item button {
+    border: none;
+    background: transparent;
+    color: #dc3545;
+    cursor: pointer;
+}
+
     </style>
 </head>
 <body>
@@ -247,219 +284,614 @@
         </div>
     </nav>
 
-<!-- Main Form Section -->
-<section class="form-section">
-    <div class="container">
-        <div class="form-header text-center">
-            <h2>Before you Begin</h2>
-            <p>WeSwitchU is a premium, paid electricity and gas switching service with a simple mission - to save customers time and money every year. <a href="#" class="text-decoration-underline">Learn more here</a></p>
-            <p>We just need a few details from you before you get started...</p>
-        </div>
-
-        <!-- Form -->
-        <form class="mt-4">
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="firstName" class="form-label">First name *</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+    <section class="form-section">
+        <div class="container">
+            <div id="formContainer">
+                <div class="form-header text-center">
+                    <h2>Let's Begin</h2>
+                    <p>WeSwitchU is a premium, paid electricity and gas switching service with a simple mission - to save customers time and money every year. <a href="#" class="text-decoration-underline">Learn more here</a></p>
+                    <p>We just need a few details from you before you get started...</p>
                 </div>
-                <div class="col-md-6">
-                    <label for="lastName" class="form-label">Last name *</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-6 position-relative">
-                    <label for="phone" class="form-label">Your mobile phone number *</label>
-                    <input type="text" class="form-control" id="phone" placeholder="08XXXXXXXX">
-                    <span class="position-absolute tooltip-text" style="top: 50%; right: 15px; transform: translateY(-50%);">10 digits</span>
-                </div>
-                <div class="col-md-6">
-                    <label for="county" class="form-label">County *</label>
-                    <select id="county" class="form-select">
-                        <option selected>Please Select</option>
-                        <option>County 1</option>
-                        <option>County 2</option>
-                        <option>County 3</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="email" class="form-label">Your email address *</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                </div>
-                <div class="col-md-6">
-                    <label for="text" class="form-label">EIRCODE *</label>
-                    <input type="text" class="form-control" id="eircode" placeholder="Enter your EIRCODE">
-                </div>
-            </div>
-           
-               
-            <!-- Additional Options Section -->
-            <section class="additional-options my-5">
-                <div class="container">
-                    <!-- Card Selection Row -->
-                    <!-- <div class="row text-center mb-4">
+    
+                <!-- Initial Form -->
+                <form id="mainForm" class="mt-4">
+                    <!-- Step Indicator -->
+                    <h4 id="stepIndicator" style="font-size: 2.5rem; color: #352754;">Step 1:</h4>
+                    <br>
+    
+                    <!-- Step 1 Fields -->
+                    <div id="step1Fields">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First name *</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+                                <div class="error-message" id="firstNameError">First name is required</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last name *</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+                                <div class="error-message" id="lastNameError">Last name is required</div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Your email address *</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                                <div class="error-message" id="emailError">Email address is required</div>
+                            </div>
+                            <div class="col-md-6 position-relative">
+                                <label for="phone" class="form-label">Your mobile phone number *</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="08XXXXXXXX" oninput="toggleVerifyButton()" inputmode="numeric" pattern="\d{10}" maxlength="10">
+                                <span class="position-absolute tooltip-text" style="top: 50%; right: 15px; transform: translateY(-50%);">10 digits</span>
+                                <button type="button" id="verifyButton" class="btn mt-2 hidden-content sendbutton" onclick="sendVerificationCode()">Send Now</button>
+                                <div class="error-message" id="phoneError">Mobile phone number is required and must be 10 digits</div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6 hidden-content" id="verificationCodeField">
+                                <label for="verificationCode" class="form-label">Verification Code *</label>
+                                <input type="text" class="form-control" id="verificationCode" placeholder="Enter your verification code" maxlength="4">
+                                <div class="error-message" id="verificationCodeError">Verification code is required and must be correct</div>
+                                <button type="button" id="verifyCodeButton" class="btn mt-2 nextbtn" onclick="verifyCode()">Verify Code</button>
+                            </div>
+                            
+                          
+                        </div>
+                        <div class="row mb-3 hidden-content" id="passwordFields">
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Password *</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+                            </div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="multiplePropertyCheck" onclick="togglePasswordFields()">
+                            <label class="form-check-label" for="multiplePropertyCheck">
+                                I have more than 1 property or meter to manage
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" for="multiplePropertyCheck">
+                                Terms & Conditions
+                            </label>
+                        </div>
+                        <div class="additional-text">
+                            <p><a href="#" onclick="toggleVisibility('movedInInfo')">I have just moved in?</a></p>
+                        </div>
+                        <button type="submit" class="btn float-end nextbtn" id="submitButton"onclick="showStep2()"">Next ></button>
+                   </div>
+                        
+                       
+    
+                    <!-- Step 2 Fields (Hidden by default) -->
+                    <div id="step2Fields" style="display: none;">
+                        <div class="col-md-6">
+                            <label for="eir-code" class="form-label">Enter Eircode</label>
+                            <input type="text" class="form-control" id="eir-code" oninput="showDropdown()" placeholder="Enter your Eircode">
+                            <div class="error-message" id="eircodeError">Eircode is required</div>
+                            <div id="dropdown-menu" class="dropdown-menu"></div>
+                        </div> 
+                    <div id="addressDiv">
+                        <span>Address: </span><span id="addressInput"></span>
+                    </div> 
+                        
+                    <div class="row text-center mb-4 geb">
+                        <label class="form-label">Choose Your Service</label>
                         <div class="col-4">
-                            <div class="option-card">
+                            <div class="option-card" onclick="toggleSelection(this)">
                                 <p>Gas</p>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="option-card">
+                            <div class="option-card" onclick="toggleSelection(this)">
                                 <p>Elec</p>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="option-card">
+                            <div class="option-card" onclick="toggleSelection(this)">
                                 <p>Broadband</p>
                             </div>
                         </div>
-                    </div> -->
-                    
-                    <!-- Additional Text Options as Links -->
-                    <div class="additional-text">
-                        <p><a href="#" onclick="toggleVisibility('propertyInfo')">I have more than 1 property or meter to manage</a></p>
-                        <p><a href="#" onclick="toggleVisibility('uploadSection')">Upload bills / take photo <span class="text-muted">(conditional on above)</span></a></p>
-                        <p><a href="#" onclick="toggleVisibility('noBillForm')">Don't have a bill?</a></p>
-                        <p><a href="#" onclick="toggleVisibility('movedInInfo')">I have just moved in</a></p>
                     </div>
-            
-                    <!-- Hidden Content Sections -->
-                    <div id="propertyInfo" class="hidden-content">
-                        <p>Here you can manage multiple properties or meters by adding details for each one.</p>
+                    <button type="button" class="btn float-start prevbtn" onclick="showStep1()">Previous</button>
+ <button type="button" class="btn float-end nextbtn" onclick="showStep3()">Next ></button>
                     </div>
-                    <div id="uploadSection" class="hidden-content">
-                        <div class="upload-box text-center p-4">
-                            <h3>Upload Your Bills</h3>
-                            <p>For an instant saving calculation</p>
-                            <div class="upload-icon my-3">
-                                <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload Icon" width="60">
-                                <p><strong>Browse Files & Photo's</strong></p>
-                            </div>
-                            <label class="upload-btn btn btn-dark">
-                                <i class="bi bi-upload"></i> UPLOAD / TAKE PHOTO
-                                <input type="file" style="display: none;" multiple onchange="handleFileSelect(event)">
-                            </label>
-                            <p class="mt-2 text-muted">Max 5 files</p>
-            
-                            <!-- Display Uploaded Files -->
-                            <ul id="fileList" class="list-unstyled mt-3"></ul>
-                        </div>
+
+                <!-- Step 3 Fields (Hidden by default) -->
+                <div id="step3Fields" style="display: none;">
+                    <!-- Buttons for Upload Bill and Don't Have a Bill -->
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadBillModal">
+                            Upload Bills
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#noBillModal">
+                            Don't Have a Bill
+                        </button>
                     </div>
-                </div>
-                <div id="noBillForm" class="hidden-content my-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-10">
-                                <!-- Card Selection Row for Gas, Elec, Broadband -->
-                                <div class="row text-center mb-4">
-                                    <div class="col-4">
-                                        <div class="option-card p-3">
-                                            <p>Gas</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="option-card p-3">
-                                            <p>Elec</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="option-card p-3">
-                                            <p>Broadband</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div id="uploadedFilesList" class="uploaded-files-list mb-3" style="display: none;">
+                        <h6>Uploaded Files:</h6>
+                        <ul id="uploadedFiles"></ul>
+                    </div>
                 
-                                <!-- Address Form -->
-                                <form class="form-box p-4 bg-light shadow-sm rounded">
-                                    <div class="mb-3">
-                                        <label for="address" class="form-label">Enter Your Address To See How Much You Can Save</label>
-                                        <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="phone" class="form-label">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary w-100">Submit</button>
-                                </form>
-                            </div>
+                
+                    <!-- Password Fields -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Password *</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                            <div class="error-message" id="passwordError" style="display: none; color: red;">Password is required</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+                            <div class="error-message" id="confirmPasswordError" style="display: none; color: red;">Passwords must match</div>
                         </div>
                     </div>
+                    <button type="button" class="btn float-start prevbtn" onclick="showStep2()">Previous</button>
+                    <button type="submit" class="btn float-end nextbtn">Submit</button>
                 </div>
-                    <div id="movedInInfo" class="hidden-content">
-                        <p>Just moved in? Provide your new address and start with a fresh setup.</p>
-                    </div>
+                
+                <!-- Modal for Upload Bills -->
+              <!-- Modal for Upload Bills -->
+<!-- Modal for Upload Bills with Drag-and-Drop -->
+<div class="modal fade" id="uploadBillModal" tabindex="-1" aria-labelledby="uploadBillModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadBillModalLabel">Upload Your Bills</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Drag and drop up to 5 files or click to upload.</p>
+                <div id="dropArea" class="drop-area" onclick="document.getElementById('fileInput').click()">
+                    <p>Drop files here or click to select</p>
+                    <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.png" style="display: none;" onchange="handleFiles(this.files)">
                 </div>
-            </section>
+                <div id="fileList" class="file-list"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for Don't Have a Bill -->
+<div class="modal fade" id="noBillModal" tabindex="-1" aria-labelledby="noBillModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"> <!-- Add modal-dialog-centered here -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="noBillModalLabel">Don't Have a Bill?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>If you don't have a bill, please wait our team will contact you soon.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+            </form>
+        </div>
+    </div>
+</section>  
             
-        </form>
-
-        <!-- Instructions Section -->
-       
-</section>
-<script>
-    const filesArray = []; // To store selected files
-
-    function toggleVisibility(id) {
-        // Hide all content sections
-        const contentSections = document.querySelectorAll('.hidden-content');
-        contentSections.forEach(section => {
-            section.style.display = 'none';
-        });
+           
+               
         
-        // Show the selected content section
-        const element = document.getElementById(id);
-        element.style.display = 'block';
-    }
-
-    function handleFileSelect(event) {
-        const selectedFiles = Array.from(event.target.files);
-
-        // Check if adding these files would exceed the max limit
-        if (filesArray.length + selectedFiles.length > 5) {
-            alert("You can upload a maximum of 5 files.");
-            return;
-        }
-
-        // Add new files to the filesArray and update the display
-        selectedFiles.forEach(file => {
-            if (filesArray.length < 5) {
-                filesArray.push(file);
+        <script>
+            function toggleSelection(element) {
+                // Toggle the 'selected' class on the clicked option card
+                element.classList.toggle("selected");
+            }
+        </script>
+    
+    <script>
+        // Function to handle form validation
+        document.getElementById('mainForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting
+    
+            // Clear any existing error messages
+            let firstErrorField = null;
+    
+            function showError(fieldId, errorId) {
+                const field = document.getElementById(fieldId);
+                const error = document.getElementById(errorId);
+                if (!field.value.trim()) { // Check if the field is empty
+                    error.style.display = 'block';
+                    field.classList.add('is-invalid');
+                    if (!firstErrorField) firstErrorField = field;
+                } else {
+                    error.style.display = 'none';
+                    field.classList.remove('is-invalid');
+                }
+            }
+    
+            // Validate each field
+            showError('firstName', 'firstNameError');
+            showError('lastName', 'lastNameError');
+            showError('phone', 'phoneError');
+            showError('email', 'emailError');
+            // showError('eir-code', 'eircodeError');
+    
+            if (firstErrorField) {
+                firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstErrorField.focus();
+            } else {
+                console.log('Form submitted successfully!'); // Replace this with actual form submission
             }
         });
+    
+        // Add real-time error message removal
+        function addInputEventListener(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            field.addEventListener('input', () => {
+                error.style.display = 'none';
+                field.classList.remove('is-invalid');
+            });
+        }
+    
+        // Initialize event listeners for each input field
+        addInputEventListener('firstName', 'firstNameError');
+        addInputEventListener('lastName', 'lastNameError');
+        addInputEventListener('phone', 'phoneError');
+        addInputEventListener('email', 'emailError');
+        // addInputEventListener('eir-code', 'eircodeError');
 
-        event.target.value = ''; // Clear the file input
-        displayFiles();
-    }
-
-    function displayFiles() {
-        const fileList = document.getElementById("fileList");
-        fileList.innerHTML = ""; // Clear the list before displaying
-
-        filesArray.forEach((file, index) => {
-            const fileItem = document.createElement("li");
-            fileItem.className = "file-item";
-            fileItem.innerHTML = `
-                <span>${file.name}</span>
-                <button onclick="removeFile(${index})">Remove</button>
-            `;
-            fileList.appendChild(fileItem);
+        
+    </script>
+    <script>
+        // Restrict phone input to exactly 10 digits
+        document.getElementById('phone').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, ''); // Remove any non-numeric characters
+            if (e.target.value.length > 10) { // Limit to 10 digits
+                e.target.value = e.target.value.slice(0, 10);
+            }
         });
+    </script>
+    
+    <script>
+        function toggleVerifyButton() {
+            const phone = document.getElementById("phone").value;
+            const verifyButton = document.getElementById("verifyButton");
+            verifyButton.classList.toggle("hidden-content", phone.length < 10);
+        }
+
+        // Show the verification code input field when "Verify Now" is clicked
+        function showVerificationField() {
+            document.getElementById("verificationCodeField").classList.remove("hidden-content");
+        }
+
+        // Show password fields if the checkbox is checked
+        function togglePasswordFields() {
+            const passwordFields = document.getElementById("passwordFields");
+            const submitButton = document.getElementById("submitButton");
+            passwordFields.classList.toggle("hidden-content");
+            if (document.getElementById("multiplePropertyCheck").checked) {
+                submitButton.textContent = "Submit";
+            } else {
+                submitButton.textContent = "Next";
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function showDropdown() {
+    const eircode = document.getElementById('eir-code').value;
+    const dropdownMenu = $('#dropdown-menu');
+
+    // Only show dropdown if input length is 2 or more
+    if (eircode.length >= 2) {
+        $.ajax({
+            type: "POST",
+            url: "https://admin.onebill.ie/api/getAddress",
+            data: { eircode: eircode },
+            success: function (data) {
+                dropdownMenu.empty(); // Clear any existing items
+
+                if (data.addresses && data.addresses.length > 0) {
+                    dropdownMenu.show();
+                    data.addresses.forEach(addrObj => {
+                        if (addrObj.address) {
+                            const newItem = $("<a>", {
+                                class: "dropdown-item",
+                                href: "#",
+                                text: addrObj.address,
+                                "data-eircode": addrObj.eircode,
+                                click: function (event) {
+                                    event.preventDefault();
+                                    selectEircode(event.target);
+                                }
+                            });
+                            dropdownMenu.append(newItem);
+                        }
+                    });
+                } else {
+                    dropdownMenu.hide(); // Hide if no addresses found
+                }
+            },
+            error: function () {
+                dropdownMenu.hide(); // Hide on error
+            }
+        });
+    } else {
+        dropdownMenu.hide(); // Hide dropdown if input is too short
+    }
+}
+
+// Function to select Eircode from dropdown
+function selectEircode(element) {
+    const selectedEircode = element.getAttribute('data-eircode');
+    const selectedAddress = element.textContent;
+    const eirCodeInput = document.getElementById('eir-code');
+    const addressInput = document.getElementById('addressInput');
+
+    // Set selected Eircode and address, hide dropdown
+    eirCodeInput.value = selectedEircode;
+    addressInput.textContent = selectedAddress;
+    $('#dropdown-menu').hide();
+
+    // Optional: Show the selected address div if hidden
+    document.getElementById('addressDiv').style.display = 'block';
+}
+
+// Toggle the 'selected' class on service cards for multi-selection
+function toggleSelection(element) {
+    element.classList.toggle("selected");
+}
+    </script>
+    <script>
+        function showStep1() {
+    document.getElementById('step1Fields').style.display = 'block';
+    document.getElementById('step2Fields').style.display = 'none';
+    document.getElementById('step3Fields').style.display = 'none';
+    document.getElementById('stepIndicator').textContent = 'Step 1:';
+}
+         function showStep2() {
+    // Validate Step 1 fields (basic check)
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const verificationCode = document.getElementById('verificationCode').value;
+
+    // Error elements
+    const firstNameError = document.getElementById('firstNameError');
+    const lastNameError = document.getElementById('lastNameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const verificationCodeError = document.getElementById('verificationCodeError');
+
+    // Reset previous error messages
+    firstNameError.style.display = 'none';
+    lastNameError.style.display = 'none';
+    emailError.style.display = 'none';
+    phoneError.style.display = 'none';
+    verificationCodeError.style.display = 'none';
+
+    // Check all required fields in Step 1
+    let isValid = true;
+    if (!firstName) {
+        firstNameError.style.display = 'block';
+        isValid = false;
+    }
+    if (!lastName) {
+        lastNameError.style.display = 'block';
+        isValid = false;
+    }
+    if (!email) {
+        emailError.style.display = 'block';
+        isValid = false;
+    }
+    if (phone.length !== 10) {
+        phoneError.style.display = 'block';
+        isValid = false;
+    }
+    if (verificationCode.length !== 4) {
+        verificationCodeError.style.display = 'block';
+        isValid = false;
     }
 
-    function removeFile(index) {
-        filesArray.splice(index, 1); // Remove the file from the array
-        displayFiles(); // Update the display
+    // If any field is invalid, alert the user and stop the function
+    if (!isValid) {
+        console.log('Please fill out all required fields correctly before proceeding to the next step.');
+        return;
     }
-</script>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    // Hide Step 1 fields and errors
+    document.getElementById('step1Fields').style.display = 'none';
+
+    // Show Step 2 fields
+    document.getElementById('step2Fields').style.display = 'block';
+
+    // Update the step indicator
+    document.getElementById('stepIndicator').textContent = 'Step 2:';
+}
+
+
+function showStep3() {
+    // Eircode and service selection validation
+    const eircode = document.getElementById('eir-code').value;
+    const eircodeError = document.getElementById('eircodeError');
+    const selectedServices = document.querySelectorAll('.option-card.selected');
+
+    // Reset previous error messages
+    eircodeError.style.display = 'none';
+    let isValid = true;
+
+    // Check if Eircode is selected
+    if (!eircode) {
+        eircodeError.style.display = 'block';
+        isValid = false;
+    }
+
+    // Check if at least one service is selected
+    if (selectedServices.length === 0) {
+        alert("Please select at least one service.");
+        isValid = false;
+    }
+
+    // If any validation fails, stop here
+    if (!isValid) return;
+
+    // Hide Step 2 fields and show Step 3 fields
+    document.getElementById('step2Fields').style.display = 'none';
+    document.getElementById('step3Fields').style.display = 'block';
+
+    // Update the step indicator to reflect the current step
+    document.getElementById('stepIndicator').textContent = 'Step 3:';
+}
+
+// Hide dropdown when clicking outside of it
+document.addEventListener('click', function(event) {
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    const eirCodeInput = document.getElementById('eir-code');
+
+    // Hide if the click is outside both the dropdown and the input
+    if (!dropdownMenu.contains(event.target) && event.target !== eirCodeInput) {
+        dropdownMenu.style.display = 'none';
+    }
+});
+        // Function to simulate sending the verification code
+function sendVerificationCode() {
+    const phoneNumber = document.getElementById("phone").value;
+
+    if (phoneNumber.length === 10) {
+        // Mocking API call for sending code
+        console.log(`Verification code "1111" sent to ${phoneNumber}`);
+        
+        // Show the verification input field
+        document.getElementById("verificationCodeField").classList.remove("hidden-content");
+    } else {
+        console.log("Please enter a valid 10-digit mobile number");
+    }
+}
+
+// Function to verify the code entered by the user
+function verifyCode() {
+    const enteredCode = document.getElementById("verificationCode").value;
+    const expectedCode = "1111"; // Hardcoded verification code for now
+
+    if (enteredCode === expectedCode) {
+        console.log("Code verified successfully!");
+        document.getElementById("verificationCodeError").style.display = "none";
+    } else {
+        document.getElementById("verificationCodeError").style.display = "block";
+        document.getElementById("verificationCodeError").textContent = "Invalid verification code. Please try again.";
+    }
+}
+
+    </script>
+    <script>
+        let uploadedFilesArray = []; // Global array to hold the uploaded files
+
+// Function to handle file selection and drag-drop
+function handleFiles(selectedFiles) {
+    const fileList = document.getElementById('fileList');
+
+    // Check if adding the new files would exceed the max limit of 5
+    if (uploadedFilesArray.length + selectedFiles.length > 5) {
+        alert("You can upload a maximum of 5 files.");
+        return;
+    }
+
+    for (let file of selectedFiles) {
+        // Limit file count to 5
+        if (uploadedFilesArray.length < 5) {
+            uploadedFilesArray.push(file);
+            displayFileInModal(file);
+        }
+    }
+}
+
+// Display file in modal's file list
+function displayFileInModal(file) {
+    const fileList = document.getElementById('fileList');
+    const fileItem = document.createElement('div');
+    fileItem.classList.add('file-item');
+    fileItem.innerHTML = `
+        <span>${file.name}</span>
+        <button onclick="removeFileFromModal('${file.name}')">Remove</button>
+    `;
+    fileList.appendChild(fileItem);
+}
+
+// Remove file from modal and update display
+function removeFileFromModal(fileName) {
+    uploadedFilesArray = uploadedFilesArray.filter(file => file.name !== fileName);
+    updateFileListInModal();
+}
+
+// Update file list display in the modal
+function updateFileListInModal() {
+    const fileList = document.getElementById('fileList');
+    fileList.innerHTML = "";
+    uploadedFilesArray.forEach(displayFileInModal);
+}
+
+// Function to handle file upload action
+function uploadFiles() {
+    if (uploadedFilesArray.length === 0) {
+        alert("No files to upload.");
+        return;
+    }
+
+    // Placeholder upload logic (replace with actual upload logic if needed)
+    displayFilesInStep3(); // Call this to display the files in Step 3
+    $('#uploadBillModal').modal('hide'); // Close the modal after upload
+}
+
+// Display uploaded files in Step 3
+function displayFilesInStep3() {
+    const uploadedFilesList = document.getElementById('uploadedFilesList');
+    const uploadedFiles = document.getElementById('uploadedFiles');
+    
+    // Clear existing items
+    uploadedFiles.innerHTML = "";
+
+    // Add each file to the list in Step 3
+    uploadedFilesArray.forEach(file => {
+        const listItem = document.createElement('li');
+        listItem.textContent = file.name;
+        uploadedFiles.appendChild(listItem);
+    });
+
+    // Show the uploaded files list in Step 3
+    uploadedFilesList.style.display = 'block';
+}
+
+// Drag-and-drop event listeners for drop area
+const dropArea = document.getElementById('dropArea');
+dropArea.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    dropArea.classList.add('dragover');
+});
+
+dropArea.addEventListener('dragleave', () => {
+    dropArea.classList.remove('dragover');
+});
+
+dropArea.addEventListener('drop', (event) => {
+    event.preventDefault();
+    dropArea.classList.remove('dragover');
+    handleFiles(event.dataTransfer.files);
+});
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+        
