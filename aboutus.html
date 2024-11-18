@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How it works | WeSwitchU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Cabin', sans-serif;
+            background-color: #f2f0fa;
+            color: #3d3355;
+            padding-bottom: 50px;
+        }
+
+        /* Navbar */
+        .navbar-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            width: 100%;
+            height: 100px;
+            background-color: #31264B;
+        }
+
+        .navbar-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 1174px;
+            max-width: 1174px;
+            padding: 0 15px;
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 8px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .nav-item:hover {
+            border-bottom: 2px solid #69CCA2;
+        }
+
+        /* Active Link */
+        .nav-item.active {
+            border-bottom: 2px solid #69CCA2;
+        }
+
+        .nav-btn {
+            background-color: #69CCA2;
+            color: #31264B;
+            border-radius: 30px;
+            padding: 7px 18px;
+            font-size: 16px;
+            box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+        }
+
+        .nav-btn.login {
+            margin-left: 10px;
+        }
+
+        /* Slanted Header */
+        .slanted-header {
+            background-color: #31264B;
+            color: #ffffff;
+            padding: 50px 0;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 40px;
+            color: #3d3355;
+        }
+
+        .main-image {
+            background-color: #31264B;
+            height: 200px;
+            width: 40%;
+            margin: 20px auto;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .feature-box img {
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 10px;
+            color: #3d3355;
+        }
+
+        .feature-box p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Card Group Styling */
+        .card-group .card {
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-group .card h5 {
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .mission-section {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 30px;
+        }
+        .small-card-group {
+    max-width: 900px; /* Control the maximum width of the card group */
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31264B;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Find an Installer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Farmers</a></li>
+                    <li class="nav-item"><a class="btn nav-btn" href="switch-now.html">Switch Now</a></li>
+                    <li class="nav-item"><a class="btn nav-btn login" href="login1.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slanted Header -->
+    <div class="slanted-header">
+        <h1>About Us</h1>
+    </div>
+
+    <!-- Introduction Section -->
+    <section class="container text-center mt-5">
+        <h2>Saving on your energy bills should be simple.</h2>
+        <p>But a lot of the time it’s not! Why is that? – We don’t engage with the energy market.</p>
+    </section>
+
+    <!-- Main Image Section -->
+    <section class="container text-center">
+        <div class="main-image"></div>
+        <p>People have better things to do in their spare time than spend hours on comparison sites, filling out forms & calling up energy companies.</p>
+    </section>
+
+ 
+
+    <section class="container mt-4">
+        <div class="small-card-group mx-auto">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road" />
+                        <div class="card-body">
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers" />
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container mt-4">
+        <div class="small-card-group mx-auto">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road" />
+                        <div class="card-body">
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers" />
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Our Mission Section -->
+    <section class="container mission-section mt-5">
+        <h3 class="section-title">Our Mission</h3>
+        <p>It’s simple really, we’re here to help customers save on their energy bills as well as improve the energy efficiency of their household, creating a greener Ireland for all.</p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

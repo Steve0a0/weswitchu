@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | WeSwitchU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+    .navbar-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            width: 100%;
+            height: 100px;
+            background-color: #31264B;
+        }
+
+        .navbar-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 1174px;
+            max-width: 1174px;
+            padding: 0 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 8px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .nav-item:hover {
+            border-bottom: 2px solid #69CCA2;
+        }
+
+        .nav-item.active {
+            border-bottom: 2px solid #69CCA2;
+        }
+
+        .nav-btn {
+            background-color: #69CCA2;
+            color: #31264B;
+            border-radius: 30px;
+            padding: 7px 18px;
+            font-size: 16px;
+            box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+        }
+
+        .nav-btn.login {
+            margin-left: 10px;
+        }
+
+        .slanted-header {
+            background-color: #31264B;
+            color: #ffffff;
+            padding: 50px 0;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+            text-align: center;
+        }
+
+.faq {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.faq h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #2c2c54;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  overflow: hidden;
+  background-color: #52c9a9;
+}
+
+.faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.faq-subsection {
+  display: none;
+  padding: 15px;
+  background-color: #52c9a9;
+}
+
+.sub-faq {
+  border: 1px solid #52c9a9;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.sub-faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 16px;
+  color: #2c2c54;
+}
+
+.sub-faq-content {
+  display: none;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f7f7ff;
+}
+
+.toggle-icon {
+  font-weight: bold;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+.faq-item.expanded .toggle-icon {
+            transform: rotate(180deg); /* Rotate the icon for expanded state */
+        }
+
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31264B;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="index1.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Find an Installer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Farmers</a></li>
+                    <li class="nav-item"><a class="btn nav-btn" href="switch-now.html">Switch Now</a></li>
+                    <li class="nav-item"><a class="btn nav-btn login" href="login1.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slanted Header -->
+    <div class="slanted-header">
+        <h1>FAQ</h1>
+    </div>
+    <section class="faq">
+        <h2 class="mb-4">Frequently Asked Questions</h2>
+         <!-- First FAQ -->
+        <div class="faq-item">
+          <div class="faq-title">
+            <span>About WeSwitchU</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-subsection">
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is a company focused on helping customers switch energy providers easily.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How does WeSwitchU work</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU works by automatically comparing energy tariffs and handling the switch process for you.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU for</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is for anyone who wants to save money on energy bills by switching providers effortlessly.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Is WeSwitchU an energy company</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>                </div>
+                <div class="sub-faq-content">
+                    <p>No, WeSwitchU is not an energy company. It is a service that helps you switch between energy providers.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How safe is WeSwitchU</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is fully secure, adhering to data protection regulations to ensure your information is safe.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-title">
+            <span>Our Fees</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-subsection">
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is a company focused on helping customers switch energy providers easily.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How does WeSwitchU work</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU works by automatically comparing energy tariffs and handling the switch process for you.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU for</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is for anyone who wants to save money on energy bills by switching providers effortlessly.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Is WeSwitchU an energy company</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>No, WeSwitchU is not an energy company. It is a service that helps you switch between energy providers.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How safe is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is fully secure, adhering to data protection regulations to ensure your information is safe.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-title">
+            <span>About Signing Up</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-subsection">
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is a company focused on helping customers switch energy providers easily.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How does WeSwitchU work</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU works by automatically comparing energy tariffs and handling the switch process for you.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU for</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is for anyone who wants to save money on energy bills by switching providers effortlessly.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Is WeSwitchU an energy company</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>No, WeSwitchU is not an energy company. It is a service that helps you switch between energy providers.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How safe is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is fully secure, adhering to data protection regulations to ensure your information is safe.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-title">
+            <span>Log in to my Account</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-subsection">
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is a company focused on helping customers switch energy providers easily.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How does WeSwitchU work</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU works by automatically comparing energy tariffs and handling the switch process for you.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU for</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is for anyone who wants to save money on energy bills by switching providers effortlessly.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Is WeSwitchU an energy company</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>No, WeSwitchU is not an energy company. It is a service that helps you switch between energy providers.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How safe is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is fully secure, adhering to data protection regulations to ensure your information is safe.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-title">
+            <span>About Switching</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-subsection">
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is a company focused on helping customers switch energy providers easily.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How does WeSwitchU work</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU works by automatically comparing energy tariffs and handling the switch process for you.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU for</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is for anyone who wants to save money on energy bills by switching providers effortlessly.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Is WeSwitchU an energy company</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>No, WeSwitchU is not an energy company. It is a service that helps you switch between energy providers.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How safe is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is fully secure, adhering to data protection regulations to ensure your information is safe.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-title">
+            <span>smart Meters</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-subsection">
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is a company focused on helping customers switch energy providers easily.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How does WeSwitchU work</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU works by automatically comparing energy tariffs and handling the switch process for you.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU for</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is for anyone who wants to save money on energy bills by switching providers effortlessly.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Is WeSwitchU an energy company</span>
+                    <span class="sub-toggle-icon">⌄</span>
+                </div>
+                <div class="sub-faq-content">
+                    <p>No, WeSwitchU is not an energy company. It is a service that helps you switch between energy providers.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How safe is WeSwitchU</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is fully secure, adhering to data protection regulations to ensure your information is safe.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-title">
+            <span>About Energy Efficiency</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-subsection">
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is a company focused on helping customers switch energy providers easily.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How does WeSwitchU work</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU works by automatically comparing energy tariffs and handling the switch process for you.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Who is WeSwitchU for</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>
+                                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is for anyone who wants to save money on energy bills by switching providers effortlessly.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>Is WeSwitchU an energy company</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>
+                </div>
+                <div class="sub-faq-content">
+                    <p>No, WeSwitchU is not an energy company. It is a service that helps you switch between energy providers.</p>
+                </div>
+            </div>
+            <div class="sub-faq">
+                <div class="sub-faq-title">
+                    <span>How safe is WeSwitchU</span>
+                    <i class="fas fa-chevron-down sub-toggle-icon"></i>
+                </div>
+                <div class="sub-faq-content">
+                    <p>WeSwitchU is fully secure, adhering to data protection regulations to ensure your information is safe.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.faq-title').forEach(item => {
+            item.addEventListener('click', () => {
+                const subsection = item.nextElementSibling;
+                const icon = item.querySelector('.toggle-icon');
+                if (subsection.style.display === 'block') {
+                    subsection.style.display = 'none';
+                    icon.textContent = '+';
+                } else {
+                    subsection.style.display = 'block';
+                    icon.textContent = '×';
+                }
+            });
+        });
+
+        // Toggle Sub-FAQ Items
+        document.querySelectorAll('.sub-faq-title').forEach(item => {
+            item.addEventListener('click', () => {
+                const subFaq = item.parentElement;
+                const content = item.nextElementSibling;
+                subFaq.classList.toggle('expanded');
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

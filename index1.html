@@ -59,23 +59,26 @@
 
         /* Switch Now & Login Buttons (no underline on hover) */
         .nav-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #69CCA2;
-            color: #31264B;
-            border-radius: 30px;
-            padding: 7px 18px;
-            font-family: 'Cabin', sans-serif;
-            font-size: 16px;
-            box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
-            text-decoration: none;
-            border-bottom: none !important; /* Remove underline on hover */
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #69CCA2;
+    color: #31264B;
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
+    text-decoration: none; /* Remove underline */
+    border-bottom: none !important; /* Remove border bottom for consistency */
+    border: none; /* Ensure no border */
+}
 
-        .nav-btn:hover {
-            background-color: #4caf50; /* Example of hover effect */
-        }
+.nav-btn:hover {
+    background-color: #4caf50; /* Example of hover effect */
+    text-decoration: none; /* Ensure no underline on hover */
+    border-bottom: none; /* Ensure no border bottom on hover */
+}
 
         .nav-btn.login {
             margin-left: 10px;
@@ -513,6 +516,21 @@
         .send-button:hover {
             background-color: #2a2041;
         }
+        .review-section {
+    font-family: Arial, sans-serif;
+}
+
+/* .review-section {
+    font-family: Arial, sans-serif;
+    color: #E7E3E6;
+} */
+.trust-pilot-widget-wrapper .trustpilot-widget {
+        width: 80%; /* Adjust this value to increase the width */
+        max-width: 1000px; /* Set a maximum width if needed */
+        margin: auto; /* Center align the widget */
+    }
+
+
     </style>
 </head>
 <body>
@@ -528,11 +546,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto nav-links">
-                <li class="nav-item"><a class="nav-link" href="#" id="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" id="about-us">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="find-an-installer">Find an Installer</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" id="faqs">FAQs</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="farmers">Farmers</a></li>
                 <li class="nav-item"><a class="btn nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
@@ -554,22 +572,22 @@
                 <div>
                     <h1 class="display-4 fw-light" style="color: #E7E3E6;">Save on your <br>Household Bills <br><span class="fw-bold" style="color: #FFFFFF;">Every Year.</span></h1>
                     <p class="fs-5 mt-3">Saving on your energy bills should be simple. Sign up with us once and never worry about overpaying for your energy bills again.</p>
+                    <!-- "Get Started" Button -->
                     <a href="#" class="btn btn-lg rounded-pill mt-4" style="background-color: #69CCA2; color: #31264B; box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);">Get Started</a>
-                    <div class="review-section d-flex align-items-center mt-4">
-                        <span class="fs-4">Excellent</span>
-                        <img src="star-rating.png" alt="Trustpilot Stars" class="ms-2" style="width: 100px;">
-                        <p class="ms-3 mb-0" style="font-size: 12px;">Based on 438 reviews</p>
-                    </div>
+                    
+                    <!-- Added Image Below "Get Started" Button -->
+                   
                 </div>
             </div>
+
             <div class="col-md-6 position-relative d-none d-md-block">
                 <!-- Bird Image for Larger Screens -->
                 <img src="images/hero.png" alt="Bird with Plug" class="bird-image">
-               
             </div>
         </div>
     </div>
 </section>
+
 <!-- How It Works Section -->
 <section class="how-it-works-section text-center">
     <div class="container">
@@ -610,53 +628,34 @@
     </div>
 </section>
 
-<section class="customer-recommendation-section py-5">
-    <div class="container text-center">
-        <!-- Title and Subtitle -->
-        <h2 class="fw-bold mb-3">RECOMMENDED BY OUR CUSTOMERS</h2>
-        <p class="text-muted mb-5">Thousands of people have made the switch using WeSwitchU. Here’s what a few of them have to say...</p>
-
-        <!-- Rating Display -->
-        <div class="d-flex justify-content-center align-items-center mb-4">
-            <h3 class="fw-bold me-2">Excellent</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Star_rating_4_of_5.png/800px-Star_rating_4_of_5.png" alt="Rating Stars" width="100" class="me-2">
-            <p class="text-muted mb-0">Based on <a href="#" class="text-decoration-none">438 reviews</a> on Trustpilot</p>
-        </div>
-
-        <!-- Reviews Heading -->
-        <p class="text-muted mb-3">Showing our latest reviews</p>
-
-        <!-- Reviews -->
-        <div class="row justify-content-center">
-            <!-- Review Card 1 -->
-            <div class="col-md-6 col-lg-5 mb-4">
-                <div class="card p-3">
-                    <div class="d-flex align-items-center mb-2">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Star_rating_4_of_5.png/800px-Star_rating_4_of_5.png" alt="Rating Stars" width="100" class="me-2">
-                        <span class="text-success fw-bold">Verified</span>
-                    </div>
-                    <h5 class="fw-bold">Broomley Farm, 20 hours ago</h5>
-                    <p class="fw-bold">Quick response and great service with…</p>
-                    <p class="text-muted">Quick response and great service with all the information necessary to make an informed decision.</p>
-                </div>
+<section class="trust-pilot-section text-center py-5">
+    <div class="container">
+        <h2 class="section__heading">Recommended by Our Customers</h2>
+        <p class="text-muted">
+            Thousands of people have made the switch using WeSwitchU. Here's what a few of them have to say...
+        </p>
+        <div class="trust-pilot-widget-wrapper d-flex justify-content-center align-items-center">
+            <!-- TrustBox script -->
+            <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+            <!-- End TrustBox script -->
+            
+            <!-- TrustBox widget - List -->
+            <div class="trustpilot-widget" 
+                 data-locale="en-US" 
+                 data-template-id="539ad60defb9600b94d7df2c" 
+                 data-businessunit-id="5d401a6ac0b73a0001c617f2" 
+                 data-style-height="400px" 
+                 data-style-width="100%" 
+                 data-theme="light" 
+                 data-stars="1,2,3,4,5"> 
+                <a href="https://www.trustpilot.com/review/weswitchu.ie" target="_blank" rel="noopener">Trustpilot</a>
             </div>
-
-            <!-- Review Card 2 -->
-            <div class="col-md-6 col-lg-5 mb-4">
-                <div class="card p-3">
-                    <div class="d-flex align-items-center mb-2">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Star_rating_4_of_5.png/800px-Star_rating_4_of_5.png" alt="Rating Stars" width="100" class="me-2">
-                        <span class="text-success fw-bold">Verified</span>
-                    </div>
-                    <h5 class="fw-bold">SHEILA HENNESSY, 1 day ago</h5>
-                    <p class="fw-bold">Always obliging and helpful when issues…</p>
-                    <p class="text-muted">Always obliging and helpful when issues arose with prompt responses and resolution.</p>
-                </div>
-            </div>
+            <!-- End TrustBox widget -->
         </div>
     </div>
 </section>
 
+       
 <section class="cta-section py-5">
     <div class="container text-center">
         <!-- Heading -->
@@ -850,6 +849,12 @@
             this.classList.add('active');
         });
     });
+</script>
+<script>
+    (function(w,d,s,r,n){w.TrustpilotObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
+        a=d.createElement(s);a.async=1;a.src=r;a.type='text/java'+s;f=d.getElementsByTagName(s)[0];
+        f.parentNode.insertBefore(a,f)})(window,document,'script', 'https://invitejs.trustpilot.com/tp.min.js', 'tp');
+    tp('register', 'PpTQZN6CBK8tfZHC');
 </script>
 
 
