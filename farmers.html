@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">    <style>
+      
+      .navbar-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            width: 100%;
+            height: 100px;
+            background-color: #31264B; /* Background color */
+        }
+
+        .navbar-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 1174px;
+            max-width: 1174px;
+            padding: 0 15px;
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item {
+            font-family: 'Cabin', sans-serif;
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 8px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .nav-item:hover {
+            border-bottom: 2px solid #69CCA2; /* Hover effect for links */
+        }
+
+        /* Active Link */
+        .nav-item.active {
+            border-bottom: 2px solid #69CCA2; /* Fixed underline for active link */
+        }
+
+        /* Switch Now & Login Buttons (no underline on hover) */
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #69CCA2;
+            color: #31264B;
+            border-radius: 30px;
+            padding: 7px 18px;
+            font-family: 'Cabin', sans-serif;
+            font-size: 16px;
+            box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            border-bottom: none !important; /* Remove underline on hover */
+        }
+
+        .nav-btn:hover {
+            background-color: #4caf50; /* Example of hover effect */
+        }
+
+        .nav-btn.login {
+            margin-left: 10px;
+        }
+
+        .navbar {
+            background-color: #352754;
+        }
+        .navbar .nav-link, .navbar-brand {
+            color: #ffffff !important;
+        }
+        .farmers-section {
+            position: relative;
+            background-image: url('images/cow.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px; /* Adjust height as needed */
+            color: #2c2c54;
+            display: flex;
+            align-items: center;
+        }
+
+        .farmers-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white overlay */
+        }
+
+        .farmers-content {
+    position: relative;
+    text-align: left; /* Align text to the left */
+    max-width: 700px;
+    padding: 20px;
+    z-index: 2;
+    margin-left: 100px; /* Move the content to the left side */
+}
+
+        .farmers-content h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c2c54;
+            text-align: left;
+        }
+
+        .farmers-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #2c2c54;
+            text-align: left;
+        }
+
+        .farmers-content p strong {
+            font-weight: bold;
+        }
+
+        .how-it-works-section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .how-it-works-section h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #2c2c54;
+        }
+
+        .how-it-works-section p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .how-it-works-section p strong {
+            font-weight: bold;
+            color: #2c2c54;
+        }
+
+        .how-it-works-list {
+            list-style: none;
+            counter-reset: list-counter; /* Reset counter for custom numbering */
+            padding-left: 0; /* Remove default padding for list */
+        }
+
+        .how-it-works-list li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .how-it-works-list li::before {
+            content: counter(list-counter) ".";
+            counter-increment: list-counter; /* Increment counter for each list item */
+            font-weight: bold;
+            margin-right: 10px; /* Add space between number and text */
+            color: #2c2c54;
+            font-size: 18px;
+        }
+        .form-section {
+            max-width: 800px;
+            margin: 50px auto;
+           
+        }
+
+        .form-section h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c2c54;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .upldbtn {
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #2c2c54;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            color: #868686; /* Light gray for subtext */
+            font-size: 12px;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #d6d6e3;
+            border-radius: 5px;
+            background-color: #ffffff; /* White background for inputs */
+            color: #2c2c54;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            border-color: #69cca2; /* Highlighted border on focus */
+        }
+
+        .form-group .half-width {
+            flex: 0 0 48%; /* Flexbox for two columns */
+        }
+
+        .form-group select {
+            appearance: none; /* Remove native dropdown styles */
+        }
+
+        .form-group select::-ms-expand {
+            display: none; /* Hide arrow in IE */
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #d6d6e3;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .upload-instructions {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .upload-instructions li {
+            margin-left: 20px;
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #2c2c54;
+        }
+
+        .consent-checkbox input {
+            margin-right: 10px;
+        }
+
+        .submit-button {
+            background-color: #69cca2;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            width: 100%;
+            max-width: 150px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #4caf50;
+        }
+
+        .submit-button:focus {
+            outline: none;
+        }
+        .nav-item.active {
+    border-bottom: 2px solid #69CCA2;
+}
+.nav-item .nav-link.active {
+    border-bottom: 2px solid #69CCA2; /* Ensure underline stays */
+}
+        
+
+        /*  */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31264B;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="farmers.html" id="farmers">Farmers</a></li>
+                    <li class="nav-item"><a class="btn nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
+                    <li class="nav-item"><a class="btn nav-btn login" href="login1.html" id="login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="farmers-section">
+        <!-- Overlay for transparency -->
+        <div class="farmers-overlay"></div>
+        
+        <!-- Content -->
+        <div class="farmers-content">
+            <h1>Farmers</h1>
+            <p>
+                <strong>Electricity prices have finally started to come down. 
+                Are you taking advantage of this?</strong> Sign up once with 
+                WeSwitchU and we will ensure that you are always on the best rates for 
+                your specific usage profile.
+            </p>
+        </div>
+    </section>
+    <section class="how-it-works-section">
+        <p>
+            <strong>A dairy farmer with circa 100 cows can save up to €3,000, on a house can save up to €600,</strong> in the current market by switching electricity suppliers.
+        </p>
+
+        <h2>How it works:</h2>
+        <ol class="how-it-works-list">
+            <li>Fill in your details below. We will get in touch to request your latest electricity bills and your meter readings.</li>
+            <li>We will contact you with your usage analysis and switch options.</li>
+            <li>With your approval, we will process your first switch.</li>
+            <li>We switch you every year thereafter, or as soon as a better deal becomes available – you don't have to do anything!</li>
+        </ol>
+    </section>
+
+  
+    <section class="form-section">
+        <h2>Start saving on your farm electricity bills now</h2>
+        
+        <form>
+            <!-- Row 1 -->
+            <div class="form-group">
+                <div class="half-width">
+                    <label for="email">Email<span style="color: red;">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="Required field" required>
+                </div>
+                <div class="half-width">
+                    <label for="mobile">Mobile phone number<span style="color: red;">*</span></label>
+                    <input type="text" id="mobile" name="mobile" placeholder="Required field" required>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="form-group">
+                <div class="half-width">
+                    <label for="first-name">First name<span style="color: red;">*</span></label>
+                    <input type="text" id="first-name" name="first-name" placeholder="Required field" required>
+                </div>
+                <div class="half-width">
+                    <label for="last-name">Last name<span style="color: red;">*</span></label>
+                    <input type="text" id="last-name" name="last-name" placeholder="Required field" required>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="form-group">
+                <label for="supplier">Who is your current supplier of electricity?</label>
+                <small>If you have multiple different suppliers, select the supplier for your highest usage property</small>
+                <select id="supplier" name="supplier">
+                    <option value="">Electric Ireland</option>
+                    <option value="bord-gais">Bord Gáis Energy</option>
+                    <option value="sse-airtricity">SSE Airtricity</option>
+                    <option value="energia">Energia</option>
+                    <option value="flogas">Flogas</option>
+                    <option value="gopower">Go Power</option>
+                    <option value="yunoenergy">Yuno Energy</option>
+                    <option value="prepaypower">PrePay Power</option>
+                    <option value="waterpower">Water Power</option>
+                    <option value="justmovedin">I have just moved in and dont have a supplier</option>
+                </select>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="form-group">
+                <label for="meters">How many electricity meters do you have?</label>
+                <select id="meters" name="meters">
+                    <option value="two">Two (house and farm)</option>
+                    <option value="one">One</option>
+                    <option value="three">Three or more</option>
+                </select>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="form-group">
+                <label for="tariffs">Have you switched tariffs in the past 12 months?</label>
+                <select id="tariffs" name="tariffs">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <!-- Row 6 -->
+            <div class="form-group">
+                <label for="farmer-type">What type of farmer are you?</label>
+                <select id="farmer-type" name="farmer-type">
+                    <option value="dairy">Dairy</option>
+                    <option value="poultry">Poultry</option>
+                    <option value="beef">Beef</option>
+                    <option value="arable">Arable</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="estimated-spend">What is your estimated annual spend?</label>
+                <input type="number" id="estimated-spend" name="estimated-spend" placeholder="0">
+            </div>
+
+            <div class="upldbtn">
+                <label for="upload-files" style="display: block;">Upload files to speed up your analysis</label>
+                <ul class="upload-instructions" style="margin-top: 5px;">
+                    <li>A copy of your latest electricity bill</li>
+                    <li>Pictures of your current meter readings</li>
+                </ul>
+                <input type="file" id="upload-files" name="upload-files" multiple>
+            </div>
+
+            <div class="form-check mb-3"> <input class="form-check-input" type="checkbox" id="multiplePropertyCheck" "> <label class="form-check-label" for="multiplePropertyCheck"> I agree to allow WeSwitchU.ie to store and process my personal data for the purpose of fulfilling the form request. </label> </div>
+
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

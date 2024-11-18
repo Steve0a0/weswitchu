@@ -1,141 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ Section</title>
- <style>
-    /* styles.css */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
- 
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Boxes Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7ff; /* Light background */
+        }
 
-.faq {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-}
+        .boxes-section {
+            display: flex;
+            justify-content: center; /* Center the boxes horizontally */
+            gap: 20px; /* Space between the boxes */
+            margin: 50px auto;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
 
-.faq h1 {
-  text-align: center;
-  font-size: 24px;
-  color: #2c2c54;
-  margin-bottom: 20px;
-}
+        .box {
+            background-color: #ffffff; /* White background */
+            border: 1px solid #e0e0e0; /* Light border */
+            border-radius: 8px; /* Rounded corners */
+            text-align: center; /* Center-align text */
+            width: 300px; /* Fixed width for boxes */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.faq-item {
-  border: 1px solid #ccc;
-  margin: 10px 0;
-  overflow: hidden;
-  background-color: #52c9a9;
-}
+        .box:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+        }
 
-.faq-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-}
+        .box img {
+            width: 100%; /* Make the image responsive */
+            height: 200px;
+            object-fit: cover; /* Crop the image to fit the box */
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
 
-.faq-content {
-  padding: 15px;
-  font-size: 16px;
-  color: #333;
-  display: none; /* Hide by default */
-  background-color: #e8f5f1;
-}
+        .box a {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0077c8; /* Blue link color */
+            text-decoration: none;
+            margin: 15px 0;
+        }
 
-.toggle-icon {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.faq-title:hover {
-  background-color: #45b697;
-}
-
- </style>
+        .box a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <section class="faq">
-    <h1>Frequently Asked Questions</h1>
-    <div class="faq-item">
-      <div class="faq-title">
-        <span>About WeSwitchU</span>
-        <span class="toggle-icon">+</span>
-      </div>
-      <div class="faq-content">
-        <p>Details about WeSwitchU go here.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-title">
-        <span>Our Fees</span>
-        <span class="toggle-icon">+</span>
-      </div>
-      <div class="faq-content">
-        <p>Details about fees go here.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-title">
-        <span>About Signing Up</span>
-        <span class="toggle-icon">+</span>
-      </div>
-      <div class="faq-content">
-        <p>Details about signing up go here.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-title">
-        <span>Log in to my Account</span>
-        <span class="toggle-icon">+</span>
-      </div>
-      <div class="faq-content">
-        <p>Details about logging in go here.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-title">
-        <span>About Switching</span>
-        <span class="toggle-icon">+</span>
-      </div>
-      <div class="faq-content">
-        <p>Details about switching go here.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-title">
-        <span>Smart Meters</span>
-        <span class="toggle-icon">+</span>
-      </div>
-      <div class="faq-content">
-        <p>Details about smart meters go here.</p>
-      </div>
-    </div>
-  </section>
-  <script>
-    // script.js
-document.querySelectorAll('.faq-title').forEach(item => {
-  item.addEventListener('click', () => {
-    const content = item.nextElementSibling;
-    const icon = item.querySelector('.toggle-icon');
-    if (content.style.display === 'block') {
-      content.style.display = 'none';
-      icon.textContent = '+';
-    } else {
-      content.style.display = 'block';
-      icon.textContent = '−';
-    }
-  });
-});
+    <section class="boxes-section">
+        <!-- First Box -->
+        <div class="box">
+            <img src="https://via.placeholder.com/300x200.png?text=Solar+PV" alt="Solar PV">
+            <a href="#">Solar PV</a>
+        </div>
 
-  </script>
+        <!-- Second Box -->
+        <div class="box">
+            <img src="https://via.placeholder.com/300x200.png?text=EV+Home+Charge+Point" alt="EV Home Charge Point">
+            <a href="#">EV Home Charge Point</a>
+        </div>
+    </section>
 </body>
 </html>

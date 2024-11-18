@@ -156,6 +156,12 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.nav-item.active {
+    border-bottom: 2px solid #69CCA2;
+}
+.nav-item .nav-link.active {
+    border-bottom: 2px solid #69CCA2; /* Ensure underline stays */
+}
 
     </style>
 </head>
@@ -172,15 +178,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto nav-links">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Find an Installer</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Farmers</a></li>
-                    <li class="nav-item"><a class="btn nav-btn" href="switch-now.html">Switch Now</a></li>
-                    <li class="nav-item"><a class="btn nav-btn login" href="login1.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="aboutus.html" id="about-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="farmers.html" id="farmers">Farmers</a></li>
+                    <li class="nav-item"><a class="btn nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
+                    <li class="nav-item"><a class="btn nav-btn login" href="login1.html" id="login">Login</a></li>
                 </ul>
             </div>
         </div>

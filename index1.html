@@ -48,14 +48,7 @@
             transition: border-color 0.3s;
         }
 
-        .nav-item:hover {
-            border-bottom: 2px solid #69CCA2; /* Hover effect for links */
-        }
-
-        /* Active Link */
-        .nav-item.active {
-            border-bottom: 2px solid #69CCA2; /* Fixed underline for active link */
-        }
+       
 
         /* Switch Now & Login Buttons (no underline on hover) */
         .nav-btn {
@@ -529,6 +522,12 @@
         max-width: 1000px; /* Set a maximum width if needed */
         margin: auto; /* Center align the widget */
     }
+    .nav-item.active {
+    border-bottom: 2px solid #69CCA2;
+}
+.nav-item .nav-link.active {
+    border-bottom: 2px solid #69CCA2; /* Ensure underline stays */
+}
 
 
     </style>
@@ -546,13 +545,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto nav-links">
-                <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index1.html" id="home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
                 <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" id="find-an-installer">Find an Installer</a></li>
+                <li class="nav-item"><a class="nav-link" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" id="farmers">Farmers</a></li>
+                <li class="nav-item"><a class="nav-link" href="farmers.html" id="farmers">Farmers</a></li>
                 <li class="nav-item"><a class="btn nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
                 <li class="nav-item"><a class="btn nav-btn login" href="login1.html" id="login">Login</a></li>
             </ul>
