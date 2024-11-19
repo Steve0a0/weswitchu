@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeSwitchU - Form</title>
+    <link rel="stylesheet" href="qwerty.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -11,81 +13,7 @@
 body {
             background-color: #eceaf1;
         }
-        .navbar-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 0;
-            width: 100%;
-            height: 100px;
-            background-color: #31264B; /* Background color */
-        }
-
-        .navbar-content {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            width: 1174px;
-            max-width: 1174px;
-            padding: 0 15px;
-        }
-
-        /* Navbar Links */
-        .nav-links {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-item {
-            font-family: 'Cabin', sans-serif;
-            font-size: 16px;
-            color: #FFFFFF;
-            text-decoration: none;
-            padding: 8px;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
-
-        .nav-item:hover {
-            border-bottom: 2px solid #69CCA2; /* Hover effect for links */
-        }
-
-        /* Active Link */
-        .nav-item.active {
-            border-bottom: 2px solid #69CCA2; /* Fixed underline for active link */
-        }
-
-        /* Switch Now & Login Buttons (no underline on hover) */
-        .nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #69CCA2;
-    color: #31264B;
-    border-radius: 30px;
-    padding: 7px 18px;
-    font-family: 'Cabin', sans-serif;
-    font-size: 16px;
-    box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
-    text-decoration: none; /* Remove underline */
-    border-bottom: none !important; /* Remove border bottom for consistency */
-    border: none; /* Ensure no border */
-}
-
-.nav-btn:hover {
-    background-color: #4caf50; /* Example of hover effect */
-    text-decoration: none; /* Ensure no underline on hover */
-    border-bottom: none; /* Ensure no border bottom on hover */
-}
-
-        .nav-btn.login {
-            margin-left: 10px;
-        }
-
+      
         .form-section {
             padding: 50px 0;
         }
@@ -693,8 +621,8 @@ body {
                 <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="farmers.html" id="farmers">Farmers</a></li>
-                <li class="nav-item"><a class="btn nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
-                <li class="nav-item"><a class="btn nav-btn login" href="login1.html" id="login">Login</a></li>
+                <li class="nav-item"><a class="nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
+                <li class="nav-item"><a class="nav-btn login" href="login1.html" id="login">Login</a></li>
                 </ul>
             </div>
         </div>

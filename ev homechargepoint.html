@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="qwerty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">    <style>
+      
+      
+        .farmers-section {
+            position: relative;
+            background-image: url('images/solarpv.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px; /* Adjust height as needed */
+            color: #2c2c54;
+            display: flex;
+            align-items: center;
+        }
+
+        .farmers-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.884); /* Transparent white overlay */
+        }
+
+        .farmers-content {
+    position: relative;
+    text-align: left; /* Align text to the left */
+    max-width: 700px;
+    padding: 20px;
+    z-index: 2;
+    margin-left: 100px; /* Move the content to the left side */
+}
+
+        .farmers-content h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c2c54;
+            text-align: left;
+        }
+
+        .farmers-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #2c2c54;
+            text-align: left;
+        }
+
+        .farmers-content p strong {
+            font-weight: bold;
+        }
+        /* Section Background */
+.quote-form-section {
+    background-color: #EBE9F2;
+    
+}
+.card {
+    background-color: #ffffff; /* White background */
+    
+}
+
+/* Section Title */
+.quote-form-section h2 {
+    font-size: 1.5rem;
+    color: #31264B; /* Dark purple */
+    font-weight: 700;
+}
+
+/* Subheading */
+.quote-form-section p {
+    font-size: 1rem;
+    color: #31264B;
+    font-weight: 500;
+}
+
+/* Labels and Inputs */
+.form-label {
+    font-size: 0.9rem;
+    color: #31264B;
+    font-weight: 600;
+}
+
+.form-control, .form-select {
+    background-color: #F9FAFC; /* Light input background */
+    border: 1px solid #E0E0E0; /* Light border */
+    border-radius: 5px;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #31264B;
+}
+
+.btn-success {
+    background-color: #69CCA2;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-success:hover {
+    background-color: #4CAF50; /* Slightly darker green */
+}
+/* Section Background */
+.home-charger-section {
+    background-color: #EBE9F2; /* Light purple background */
+}
+
+/* Container Styling */
+.home-charger-section .container {
+    background-color: #ffffff; /* White background */
+    padding: 40px;
+}
+
+/* Title Styling */
+.home-charger-section h1 {
+    color: #31264B; /* Dark purple */
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Subtitle Styling */
+.home-charger-section h3 {
+    color: #31264B; /* Dark purple */
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Paragraph and Bullet Points Styling */
+.home-charger-section p,
+.home-charger-section ul li {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #5F5E5E; /* Neutral text color */
+    margin-bottom: 10px;
+}
+
+/* Bullet Points */
+.home-charger-section ul {
+    list-style-type: disc;
+    padding-left: 20px; /* Indent for bullet points */
+}
+
+.home-charger-section ul li {
+    margin-bottom: 10px; /* Spacing between list items */
+    font-size: 0.9rem;
+    color: #31264B; /* Dark purple */
+}
+
+/* Section Background */
+.home-charger-grants-section {
+    background-color: #EBE9F2; /* Light purple background */
+}
+
+/* Container Styling */
+.home-charger-grants-section .container {
+    background-color: #ffffff; /* White background */
+    padding: 40px;
+}
+
+/* Title Styling */
+.home-charger-grants-section h1 {
+    color: #31264B; /* Dark purple */
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Subtitle Styling */
+.home-charger-grants-section h3 {
+    color: #31264B; /* Dark purple */
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Paragraph Styling */
+.home-charger-grants-section p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #5F5E5E; /* Neutral text color */
+}
+
+/* Hyperlink Styling */
+.home-charger-grants-section a {
+    color: #007bff; /* Blue for links */
+    text-decoration: underline;
+}
+
+.home-charger-grants-section a:hover {
+    color: #0056b3; /* Darker blue for hover state */
+}
+
+/* Bullet Points */
+.home-charger-grants-section ul {
+    list-style-type: disc;
+    padding-left: 20px; /* Indent for bullet points */
+    margin-top: 15px;
+}
+
+.home-charger-grants-section ul li {
+    margin-bottom: 10px; /* Spacing between list items */
+    font-size: 0.9rem;
+    color: #31264B; /* Dark purple */
+}
+
+
+        /*  */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31264B;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="farmers.html" id="farmers">Farmers</a></li>
+                    <li class="nav-item"><a class="btn nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
+                    <li class="nav-item"><a class="btn nav-btn login" href="login1.html" id="login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="farmers-section">
+        <!-- Overlay for transparency -->
+        <div class="farmers-overlay"></div>
+        
+        <!-- Content -->
+        <div class="farmers-content">
+            <h1>EV Home Charge Point</h1>
+            <p>
+                On this page you can get connected to an EV Home Charge Point installer, learn about the benefits of installing a home charge point, and check out available grants.    </section>
+    <section class="quote-form-section py-5">
+        <div class="container">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+            <!-- Section Title -->
+            <h2 class="text-center mb-4">Get Quotes from Registered Home Charger Installers</h2>
+            <p class="text-center mb-5">FILL OUT THE FORM AND GET UP TO 3 QUOTES</p>
+    
+            <!-- Form -->
+            <form>
+                <div class="row g-3">
+                    <!-- First Name -->
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                    </div>
+    
+                    <!-- Last Name -->
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                    </div>
+    
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    </div>
+    
+                    <!-- Mobile Number -->
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Mobile phone number<span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Mobile phone number" required>
+                    </div>
+    
+                    <!-- Postal Code -->
+                    <div class="col-md-6">
+                        <label for="postalCode" class="form-label">Postal code<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="postalCode" placeholder="Postal code" required>
+                    </div>
+    
+                    <!-- MPRN -->
+                    <div class="col-md-6">
+                        <label for="mprn" class="form-label">MPRN<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="mprn" placeholder="Your MPRN" required>
+                        <small class="form-text text-muted">You can find your MPRN in the top right corner of your electricity bill</small>
+                    </div>
+    
+                    <!-- House Type -->
+                    <div class="col-md-6">Electric car status<span class="text-danger">*</span></label>
+                        <select class="form-select" id="houseType">
+                            <option selected>Please Select</option>
+                            <option value="1">I have an EV</option>
+                            <option value="2">Awaiting an EV</option>
+                            <option value="3">I'm planning to purchase an EV</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="carmake" class="form-label">Car Make<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="carmake" placeholder="Postal code" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="carmodel" class="form-label">Car Model<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="carmodel" placeholder="Postal code" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="postalCode" class="form-label">Postal code<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="postalCode" placeholder="Postal code" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="houseType" class="form-label">House Type</label>
+                        <select class="form-select" id="houseType">
+                            <option selected>Please Select</option>
+                            <option value="1">Detached</option>
+                            <option value="2">Semi-detached</option>
+                            <option value="3">Terraced</option>
+                        </select>
+                    </div>
+    
+                    <!-- House Age -->
+                    <div class="col-md-6">
+                        <label for="houseAge" class="form-label">House Age</label>
+                        <select class="form-select" id="houseAge">
+                            <option selected>Please Select</option>
+                            <option value="1">Less than 10 years</option>
+                            <option value="2">10-20 years</option>
+                            <option value="3">More than 20 years</option>
+                        </select>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <label for="houseAge" class="form-label">House Age</label>
+                        <select class="form-select" id="houseAge">
+                            <option selected>Please Select</option>
+                            <option value="1">Less than 10 years</option>
+                            <option value="2">10-20 years</option>
+                            <option value="3">More than 20 years</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="heatingSource" class="form-label">Heating Source</label>
+                        <select class="form-select" id="heatingSource">
+                            <option selected>Please Select</option>
+                            <option value="1">Gas</option>
+                            <option value="2">Electric</option>
+                            <option value="3">Oil</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="heatingSource" class="form-label">Do you have solar PV?</label>
+                        <select class="form-select" id="heatingSource">
+                            <option selected>Please Select</option>
+                            <option value="1">Yes</option>
+                            <option value="2">No</option>
+                          
+                        </select>
+                    </div>
+                </div><div class="col-md-6">
+                    <label for="fuseboardlocation" class="form-label">Describe your fuse board location (e.g. approximate distance from vehicle)
+                        <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="fuseboardlocation" placeholder="" required>
+                </div>
+    
+                   
+                <div class="upldbtn">
+                    <label for="upload-files" style="display: block;">Upload files to speed up your analysis</label>
+                    
+                    <input type="file" id="upload-files" name="upload-files" multiple>
+                </div>
+                    <!-- Consent Checkboxes -->
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="marketingConsent">
+                            <label class="form-check-label" for="marketingConsent">Sign me up to receive occasional marketing communications from WeSwitchU.ie.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="dataConsent" required>
+                            <label class="form-check-label" for="dataConsent">I agree to allow WeSwitchU.ie to store and process my personal data for the purpose of fulfilling the form request.<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+    
+                    <!-- Submit Button -->
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-success btn-lg mt-3">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    </section>
+    <section class="home-charger-section py-5">
+        <div class="container bg-white rounded-3 shadow p-4">
+            <!-- Title -->
+            <h1 class="mb-4">Should I get a home charger for my electric car?</h1>
+    
+            <!-- How it Works -->
+            <h3 class="fw-bold mt-3">How do home chargers work?</h3>
+            <ul>
+                <li>Charge your EV at home through a home charge point, which can supply your car with 3.6kW to 7.2kW.</li>
+            </ul>
+    
+            <!-- Why Install a Home Charger -->
+            <h3 class="fw-bold mt-4">Why to install an EV home charge point:</h3>
+            <ul>
+                <li>Quick and convenient</li>
+                <li>Reduce your electricity costs by taking advantage of cheap night rate tariffs</li>
+                <li>Maximize sustainable energy use by using solar to charge your EV</li>
+            </ul>
+    
+            <!-- Cost to Install -->
+            <h3 class="fw-bold mt-4">Cost to install an EV charging station at home:</h3>
+            <ul>
+                <li>Minus SEAI's grant, most electric vehicle car charger installations will set you back around €1000.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="home-charger-grants-section py-5">
+        <div class="container bg-white rounded-3 shadow p-4">
+            <!-- Title -->
+            <h1 class="mb-4">Available Home Charger Grants</h1>
+    
+            <!-- Description -->
+            <p>You can claim up to €600 towards the purchase and installation of a home charging point with SEAI Ireland 
+                <a href="#" class="text-primary">here</a>
+            </p>
+            <p>
+                Any private owner who buys an eligible EV may apply for this grant. To receive payment, you must ensure that you use a Safe Electric Registered Electrical Contractor. WeSwitchU will only connect you to SAFE contractors to assure your eligibility.
+            </p>
+    
+            <!-- Eligibility Criteria -->
+            <h3 class="fw-bold mt-4">Other eligibility criteria:</h3>
+            <ul>
+                <li>The EV must be parked on an off-street parking location associated with the home and the charger must be connected back to the home of the applicant (please refer to your electrician for the best installation approach).</li>
+                <li>The Meter Point Reference Number (MPRN), which you can find on your electricity bill, will be used to confirm the location of your home.</li>
+                <li>The property cannot be associated with a previous EV home charge point grant payment. Additionally, it cannot have availed of the free ESB Ecars home charger pre 2018.</li>
+                <li>Do not commence any work before the start date on your Letter of Offer otherwise this expenditure will be deemed ineligible and you will not receive grant support for it.</li>
+                <li>You have 6 months from the date on this Letter of Offer, which will be emailed to you, to complete your installation and return your Payment Request Form to SEAI with all associated evidence whole and complete – Cert 3, Test Record, photo of installation, invoice from electrician.</li>
+            </ul>
+        </div>
+    </section>
+    
+    
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
