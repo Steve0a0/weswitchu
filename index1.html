@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeSwitchU Navbar</title>
+    <title>WeSwitchU | Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
  <link rel="stylesheet" href="qwerty.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
@@ -137,20 +137,21 @@
                 padding-bottom: 20px;
             }
             .container-content h1 {
-                font-size: 1.8rem;
+                font-size: 1.3rem;
                 text-align: center;
                 line-height: 1.2;
             }
-            .container-content p {
-                font-size: 1rem;
+            .phero {
+                font-size: 0.6rem;
                 text-align: center;
                 line-height: 1.5;
             }
             .btn {
                 display: block;
                 width: 100%;
-                max-width: 200px;
+                max-width: 150px;
                 margin: 0 auto;
+                margin-bottom: 30px;
             }
             .review-section {
                 text-align: center;
@@ -221,11 +222,14 @@
 .btn-dark:hover {
     background-color: #251d3a; /* Darker shade for hover effect */
 }
+.whychoosecss{
+    margin-top: 40px;
+}
 
  /* Why Choose Us Section */
  .why-choose-us-section {
             background-color: #69CCA2;
-            padding: 60px 20px;
+            padding: 60px;
         }
         
         .why-choose-us-section h2 {
@@ -238,22 +242,23 @@
         .why-choose-us-section p {
             color: #31264B;
             font-size: 1rem;
-            margin-bottom: 30px;
+            /* margin-bottom: 30px; */
         }
 
         .step-card {
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-            padding: 30px 20px;
-            min-height: 220px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        padding: 30px 20px;
+        width: 210px; /* Fixed width for consistent box sizes */
+        height: 210px; /* Fixed height to ensure all cards are the same size */
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;}
 
         .step-card::before {
             content: '';
@@ -289,7 +294,8 @@
         .arrow {
             font-size: 2rem;
             color: #948CB0;
-            margin: 10px;
+            /* margin: 20px; */
+            margin-left: 30px;
         }
 
         @media (max-width: 1000px) {
@@ -312,135 +318,9 @@
                 display: none;
             }
         }
+        
 
-/* footer */
 
-        .footer {
-            background-color: #31264B;
-            color: #FFFFFF;
-            padding: 40px 0;
-        }
-
-        .footer a {
-            color: #FFFFFF;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #69CCA2;
-        }
-
-        .footer-title {
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #4A3A6B;
-            padding-top: 20px;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #B0AEB8;
-        }
-
-        .trustpilot-logo, .social-icons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .social-icons a {
-            color: #FFFFFF;
-            font-size: 1.2rem;
-        }
-
-        /* Floating Chat Button */
-        .chat-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #31264B;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
-            z-index: 1000;
-        }
-
-        .chat-button:hover {
-            background-color: #554a6e;
-        }
-
-        /* Chat Box */
-        .chat-box {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 300px;
-            max-height: 400px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-        }
-
-        .chat-box-header {
-            background-color: #31264B;
-            color: #fff;
-            padding: 10px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-box-body {
-            padding: 10px;
-            flex-grow: 1;
-            overflow-y: auto;
-            font-size: 0.9rem;
-            color: #31264B;
-        }
-
-        .chat-box-footer {
-            padding: 10px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-        }
-
-        .chat-input {
-            flex-grow: 1;
-            border: none;
-            padding: 8px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .send-button {
-            margin-left: 10px;
-            background-color: #31264B;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .send-button:hover {
-            background-color: #2a2041;
-        }
         .review-section {
     font-family: Arial, sans-serif;
 }
@@ -454,12 +334,8 @@
         max-width: 1000px; /* Set a maximum width if needed */
         margin: auto; /* Center align the widget */
     }
-    .nav-item.active {
-    border-bottom: 2px solid #69CCA2;
-}
-.nav-item .nav-link.active {
-    border-bottom: 2px solid #69CCA2; /* Ensure underline stays */
-}
+   
+
 
 
     </style>
@@ -467,7 +343,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31264B;">
+<nav class="navbar navbar-expand-xl navbar-dark" style="background-color: #31264B;">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
@@ -478,7 +354,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto nav-links">
                 <li class="nav-item"><a class="nav-link active" href="index1.html" id="home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link" href="howitworks.html" id="how-it-works">How It Works</a></li>
                 <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
@@ -501,8 +377,8 @@
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
                 <div>
-                    <h1 class="display-4 fw-light" style="color: #E7E3E6;">Save on your <br>Household Bills <br><span class="fw-bold" style="color: #FFFFFF;">Every Year.</span></h1>
-                    <p class="fs-5 mt-3">Saving on your energy bills should be simple. Sign up with us once and never worry about overpaying for your energy bills again.</p>
+                    <h1 class="display-4 fw-light homeh1" style="color: #E7E3E6;">Save on your <br>Household Bills <br><span class="fw-bold" style="color: #FFFFFF;">Every Year.</span></h1>
+                    <p class="fs-5 mt-3 phero">Saving on your energy bills should be simple. Sign up with us once and never worry about overpaying for your energy bills again.</p>
                     <!-- "Get Started" Button -->
                     <a href="#" class="btn btn-lg rounded-pill mt-4" style="background-color: #69CCA2; color: #31264B; box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);">Get Started</a>
                     
@@ -604,7 +480,7 @@
     <div class="container text-center">
         <h2>Why choose us?</h2>
         <p>There are plenty of reasons why</p>
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center whychoosecss">
             <!-- Step 1 -->
             <div class="col-md-2 mx-2">
                 <div class="step-card">
@@ -667,68 +543,57 @@
         <a href="#" class="btn btn-dark rounded-pill shadow-lg px-4 py-2">Find out more</a>
     </div>
 </section>
+
 <footer class="footer">
     <div class="container">
-        <div class="row text-center text-md-start">
+        <div class="row">
             <!-- Company Section -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 col-6 mb-4">
                 <h5 class="footer-title">Company</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">How it works</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contractors</a></li>
-                    <li><a href="#">Find an Installer</a></li>
-                    <li><a href="#">FAQs</a></li>
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="howitworks.html">How it works</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="">Contractors</a></li>
+                    <li><a href="findaninstaller.html">Find an Installer</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Farmers</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="login1.html">Login</a></li>
                 </ul>
             </div>
 
             <!-- Switch Section -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 col-6 mb-4">
                 <h5 class="footer-title">Switch</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#">Switch Both Gas and Electricity</a></li>
-                    <li><a href="#">Switch Gas Only</a></li>
-                    <li><a href="#">Switch Electricity Only</a></li>
+                    <li><a href="switch-now.html">Switch Both Gas and Electricity</a></li>
+                    <li><a href="switch-now.html">Switch Gas Only</a></li>
+                    <li><a href="switch-now.html">Switch Electricity Only</a></li>
                 </ul>
             </div>
 
             <!-- Legal Section -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 col-12 mb-4">
                 <h5 class="footer-title">Legal</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Energy Supplier Direct Debit T&Cs</a></li>
-                    <li><a href="#">WeSwitchU Direct Debit T&Cs</a></li>
-                    <li><a href="#">Privacy & Cookie Policy</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Business Switches</a></li>
-                    <li><a href="#">Find the Best Deal</a></li>
+                    <li><a href="t&c.html">Terms & Conditions</a></li>
+                    <li><a href="directdebitt&c.html">Energy Supplier Direct Debit T&Cs</a></li>
+                    <li><a href="weswitchuddt&c.html">WeSwitchU Direct Debit T&Cs</a></li>
+                    <li><a href="privacycookie.html">Privacy & Cookie Policy</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="businessswitch.html">Business Switches</a></li>
+                    <li><a href="findbestdeals.html">Find the Best Deal</a></li>
                 </ul>
             </div>
-
-            <!-- Trustpilot & Social Media Section -->
-            <div class="col-md-3 text-center text-md-start mb-4">
-                <div class="trustpilot-logo mb-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Trustpilot_logo.png" alt="Trustpilot" width="100">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Ssl_seal.png/1024px-Ssl_seal.png" alt="SSL Secure" width="40">
-                </div>
-                <div class="social-icons">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
-            </div>
         </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom text-center text-md-start">
-            <div class="d-flex justify-content-between align-items-center">
-                <span>© 2024 WeSwitchU | Built by Stephen Angelo</span>
+        <div class="footer-content d-flex justify-content-between align-items-center mt-4">
+            <p>2024 WeSwitchU | Built by Granite Digital</p>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
             </div>
         </div>
     </div>
@@ -752,6 +617,7 @@
         </div>
     </div>
 </footer>
+
 <script>
     // JavaScript for toggling the chat box
     const chatButton = document.getElementById("chatButton");

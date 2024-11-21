@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeSwitchU - How it Works</title>
+    <link rel="stylesheet" href="qwerty.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #EBE9F2; 
+            color: #31264B;
+        }
+      
+        .slanted-header {
+    background-color: #31264B;
+    color: #ffffff;
+    padding: 90px 70px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+    text-align: left;
+}
+
+.slanted-header h1 {
+    margin-left: 70px;
+    font-size: 2.5rem;
+}
+
+.slanted-header p {
+    font-size: 1rem;
+    width: 40%; /* Adjust width for better readability */
+    margin-left: 70px;
+}
+        .btn-dark {
+    background-color: #31264B;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-dark:hover {
+    background-color: #251d3a; /* Darker shade for hover effect */
+}
+       
+        .steps-section {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            /* Center horizontally */
+            align-items: center; 
+            
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .step-icon {
+            width: 160px;
+            height: 160px;
+            background-color: #69CCA2; /* Green circle */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-icon i {
+            font-size: 2.5rem;
+            color: white; /* Icon color */
+        }
+
+        .step-content {
+            max-width: 600px;
+        }
+
+        .step-title {
+            font-size: 1.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            font-size: 1.2rem;
+            color: #5C5C5C;
+            line-height: 1.6;
+        }
+
+        .step-divider {
+            display: flex;
+            margin-bottom: 40px;
+            margin-left: -580px;
+        }
+        .arrow {
+            display: flex;
+            margin-bottom: 40px;
+            margin-right: -1170px;
+        }
+
+        .step-divider i {
+            font-size: 3rem;
+            color: #948CB0; /* Arrow color */
+        }
+        .trust-pilot-widget-wrapper .trustpilot-widget {
+        width: 80%; /* Adjust this value to increase the width */
+        max-width: 1000px; /* Set a maximum width if needed */
+        margin: auto; /* Center align the widget */
+    }
+    .ctc-section {
+    background-color: #69CCA2;
+    background-image: url('background-pattern.png'); /* Replace with the actual background image if available */
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    color: #31264B;
+}
+
+.ctc-section h2 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.8rem;
+}
+
+.ctc-section p {
+    font-family: 'Cabin', sans-serif;
+    font-size: 1rem;
+    color: #31264B;
+}
+
+.btn-dark {
+    background-color: #31264B;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-dark:hover {
+    background-color: #251d3a; /* Darker shade for hover effect */
+}
+   
+
+        @media (max-width: 768px) {
+            .step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+            }
+
+            .step-icon {
+                margin: 0 auto 20px auto;
+                width: 120px;
+            height: 120px;
+            }
+
+            .step-content {
+                max-width: 100%;
+            }
+
+            .step-divider {
+                margin-bottom: 20px;
+            }
+            .step-divider {
+                display: none;
+        }
+        .arrow {
+            display: none;
+        }
+        .slanted-header {
+        padding: 60px 20px;
+        text-align: center;
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%); /* Adjust clip-path for smaller screens */
+    }
+
+    .slanted-header h1 {
+        margin-left: 0;
+        font-size: 1.5rem;
+    }
+
+    .slanted-header p {
+        font-size: 0.6rem;
+        width: 80%; 
+        margin: 0 auto; 
+    }
+    .step-title {
+            font-size: 1.4rem;
+            
+        }
+
+        .step-description {
+            font-size: 1rem;
+            
+        }
+        ul{
+            font-size: 1rem;
+            
+        }
+
+        }
+  
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-xl navbar-dark" style="background-color: #31264B;">
+    <div class="container">
+        <a class="navbar-brand" href="index1.html">
+            <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto nav-links">
+                <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="farmers.html" id="farmers">Farmers</a></li>
+                <li class="nav-item"><a class="nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
+                <li class="nav-item"><a class="nav-btn login" href="login1.html" id="login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header Section -->
+<div class="slanted-header">
+    <h1>How it works</h1>
+    <p>WeSwitchU is a paid, premium switching service with a simple mission – to save customers time and money on their energy bills. Customers only need to sign up once and WeSwitchU will continuously switch them to the cheapest energy tariff based on their usage.</p>
+</div>
+
+
+<!-- Content Section -->
+<section class="steps-section">
+    <!-- Step 1 -->
+    <div class="step">
+        <div class="step-icon">
+            <i class="bi bi-person-check-fill"></i> <!-- Bootstrap icon -->
+        </div>
+        <div class="step-content">
+            <h3 class="step-title">Sign Up Once</h3>
+            <p class="step-description">
+                Create an account and sign up for your first switch. All you need is:
+                <ul>
+                    <li>A recent electricity and/or gas bill</li>
+                    <li>Your meter reading(s)</li>
+                    <li>Your IBAN details for payments</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="step-divider">
+        <i class="bi bi-arrow-down"></i>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+        
+        <div class="step-content">
+            <h3 class="step-title">Switch to a New Deal</h3>
+            <p class="step-description">
+                For a small fee of 10% of your savings (min €40), we'll review your selection and process your switch to your new supplier.
+                We will then monitor the energy market year-round to ensure you're on the best deal.
+            </p>
+        </div>
+        <div class="step-icon">
+            <i class="bi bi-arrow-repeat"></i> <!-- Bootstrap icon -->
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="step-divider arrow">
+        <i class="bi bi-arrow-down"></i>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+        <div class="step-icon">
+            <i class="bi bi-clock-history"></i> <!-- Bootstrap icon -->
+        </div>
+        <div class="step-content">
+            <h3 class="step-title">WeSwitchU, every year</h3>
+            <p class="step-description">
+                WeSwitchU will find and switch you to a better tariff the following year (and every year thereafter!) before you come out of contract, ensuring you never get caught on expensive out-of-contract rates.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <!-- Heading -->
+        <h2 class="fw-bold mb-3">It doesn't have to stop at the switch...</h2>
+        <!-- Subtitle -->
+        <p class="text-muted mb-4">
+            We'll also help you to make improvements to your home's energy efficiency and connect you to our directory of both local and national contractors.
+        </p>
+        <!-- Call-to-Action Button -->
+        <a href="#" class="btn btn-dark rounded-pill shadow-lg px-4 py-2">Find out more</a>
+    </div>
+</section>
+<section class="trust-pilot-section text-center py-5">
+    <div class="container">
+        <h2 class="section__heading">Recommended by Our Customers</h2>
+        <p class="text-muted">
+            Thousands of people have made the switch using WeSwitchU. Here's what a few of them have to say...
+        </p>
+        <div class="trust-pilot-widget-wrapper d-flex justify-content-center align-items-center">
+            <!-- TrustBox script -->
+            <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+            <!-- End TrustBox script -->
+            
+            <!-- TrustBox widget - List -->
+            <div class="trustpilot-widget" 
+                 data-locale="en-US" 
+                 data-template-id="539ad60defb9600b94d7df2c" 
+                 data-businessunit-id="5d401a6ac0b73a0001c617f2" 
+                 data-style-height="400px" 
+                 data-style-width="100%" 
+                 data-theme="light" 
+                 data-stars="1,2,3,4,5"> 
+                <a href="https://www.trustpilot.com/review/weswitchu.ie" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+            <!-- End TrustBox widget -->
+        </div>
+    </div>
+</section>
+<section class="ctc-section py-5">
+    <div class="container text-center">
+        <!-- Heading -->
+        <h2 class="fw-bold mb-3">What are you waiting for?</h2>
+        <!-- Subtitle -->
+        <p class="text-muted mb-4">
+            Try WeSwitchU out for yourself! We are the only switching platform currently on the market that offers a full range of both smart and non-smart tariffs.            </p>
+        <!-- Call-to-Action Button -->
+        <a href="#" class="btn btn-dark rounded-pill shadow-lg px-4 py-2">Get Started</a>
+    </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- Company Section -->
+            <div class="col-md-4 col-6 mb-4">
+                <h5 class="footer-title">Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contractors</a></li>
+                    <li><a href="#">Find an Installer</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Farmers</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+
+            <!-- Switch Section -->
+            <div class="col-md-4 col-6 mb-4">
+                <h5 class="footer-title">Switch</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Switch Both Gas and Electricity</a></li>
+                    <li><a href="#">Switch Gas Only</a></li>
+                    <li><a href="#">Switch Electricity Only</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Section -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5 class="footer-title">Legal</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Energy Supplier Direct Debit T&Cs</a></li>
+                    <li><a href="#">WeSwitchU Direct Debit T&Cs</a></li>
+                    <li><a href="#">Privacy & Cookie Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Business Switches</a></li>
+                    <li><a href="#">Find the Best Deal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-content d-flex justify-content-between align-items-center mt-4">
+            <p>2024 WeSwitchU | Built by Granite Digital</p>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="chat-button" id="chatButton">
+        <i class="bi bi-chat-dots-fill"></i> <!-- Bootstrap icon for chat -->
+    </div>
+    
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-box-header">
+            Chat with Us
+            <button class="btn-close btn-close-white" aria-label="Close" id="closeChatButton"></button>
+        </div>
+        <div class="chat-box-body">
+            <p><strong>Support:</strong> Hi there! How can I help you today?</p>
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-box-footer">
+            <input type="text" class="chat-input" placeholder="Type your message...">
+            <button class="send-button">Send</button>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JS (necessary for collapsible navbar) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

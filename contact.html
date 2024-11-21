@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeSwitchU - Login</title>
+    <title>WeSwitchU - Contact Us</title>
     <link rel="stylesheet" href="qwerty.css">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
     <style>
         /* Custom styles */
         body {
@@ -17,36 +19,74 @@
         .slanted-header {
             background-color: #31264B;
             color: #ffffff;
-            padding: 50px 0;
+            padding: 90px 70px;
             position: relative;
             clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
 
-            text-align: center;
+            text-align: left;
         }
-        .login-box {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .contact-section {
+            padding: 40px 20px;
         }
-        .login-btn {
-            background-color: #352754;
-            color: #ffffff;
-            width: 100%;
-            padding: 10px;
+
+        .contact-section h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        .form-control {
             border-radius: 25px;
+            background-color: #F4F4F8; /* Light background for inputs */
+            border: 1px solid #C5C2CF; /* Subtle border */
+            color: #31264B;
+            padding: 10px 15px;
         }
-        .login-btn:hover {
-            background-color: #2e2245;
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(105, 204, 162, 0.5);
+            border-color: #69CCA2;
         }
-        .nav-item.active {
-    border-bottom: 2px solid #69CCA2;
-}
-.nav-item .nav-link.active {
-    border-bottom: 2px solid #69CCA2; /* Ensure underline stays */
-}
+
+        .form-text {
+            font-size: 0.9rem;
+            color: #948CB0; /* Subtle gray color for hint text */
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+            color: #31264B;
+        }
+
+        .required {
+            color: red;
+        }
+
+        button {
+            background-color: #69CCA2;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5AB891;
+        }
+  
     </style>
 </head>
 <body>
@@ -78,36 +118,71 @@
 
 <!-- Header Section -->
 <div class="slanted-header">
-    <h1>Login</h1>
+    <h1>Contact Us</h1>
 </div>
 
-<!-- Login Form Section -->
-<section class="my-5">
+
+<section class="contact-section">
     <div class="container">
-        <div class="login-box">
-            <h5 class="text-center">Login in using your email address.</h5>
-            <form>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        <h1>Email: support@weswitchu.ie</h1>
+        <p>Fill out the form and we will get back to you as soon as possible</p>
+        <form>
+            <div class="row mb-3">
+                <!-- First Name -->
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label">First name<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                    <small class="form-text">Required field</small>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                <!-- Last Name -->
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last name">
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Remember Me</label>
-                </div>
-                <button type="submit" class="btn login-btn">LOGIN</button>
-                <div class="text-center mt-3">
-                    <a href="forgetpassword.html" class="text-decoration-none">Forgot Password?</a>
-                </div>
-            </form>
-        </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email<span class="required">*</span></label>
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                <small class="form-text">Required field</small>
+            </div>
+
+            <!-- Mobile Phone Number -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Mobile phone number<span class="required">*</span></label>
+                <input type="tel" class="form-control" id="phone" placeholder="Mobile phone number" required>
+                <small class="form-text">Required field</small>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marketingConsent">
+                <label class="form-check-label" for="marketingConsent">
+                    I consent to receive occasional marketing emails from WeSwitchU.ie.
+                </label>
+            </div>
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="dataConsent" required>
+                <label class="form-check-label" for="dataConsent">
+                    I agree to allow WeSwitchU.ie to store and process my personal data for the purpose of processing my request.<span class="required">*</span>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit">Submit</button>
+            </div>        </form>
     </div>
 </section>
-<footer class="footer">
+
+  <footer class="footer">
     <div class="container">
         <div class="row">
             <!-- Company Section -->
@@ -180,6 +255,7 @@
         </div>
     </div>
 </footer>
+
 
 <!-- Bootstrap JS (necessary for collapsible navbar) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

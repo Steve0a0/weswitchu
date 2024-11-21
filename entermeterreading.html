@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meter Reading</title>
+  <style>
+    /* Reset */
+    body, h1, h2, p, input, button, label {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      background-color: #31264B;
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .logo img {
+      width: 150px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .progress-bar {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .progress {
+      height: 5px;
+      background: #ccc;
+      width: 600px;
+      position: relative;
+    }
+
+    .progress::after {
+      content: '';
+      width: 33%;
+      height: 100%;
+      background-color: #4CAF50;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .step {
+      margin-left: 10px;
+      font-size: 14px;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .support {
+      color: #4CAF50;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Main Section */
+    .meter-reading-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+    }
+
+    .meter-reading-box {
+      text-align: center;
+      padding: 2rem;
+      max-width: 700px;
+    }
+
+    .meter-reading-box h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #4CAF50;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .submit-btn:hover {
+      background-color: #3e8e41;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="images/weswitchu.png" alt="WeSwitchU Logo">
+      </div>
+
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+        <div class="progress-bar">
+          <div class="progress">
+            <div class="step">Step 1 of 3</div>
+          </div>
+        </div>
+        <a href="#" class="support">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="meter-reading-page">
+    <section class="meter-reading-box">
+      <h2>Great, now just add your meter reading and we'll find you a cheaper energy tariff</h2>
+      <p class="section-title">Your meter reading</p>
+      <form action="#">
+        <label for="meter">Electricity meter reading</label>
+        <input type="text" id="meter" placeholder="11980" required>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- Company Section -->
+            <div class="col-md-4 col-6 mb-4">
+                <h5 class="footer-title">Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contractors</a></li>
+                    <li><a href="#">Find an Installer</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Farmers</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+
+            <!-- Switch Section -->
+            <div class="col-md-4 col-6 mb-4">
+                <h5 class="footer-title">Switch</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Switch Both Gas and Electricity</a></li>
+                    <li><a href="#">Switch Gas Only</a></li>
+                    <li><a href="#">Switch Electricity Only</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Section -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5 class="footer-title">Legal</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Energy Supplier Direct Debit T&Cs</a></li>
+                    <li><a href="#">WeSwitchU Direct Debit T&Cs</a></li>
+                    <li><a href="#">Privacy & Cookie Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Business Switches</a></li>
+                    <li><a href="#">Find the Best Deal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-content d-flex justify-content-between align-items-center mt-4">
+            <p>2024 WeSwitchU | Built by Granite Digital</p>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="chat-button" id="chatButton">
+        <i class="bi bi-chat-dots-fill"></i> <!-- Bootstrap icon for chat -->
+    </div>
+    
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-box-header">
+            Chat with Us
+            <button class="btn-close btn-close-white" aria-label="Close" id="closeChatButton"></button>
+        </div>
+        <div class="chat-box-body">
+            <p><strong>Support:</strong> Hi there! How can I help you today?</p>
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-box-footer">
+            <input type="text" class="chat-input" placeholder="Type your message...">
+            <button class="send-button">Send</button>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

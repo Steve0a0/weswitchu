@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeSwitchU - Login</title>
+    <title>WeSwitchU - T&C</title>
     <link rel="stylesheet" href="qwerty.css">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
     <style>
         /* Custom styles */
         body {
@@ -17,36 +19,38 @@
         .slanted-header {
             background-color: #31264B;
             color: #ffffff;
-            padding: 50px 0;
+            padding: 90px 70px;
             position: relative;
             clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
 
-            text-align: center;
+            text-align: left;
         }
-        .login-box {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .content-section {
+            background-color: #EBE9F2; /* Subtle lavender background */
+            padding: 40px 70px;
+            margin-right: 30px;
         }
-        .login-btn {
-            background-color: #352754;
-            color: #ffffff;
-            width: 100%;
-            padding: 10px;
-            border-radius: 25px;
+
+        .content-section ul {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
-        .login-btn:hover {
-            background-color: #2e2245;
+
+        .content-section p {
+            font-size: 1rem;
+            color: #5C5C5C;
+            margin-bottom: 10px;
         }
-        .nav-item.active {
-    border-bottom: 2px solid #69CCA2;
-}
-.nav-item .nav-link.active {
-    border-bottom: 2px solid #69CCA2; /* Ensure underline stays */
-}
+
+        .content-section .legal-text {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #31264B;
+            font-weight: bold;
+        }
+  
     </style>
 </head>
 <body>
@@ -78,36 +82,34 @@
 
 <!-- Header Section -->
 <div class="slanted-header">
-    <h1>Login</h1>
+    <h1>Energy Supplier Direct Debit T&Cs</h1>
 </div>
 
-<!-- Login Form Section -->
-<section class="my-5">
-    <div class="container">
-        <div class="login-box">
-            <h5 class="text-center">Login in using your email address.</h5>
-            <form>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Remember Me</label>
-                </div>
-                <button type="submit" class="btn login-btn">LOGIN</button>
-                <div class="text-center mt-3">
-                    <a href="forgetpassword.html" class="text-decoration-none">Forgot Password?</a>
-                </div>
-            </form>
-        </div>
-    </div>
+
+<!-- Content Section -->
+<section class="content-section">
+    <ul>
+        <li>I can authorise the creation of a direct debit mandate without a second signatory.</li>
+        <li>This bank account is permitted to accept direct debits.</li>
+        <li>The bank account is denominated in Euros and is enabled for SEPA Direct Debit collection.</li>
+        <li>WeSwitchU are to send instructions to your bank to debit your account.</li>
+        <li>You request your bank to debit your account in accordance with the instruction form.</li>
+    </ul>
+    <p>As part of your rights, you are entitled to a refund from your bank under the terms
+        and conditions of your agreement with your bank. A refund must be claimed within 8
+        weeks starting from the date on which your account was debited. Your rights are
+        explained in a statement that you can receive from your bank.</p>
+    <p class="legal-text">
+        Legal text: By agreeing to pay by Direct Debit, you authorise (A) WeSwitchU to send
+        instructions to your bank to debit your account and (B) your bank to debit your
+        account in accordance with the instruction from WeSwitchU.    </p>
+    <p class="legal-text">
+        We use GoCardless to process your Direct Debit payments. More information on
+how GoCardless processes your personal data and your data protection rights,
+including your right to object, is available at <a href="https://gocardless.com/privacy/">gocardless.com/legal/privacy/</a> . </p>
 </section>
-<footer class="footer">
+
+  <footer class="footer">
     <div class="container">
         <div class="row">
             <!-- Company Section -->
@@ -180,6 +182,7 @@
         </div>
     </div>
 </footer>
+
 
 <!-- Bootstrap JS (necessary for collapsible navbar) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

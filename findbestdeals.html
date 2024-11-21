@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeSwitchU | Find the Best Deals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="qwerty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">    
+    <style>
+     body {
+           
+            background-color: #EBE9F2; /* Light lavender background */
+            color: #31264B;
+            margin: 0;
+            padding: 0;
+        } 
+      
+        .farmers-section {
+            position: relative;
+            background-image: url('images/solarpv.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px; /* Adjust height as needed */
+            color: #2c2c54;
+            display: flex;
+            align-items: center;
+        }
+
+        .farmers-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.884); /* Transparent white overlay */
+        }
+
+        .farmers-content {
+    position: relative;
+    text-align: left; /* Align text to the left */
+    max-width: 700px;
+    padding: 20px;
+    z-index: 2;
+    margin-left: 100px; /* Move the content to the left side */
+}
+
+        .farmers-content h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c2c54;
+            text-align: left;
+        }
+
+        .farmers-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #2c2c54;
+            text-align: left;
+        }
+
+        .farmers-content p strong {
+            font-weight: bold;
+        }
+        /* Section Background */
+.quote-form-section {
+    background-color: #EBE9F2;
+    
+}
+.card {
+    background-color: #ffffff; /* White background */
+    
+}
+
+/* Section Title */
+.quote-form-section h2 {
+    font-size: 1.5rem;
+    color: #31264B; /* Dark purple */
+    font-weight: 700;
+}
+
+/* Subheading */
+.quote-form-section p {
+    font-size: 1rem;
+    color: #31264B;
+    font-weight: 500;
+}
+
+/* Labels and Inputs */
+.form-label {
+    font-size: 0.9rem;
+    color: #31264B;
+    font-weight: 600;
+}
+
+.form-control, .form-select {
+    background-color: #F9FAFC; /* Light input background */
+    border: 1px solid #E0E0E0; /* Light border */
+    border-radius: 5px;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #31264B;
+}
+
+.btn-success {
+    background-color: #69CCA2;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-success:hover {
+    background-color: #4CAF50; /* Slightly darker green */
+}
+.form-section {
+            padding: 40px 20px;
+        }
+
+        .form-section h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        .form-control, .form-select {
+            border-radius: 25px;
+            background-color: #F4F4F8; /* Light input background */
+            border: 1px solid #C5C2CF; /* Subtle border */
+            color: #31264B;
+            padding: 10px 15px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(105, 204, 162, 0.5);
+            border-color: #69CCA2;
+        }
+
+        .form-text {
+            font-size: 0.9rem;
+            color: #948CB0; /* Subtle gray */
+        }
+
+        .required {
+            color: red;
+        }
+
+        button {
+            background-color: #69CCA2;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5AB891;
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+            color: #31264B;
+        }
+
+        .form-check {
+            margin-bottom: 20px;
+        }
+        .logo-container img{
+            width: 90%;
+        }
+        
+        .logo-container{
+            margin-bottom: 30px;
+        }
+
+
+
+        /*  */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31264B;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="how-it-works">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="farmers.html" id="farmers">Farmers</a></li>
+                    <li class="nav-item"><a class="btn nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
+                    <li class="nav-item"><a class="btn nav-btn login" href="login1.html" id="login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="farmers-section">
+        <!-- Overlay for transparency -->
+        <div class="farmers-overlay"></div>
+        
+        <!-- Content -->
+        <div class="farmers-content">
+            <h1>Find the Best Deal</h1>
+            <p>
+                It’s hard to wrap your head around all the different energy tariffs available. The WeSwitchU experts constantly monitor the energy market and can find you the best deal - year after year and we'll only ever charge you 10% of your savings. If you save €400, our fee is €40!</p>                </div>
+    </section>
+   
+    
+<section class="form-section">
+    <div class="container">
+        <div class="logo-container">
+            <img src="images/bestdeals.png" alt="WeSwitchU Logo">
+          
+        </div>
+        <h1>Start saving now</h1>
+        <form>
+            <div class="row mb-3">
+                <!-- First Name -->
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label">First name<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                    <small class="form-text">Required field</small>
+                </div>
+                <!-- Last Name -->
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last name<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                    <small class="form-text">Required field</small>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <!-- Email -->
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email<span class="required">*</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <small class="form-text">Required field</small>
+                </div>
+                <!-- Mobile Phone Number -->
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Mobile phone number<span class="required">*</span></label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Mobile phone number" required>
+                    <small class="form-text">Required field</small>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <!-- Current Supplier -->
+                <div class="col-md-6">
+                    <label for="supplier" class="form-label">Who is your current supplier of electricity and/or gas?<span class="required">*</span></label>
+                    <select class="form-select" id="supplier" required>
+                        <option selected disabled>Electric Ireland</option>
+                        <option>Bord Gáis</option>
+                        <option>SSE Airtricity</option>
+                        <option>Energia</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <!-- Energy Type -->
+                <div class="col-md-6">
+                    <label for="energyType" class="form-label">What do you want to switch (Energy Type)?<span class="required">*</span></label>
+                    <select class="form-select" id="energyType" required>
+                        <option selected disabled>Please Select</option>
+                        <option>Electricity</option>
+                        <option>Gas</option>
+                        <option>Both</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <!-- Meter Type -->
+                <div class="col-md-6">
+                    <label for="meterType" class="form-label">What is your meter type?</label>
+                    <select class="form-select" id="meterType">
+                        <option selected disabled>Please Select</option>
+                        <option>24-hour</option>
+                        <option>Day/Night</option>
+                        <option>Prepaid</option>
+                    </select>
+                </div>
+                <!-- Solar Panels -->
+                <div class="col-md-6">
+                    <label for="solarPanels" class="form-label">Do you have solar panels?</label>
+                    <select class="form-select" id="solarPanels">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <!-- Electric Vehicle -->
+                <div class="col-md-6">
+                    <label for="ev" class="form-label">Do you have an electric vehicle (EV)?</label>
+                    <select class="form-select" id="ev">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+                <!-- Heating Source -->
+                <div class="col-md-6">
+                    <label for="heatingSource" class="form-label">Heating Source</label>
+                    <select class="form-select" id="heatingSource">
+                        <option selected>Oil-Kerosene</option>
+                        <option>Gas</option>
+                        <option>Electricity</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <!-- House Type -->
+                <div class="col-md-6">
+                    <label for="houseType" class="form-label">House Type</label>
+                    <select class="form-select" id="houseType">
+                        <option selected disabled>Please Select</option>
+                        <option>Detached</option>
+                        <option>Semi-detached</option>
+                        <option>Apartment</option>
+                    </select>
+                </div>
+                <!-- House Age -->
+                <div class="col-md-6">
+                    <label for="houseAge" class="form-label">House Age</label>
+                    <select class="form-select" id="houseAge">
+                        <option selected disabled>Please Select</option>
+                        <option>0-10 years</option>
+                        <option>11-20 years</option>
+                        <option>21+ years</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- File Upload -->
+            <div class="mb-3">
+                <label for="fileUpload" class="form-label">Upload files to speed up your analysis</label>
+                <small class="form-text d-block">
+                    • A copy of your latest electricity and/or gas bill<br>
+                    • Pictures of your current meter readings<br>
+                    • A copy of your HDF file, if you have a smart meter
+                </small>
+                <input type="file" class="form-control" id="fileUpload" multiple>
+            </div>
+
+            <!-- Referral Code -->
+            <div class="mb-3">
+                <label for="referralCode" class="form-label">Contractor Referral Code<span class="required">*</span></label>
+                <input type="text" class="form-control" id="referralCode" placeholder="SWY2853" required>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="marketingConsent">
+                <label class="form-check-label" for="marketingConsent">
+                    Sign me up to receive occasional marketing communications from WeSwitchU.ie.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="dataConsent" required>
+                <label class="form-check-label" for="dataConsent">
+                    I agree to allow WeSwitchU.ie to store and process my personal data for the purpose of fulfilling the form request.<span class="required">*</span>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+   
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Company Section -->
+                <div class="col-md-4 col-6 mb-4">
+                    <h5 class="footer-title">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contractors</a></li>
+                        <li><a href="#">Find an Installer</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Farmers</a></li>
+                        <li><a href="#">Login</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Switch Section -->
+                <div class="col-md-4 col-6 mb-4">
+                    <h5 class="footer-title">Switch</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Switch Both Gas and Electricity</a></li>
+                        <li><a href="#">Switch Gas Only</a></li>
+                        <li><a href="#">Switch Electricity Only</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Legal Section -->
+                <div class="col-md-4 col-12 mb-4">
+                    <h5 class="footer-title">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Energy Supplier Direct Debit T&Cs</a></li>
+                        <li><a href="#">WeSwitchU Direct Debit T&Cs</a></li>
+                        <li><a href="#">Privacy & Cookie Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Business Switches</a></li>
+                        <li><a href="#">Find the Best Deal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-content d-flex justify-content-between align-items-center mt-4">
+                <p>2024 WeSwitchU | Built by Granite Digital</p>
+                <div class="social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="chat-button" id="chatButton">
+            <i class="bi bi-chat-dots-fill"></i> <!-- Bootstrap icon for chat -->
+        </div>
+        
+        <!-- Chat Box -->
+        <div class="chat-box" id="chatBox">
+            <div class="chat-box-header">
+                Chat with Us
+                <button class="btn-close btn-close-white" aria-label="Close" id="closeChatButton"></button>
+            </div>
+            <div class="chat-box-body">
+                <p><strong>Support:</strong> Hi there! How can I help you today?</p>
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="chat-box-footer">
+                <input type="text" class="chat-input" placeholder="Type your message...">
+                <button class="send-button">Send</button>
+            </div>
+        </div>
+    </footer>
+ 
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
