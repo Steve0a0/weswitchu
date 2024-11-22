@@ -131,6 +131,7 @@ white-space: nowrap; /* Prevent text wrapping */
     display: flex;
     align-items: center;
     gap: 30px;
+    margin-right: 60px;
 }
 
 .social-icons a {

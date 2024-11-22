@@ -562,6 +562,38 @@ body {
             font-size: 0.9rem;
             outline: none;
         }
+        #upload{
+        color: #5d4a8a;
+        border: 2px solid #5d4a8a;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 2px;
+        margin-right: 30px;
+        }
+        #upload:hover{
+            background-color:#150835 ;
+            color: white;
+        }
+        #noBill{
+            /* background-color: #5d4a8a; */
+        color: #5d4a8a; /* Pink color */
+        border: 2px solid #5d4a8a;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 2px;
+        }
+        #noBill:hover{
+            background-color: #150835;
+            color: white;
+        }
+        .button-container{
+            margin-top: 50px;
+
+        }
         @media (max-width: 768px) {
             .features-container {flex-direction: column;}
             .features {flex: 1 1 100%; margin-top: 20px;}
@@ -691,12 +723,7 @@ body {
                                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
                             </div>
                         </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="multiplePropertyCheck" onclick="togglePasswordFields()">
-                            <label class="form-check-label" for="multiplePropertyCheck">
-                                I have more than 1 property or meter to manage
-                            </label>
-                        </div>
+                        
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" >
                             <label class="form-check-label" for="multiplePropertyCheck">
@@ -740,18 +767,21 @@ body {
                                 <p>Broadband</p>
                             </div>
                         </div>
+                        <div class="button-container">
+                            <!-- Button to open the modal -->
+                            <button class="btn" id="upload" data-bs-toggle="modal" data-bs-target="#uploadModal">Upload bill / Take photo</button>
+                                                    <button class="btn btn-outline" id="noBill" data-bs-toggle="modal" data-bs-target="#noBillModal">Don't Have a Bill?</button>
+                                                </div>
+                                                
                     </div>
+
                     <button type="button" class="btn float-start prevbtn" onclick="showStep1()">Previous</button>
  <button type="button" class="btn float-end nextbtn" onclick="showStep3()">Next ></button>
                     </div>
 
                 <!-- Step 3 Fields (Hidden by default) -->
                 <div id="step3Fields" style="display: none;">
-                    <div class="button-container">
-<!-- Button to open the modal -->
-<button class="btn" id="upload" data-bs-toggle="modal" data-bs-target="#uploadModal">Upload bill / Take photo</button>
-                        <button class="btn btn-outline" id="noBill" data-bs-toggle="modal" data-bs-target="#noBillModal">Don't Have a Bill?</button>
-                    </div>
+                    
                 
                     <!-- Password Fields -->
                     <div class="row mb-3">
