@@ -62,9 +62,11 @@ white-space: nowrap; /* Prevent text wrapping */
 
 .nav-item.active {
     border-bottom: 2px solid #69CCA2;
+    color: white !important;
+
 }
 .nav-item .nav-link.active {
-    border-bottom: 2px solid #69CCA2; /* Ensure underline stays */
+    border-bottom: 2px solid #69CCA2;
 }
 /* Left-align navbar text in mobile view */
 @media (max-width: 768px) {
