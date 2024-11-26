@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="qwerty.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
 
     <style>
 
 body {
             background-color: #eceaf1;
         }
+        .blue-card p{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
       
         .form-section {
-            padding: 50px 0;
+            padding: 10px 0;
         }
         .form-header h2 {
             font-size: 2.5rem;
@@ -594,6 +600,226 @@ body {
             margin-top: 50px;
 
         }
+        .password-rule {
+        font-size: 0.9rem;
+        color: #dc3545; /* Red for unsatisfied rules */
+    }
+
+    .password-rule.valid {
+        color: #28a745; /* Green for satisfied rules */
+    }
+/* Updated styles for buttons-container */
+.buttons-container {
+    display: flex;
+    justify-content: space-between; /* Align buttons to the left and right */
+    align-items: center;
+    position: relative; /* Default position */
+    padding: 15px;
+    margin-top: 50px;
+    background-color: #eceaf1;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.buttons-container.sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); */
+    border-top: 1px solid #ddd;
+}
+
+/* Buttons styling */
+.buttons-container button {
+    margin: 0 10px;
+    padding: 10px 30px;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#backButton {
+    background-color: #f8f9fa;
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+#backButton:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+#nextButton {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+}
+
+#nextButton:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+/* Style for blue cards */
+/* Blue card styles */
+.blue-card {
+    background-color:#5a4e86;
+    color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
+    border: 2px solid transparent; /* Border for visual feedback */
+}
+
+.blue-card i {
+    margin-bottom: 8px;
+}
+
+.blue-card:hover {
+    transform: scale(1.05);
+    background-color: #5a4e86;
+}
+
+/* Selected state styles */
+.blue-card.selected {
+    background-color: #31264B;
+    border: 2px solid #ffffff; /* Highlight the selected card */
+}
+
+/* Responsive fixes for smaller screens */
+@media (max-width: 768px) {
+    .blue-card p {
+        font-size: 0.9rem;
+        margin: 0;
+        word-wrap: break-word;
+    }
+
+    .blue-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .blue-card {
+        font-size: 0.85rem;
+    }
+
+    .blue-card i {
+        font-size: 1.2rem;
+    }
+}
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.upload-box {
+    border: 2px dashed #555;
+    border-radius: 12px;
+    padding: 40px;
+    background-color: #e6e5f5;
+    width: 850px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.upload-box:hover {
+    background-color: #d1cffe;
+    border-color: #333;
+}
+
+.upload-content p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.upload-icon {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.upload-box.dragover {
+    background-color: #c0bfff;
+    border-color: #007bff;
+}
+.uploaded-files-container {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #333;
+    max-width: 100%;
+}
+
+.file-list {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    max-width: 100%;
+}
+
+.file-list .file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.file-list .file-item button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+.no-bill-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust spacing as needed */
+}
+
+.no-bill-button {
+    background-color: transparent; /* Transparent background */
+    border: 2px solid black; /* Black border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Adjust font size */
+    font-weight: 400; /* Normal font weight */
+    color: black; /* Text color */
+    padding: 10px 20px; /* Adjust padding */
+    cursor: pointer; /* Change cursor on hover */
+    transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+.no-bill-button:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    color: black; /* Keep text color black */
+}
+
+
+
         @media (max-width: 768px) {
             .features-container {flex-direction: column;}
             .features {flex: 1 1 100%; margin-top: 20px;}
@@ -662,21 +888,31 @@ body {
 
     <section class="form-section">
         <div class="containerr">
-            <div id="formContainer">
+            <!-- <div id="formContainer">
                 <div class="form-header text-center">
                     <h2>Let's Begin</h2>
                     <p>WeSwitchU is a premium, paid electricity and gas switching service with a simple mission - to save customers time and money every year. <a href="#" class="text-decoration-underline">Learn more here</a></p>
                     <p>We just need a few details from you before you get started...</p>
-                </div>
+                </div> -->
     
                 <!-- Initial Form -->
-                <form id="mainForm" class="mt-4">
+                <form id="mainForm" class="mt-1">
+                    <div id="letsBeginText" class="text-center">
+                        <h2>Let's Begin</h2>
+                        <p>
+                            WeSwitchU is a premium, paid electricity and gas switching service with a simple mission - to save customers time and money every year.
+                            <a href="#" class="text-decoration-underline">Learn more here</a>
+                        </p>
+                        <p>We just need a few details from you before you get started...</p>
+                    </div>
+                    
                     <!-- Step Indicator -->
                     <h4 id="stepIndicator" style="font-size: 2.5rem; color: #352754;">Step 1:</h4>
                     <br>
     
                     <!-- Step 1 Fields -->
                     <div id="step1Fields">
+                       
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="firstName" class="form-label">First name *</label>
@@ -695,34 +931,97 @@ body {
                                 <input type="email" class="form-control" id="email" placeholder="Enter your email">
                                 <div class="error-message" id="emailError">Email address is required</div>
                             </div>
-                            <div class="col-md-6 position-relative">
+                            <div class="col-md-6 position-relative" id="phoneField">
                                 <label for="phone" class="form-label">Your mobile phone number *</label>
-                                <input type="tel" class="form-control" id="phone" placeholder="08XXXXXXXX" oninput="toggleVerifyButton()" inputmode="numeric" pattern="\d{10}" maxlength="10">
+                                <input 
+                                    type="tel" 
+                                    class="form-control" 
+                                    id="phone" 
+                                    placeholder="08XXXXXXXX" 
+                                    inputmode="numeric" 
+                                    pattern="\d{10}" 
+                                    maxlength="10"
+                                    oninput="toggleSendVerificationButton()"
+                                >
                                 <span class="position-absolute tooltip-text" style="top: 50%; right: 15px; transform: translateY(-50%);">10 digits</span>
-                                <button type="button" id="verifyButton" class="btn mt-2 hidden-content sendbutton" onclick="sendVerificationCode()">Send Now</button>
-                                <div class="error-message" id="phoneError">Mobile phone number is required and must be 10 digits</div>
+                                <button 
+                                    type="button" 
+                                    id="verifyButton" 
+                                    class="btn mt-2 sendbutton hidden-content" 
+                                    onclick="sendVerificationCode()">
+                                    Send Verification Code
+                                </button>
+                                <div class="error-message" id="phoneError" style="display: none;">Mobile phone number is required and must be 10 digits</div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
+                            
                             <div class="col-md-6 hidden-content" id="verificationCodeField">
                                 <label for="verificationCode" class="form-label">Verification Code *</label>
                                 <input type="text" class="form-control" id="verificationCode" placeholder="Enter your verification code" maxlength="4">
                                 <div class="error-message" id="verificationCodeError">Verification code is required and must be correct</div>
-                                <button type="button" id="verifyCodeButton" class="btn mt-2 nextbtn" onclick="verifyCode()">Verify Code</button>
+                                <button 
+                                    type="button" 
+                                    id="verifyCodeButton" 
+                                    class="btn mt-2 nextbtn" 
+                                    onclick="verifyCode()">
+                                    Verify Now
+                                </button>
                             </div>
+                            
+                            <div class="row mb-3 hidden-content mt-3" id="passwordFields">
+                                <div class="col-md-6">
+                                    <label for="password" class="form-label">Password *</label>
+                                    <div style="position: relative; display: flex; align-items: center; flex-direction: column; align-items: flex-start;">
+                                        <input 
+                                            type="password" 
+                                            class="form-control" 
+                                            id="password" 
+                                            placeholder="Enter your password" 
+                                            oninput="validatePassword()" 
+                                            style="flex: 1; width: 100%;"
+                                        >
+                                        <!-- Info Icon -->
+                                        <span 
+                                            id="passwordCriteriaIcon" 
+                                            onclick="togglePasswordVisibility()" 
+                                            style="
+                                                position: absolute; 
+                                                right: 10px; 
+                                                top: 10px; 
+                                                cursor: pointer;"
+                                        >
+                                            <i class="bi bi-eye-fill" style="color: #007bff; font-size: 1.2rem;"></i>
+                                        </span>
+                                        <!-- Validation Message -->
+                                        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 5px;">
+                                            Use at least 8 characters, one uppercase letter, one lowercase letter, and one number in your password.
+                                        </p>
+                                    </div>
+                                    <!-- Strength Meter -->
+                                    <div id="passwordStrengthContainer" style="margin-top: 10px;">
+                                        <div id="passwordStrengthBar" style="width: 100%; background: #e0e0e0; height: 10px; border-radius: 5px; position: relative;">
+                                            <div id="passwordStrengthIndicator" style="width: 0%; height: 10px; background: red; border-radius: 5px;"></div>
+                                        </div>
+                                        <p id="passwordStrengthText" style="margin-top: 5px; font-size: 0.9rem; color: red;">Password strength: Too Weak</p>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-6">
+                                    <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="confirmPassword" 
+                                        placeholder="Confirm your password" 
+                                        oninput="validateConfirmPassword()"
+                                    >
+                                    <div class="error-message" id="confirmPasswordError" style="display: none;">Passwords must match</div>
+                                </div>
+                            </div>
+                            
                             
                           
                         </div>
-                        <div class="row mb-3 hidden-content" id="passwordFields">
-                            <div class="col-md-6">
-                                <label for="password" class="form-label">Password *</label>
-                                <input type="password" class="form-control" id="password" placeholder="Enter your password">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="confirmPassword" class="form-label">Confirm Password *</label>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
-                            </div>
-                        </div>
+                        
                         
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" >
@@ -733,50 +1032,69 @@ body {
                         <div class="additional-text">
                             <p><a href="#" onclick="toggleVisibility('movedInInfo')">I have just moved in?</a></p>
                         </div>
-                        <button type="submit" class="btn float-end nextbtn" id="submitButton"onclick="showStep2()"">Next ></button>
-                   </div>
+                        <!-- <button type="button" class="btn float-end nextbtn" id="nextButton" onclick="validateStep1AndProceed()">Next ></button> -->
+                    </div>
                         
                        
     
                     <!-- Step 2 Fields (Hidden by default) -->
                     <div id="step2Fields" style="display: none;">
-                        <div class="col-md-6">
-                            <label for="eir-code" class="form-label">Enter Eircode</label>
-                            <input type="text" class="form-control" id="eir-code" oninput="showDropdown()" placeholder="Enter your Eircode">
-                            <div class="error-message" id="eircodeError">Eircode is required</div>
-                            <div id="dropdown-menu" class="dropdown-menu"></div>
-                        </div> 
-                    <div id="addressDiv">
-                        <span>Address: </span><span id="addressInput"></span>
-                    </div> 
+                        <div class="container">
+                            <h4 id="addressHeading" class="mb-3">Your Home:</h4>
+                            <span id="addressInput" style="font-weight: bold; color: #31264B;" ></span>
+                            <input
+                                type="text"
+                                class="form-control mb-2 mt-4"
+                                id="eir-code"
+                                placeholder="Enter Eircode or Address"
+                                oninput="showDropdown()"
+                                style="max-width: 400px;"
+                            />
+                            <div id="dropdown-menu" class="dropdown-menu" style="display: none;"></div>
+                        </div>
+                    
+                        <div class="container text-center my-4">
+                            <h5 class="mb-4">Which Utilities would you like us to manage for you?</h5>
+                            <div class="row justify-content-center">
+                                <div class="col-4 col-sm-6 col-md-4 mb-3">
+                                    <div class="blue-card" data-option="Gas" onclick="toggleSelection(this)">
+                                        <i class="bi bi-fire" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
+                                        <p>Gas</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-6 col-md-4 mb-3">
+                                    <div class="blue-card" data-option="Electricity" onclick="toggleSelection(this)">
+                                        <i class="bi bi-lightning" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
+                                        <p>Electricity</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-6 col-md-4 mb-3">
+                                    <div class="blue-card" data-option="Broadband" onclick="toggleSelection(this)">
+                                        <i class="bi bi-wifi" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
+                                        <p>Broadband</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
-                    <div class="row text-center mb-4 geb">
-                        <label class="form-label">Choose Your Service</label>
-                        <div class="col-4">
-                            <div class="option-card" onclick="toggleSelection(this)">
-                                <p>Gas</p>
+                        
+                    
+                        <div class="upload-container">
+                            <div class="upload-box" id="uploadBox">
+                                <div class="upload-content">
+                                    <p>Upload Your Files / Take a Photo</p>
+                                    <p>Accepted formats: PDF, PNG, JPG, DOC</p>
+                                    <img src="https://cdn-icons-png.flaticon.com/128/2956/2956800.png" alt="Upload Icon" class="upload-icon">
+                                </div>
+                                <input type="file" id="fileInput" multiple accept=".pdf,.png,.jpg,.jpeg,.doc,.docx" hidden>
                             </div>
+                          
                         </div>
-                        <div class="col-4">
-                            <div class="option-card" onclick="toggleSelection(this)">
-                                <p>Elec</p>
-                            </div>
+                        <ul id="fileList" class="file-list"></ul>
+                        <div class="no-bill-container">
+                            <button class="no-bill-button">Don't have a bill?</button>
                         </div>
-                        <div class="col-4">
-                            <div class="option-card" onclick="toggleSelection(this)">
-                                <p>Broadband</p>
-                            </div>
-                        </div>
-                        <div class="button-container">
-                            <!-- Button to open the modal -->
-                            <button class="btn" id="upload" data-bs-toggle="modal" data-bs-target="#uploadModal">Upload bill / Take photo</button>
-                                                    <button class="btn btn-outline" id="noBill" data-bs-toggle="modal" data-bs-target="#noBillModal">Don't Have a Bill?</button>
-                                                </div>
-                                                
-                    </div>
-
-                    <button type="button" class="btn float-start prevbtn" onclick="showStep1()">Previous</button>
- <button type="button" class="btn float-end nextbtn" onclick="showStep3()">Next ></button>
+                    
                     </div>
 
                 <!-- Step 3 Fields (Hidden by default) -->
@@ -885,47 +1203,12 @@ body {
     </div>
 </section>  
 
-<section class="containerr">
-    <div class="instructions">
-        <h2>To get the most detailed comparison you will need:</h2>
-        <ul>
-            <li>A copy of your latest electricity, gas and broadband bill</li>
-            <li>Your current meter readings</li>
-            <li>Your IBAN details for your payments</li>
-        </ul>
-    </div>
-    <div class="process-container">
-        <div class="process">
-            <h3>Our process:</h3>
-            <p><span class="step">1. STEP ONE:</span> <br><span class="details">Your energy details</span></p>
-            <p><span class="step">2. STEP TWO:</span> <br><span class="details">Select your tariff</span></p>
-            <p><span class="step">3. STEP THREE:</span> <br><span class="details">Finalise & Switch</span></p>
-        </div>
-    
-        <!-- Image Section -->
-        <div class="process-image">
-            <img src="images/image-switch.png" alt="Process Image">
-        </div>
-    </div>
-    <div class="description-container">
-        <p class="description">
-            WeSwitchU is a premium switching service for electricity and gas plans. This means we can switch you to deals other switching sites can't.
-        </p>
-        <p class="description">
-            With WeSwitchU, you only need to register your details once and we'll look after your energy bills going forward, saving you time and money every year.
-        </p>
-        <p class="description">
-            We constantly monitor the energy market (for new and retention tariffs), and will switch you every year at the end of your contract, or sooner if a better deal becomes available.
-        </p>
-        <p class="disclaimer">
-            By clicking "continue" below, you confirm you have read and agree to our <a href="#">privacy policy</a>.
-        </p>
-        <div class="cta">
-            <button onclick="continueToStep1()">Continue to Step 1</button>
-        </div>
-    </div>
-    
-</section>
+<div class="buttons-container">
+    <button class="btn btn-outline-secondary" id="backButton" onclick="navigateStep(-1)" disabled>Back</button>
+    <button class="btn btn-primary" id="nextButton" onclick="validateStep1AndProceed()">Next</button>
+</div>
+
+
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -979,11 +1262,10 @@ body {
             </div>
         </div>
     </div>
-    <div class="chat-button" id="chatButton">
-        <i class="bi bi-chat-dots-fill"></i> <!-- Bootstrap icon for chat -->
+    <!-- <div class="chat-button" id="chatButton">
+        <i class="bi bi-chat-dots-fill"></i>
     </div>
     
-    <!-- Chat Box -->
     <div class="chat-box" id="chatBox">
         <div class="chat-box-header">
             Chat with Us
@@ -991,13 +1273,12 @@ body {
         </div>
         <div class="chat-box-body">
             <p><strong>Support:</strong> Hi there! How can I help you today?</p>
-            <!-- Chat messages will appear here -->
         </div>
         <div class="chat-box-footer">
             <input type="text" class="chat-input" placeholder="Type your message...">
             <button class="send-button">Send</button>
         </div>
-    </div>
+    </div> -->
 </footer>
             
            
@@ -1010,61 +1291,7 @@ body {
             }
         </script>
     
-    <script>
-        // Function to handle form validation
-        document.getElementById('mainForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting
-    
-            // Clear any existing error messages
-            let firstErrorField = null;
-    
-            function showError(fieldId, errorId) {
-                const field = document.getElementById(fieldId);
-                const error = document.getElementById(errorId);
-                if (!field.value.trim()) { // Check if the field is empty
-                    error.style.display = 'block';
-                    field.classList.add('is-invalid');
-                    if (!firstErrorField) firstErrorField = field;
-                } else {
-                    error.style.display = 'none';
-                    field.classList.remove('is-invalid');
-                }
-            }
-    
-            // Validate each field
-            showError('firstName', 'firstNameError');
-            showError('lastName', 'lastNameError');
-            showError('phone', 'phoneError');
-            showError('email', 'emailError');
-            // showError('eir-code', 'eircodeError');
-    
-            if (firstErrorField) {
-                firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                firstErrorField.focus();
-            } else {
-                console.log('Form submitted successfully!'); // Replace this with actual form submission
-            }
-        });
-    
-        // Add real-time error message removal
-        function addInputEventListener(fieldId, errorId) {
-            const field = document.getElementById(fieldId);
-            const error = document.getElementById(errorId);
-            field.addEventListener('input', () => {
-                error.style.display = 'none';
-                field.classList.remove('is-invalid');
-            });
-        }
-    
-        // Initialize event listeners for each input field
-        addInputEventListener('firstName', 'firstNameError');
-        addInputEventListener('lastName', 'lastNameError');
-        addInputEventListener('phone', 'phoneError');
-        addInputEventListener('email', 'emailError');
-        // addInputEventListener('eir-code', 'eircodeError');
-
-        
-    </script>
+ 
     <script>
         // Restrict phone input to exactly 10 digits
         document.getElementById('phone').addEventListener('input', function (e) {
@@ -1075,31 +1302,357 @@ body {
         });
     </script>
     
-    <script>
-        function toggleVerifyButton() {
-            const phone = document.getElementById("phone").value;
-            const verifyButton = document.getElementById("verifyButton");
-            verifyButton.classList.toggle("hidden-content", phone.length < 10);
-        }
+   <script>
+    // Select the buttons-container
+const buttonsContainer = document.querySelector('.buttons-container');
+const footer = document.querySelector('.footer'); // Select the footer
 
-        // Show the verification code input field when "Verify Now" is clicked
-        function showVerificationField() {
-            document.getElementById("verificationCodeField").classList.remove("hidden-content");
-        }
+function handleScroll() {
+    const footerOffsetTop = footer.offsetTop; // Distance from the top of the page to the footer
+    const containerHeight = buttonsContainer.offsetHeight; // Height of the buttons-container
+    const viewportHeight = window.innerHeight; // Height of the viewport
+    const scrollTop = window.scrollY; // Current scroll position
 
-        // Show password fields if the checkbox is checked
-        function togglePasswordFields() {
-            const passwordFields = document.getElementById("passwordFields");
-            const submitButton = document.getElementById("submitButton");
-            passwordFields.classList.toggle("hidden-content");
-            if (document.getElementById("multiplePropertyCheck").checked) {
-                submitButton.textContent = "Submit";
-            } else {
-                submitButton.textContent = "Next";
-            }
-        }
-    </script>
+    // Check if the buttons-container should be sticky
+    if (scrollTop + viewportHeight < footerOffsetTop + containerHeight) {
+        buttonsContainer.classList.add('sticky');
+    } else {
+        buttonsContainer.classList.remove('sticky');
+    }
+}
+
+// Attach the scroll event listener
+window.addEventListener('scroll', handleScroll);
+
+// Ensure it runs on page load
+document.addEventListener('DOMContentLoaded', handleScroll);
+
+   </script>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Function to handle sending the verification code
+function sendVerificationCode() {
+    const phoneInput = document.getElementById("phone");
+    const phoneError = document.getElementById("phoneError");
+    const phoneValue = phoneInput.value.trim();
+
+    // Validate the phone number
+    if (phoneValue.length !== 10 || !/^\d{10}$/.test(phoneValue)) {
+        phoneError.style.display = "block"; // Show error
+        return;
+    }
+    phoneError.style.display = "none"; // Hide error
+
+    // Show verification code input field and hide phone input field
+    document.getElementById("phoneField").style.display = "none";
+    document.getElementById("verificationCodeField").classList.remove("hidden-content");
+}
+
+// Function to handle verifying the code
+function verifyCode() {
+    const verificationCodeInput = document.getElementById("verificationCode");
+    const verificationCodeError = document.getElementById("verificationCodeError");
+    const verifyCodeButton = document.getElementById("verifyCodeButton");
+    const enteredCode = verificationCodeInput.value.trim();
+
+    // Replace with actual verification logic
+    const correctCode = "1234"; // Example for testing
+
+    if (enteredCode === correctCode) {
+        verificationCodeError.style.display = "none";
+
+        // Disable the verification code input field
+        verificationCodeInput.setAttribute("disabled", "true");
+
+        // Change button text to "Resend Code" and add functionality
+        verifyCodeButton.textContent = "Resend Code";
+        verifyCodeButton.onclick = resendVerificationCode;
+
+        // Show the password fields
+        document.getElementById("passwordFields").classList.remove("hidden-content");
+    } else {
+        verificationCodeError.style.display = "block"; // Show error
+    }
+}
+
+// Function to handle resending the verification code
+function resendVerificationCode() {
+    const verificationCodeInput = document.getElementById("verificationCode");
+    const verifyCodeButton = document.getElementById("verifyCodeButton");
+
+    // Allow editing of the verification code input field
+    verificationCodeInput.removeAttribute("disabled");
+    verificationCodeInput.value = ""; // Clear the input field
+    verificationCodeInput.focus();
+
+    // Temporarily show "Code Sent" and then revert back to "Resend Code"
+    verifyCodeButton.textContent = "Code Sent";
+    verifyCodeButton.disabled = true;
+
+    setTimeout(() => {
+        verifyCodeButton.textContent = "Resend Code";
+        verifyCodeButton.disabled = false;
+    }, 3000);
+}
+
+// Function to calculate password strength
+function evaluatePasswordStrength(password) {
+    const strengthIndicator = document.getElementById("passwordStrengthIndicator");
+    const strengthText = document.getElementById("passwordStrengthText");
+
+    let strength = 0;
+    const checks = [
+        password.length >= 8,
+        /[A-Z]/.test(password),
+        /[a-z]/.test(password),
+        /\d/.test(password),
+        /[!@#$%^&*(),.?":{}|<>]/.test(password),
+    ];
+
+    // Increment strength for each check passed
+    checks.forEach((check) => {
+        if (check) strength++;
+    });
+
+    // Update the progress bar and text
+    let strengthColor = "red";
+    let strengthLabel = "Too Weak";
+
+    switch (strength) {
+        case 1:
+        case 2:
+            strengthColor = "orange";
+            strengthLabel = "Weak";
+            break;
+        case 3:
+            strengthColor = "yellow";
+            strengthLabel = "Moderate";
+            break;
+        case 4:
+            strengthColor = "blue";
+            strengthLabel = "Strong";
+            break;
+        case 5:
+            strengthColor = "green";
+            strengthLabel = "Ultimate!";
+            break;
+    }
+
+    // Update the strength bar and text
+    strengthIndicator.style.width = `${(strength / 5) * 100}%`;
+    strengthIndicator.style.backgroundColor = strengthColor;
+    strengthText.textContent = `Password strength: ${strengthLabel}`;
+    strengthText.style.color = strengthColor;
+}
+
+// Update password validation to include strength check
+document.getElementById("password").addEventListener("input", function () {
+    const password = document.getElementById("password").value.trim();
+    evaluatePasswordStrength(password);
+});
+
+// Validate passwords and ensure they meet all criteria
+// Password strength validation
+function validatePassword() {
+    const password = document.getElementById("password").value;
+    const strengthIndicator = document.getElementById("passwordStrengthIndicator");
+    const strengthText = document.getElementById("passwordStrengthText");
+
+    // Define validation criteria
+    const lengthCheck = password.length >= 8;
+    const uppercaseCheck = /[A-Z]/.test(password);
+    const lowercaseCheck = /[a-z]/.test(password);
+    const digitCheck = /\d/.test(password);
+    const specialCharCheck = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    // Calculate password strength
+    let strength = 0;
+    if (lengthCheck) strength += 20;
+    if (uppercaseCheck) strength += 20;
+    if (lowercaseCheck) strength += 20;
+    if (digitCheck) strength += 20;
+    if (specialCharCheck) strength += 20;
+
+    // Update strength meter
+    strengthIndicator.style.width = `${strength}%`;
+    if (strength <= 40) {
+        strengthIndicator.style.background = "red";
+        strengthText.textContent = "Password strength: Weak";
+        strengthText.style.color = "red";
+    } else if (strength <= 80) {
+        strengthIndicator.style.background = "orange";
+        strengthText.textContent = "Password strength: Medium";
+        strengthText.style.color = "orange";
+    } else {
+        strengthIndicator.style.background = "green";
+        strengthText.textContent = "Password strength: Strong";
+        strengthText.style.color = "green";
+    }
+}
+
+// Confirm password validation
+function validateConfirmPassword() {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const confirmPasswordError = document.getElementById("confirmPasswordError");
+
+    if (password !== confirmPassword) {
+        confirmPasswordError.style.display = "block";
+    } else {
+        confirmPasswordError.style.display = "none";
+    }
+}
+
+// Tooltip handling
+function showPasswordCriteria() {
+    document.getElementById("passwordCriteriaTooltip").style.display = "block";
+}
+
+function hidePasswordCriteria() {
+    document.getElementById("passwordCriteriaTooltip").style.display = "none";
+}
+
+// Function to toggle Send Verification Code button visibility
+function toggleSendVerificationButton() {
+    const phoneInput = document.getElementById("phone");
+    const verifyButton = document.getElementById("verifyButton");
+
+    // Show button only when the phone number is exactly 10 digits
+    if (phoneInput.value.trim().length === 10) {
+        verifyButton.classList.remove("hidden-content");
+    } else {
+        verifyButton.classList.add("hidden-content");
+    }
+}
+
+// Add real-time validation for phone input
+document.getElementById("phone").addEventListener("input", toggleSendVerificationButton);
+
+function validateStep1AndProceed() {
+    // Clear any existing errors
+    let firstErrorField = null;
+
+    function showError(fieldId, errorId, errorMessage) {
+        const field = document.getElementById(fieldId);
+        const error = document.getElementById(errorId);
+        if (!field.value.trim()) {
+            error.style.display = "block";
+            error.textContent = errorMessage;
+            field.classList.add("is-invalid");
+            if (!firstErrorField) firstErrorField = field;
+        } else {
+            error.style.display = "none";
+            field.classList.remove("is-invalid");
+        }
+    }
+
+    // Validate all Step 1 fields
+    showError("firstName", "firstNameError", "First name is required.");
+    showError("lastName", "lastNameError", "Last name is required.");
+    showError("email", "emailError", "Email address is required.");
+    showError("phone", "phoneError", "Mobile phone number is required.");
+    if (!document.getElementById("phone").value.match(/^\d{10}$/)) {
+        showError("phone", "phoneError", "Mobile phone number must be 10 digits.");
+    }
+
+    // Validate password criteria
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const passwordError = document.getElementById("passwordError");
+    const confirmPasswordError = document.getElementById("confirmPasswordError");
+
+    const lengthCheck = password.length >= 8;
+    const uppercaseCheck = /[A-Z]/.test(password);
+    const lowercaseCheck = /[a-z]/.test(password);
+    const digitCheck = /\d/.test(password);
+    const specialCharCheck = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (!lengthCheck || !uppercaseCheck || !lowercaseCheck || !digitCheck || !specialCharCheck) {
+        passwordError.style.display = "block";
+        passwordError.textContent =
+            "Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character.";
+        if (!firstErrorField) firstErrorField = document.getElementById("password");
+    } else {
+        passwordError.style.display = "none";
+    }
+
+    if (password !== confirmPassword) {
+        confirmPasswordError.style.display = "block";
+        confirmPasswordError.textContent = "Passwords must match.";
+        if (!firstErrorField) firstErrorField = document.getElementById("confirmPassword");
+    } else {
+        confirmPasswordError.style.display = "none";
+    }
+
+    // If all fields are valid, move to Step 2
+    if (!firstErrorField) {
+        // Hide Step 1 and show Step 2
+        document.getElementById("step1Fields").style.display = "none";
+        document.getElementById("step2Fields").style.display = "block";
+        document.getElementById("stepIndicator").textContent = "Step 2:";
+        document.getElementById("letsBeginText").style.display = "none";
+
+        // Change the Next button to Submit button
+        const nextButton = document.getElementById("nextButton");
+        nextButton.textContent = "Submit"; // Change the button text
+        nextButton.setAttribute("onclick", "submitForm()"); // Update button action
+    } else {
+        // Focus on the first invalid field
+        firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstErrorField.focus();
+    }
+}
+
+// Real-time error message removal
+function addInputEventListener(fieldId, errorId) {
+    const field = document.getElementById(fieldId);
+    const error = document.getElementById(errorId);
+    field.addEventListener("input", () => {
+        if (field.value.trim()) {
+            error.style.display = "none";
+            field.classList.remove("is-invalid");
+        }
+    });
+}
+
+// Attach real-time listeners for all Step 1 fields
+addInputEventListener("firstName", "firstNameError");
+addInputEventListener("lastName", "lastNameError");
+addInputEventListener("email", "emailError");
+addInputEventListener("phone", "phoneError");
+
+function goToStep1() {
+    // Hide Step 2 fields and show Step 1 fields
+    document.getElementById("step2Fields").style.display = "none";
+    document.getElementById("step1Fields").style.display = "block";
+    document.getElementById("letsBeginText").style.display = "block";
+
+    // Update the step indicator
+    document.getElementById("stepIndicator").textContent = "Step 1:";
+}
+
+// Function to toggle password visibility
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const passwordIcon = document.getElementById("passwordCriteriaIcon");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        confirmPasswordInput.type = "text";
+        passwordIcon.innerHTML = '<i class="bi bi-eye-slash-fill" style="color: #007bff; font-size: 1.2rem;"></i>'; // Change to "eye-slash" icon
+    } else {
+        passwordInput.type = "password";
+        confirmPasswordInput.type = "password";
+        passwordIcon.innerHTML = '<i class="bi bi-eye-fill" style="color: #007bff; font-size: 1.2rem;"></i>'; // Change back to "eye" icon
+    }
+}
+
+
+
+    </script>
     <script>
         function showDropdown() {
     const eircode = document.getElementById('eir-code').value;
@@ -1166,232 +1719,112 @@ function toggleSelection(element) {
 }
     </script>
     <script>
-       // Show Step 1
-function showStep1() {
-    document.getElementById('step1Fields').style.display = 'block';
-    document.getElementById('step2Fields').style.display = 'none';
-    document.getElementById('step3Fields').style.display = 'none';
-    document.getElementById('stepIndicator').textContent = 'Step 1:';
-}
-
-// Show Step 2 after validating Step 1
-function showStep2() {
-    // Validate Step 1 fields (basic check)
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-
-    // Error elements
-    const firstNameError = document.getElementById('firstNameError');
-    const lastNameError = document.getElementById('lastNameError');
-    const emailError = document.getElementById('emailError');
-    const phoneError = document.getElementById('phoneError');
-
-    // Reset previous error messages
-    firstNameError.style.display = 'none';
-    lastNameError.style.display = 'none';
-    emailError.style.display = 'none';
-    phoneError.style.display = 'none';
-
-    // Check all required fields in Step 1
-    let isValid = true;
-    if (!firstName) {
-        firstNameError.style.display = 'block';
-        isValid = false;
-    }
-    if (!lastName) {
-        lastNameError.style.display = 'block';
-        isValid = false;
-    }
-    if (!email) {
-        emailError.style.display = 'block';
-        isValid = false;
-    }
-    if (phone.length !== 10) {
-        phoneError.style.display = 'block';
-        isValid = false;
-    }
-
-    // If validation fails, stop here
-    if (!isValid) return;
-
-    // Show Step 2, hide Step 1, and update the step indicator
-    document.getElementById('step1Fields').style.display = 'none';
-    document.getElementById('step2Fields').style.display = 'block';
-    document.getElementById('step3Fields').style.display = 'none';
-    document.getElementById('stepIndicator').textContent = 'Step 2:';
-}
-
-// Show Step 3 after validating Step 2
-function showStep3() {
-    // Validate Step 2 fields
-    const eircode = document.getElementById('eir-code').value;
-    const eircodeError = document.getElementById('eircodeError');
-    const selectedServices = document.querySelectorAll('.option-card.selected');
-
-    // Reset previous error messages
-    eircodeError.style.display = 'none';
-    let isValid = true;
-
-    // Check if Eircode is selected
-    if (!eircode) {
-        eircodeError.style.display = 'block';
-        isValid = false;
-    }
-
-    // Check if at least one service is selected
-    if (selectedServices.length === 0) {
-        alert("Please select at least one service.");
-        isValid = false;
-    }
-
-    // If validation fails, stop here
-    if (!isValid) return;
-
-    // Show Step 3, hide Step 2, and update the step indicator
-    document.getElementById('step1Fields').style.display = 'none';
-    document.getElementById('step2Fields').style.display = 'none';
-    document.getElementById('step3Fields').style.display = 'block';
-    document.getElementById('stepIndicator').textContent = 'Step 3:';
-}
-
-// Hide dropdown when clicking outside of it
-document.addEventListener('click', function(event) {
-    const dropdownMenu = document.getElementById('dropdown-menu');
-    const eirCodeInput = document.getElementById('eir-code');
-
-    // Hide if the click is outside both the dropdown and the input
-    if (!dropdownMenu.contains(event.target) && event.target !== eirCodeInput) {
-        dropdownMenu.style.display = 'none';
-    }
-});
-        // Function to simulate sending the verification code
-function sendVerificationCode() {
-    const phoneNumber = document.getElementById("phone").value;
-
-    if (phoneNumber.length === 10) {
-        // Mocking API call for sending code
-        console.log(`Verification code "1111" sent to ${phoneNumber}`);
-        
-        // Show the verification input field
-        document.getElementById("verificationCodeField").classList.remove("hidden-content");
-    } else {
-        console.log("Please enter a valid 10-digit mobile number");
-    }
-}
-
-// Function to verify the code entered by the user
-function verifyCode() {
-    const enteredCode = document.getElementById("verificationCode").value;
-    const expectedCode = "1111"; // Hardcoded verification code for now
-
-    if (enteredCode === expectedCode) {
-        console.log("Code verified successfully!");
-        document.getElementById("verificationCodeError").style.display = "none";
-    } else {
-        document.getElementById("verificationCodeError").style.display = "block";
-        document.getElementById("verificationCodeError").textContent = "Invalid verification code. Please try again.";
-    }
-}
-
+        // Function to toggle selection
+        function toggleSelection(element) {
+            element.classList.toggle("selected");
+    
+            // Optional: Display selected options in the console
+            const selectedOptions = Array.from(
+                document.querySelectorAll(".blue-card.selected")
+            ).map((card) => card.getAttribute("data-option"));
+    
+            console.log("Selected options:", selectedOptions);
+        }
     </script>
     <script>
-        let uploadedFilesArray = []; // Global array to hold the uploaded files
-
-// Function to handle file selection and drag-drop
-function handleFiles(selectedFiles) {
-    const fileList = document.getElementById('fileList');
-
-    // Check if adding the new files would exceed the max limit of 5
-    if (uploadedFilesArray.length + selectedFiles.length > 5) {
-        alert("You can upload a maximum of 5 files.");
-        return;
-    }
-
-    for (let file of selectedFiles) {
-        // Limit file count to 5
-        if (uploadedFilesArray.length < 5) {
-            uploadedFilesArray.push(file);
-            displayFileInModal(file);
-        }
-    }
-}
-
-// Display file in modal's file list
-function displayFileInModal(file) {
-    const fileList = document.getElementById('fileList');
-    const fileItem = document.createElement('div');
-    fileItem.classList.add('file-item');
-    fileItem.innerHTML = `
-        <span>${file.name}</span>
-        <button onclick="removeFileFromModal('${file.name}')">Remove</button>
-    `;
-    fileList.appendChild(fileItem);
-}
-
-// Remove file from modal and update display
-function removeFileFromModal(fileName) {
-    uploadedFilesArray = uploadedFilesArray.filter(file => file.name !== fileName);
-    updateFileListInModal();
-}
-
-// Update file list display in the modal
-function updateFileListInModal() {
-    const fileList = document.getElementById('fileList');
-    fileList.innerHTML = "";
-    uploadedFilesArray.forEach(displayFileInModal);
-}
-
-// Function to handle file upload action
-function uploadFiles() {
-    if (uploadedFilesArray.length === 0) {
-        alert("No files to upload.");
-        return;
-    }
-
-    // Placeholder upload logic (replace with actual upload logic if needed)
-    displayFilesInStep3(); // Call this to display the files in Step 3
-    $('#uploadBillModal').modal('hide'); // Close the modal after upload
-}
-
-// Display uploaded files in Step 3
-function displayFilesInStep3() {
-    const uploadedFilesList = document.getElementById('uploadedFilesList');
-    const uploadedFiles = document.getElementById('uploadedFiles');
+        document.addEventListener("DOMContentLoaded", () => {
+            const uploadBox = document.getElementById("uploadBox");
+            const fileInput = document.getElementById("fileInput");
+            const fileList = document.getElementById("fileList");
+            let uploadedFiles = []; // Array to store uploaded files
     
-    // Clear existing items
-    uploadedFiles.innerHTML = "";
-
-    // Add each file to the list in Step 3
-    uploadedFilesArray.forEach(file => {
-        const listItem = document.createElement('li');
-        listItem.textContent = file.name;
-        uploadedFiles.appendChild(listItem);
-    });
-
-    // Show the uploaded files list in Step 3
-    uploadedFilesList.style.display = 'block';
-}
-
-// Drag-and-drop event listeners for drop area
-const dropArea = document.getElementById('dropArea');
-dropArea.addEventListener('dragover', (event) => {
-    event.preventDefault();
-    dropArea.classList.add('dragover');
-});
-
-dropArea.addEventListener('dragleave', () => {
-    dropArea.classList.remove('dragover');
-});
-
-dropArea.addEventListener('drop', (event) => {
-    event.preventDefault();
-    dropArea.classList.remove('dragover');
-    handleFiles(event.dataTransfer.files);
-});
-
+            // Handle dragover event (prevent default to allow drop)
+            uploadBox.addEventListener("dragover", (event) => {
+                event.preventDefault(); // Prevent the default browser behavior
+                uploadBox.classList.add("dragover"); // Add a CSS class for visual feedback
+            });
+    
+            // Handle dragleave event (remove visual feedback)
+            uploadBox.addEventListener("dragleave", () => {
+                uploadBox.classList.remove("dragover");
+            });
+    
+            // Handle drop event (process files)
+            uploadBox.addEventListener("drop", (event) => {
+                event.preventDefault(); // Prevent the default behavior
+                uploadBox.classList.remove("dragover");
+    
+                const files = Array.from(event.dataTransfer.files); // Get dropped files
+                handleFiles(files);
+            });
+    
+            // Open file dialog when clicking the upload box
+            uploadBox.addEventListener("click", () => {
+                fileInput.click();
+            });
+    
+            // Handle file input change
+            fileInput.addEventListener("change", () => {
+                const files = Array.from(fileInput.files);
+                handleFiles(files);
+                fileInput.value = ""; // Reset the input to allow re-upload of the same file
+            });
+    
+            // Function to process and display files
+            function handleFiles(files) {
+                const allowedExtensions = [".pdf", ".png", ".jpg", ".jpeg", ".doc", ".docx"];
+                const maxFileCount = 5;
+    
+                for (const file of files) {
+                    const fileExtension = file.name.substring(file.name.lastIndexOf(".")).toLowerCase();
+    
+                    // Check file type
+                    if (!allowedExtensions.includes(fileExtension)) {
+                        alert(`Unsupported file type: ${file.name}`);
+                        continue;
+                    }
+    
+                    // Check maximum file count
+                    if (uploadedFiles.length >= maxFileCount) {
+                        alert("Maximum file limit of 5 reached.");
+                        return;
+                    }
+    
+                    // Add file to uploadedFiles array and display it
+                    uploadedFiles.push(file);
+                    displayFile(file);
+                }
+            }
+    
+            // Display file in the list
+            function displayFile(file) {
+                const fileItem = document.createElement("div");
+                fileItem.classList.add("file-item");
+    
+                const fileName = document.createElement("span");
+                fileName.textContent = file.name;
+    
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.addEventListener("click", () => {
+                    deleteFile(file);
+                    fileItem.remove();
+                });
+    
+                fileItem.appendChild(fileName);
+                fileItem.appendChild(deleteButton);
+                fileList.appendChild(fileItem);
+            }
+    
+            // Delete file from the list
+            function deleteFile(file) {
+                uploadedFiles = uploadedFiles.filter((f) => f !== file);
+            }
+        });
     </script>
+    
+    
+   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

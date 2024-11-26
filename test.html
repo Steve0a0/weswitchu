@@ -1,166 +1,347 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+<section class="containerr">
+    <div class="instructions">
+        <h2>To get the most detailed comparison you will need:</h2>
+        <ul>
+            <li>A copy of your latest electricity, gas and broadband bill</li>
+            <li>Your current meter readings</li>
+            <li>Your IBAN details for your payments</li>
+        </ul>
+    </div>
+    <div class="process-container">
+        <div class="process">
+            <h3>Our process:</h3>
+            <p><span class="step">1. STEP ONE:</span> <br><span class="details">Your energy details</span></p>
+            <p><span class="step">2. STEP TWO:</span> <br><span class="details">Select your tariff</span></p>
+            <p><span class="step">3. STEP THREE:</span> <br><span class="details">Finalise & Switch</span></p>
+        </div>
+    
+        <!-- Image Section -->
+        <div class="process-image">
+            <img src="images/image-switch.png" alt="Process Image">
+        </div>
+    </div>
+    <div class="description-container">
+        <p class="description">
+            WeSwitchU is a premium switching service for electricity and gas plans. This means we can switch you to deals other switching sites can't.
+        </p>
+        <p class="description">
+            With WeSwitchU, you only need to register your details once and we'll look after your energy bills going forward, saving you time and money every year.
+        </p>
+        <p class="description">
+            We constantly monitor the energy market (for new and retention tariffs), and will switch you every year at the end of your contract, or sooner if a better deal becomes available.
+        </p>
+        <p class="disclaimer">
+            By clicking "continue" below, you confirm you have read and agree to our <a href="#">privacy policy</a>.
+        </p>
+        <div class="cta">
+            <button onclick="continueToStep1()">Continue to Step 1</button>
+        </div>
+    </div>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #EBE9F2; 
-            color: #31264B;
-            margin: 0;
-            padding: 0;
-        }
+    <script>
+        // Show Step 1
+ function showStep1() {
+     document.getElementById('step1Fields').style.display = 'block';
+     document.getElementById('step2Fields').style.display = 'none';
+     document.getElementById('step3Fields').style.display = 'none';
+     document.getElementById('stepIndicator').textContent = 'Step 1:';
+ }
+ 
+ // Show Step 2 after validating Step 1
+ function showStep2() {
+     // Validate Step 1 fields (basic check)
+     const firstName = document.getElementById('firstName').value;
+     const lastName = document.getElementById('lastName').value;
+     const email = document.getElementById('email').value;
+     const phone = document.getElementById('phone').value;
+ 
+     // Error elements
+     const firstNameError = document.getElementById('firstNameError');
+     const lastNameError = document.getElementById('lastNameError');
+     const emailError = document.getElementById('emailError');
+     const phoneError = document.getElementById('phoneError');
+ 
+     // Reset previous error messages
+     firstNameError.style.display = 'none';
+     lastNameError.style.display = 'none';
+     emailError.style.display = 'none';
+     phoneError.style.display = 'none';
+ 
+     // Check all required fields in Step 1
+     let isValid = true;
+     if (!firstName) {
+         firstNameError.style.display = 'block';
+         isValid = false;
+     }
+     if (!lastName) {
+         lastNameError.style.display = 'block';
+         isValid = false;
+     }
+     if (!email) {
+         emailError.style.display = 'block';
+         isValid = false;
+     }
+     if (phone.length !== 10) {
+         phoneError.style.display = 'block';
+         isValid = false;
+     }
+ 
+     // If validation fails, stop here
+     if (!isValid) return;
+ 
+     // Show Step 2, hide Step 1, and update the step indicator
+     document.getElementById('step1Fields').style.display = 'none';
+     document.getElementById('step2Fields').style.display = 'block';
+     document.getElementById('step3Fields').style.display = 'none';
+     document.getElementById('stepIndicator').textContent = 'Step 2:';
+ }
+ 
+ // Show Step 3 after validating Step 2
+ function showStep3() {
+     // Validate Step 2 fields
+     const eircode = document.getElementById('eir-code').value;
+     const eircodeError = document.getElementById('eircodeError');
+     const selectedServices = document.querySelectorAll('.option-card.selected');
+ 
+     // Reset previous error messages
+     eircodeError.style.display = 'none';
+     let isValid = true;
+ 
+     // Check if Eircode is selected
+     if (!eircode) {
+         eircodeError.style.display = 'block';
+         isValid = false;
+     }
+ 
+     // Check if at least one service is selected
+     if (selectedServices.length === 0) {
+         alert("Please select at least one service.");
+         isValid = false;
+     }
+ 
+     // If validation fails, stop here
+     if (!isValid) return;
+ 
+     // Show Step 3, hide Step 2, and update the step indicator
+     document.getElementById('step1Fields').style.display = 'none';
+     document.getElementById('step2Fields').style.display = 'none';
+     document.getElementById('step3Fields').style.display = 'block';
+     document.getElementById('stepIndicator').textContent = 'Step 3:';
+ }
+ 
+ // Hide dropdown when clicking outside of it
+ document.addEventListener('click', function(event) {
+     const dropdownMenu = document.getElementById('dropdown-menu');
+     const eirCodeInput = document.getElementById('eir-code');
+ 
+     // Hide if the click is outside both the dropdown and the input
+     if (!dropdownMenu.contains(event.target) && event.target !== eirCodeInput) {
+         dropdownMenu.style.display = 'none';
+     }
+ });
+         // Function to simulate sending the verification code
+ function sendVerificationCode() {
+     const phoneNumber = document.getElementById("phone").value;
+ 
+     if (phoneNumber.length === 10) {
+         // Mocking API call for sending code
+         console.log(`Verification code "1111" sent to ${phoneNumber}`);
+         
+         // Show the verification input field
+         document.getElementById("verificationCodeField").classList.remove("hidden-content");
+     } else {
+         console.log("Please enter a valid 10-digit mobile number");
+     }
+ }
+ 
+ // Function to verify the code entered by the user
+ function verifyCode() {
+     const enteredCode = document.getElementById("verificationCode").value;
+     const expectedCode = "1111"; // Hardcoded verification code for now
+ 
+     if (enteredCode === expectedCode) {
+         console.log("Code verified successfully!");
+         document.getElementById("verificationCodeError").style.display = "none";
+     } else {
+         document.getElementById("verificationCodeError").style.display = "block";
+         document.getElementById("verificationCodeError").textContent = "Invalid verification code. Please try again.";
+     }
+ }
+ 
+     </script>
 
-        .steps-section {
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            /* Center horizontally */
-            align-items: center; 
-            
-        }
+<script>
+    function toggleVerifyButton() {
+        const phone = document.getElementById("phone").value;
+        const verifyButton = document.getElementById("verifyButton");
+        verifyButton.classList.toggle("hidden-content", phone.length < 10);
+    }
 
-        .step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-        }
+    // Show the verification code input field when "Verify Now" is clicked
+    function showVerificationField() {
+        document.getElementById("verificationCodeField").classList.remove("hidden-content");
+    }
 
-        .step-icon {
-            width: 160px;
-            height: 160px;
-            background-color: #69CCA2; /* Green circle */
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 20px;
-            flex-shrink: 0;
+    // Show password fields if the checkbox is checked
+    function togglePasswordFields() {
+        const passwordFields = document.getElementById("passwordFields");
+        const submitButton = document.getElementById("submitButton");
+        passwordFields.classList.toggle("hidden-content");
+        if (document.getElementById("multiplePropertyCheck").checked) {
+            submitButton.textContent = "Submit";
+        } else {
+            submitButton.textContent = "Next";
         }
+    }
+</script>
+<script>
+    // Function to handle form validation
+    document.getElementById('mainForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
 
-        .step-icon i {
-            font-size: 2.5rem;
-            color: white; /* Icon color */
-        }
+        // Clear any existing error messages
+        let firstErrorField = null;
 
-        .step-content {
-            max-width: 600px;
-        }
-
-        .step-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .step-description {
-            font-size: 1rem;
-            color: #5C5C5C;
-            line-height: 1.6;
-        }
-
-        .step-divider {
-            display: flex;
-            margin-bottom: 40px;
-            margin-left: -490px;
-        }
-        .arrow {
-            display: flex;
-            margin-bottom: 40px;
-            margin-right: -1080px;
-        }
-
-        .step-divider i {
-            font-size: 3rem;
-            color: #948CB0; /* Arrow color */
-        }
-
-        @media (max-width: 768px) {
-            .step {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+        function showError(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            if (!field.value.trim()) { // Check if the field is empty
+                error.style.display = 'block';
+                field.classList.add('is-invalid');
+                if (!firstErrorField) firstErrorField = field;
+            } else {
+                error.style.display = 'none';
+                field.classList.remove('is-invalid');
             }
-
-            .step-icon {
-                margin: 0 auto 20px auto;
-            }
-
-            .step-content {
-                max-width: 100%;
-            }
-
-            .step-divider {
-                margin-bottom: 20px;
-            }
         }
-    </style>
-</head>
-<body>
 
-<section class="steps-section">
-    <!-- Step 1 -->
-    <div class="step">
-        <div class="step-icon">
-            <i class="bi bi-person-check-fill"></i> <!-- Bootstrap icon -->
-        </div>
-        <div class="step-content">
-            <h3 class="step-title">Sign Up Once</h3>
-            <p class="step-description">
-                Create an account and sign up for your first switch. All you need is:
-                <ul>
-                    <li>A recent electricity and/or gas bill</li>
-                    <li>Your meter reading(s)</li>
-                    <li>Your IBAN details for payments</li>
-                </ul>
-            </p>
-        </div>
-    </div>
+        // Validate each field
+        showError('firstName', 'firstNameError');
+        showError('lastName', 'lastNameError');
+        showError('phone', 'phoneError');
+        showError('email', 'emailError');
+        // showError('eir-code', 'eircodeError');
 
-    <!-- Divider -->
-    <div class="step-divider">
-        <i class="bi bi-arrow-down"></i>
-    </div>
+        if (firstErrorField) {
+            firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstErrorField.focus();
+        } else {
+            console.log('Form submitted successfully!'); // Replace this with actual form submission
+        }
+    });
 
-    <!-- Step 2 -->
-    <div class="step">
-        
-        <div class="step-content">
-            <h3 class="step-title">Switch to a New Deal</h3>
-            <p class="step-description">
-                For a small fee of 10% of your savings (min €40), we'll review your selection and process your switch to your new supplier.
-                We will then monitor the energy market year-round to ensure you're on the best deal.
-            </p>
-        </div>
-        <div class="step-icon">
-            <i class="bi bi-arrow-repeat"></i> <!-- Bootstrap icon -->
-        </div>
-    </div>
+    // Add real-time error message removal
+    function addInputEventListener(fieldId, errorId) {
+        const field = document.getElementById(fieldId);
+        const error = document.getElementById(errorId);
+        field.addEventListener('input', () => {
+            error.style.display = 'none';
+            field.classList.remove('is-invalid');
+        });
+    }
 
-    <!-- Divider -->
-    <div class="step-divider arrow">
-        <i class="bi bi-arrow-down"></i>
-    </div>
+    // Initialize event listeners for each input field
+    addInputEventListener('firstName', 'firstNameError');
+    addInputEventListener('lastName', 'lastNameError');
+    addInputEventListener('phone', 'phoneError');
+    addInputEventListener('email', 'emailError');
+    // addInputEventListener('eir-code', 'eircodeError');
 
-    <!-- Step 3 -->
-    <div class="step">
-        <div class="step-icon">
-            <i class="bi bi-clock-history"></i> <!-- Bootstrap icon -->
-        </div>
-        <div class="step-content">
-            <h3 class="step-title">WeSwitchU, every year</h3>
-            <p class="step-description">
-                WeSwitchU will find and switch you to a better tariff the following year (and every year thereafter!) before you come out of contract, ensuring you never get caught on expensive out-of-contract rates.
-            </p>
-        </div>
-    </div>
-</section>
+    
+</script>
+<script>
+    let uploadedFilesArray = []; // Global array to hold the uploaded files
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+// Function to handle file selection and drag-drop
+function handleFiles(selectedFiles) {
+const fileList = document.getElementById('fileList');
+
+// Check if adding the new files would exceed the max limit of 5
+if (uploadedFilesArray.length + selectedFiles.length > 5) {
+    alert("You can upload a maximum of 5 files.");
+    return;
+}
+
+for (let file of selectedFiles) {
+    // Limit file count to 5
+    if (uploadedFilesArray.length < 5) {
+        uploadedFilesArray.push(file);
+        displayFileInModal(file);
+    }
+}
+}
+
+// Display file in modal's file list
+function displayFileInModal(file) {
+const fileList = document.getElementById('fileList');
+const fileItem = document.createElement('div');
+fileItem.classList.add('file-item');
+fileItem.innerHTML = `
+    <span>${file.name}</span>
+    <button onclick="removeFileFromModal('${file.name}')">Remove</button>
+`;
+fileList.appendChild(fileItem);
+}
+
+// Remove file from modal and update display
+function removeFileFromModal(fileName) {
+uploadedFilesArray = uploadedFilesArray.filter(file => file.name !== fileName);
+updateFileListInModal();
+}
+
+// Update file list display in the modal
+function updateFileListInModal() {
+const fileList = document.getElementById('fileList');
+fileList.innerHTML = "";
+uploadedFilesArray.forEach(displayFileInModal);
+}
+
+// Function to handle file upload action
+function uploadFiles() {
+if (uploadedFilesArray.length === 0) {
+    alert("No files to upload.");
+    return;
+}
+
+// Placeholder upload logic (replace with actual upload logic if needed)
+displayFilesInStep3(); // Call this to display the files in Step 3
+$('#uploadBillModal').modal('hide'); // Close the modal after upload
+}
+
+// Display uploaded files in Step 3
+function displayFilesInStep3() {
+const uploadedFilesList = document.getElementById('uploadedFilesList');
+const uploadedFiles = document.getElementById('uploadedFiles');
+
+// Clear existing items
+uploadedFiles.innerHTML = "";
+
+// Add each file to the list in Step 3
+uploadedFilesArray.forEach(file => {
+    const listItem = document.createElement('li');
+    listItem.textContent = file.name;
+    uploadedFiles.appendChild(listItem);
+});
+
+// Show the uploaded files list in Step 3
+uploadedFilesList.style.display = 'block';
+}
+
+// Drag-and-drop event listeners for drop area
+const dropArea = document.getElementById('dropArea');
+dropArea.addEventListener('dragover', (event) => {
+event.preventDefault();
+dropArea.classList.add('dragover');
+});
+
+dropArea.addEventListener('dragleave', () => {
+dropArea.classList.remove('dragover');
+});
+
+dropArea.addEventListener('drop', (event) => {
+event.preventDefault();
+dropArea.classList.remove('dragover');
+handleFiles(event.dataTransfer.files);
+});
+
+</script>
