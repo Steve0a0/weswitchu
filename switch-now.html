@@ -933,7 +933,7 @@ body {
                             </div>
                             <div class="col-md-6 position-relative" id="phoneField">
                                 <label for="phone" class="form-label">Your mobile phone number *</label>
-                                <input 
+                                <!-- <input 
                                 type="tel" 
                                 class="form-control" 
                                 id="phone" 
@@ -943,7 +943,16 @@ body {
                                 maxlength="10"
                                 autocomplete="tel"
                                 oninput="toggleSendVerificationButton()"
-                            >
+                            > -->
+                            <input 
+    type="tel" 
+    class="form-control" 
+    id="phone" 
+    name="tel" 
+    placeholder="08XXXXXXXX" 
+    inputmode="numeric" 
+    autocomplete="tel" 
+>
                             
                                 <span class="position-absolute tooltip-text" style="top: 50%; right: 15px; transform: translateY(-50%);">10 digits</span>
                                 <button 
