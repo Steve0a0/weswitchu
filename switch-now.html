@@ -934,15 +934,18 @@ body {
                             <div class="col-md-6 position-relative" id="phoneField">
                                 <label for="phone" class="form-label">Your mobile phone number *</label>
                                 <input 
-                                    type="tel" 
-                                    class="form-control" 
-                                    id="phone" 
-                                    placeholder="08XXXXXXXX" 
-                                    inputmode="numeric" 
-                                    pattern="\d{10}" 
-                                    maxlength="10"
-                                    oninput="toggleSendVerificationButton()"
-                                >
+                                type="tel" 
+                                class="form-control" 
+                                id="phone" 
+                                name="tel"
+                                placeholder="08XXXXXXXX" 
+                                inputmode="numeric" 
+                                pattern="\d{10}" 
+                                maxlength="10"
+                                autocomplete="tel"
+                                oninput="toggleSendVerificationButton()"
+                            >
+                            
                                 <span class="position-absolute tooltip-text" style="top: 50%; right: 15px; transform: translateY(-50%);">10 digits</span>
                                 <button 
                                     type="button" 
@@ -1293,13 +1296,13 @@ body {
     
  
     <script>
-        // Restrict phone input to exactly 10 digits
-        document.getElementById('phone').addEventListener('input', function (e) {
-            e.target.value = e.target.value.replace(/\D/g, ''); // Remove any non-numeric characters
-            if (e.target.value.length > 10) { // Limit to 10 digits
-                e.target.value = e.target.value.slice(0, 10);
-            }
-        });
+       document.getElementById('phone').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+    if (value.length > 10) {
+        value = value.slice(-10); // Keep only the last 10 digits
+    }
+    e.target.value = value;
+});
     </script>
     
    <script>
