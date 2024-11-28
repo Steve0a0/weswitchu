@@ -935,16 +935,13 @@ body {
                                 <label for="phone" class="form-label">Your mobile phone number *</label>
                                 <input 
                                 type="tel" 
-                                class="form-control" 
                                 id="phone" 
-                                name="tel"
+                                name="tel" 
                                 placeholder="08XXXXXXXX" 
                                 inputmode="numeric" 
-                                pattern="\d{10}" 
-                                maxlength="10"
-                                autocomplete="tel"
-                                oninput="toggleSendVerificationButton()"
+                                autocomplete="tel" 
                             >
+                            
                             
                                 <span class="position-absolute tooltip-text" style="top: 50%; right: 15px; transform: translateY(-50%);">10 digits</span>
                                 <button 
@@ -1294,15 +1291,32 @@ body {
             }
         </script>
     
- 
-    <script>
-       document.getElementById('phone').addEventListener('input', function (e) {
-    let value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
-    if (value.length > 10) {
-        value = value.slice(-10); // Keep only the last 10 digits
+ <script>
+    document.getElementById('phone').addEventListener('input', function (e) {
+    // Get the value and remove non-numeric characters
+    let value = e.target.value.replace(/[^\d]/g, '');
+
+    // Check if it starts with the country code (+353)
+    if (value.startsWith('353')) {
+        value = '0' + value.slice(3); // Replace "353" with "0"
     }
+
+    // Update the input field with the reformatted value
     e.target.value = value;
 });
+
+ </script>
+    <script>
+  document.getElementById('phone').addEventListener('blur', function (e) {
+    let value = e.target.value.replace(/[^\d]/g, ''); // Remove non-numeric characters
+
+    if (value.startsWith('353')) {
+        value = '0' + value.slice(3);
+    }
+
+    e.target.value = value;
+});
+
     </script>
     
    <script>
