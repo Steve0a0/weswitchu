@@ -534,6 +534,15 @@ body {
             flex-direction: column;
             z-index: 1000;
         }
+        .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons-container #nextButton {
+    margin-left: auto; /* Keep the Next button aligned to the right */
+}
 
         .chat-box-header {
             background-color: #31264B;
@@ -610,27 +619,24 @@ body {
     }
 /* Updated styles for buttons-container */
 .buttons-container {
+    position: sticky; /* Makes the element sticky */
+    bottom: 0; /* Keeps it at the bottom of the viewport */
+    z-index: 100; /* Ensures it's above other content */
     display: flex;
-    justify-content: space-between; /* Align buttons to the left and right */
+    justify-content: space-between;
     align-items: center;
-    position: relative; /* Default position */
     padding: 15px;
-    margin-top: 50px;
-    background-color: #eceaf1;
-    z-index: 100;
-    transition: all 0.3s ease-in-out;
-    width: 100%;
+    background-color: #eceaf1; /* Background color to make it visible */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
 }
 
-.buttons-container.sticky {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); */
-    border-top: 1px solid #ddd;
+
+.buttons-container.hidden {
+    transform: translateY(100%); /* Slide down when hidden */
+    opacity: 0; /* Fade out when hidden */
 }
+
 
 /* Buttons styling */
 .buttons-container button {
@@ -936,7 +942,7 @@ body {
                             </div>
                             <div class="col-md-6 position-relative" id="phoneField">
                                 <label for="phone" class="form-label">Your mobile phone number *</label>
-                               
+                                <!-- <span class="position-absolute tooltip-text" style="top: 70%; right: 15px; transform: translateY(-50%);">10 digits</span> -->
                             <input 
     type="tel" 
     class="form-control" 
@@ -946,8 +952,10 @@ body {
     inputmode="numeric" 
     autocomplete="tel" 
 >
-                            
-                                <span class="position-absolute tooltip-text" style="top: 50%; right: 15px; transform: translateY(-50%);">10 digits</span>
+<p class="text-muted" style="font-size: 0.9rem; margin-top: -20px;">
+    We use your phone number for communication and security purposes.
+</p>                           
+                                
                                 <button 
                                     type="button" 
                                     id="verifyButton" 
@@ -1028,15 +1036,18 @@ body {
                         
                         
                         <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" >
-                            <label class="form-check-label terms" for="multiplePropertyCheck">
-                                Terms & Conditions  <a href="t&c.html">Click to View</a> 
-                                
+                            <input class="form-check-input" type="checkbox" id="termsCheckbox">
+                            <label class="form-check-label terms" for="termsCheckbox">
+                              Terms & Conditions <a href="t&c.html">Click to View</a>
                             </label>
-                        </div>
-                        <div class="additional-text">
-                            <p><a href="#" onclick="toggleVisibility('movedInInfo')">I have just moved in?</a></p>
-                        </div>
+                          </div>
+                          
+                          <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="movedInCheckbox">
+                            <label class="form-check-label" for="movedInCheckbox">
+                              I have just moved in?
+                            </label>
+                          </div>
                         <!-- <button type="button" class="btn float-end nextbtn" id="nextButton" onclick="validateStep1AndProceed()">Next ></button> -->
                     </div>
                         
@@ -1061,16 +1072,17 @@ body {
                         <div class="container text-center my-4">
                             <h5 class="mb-4">Which Utilities would you like us to manage for you?</h5>
                             <div class="row justify-content-center">
-                                <div class="col-4 col-sm-6 col-md-4 mb-3">
-                                    <div class="blue-card" data-option="Gas" onclick="toggleSelection(this)">
-                                        <i class="bi bi-fire" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
-                                        <p>Gas</p>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-4 col-sm-6 col-md-4 mb-3">
                                     <div class="blue-card" data-option="Electricity" onclick="toggleSelection(this)">
                                         <i class="bi bi-lightning" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
                                         <p>Electricity</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-6 col-md-4 mb-3">
+                                    <div class="blue-card" data-option="Gas" onclick="toggleSelection(this)">
+                                        <i class="bi bi-fire" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
+                                        <p>Gas</p>
                                     </div>
                                 </div>
                                 <div class="col-4 col-sm-6 col-md-4 mb-3">
@@ -1097,8 +1109,18 @@ body {
                         </div>
                         <ul id="fileList" class="file-list"></ul>
                         <div class="no-bill-container">
-                            <button class="no-bill-button">Don't have a bill?</button>
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input no-bill-checkbox" 
+                                    type="checkbox" 
+                                    id="noBillCheckbox"
+                                >
+                                <label class="form-check-label" for="noBillCheckbox">
+                                    Don't have a bill?
+                                </label>
+                            </div>
                         </div>
+                        
                     
                     </div>
 
@@ -1209,9 +1231,10 @@ body {
 </section>  
 
 <div class="buttons-container">
-    <button class="btn btn-outline-secondary" id="backButton" onclick="navigateStep(-1)" disabled>Back</button>
+    <button class="btn btn-outline-secondary" id="backButton" onclick="navigateStep(-1)" style="display: none;">Back</button>
     <button class="btn btn-primary" id="nextButton" onclick="validateStep1AndProceed()">Next</button>
 </div>
+
 
 
 <footer class="footer">
@@ -1234,14 +1257,14 @@ body {
             </div>
 
             <!-- Switch Section -->
-            <div class="col-md-4 col-6 mb-4">
+            <!-- <div class="col-md-4 col-6 mb-4">
                 <h5 class="footer-title">Switch</h5>
                 <ul class="list-unstyled">
                     <li><a href="switch-now.html">Switch Both Gas and Electricity</a></li>
                     <li><a href="switch-now.html">Switch Gas Only</a></li>
                     <li><a href="switch-now.html">Switch Electricity Only</a></li>
                 </ul>
-            </div>
+            </div> -->
 
             <!-- Legal Section -->
             <div class="col-md-4 col-12 mb-4">
@@ -1295,6 +1318,7 @@ body {
                 element.classList.toggle("selected");
             }
         </script>
+       
     
  <script>
     document.getElementById('phone').addEventListener('input', function (e) {
@@ -1324,10 +1348,11 @@ body {
 
     </script>
     
+    
    <script>
-    // Select the buttons-container
 const buttonsContainer = document.querySelector('.buttons-container');
 const footer = document.querySelector('.footer'); // Select the footer
+let lastScrollY = 0; // To track scroll direction
 
 function handleScroll() {
     const footerOffsetTop = footer.offsetTop; // Distance from the top of the page to the footer
@@ -1338,9 +1363,18 @@ function handleScroll() {
     // Check if the buttons-container should be sticky
     if (scrollTop + viewportHeight < footerOffsetTop + containerHeight) {
         buttonsContainer.classList.add('sticky');
+        buttonsContainer.classList.remove('hidden');
     } else {
         buttonsContainer.classList.remove('sticky');
     }
+
+    // Hide buttons-container when scrolling up
+    if (scrollTop < lastScrollY) {
+        buttonsContainer.classList.remove('hidden');
+    } else if (scrollTop > lastScrollY + 50) { // Adjust threshold to control when it hides
+        buttonsContainer.classList.add('hidden');
+    }
+    lastScrollY = scrollTop;
 }
 
 // Attach the scroll event listener
@@ -1348,6 +1382,7 @@ window.addEventListener('scroll', handleScroll);
 
 // Ensure it runs on page load
 document.addEventListener('DOMContentLoaded', handleScroll);
+
 
    </script>
     
@@ -1458,7 +1493,7 @@ function evaluatePasswordStrength(password) {
             break;
         case 5:
             strengthColor = "green";
-            strengthLabel = "Ultimate!";
+            strengthLabel = "Perfect!";
             break;
     }
 
@@ -1616,6 +1651,9 @@ function validateStep1AndProceed() {
         document.getElementById("stepIndicator").textContent = "Step 2:";
         document.getElementById("letsBeginText").style.display = "none";
 
+        // Show the "Back" button
+        const backButton = document.getElementById("backButton");
+        backButton.style.display = "inline-block";
         // Change the Next button to Submit button
         const nextButton = document.getElementById("nextButton");
         nextButton.textContent = "Submit"; // Change the button text
@@ -1651,8 +1689,14 @@ function goToStep1() {
     document.getElementById("step1Fields").style.display = "block";
     document.getElementById("letsBeginText").style.display = "block";
 
-    // Update the step indicator
-    document.getElementById("stepIndicator").textContent = "Step 1:";
+    // Hide the "Back" button
+    const backButton = document.getElementById("backButton");
+    backButton.style.display = "none";
+
+    // Reset the Next button
+    const nextButton = document.getElementById("nextButton");
+    nextButton.textContent = "Next"; // Change the button text back
+    nextButton.setAttribute("onclick", "validateStep1AndProceed()"); // Reset button action
 }
 
 // Function to toggle password visibility
@@ -1674,6 +1718,47 @@ function togglePasswordVisibility() {
 
 
 
+    </script>
+    <script>
+        let currentStep = 1; // Track the current step
+
+function navigateStep(stepChange) {
+    currentStep += stepChange;
+
+    // Ensure currentStep stays within valid range
+    if (currentStep < 1) currentStep = 1;
+    if (currentStep > 2) currentStep = 2;
+
+    if (currentStep === 1) {
+        // Show Step 1 and hide Step 2
+        document.getElementById("step1Fields").style.display = "block";
+        document.getElementById("step2Fields").style.display = "none";
+        document.getElementById("letsBeginText").style.display = "block";
+        document.getElementById("stepIndicator").textContent = "Step 1:";
+
+        // Hide Back button
+        document.getElementById("backButton").style.display = "none";
+
+        // Reset Next button to Step 1 functionality
+        const nextButton = document.getElementById("nextButton");
+        nextButton.textContent = "Next";
+        nextButton.setAttribute("onclick", "validateStep1AndProceed()");
+    } else if (currentStep === 2) {
+        // Hide Step 1 and show Step 2
+        document.getElementById("step1Fields").style.display = "none";
+        document.getElementById("step2Fields").style.display = "block";
+        document.getElementById("letsBeginText").style.display = "none";
+        document.getElementById("stepIndicator").textContent = "Step 2:";
+
+        // Show Back button
+        document.getElementById("backButton").style.display = "inline-block";
+
+        // Update Next button to 'Submit'
+        const nextButton = document.getElementById("nextButton");
+        nextButton.textContent = "Submit";
+        nextButton.setAttribute("onclick", "submitForm()");
+    }
+}
     </script>
     <script>
         function showDropdown() {
