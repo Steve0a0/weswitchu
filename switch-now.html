@@ -1355,26 +1355,17 @@ const footer = document.querySelector('.footer'); // Select the footer
 let lastScrollY = 0; // To track scroll direction
 
 function handleScroll() {
-    const footerOffsetTop = footer.offsetTop; // Distance from the top of the page to the footer
-    const containerHeight = buttonsContainer.offsetHeight; // Height of the buttons-container
+    const footerOffsetTop = footer.offsetTop; // Distance from top of page to footer
     const viewportHeight = window.innerHeight; // Height of the viewport
     const scrollTop = window.scrollY; // Current scroll position
 
-    // Check if the buttons-container should be sticky
-    if (scrollTop + viewportHeight < footerOffsetTop + containerHeight) {
+    // Ensure the buttons-container stays sticky until the footer overlaps
+    if (scrollTop + viewportHeight < footerOffsetTop) {
         buttonsContainer.classList.add('sticky');
         buttonsContainer.classList.remove('hidden');
     } else {
         buttonsContainer.classList.remove('sticky');
     }
-
-    // Hide buttons-container when scrolling up
-    if (scrollTop < lastScrollY) {
-        buttonsContainer.classList.remove('hidden');
-    } else if (scrollTop > lastScrollY + 50) { // Adjust threshold to control when it hides
-        buttonsContainer.classList.add('hidden');
-    }
-    lastScrollY = scrollTop;
 }
 
 // Attach the scroll event listener
@@ -1489,7 +1480,7 @@ function evaluatePasswordStrength(password) {
             break;
         case 4:
             strengthColor = "blue";
-            strengthLabel = "Strong";
+            strengthLabel = "Nearly There";
             break;
         case 5:
             strengthColor = "green";
