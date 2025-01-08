@@ -143,6 +143,30 @@
 .btn-dark:hover {
     background-color: #251d3a; /* Darker shade for hover effect */
 }
+.switch{
+    background-color: #69CCA2;
+    color: #31264B;
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-size: 14px;
+    box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}
+.switch:hover{
+    background-color: green;
+}
+.login{
+    background-color: #69CCA2;
+    color: #31264B;
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-size: 14px;
+    box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}
+.login:hover{
+    background-color: green;
+}
    
 
         @media (max-width: 768px) {
@@ -201,7 +225,10 @@
             font-size: 1rem;
             
         }
-
+        .switch, .login{
+        padding: 12px 20px;
+    }
+       
         }
   
     </style>
@@ -211,7 +238,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-xl navbar-dark" style="background-color: #31264B;">
     <div class="container">
-        <a class="navbar-brand" href="index1.html">
+        <a class="navbar-brand" href="#">
             <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -219,20 +246,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto nav-links">
-                <li class="nav-item"><a class="nav-link" href="index1.html" id="home">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="#" id="how-it-works">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link " href="index1.html" id="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="howitworks.html" id="how-it-works">How It Works</a></li>
                 <li class="nav-item"><a class="nav-link" href="aboutus.html" id="about-us">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="findaninstaller.html" id="find-an-installer">Find an Installer</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html" id="faqs">FAQs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" id="blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="farmers.html" id="farmers">Farmers</a></li>
-                <li class="nav-item"><a class="nav-btn" href="switch-now.html" id="switch-now">Switch Now</a></li>
-                <li class="nav-item"><a class="nav-btn login" href="login1.html" id="login">Login</a></li>
+                <li class="nav-item"><a class="btn nav-btn switch" href="switch-now.html" id="switch-now">Switch Now</a></li>
+                <li class="nav-item"><a class="btn nav-btn login" href="login1.html" id="login">Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
 <!-- Header Section -->
 <div class="slanted-header">
     <h1>How it works</h1>
