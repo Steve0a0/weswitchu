@@ -701,7 +701,7 @@ body {
 /* Selected state styles */
 .blue-card.selected {
     background-color: #31264B;
-    border: 2px solid #ffffff; /* Highlight the selected card */
+    border: 6px solid #4a873c; /* Highlight the selected card */
 }
 
 /* Responsive fixes for smaller screens */
@@ -827,6 +827,78 @@ body {
     color:#31264B
 }
 
+/* Password Criteria */
+.password-criteria {
+    font-size: 0.875rem;
+    color: #6c757d;
+    padding-left: 20px; /* Indent for list items */
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.password-criteria li {
+    margin-bottom: 5px; /* Add spacing between criteria items */
+}
+
+/* Strength Meter */
+.password-strength-bar {
+    width: 100%;
+    background: #e0e0e0;
+    height: 10px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.password-strength-bar #passwordStrengthIndicator {
+    width: 0%;
+    height: 10px;
+    background: red;
+    border-radius: 5px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.password-criteria li {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.password-criteria li.removed {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.password-criteria li {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+#passwordStrengthText {
+    font-size: 0.875rem;
+    color: red; /* Default color for weak password */
+}
+
+/* Adjustments for Responsiveness */
+@media (max-width: 768px) {
+    .password-criteria {
+        font-size: 0.8rem; /* Slightly smaller font size for mobile */
+    }
+
+    #passwordStrengthText {
+        font-size: 0.8rem;
+    }
+}
+
 
 
         @media (max-width: 768px) {
@@ -909,10 +981,10 @@ body {
                     <div id="letsBeginText" class="text-center">
                         <h2>Let's Begin</h2>
                         <p>
-                            WeSwitchU is a premium, paid electricity and gas switching service with a simple mission - to save customers time and money every year.
+                            WeSwitchU is a premium, paid electricity, gas & broadband switching service with a simple mission - to save customers time and money every year.
                             <a href="howitworks.html" class="text-decoration-underline">Learn more here</a>
                         </p>
-                        <p>We just need a few details from you before you get started...</p>
+                        <p>First, set up a secure account in order to get your savings estimate. <br><span><strong>Don't worry, you aren't commiting to anything yet.</strong></span></p>
                     </div>
                     
                     <!-- Step Indicator -->
@@ -1003,11 +1075,15 @@ body {
                                         >
                                             <i class="bi bi-eye-fill" style="color: #007bff; font-size: 1.2rem;"></i>
                                         </span>
-                                        <!-- Validation Message -->
-                                        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 5px;">
-                                            Use at least 8 characters, one uppercase letter, one lowercase letter, and one number in your password.
-                                        </p>
+                                       
                                     </div>
+                                    <ul class="password-criteria mt-2" id="passwordCriteriaList">
+                                        <li id="lengthCriteria">Use at least 8 characters</li>
+                                        <li id="uppercaseCriteria">One uppercase letter</li>
+                                        <li id="lowercaseCriteria">One lowercase letter</li>
+                                        <li id="numberCriteria">One number</li>
+                                        <li id="specialCharCriteria">One special character (!@#$%^&*)</li>
+                                    </ul>
                                     <!-- Strength Meter -->
                                     <div id="passwordStrengthContainer" style="margin-top: 10px;">
                                         <div id="passwordStrengthBar" style="width: 100%; background: #e0e0e0; height: 10px; border-radius: 5px; position: relative;">
@@ -1042,12 +1118,7 @@ body {
                             </label>
                           </div>
                           
-                          <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="movedInCheckbox">
-                            <label class="form-check-label" for="movedInCheckbox">
-                              I have just moved in?
-                            </label>
-                          </div>
+                          
                         <!-- <button type="button" class="btn float-end nextbtn" id="nextButton" onclick="validateStep1AndProceed()">Next ></button> -->
                     </div>
                         
@@ -1099,7 +1170,7 @@ body {
                         <div class="upload-container">
                             <div class="upload-box" id="uploadBox">
                                 <div class="upload-content">
-                                    <p>Upload Your Files / Take a Photo</p>
+                                    <p>Upload and / or take a photo of your lates bills & current meter readings</p>
                                     <p>Accepted formats: PDF, PNG, JPG, DOC</p>
                                     <img src="https://cdn-icons-png.flaticon.com/128/2956/2956800.png" alt="Upload Icon" class="upload-icon">
                                 </div>
@@ -1116,7 +1187,7 @@ body {
                                     id="noBillCheckbox"
                                 >
                                 <label class="form-check-label" for="noBillCheckbox">
-                                    Don't have a bill?
+                                    I have just moved in and I don't have a bill?
                                 </label>
                             </div>
                         </div>
@@ -1241,14 +1312,12 @@ body {
     <div class="container">
         <div class="row">
             <!-- Company Section -->
-            <div class="col-md-4 col-6 mb-4">
+            <div class="col-md-6 col-sm-12 mb-4">
                 <h5 class="footer-title">Company</h5>
                 <ul class="list-unstyled">
                     <li><a href="index1.html">Home</a></li>
                     <li><a href="howitworks.html">How it works</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="">Contractors</a></li>
-                    <li><a href="findaninstaller.html">Find an Installer</a></li>
                     <li><a href="faq.html">FAQs</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="farmers.html">Farmers</a></li>
@@ -1256,18 +1325,8 @@ body {
                 </ul>
             </div>
 
-            <!-- Switch Section -->
-            <!-- <div class="col-md-4 col-6 mb-4">
-                <h5 class="footer-title">Switch</h5>
-                <ul class="list-unstyled">
-                    <li><a href="switch-now.html">Switch Both Gas and Electricity</a></li>
-                    <li><a href="switch-now.html">Switch Gas Only</a></li>
-                    <li><a href="switch-now.html">Switch Electricity Only</a></li>
-                </ul>
-            </div> -->
-
             <!-- Legal Section -->
-            <div class="col-md-4 col-12 mb-4">
+            <div class="col-md-6 col-sm-12 mb-4">
                 <h5 class="footer-title">Legal</h5>
                 <ul class="list-unstyled">
                     <li><a href="t&c.html">Terms & Conditions</a></li>
@@ -1280,8 +1339,8 @@ body {
                 </ul>
             </div>
         </div>
-        <div class="footer-content d-flex justify-content-between align-items-center mt-4">
-            <p>2024 WeSwitchU | Built by Granite Digital</p>
+        <div class="footer-content">
+            <p class="mb-2">2025 WeSwitchU |Powered By Onebill Utility Suite</p>
             <div class="social-icons">
                 <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-twitter"></i></a>
@@ -1290,24 +1349,13 @@ body {
             </div>
         </div>
     </div>
-    <!-- <div class="chat-button" id="chatButton">
-        <i class="bi bi-chat-dots-fill"></i>
-    </div>
+   
+
     
-    <div class="chat-box" id="chatBox">
-        <div class="chat-box-header">
-            Chat with Us
-            <button class="btn-close btn-close-white" aria-label="Close" id="closeChatButton"></button>
-        </div>
-        <div class="chat-box-body">
-            <p><strong>Support:</strong> Hi there! How can I help you today?</p>
-        </div>
-        <div class="chat-box-footer">
-            <input type="text" class="chat-input" placeholder="Type your message...">
-            <button class="send-button">Send</button>
-        </div>
-    </div> -->
+    </div>
 </footer>
+
+
             
            
                
@@ -1501,44 +1549,69 @@ document.getElementById("password").addEventListener("input", function () {
     evaluatePasswordStrength(password);
 });
 
-// Validate passwords and ensure they meet all criteria
-// Password strength validation
 function validatePassword() {
     const password = document.getElementById("password").value;
     const strengthIndicator = document.getElementById("passwordStrengthIndicator");
     const strengthText = document.getElementById("passwordStrengthText");
 
+    // Select criteria list
+    const criteriaList = document.getElementById("passwordCriteriaList");
+
     // Define validation criteria
-    const lengthCheck = password.length >= 8;
-    const uppercaseCheck = /[A-Z]/.test(password);
-    const lowercaseCheck = /[a-z]/.test(password);
-    const digitCheck = /\d/.test(password);
-    const specialCharCheck = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const criteria = [
+        { id: "lengthCriteria", text: "Use at least 8 characters", isValid: password.length >= 8 },
+        { id: "uppercaseCriteria", text: "One uppercase letter", isValid: /[A-Z]/.test(password) },
+        { id: "lowercaseCriteria", text: "One lowercase letter", isValid: /[a-z]/.test(password) },
+        { id: "numberCriteria", text: "One number", isValid: /\d/.test(password) },
+        { id: "specialCharCriteria", text: "One special character (!@#$%^&*)", isValid: /[!@#$%^&*(),.?":{}|<>]/.test(password) },
+    ];
 
-    // Calculate password strength
-    let strength = 0;
-    if (lengthCheck) strength += 20;
-    if (uppercaseCheck) strength += 20;
-    if (lowercaseCheck) strength += 20;
-    if (digitCheck) strength += 20;
-    if (specialCharCheck) strength += 20;
+    // Update criteria dynamically
+    criteria.forEach((criterion) => {
+        let item = document.getElementById(criterion.id);
 
-    // Update strength meter
+        // If the criterion is valid, remove it if it exists
+        if (criterion.isValid) {
+            if (item) {
+                item.remove();
+            }
+        } else {
+            // If the criterion is not valid, re-add it if it doesn't exist
+            if (!item) {
+                const newItem = document.createElement("li");
+                newItem.id = criterion.id;
+                newItem.textContent = criterion.text;
+                criteriaList.appendChild(newItem);
+            }
+        }
+    });
+
+    // Calculate password strength based on satisfied criteria
+    const validCriteriaCount = criteria.filter((criterion) => criterion.isValid).length;
+
+    // Update the strength meter
+    const strength = (validCriteriaCount / criteria.length) * 100;
     strengthIndicator.style.width = `${strength}%`;
-    if (strength <= 40) {
-        strengthIndicator.style.background = "red";
-        strengthText.textContent = "Password strength: Weak";
-        strengthText.style.color = "red";
-    } else if (strength <= 80) {
-        strengthIndicator.style.background = "orange";
-        strengthText.textContent = "Password strength: Medium";
-        strengthText.style.color = "orange";
-    } else {
-        strengthIndicator.style.background = "green";
-        strengthText.textContent = "Password strength: Strong";
-        strengthText.style.color = "green";
+
+    let color = "red";
+    let label = "Too Weak";
+
+    if (validCriteriaCount >= 3) {
+        color = "orange";
+        label = "Medium";
     }
+    if (validCriteriaCount === criteria.length) {
+        color = "green";
+        label = "Strong";
+    }
+
+    strengthIndicator.style.backgroundColor = color;
+    strengthText.textContent = `Password strength: ${label}`;
+    strengthText.style.color = color;
 }
+
+// Attach the event listener to the password input
+document.getElementById("password").addEventListener("input", validatePassword);
 
 // Confirm password validation
 function validateConfirmPassword() {
@@ -1641,7 +1714,7 @@ function validateStep1AndProceed() {
         document.getElementById("step2Fields").style.display = "block";
         document.getElementById("stepIndicator").textContent = "Step 2:";
         document.getElementById("letsBeginText").style.display = "none";
-
+        window.scrollTo({ top: 0, behavior: "smooth" });
         // Show the "Back" button
         const backButton = document.getElementById("backButton");
         backButton.style.display = "inline-block";

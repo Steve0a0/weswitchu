@@ -18,6 +18,9 @@
             padding-top: 80px;
             padding-bottom: 80px;
         }
+        .container-content h1{
+        font-size: 2.5rem;
+        }
         
         .hero-section::after {
             content: '';
@@ -69,14 +72,19 @@
 }
 
         
-        .how-it-works-card {
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative;
-        }
+.how-it-works-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 300px; /* Set fixed height for equal boxes */
+    position: relative;
+}
         .icon-container {
             width: 70px;
             height: 70px;
@@ -92,18 +100,24 @@
             font-size: 30px;
         }
         .card-title {
-            font-family: 'Cabin', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #31264B;
-            margin: 15px 0 10px;
-        }
-        .card-text {
-            font-family: 'Cabin', sans-serif;
-            font-size: 16px;
-            color: #31264B;
-            line-height: 1.5;
-        }
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.25rem; /* Slightly smaller font size for responsiveness */
+    font-weight: 700;
+    color: #31264B;
+    margin: 15px 0 10px;
+}
+
+.card-text {
+    font-family: 'Cabin', sans-serif;
+    font-size: 1rem; /* Slightly smaller font size */
+    color: #31264B;
+    line-height: 1.5;
+    margin-top: 10px;
+    flex-grow: 1; /* Allow text to take up remaining space */
+    overflow: hidden; /* Prevent text overflow */
+    text-overflow: ellipsis; /* Add ellipsis for truncated text */
+    
+}
         .how-it-works-arrow {
             font-size: 32px;
             color: #948CB0;
@@ -137,17 +151,17 @@
                 padding-bottom: 20px;
             }
             .container-content h1 {
-                font-size: 1.3rem;
+                font-size: 1.7rem;
                 text-align: center;
                 line-height: 1.2;
             }
             .phero {
-                font-size: 0.6rem;
+                font-size: 1rem;
                 text-align: center;
                 line-height: 1.5;
             }
             .btn {
-                display: block;
+                /* display: block; */
                 width: 100%;
                 max-width: 150px;
                 margin: 0 auto;
@@ -224,6 +238,9 @@
 }
 .whychoosecss{
     margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
  /* Why Choose Us Section */
@@ -300,7 +317,7 @@
 
         @media (max-width: 1000px) {
             .step-card {
-                min-height: 200px;
+                min-height: 150px;
             }
             .why-choose-us-section h2 {
                 font-size: 1.6rem;
@@ -311,11 +328,17 @@
         }
 
         @media (max-width: 992px) {
-            .step-card {
-                margin-bottom: 30px;
+            .step-card{
+                padding: 20px 10px;
+                width: 150px;
+                height: 150px;
             }
             .arrow {
                 display: none;
+            }
+            .why-choose-us-section p{
+                font-size: 0.7rem;
+        
             }
         }
         
@@ -335,7 +358,41 @@
         margin: auto; /* Center align the widget */
     }
    
+/* Adjust height for smaller screens */
+@media (max-width: 768px) {
+    .how-it-works-card {
+        height: auto; /* Allow cards to grow naturally on smaller screens */
+        padding: 20px;
+    }
+   
 
+}
+@media (max-width: 642px) {
+  .step-card{
+    width: 300px;
+    height: 40px;
+    margin-bottom: 30px;}
+    .why-choose-us-section p {
+        font-size: 0.8rem;
+    }
+  }
+@media (max-width: 446px) {
+  .step-card{
+    width: 250px;
+    height: 40px;
+    margin-bottom: 30px;
+  }
+  }
+@media (max-width: 398px) {
+  .step-card{
+    width: 230px;
+    height: 40px;
+    margin-bottom: 30px;
+  }
+  }
+
+  
+ 
 
 
     </style>
@@ -377,8 +434,9 @@
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
                 <div>
-                    <h1 class="display-4 fw-light homeh1" style="color: #E7E3E6;">Save on your <br>Household Bills <br><span class="fw-bold" style="color: #FFFFFF;">Every Year.</span></h1>
-                    <p class="fs-5 mt-3 phero">Saving on your energy bills should be simple. Sign up with us once and never worry about overpaying for your energy bills again.</p>
+                    <h1 class="display-4 fw-light homeh1" style="color: #E7E3E6;"> <strong>Unlocking yearly savings on household bills.</strong><br>Saving customers time and money every year.<br></h1>
+                    <p class="mt-3 phero">Saving on your household bills should be. <br>
+                        Sign up with us once and never worry about overpaying again!</p>
                     <!-- "Get Started" Button -->
                     <a href="switch-now.html" class="btn btn-lg rounded-pill mt-4" style="background-color: #69CCA2; color: #31264B; box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);">Get Started</a>
                     
@@ -407,7 +465,7 @@
                         <i class="bi bi-person-check-fill icons-work"></i>
                     </div>
                     <h5 class="card-title">Sign Up Once</h5>
-                    <p class="card-text">Create an account and sign up for your first switch. All you need is your latest bill, your meter readings, and your IBAN details for payments.</p>
+                    <p class="card-text">Create a secure WeSwitchU Account.</p>
                 </div>
             </div>
             
@@ -418,7 +476,7 @@
                         <i class="bi bi-arrow-repeat icons-work"></i>
                     </div>
                     <h5 class="card-title">Switch to a New Deal</h5>
-                    <p class="card-text">For a small fee of 10% of your savings (min €40), we'll review your selection and process your switch to your new supplier.</p>
+                    <p class="card-text">Upload bills and meter readings.</p>
                 </div>
             </div>
             <!-- Card 3 -->
@@ -428,10 +486,14 @@
                         <i class="bi bi-clock-history icons-work"></i>
                     </div>
                     <h5 class="card-title">WeSwitchU, every year</h5>
-                    <p class="card-text">WeSwitchU will find and switch you to a better tariff each year, ensuring you never get caught on expensive out-of-contract rates.</p>
+                    <p class="card-text">Get a saving estimate in 24 Hours.</p>
                 </div>
             </div>
         </div>
+        <p class="mt-4" style="font-size: 1.2rem; color: #31264B; max-width: 600px; margin: 0 auto;">
+            If you're happy to proceed, we'll do the hard work for you.<br>
+            A small fee of 10% of savings is all it costs.
+        </p>
     </div>
 </section>
 
@@ -480,82 +542,59 @@
     <div class="container text-center">
         <h2>Why choose us?</h2>
         <p>There are plenty of reasons why</p>
-        <div class="row justify-content-center align-items-center whychoosecss">
+        <div class="whychoosecss">
             <!-- Step 1 -->
             <div class="col-md-2 mx-2">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <p>We'll take the hassle out of switching, saving you time and money every year.</p>
+                    <p>We'll take the hassle out of switching, saving you time and money.</p>
                 </div>
             </div>
 
             <!-- Arrow -->
-            <div class="col-auto d-none d-md-block">
+            <!-- <div class="col-auto d-none d-md-block">
                 <span class="arrow">&rarr;</span>
-            </div>
+            </div> -->
 
             <!-- Step 2 -->
             <div class="col-md-2 mx-2">
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <p>Track your savings & your energy consumption with your own personal dashboard.</p>
+                    <p>Track your savings & contract switches in your customer portal.</p>
                 </div>
             </div>
 
             <!-- Arrow -->
-            <div class="col-auto d-none d-md-block">
+            <!-- <div class="col-auto d-none d-md-block">
                 <span class="arrow">&rarr;</span>
-            </div>
+            </div> -->
 
             <!-- Step 3 -->
             <div class="col-md-2 mx-2">
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <p>Discover ways to reduce your energy consumption and maximise your energy efficiency.</p>
+                    <p>Using the latest technology, we securely find you the best deals all year round.</p>
                 </div>
             </div>
 
-            <!-- Arrow -->
-            <div class="col-auto d-none d-md-block">
-                <span class="arrow">&rarr;</span>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="col-md-2 mx-2">
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <p>Connect to both local and nationwide registered contractors.</p>
-                </div>
-            </div>
+            
         </div>
+        <a href="switch-now.html" class="btn btn-dark rounded-pill shadow-lg px-4 py-2">Get Started</a>
     </div>
  
 </section>
-<section class="ctb-section py-5">
-    <div class="container text-center">
-        <!-- Heading -->
-        <h2 class="fw-bold mb-3">It doesn't have to stop at the switch...</h2>
-        <!-- Subtitle -->
-        <p class="text-muted mb-4">
-            We'll also help you to make improvements to your home's energy efficiency and connect you to our directory of both local and national contractors.
-        </p>
-        <!-- Call-to-Action Button -->
-        <a href="#" class="btn btn-dark rounded-pill shadow-lg px-4 py-2">Find out more</a>
-    </div>
-</section>
+
 
 <footer class="footer">
     <div class="container">
         <div class="row">
             <!-- Company Section -->
-            <div class="col-md-4 col-6 mb-4">
+            <div class="col-md-6 col-sm-12 mb-4">
                 <h5 class="footer-title">Company</h5>
                 <ul class="list-unstyled">
                     <li><a href="index1.html">Home</a></li>
                     <li><a href="howitworks.html">How it works</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="">Contractors</a></li>
-                    <li><a href="findaninstaller.html">Find an Installer</a></li>
                     <li><a href="faq.html">FAQs</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="farmers.html">Farmers</a></li>
@@ -563,18 +602,8 @@
                 </ul>
             </div>
 
-            <!-- Switch Section -->
-            <div class="col-md-4 col-6 mb-4">
-                <h5 class="footer-title">Switch</h5>
-                <ul class="list-unstyled">
-                    <li><a href="switch-now.html">Switch Both Gas and Electricity</a></li>
-                    <li><a href="switch-now.html">Switch Gas Only</a></li>
-                    <li><a href="switch-now.html">Switch Electricity Only</a></li>
-                </ul>
-            </div>
-
             <!-- Legal Section -->
-            <div class="col-md-4 col-12 mb-4">
+            <div class="col-md-6 col-sm-12 mb-4">
                 <h5 class="footer-title">Legal</h5>
                 <ul class="list-unstyled">
                     <li><a href="t&c.html">Terms & Conditions</a></li>
@@ -587,8 +616,8 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-content d-flex justify-content-between align-items-center mt-4">
-            <p>2024 WeSwitchU | Built by Granite Digital</p>
+        <div class="footer-content">
+            <p class="mb-2">2025 WeSwitchU |Powered By Onebill Utility Suite</p>
             <div class="social-icons">
                 <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-twitter"></i></a>
@@ -598,9 +627,9 @@
         </div>
     </div>
     <div class="chat-button" id="chatButton">
-        <i class="bi bi-chat-dots-fill"></i> <!-- Bootstrap icon for chat -->
+        <i class="bi bi-chat-dots-fill"></i>
     </div>
-    
+
     <!-- Chat Box -->
     <div class="chat-box" id="chatBox">
         <div class="chat-box-header">
@@ -609,7 +638,6 @@
         </div>
         <div class="chat-box-body">
             <p><strong>Support:</strong> Hi there! How can I help you today?</p>
-            <!-- Chat messages will appear here -->
         </div>
         <div class="chat-box-footer">
             <input type="text" class="chat-input" placeholder="Type your message...">
@@ -617,6 +645,8 @@
         </div>
     </div>
 </footer>
+
+
 
 <script>
     // JavaScript for toggling the chat box

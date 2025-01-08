@@ -92,19 +92,32 @@ white-space: nowrap; /* Prevent text wrapping */
 
     /* Adjust buttons (Switch Now, Login) */
     .nav-btn {
-        text-align: left; /* Align button text to the left */
-        width: 100%; /* Full width for consistency */
-        margin-left: 0; /* Remove any margin on smaller screens */
+        width: calc(100% - 30px); /* Make the buttons full-width minus some padding */
+        margin: 5px auto; /* Center the buttons with spacing */
+        padding: 12px 20px; /* Add padding for better visibility */
+        font-size: 16px; /* Increase font size for readability */
+        text-align: center; /* Center-align text */
+    }
+
+    /* Add some space between the buttons */
+    .nav-btn + .nav-btn {
+        margin-top: 10px;
     }
 }
 
 
-/* footer */
-
+/* Footer */
 .footer {
     background-color: #31264B;
     color: #FFFFFF;
     padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+.footer-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
 }
 
 .footer a {
@@ -114,31 +127,35 @@ white-space: nowrap; /* Prevent text wrapping */
 
 .footer a:hover {
     color: #69CCA2;
+    transition: color 0.3s ease;
 }
 
-.footer-title {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.footer-bottom {
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px;
+    align-items: center;
     border-top: 1px solid #4A3A6B;
     padding-top: 20px;
     margin-top: 20px;
-    font-size: 0.9rem;
-    color: #B0AEB8;
+    text-align: center;
 }
 
-.trustpilot-logo, .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-right: 60px;
+.footer-content p {
+    margin: 0;
+    color: #B0AEB8;
 }
 
 .social-icons a {
     color: #FFFFFF;
     font-size: 1.2rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #69CCA2;
 }
 
 /* Floating Chat Button */
@@ -149,7 +166,7 @@ white-space: nowrap; /* Prevent text wrapping */
     width: 60px;
     height: 60px;
     background-color: #31264B;
-    color: #fff;
+    color: #FFFFFF;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -163,6 +180,7 @@ white-space: nowrap; /* Prevent text wrapping */
 
 .chat-button:hover {
     background-color: #554a6e;
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
 /* Chat Box */
@@ -172,7 +190,7 @@ white-space: nowrap; /* Prevent text wrapping */
     right: 20px;
     width: 300px;
     max-height: 400px;
-    background-color: #fff;
+    background-color: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -183,7 +201,7 @@ white-space: nowrap; /* Prevent text wrapping */
 
 .chat-box-header {
     background-color: #31264B;
-    color: #fff;
+    color: #FFFFFF;
     padding: 10px;
     font-weight: bold;
     display: flex;
@@ -218,7 +236,7 @@ white-space: nowrap; /* Prevent text wrapping */
 .send-button {
     margin-left: 10px;
     background-color: #31264B;
-    color: #fff;
+    color: #FFFFFF;
     border: none;
     padding: 8px 12px;
     border-radius: 5px;
@@ -228,7 +246,22 @@ white-space: nowrap; /* Prevent text wrapping */
 .send-button:hover {
     background-color: #2a2041;
 }
-.footer-content{
-    display: flex;
-    justify-content: space-between;
+
+.social-icons {
+    padding-right: 15px;
+  }
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Stacks content vertically */
+        text-align: center;
+    }
+
+    .footer ul {
+        margin-bottom: 20px;
+    }
+
+    .footer a {
+        margin-bottom: 5px; /* Add spacing for touch-friendly links */
+    }
 }
