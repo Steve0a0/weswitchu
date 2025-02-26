@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bill List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header Section -->
+  <div class="flex flex-wrap items-center justify-between pr-8 py-6">
+    <!-- Left Section: Welcome Message and Breadcrumb -->
+    <div class="space-y-2 herosec">
+      <h1 class="text-2xl font-bold text-gray-900 ">Bill List</h1>
+      <div class="flex items-center text-sm text-gray-500 space-x-2">
+        <span class="flex items-center space-x-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </svg>
+        </span>
+        <span>›</span>
+        <a href="#" class="text-purple-600 hover:underline">Bill List</a>
+      </div>
+    </div>
+  
+    <!-- Right Section: Emergency Alerts -->
+    <div class="flex flex-wrap items-center space-x-4 mt-4">
+      <!-- Gas Emergency Button -->
+      <button
+      class="gasemer flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md hover:bg-red-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"> 
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>        <span>Gas Emergency</span>
+      </button>
+  
+      <!-- Electricity Emergency Button -->
+      <button
+      class="elecemer flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Electricity Emergency</span>
+      </button>
+    </div>
+  </div>
+  
+
+  <div class="container mx-auto mt-6 px-4">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+          <tr>
+            <th scope="col" class="px-6 py-3">NAME</th>
+            <th scope="col" class="px-6 py-3">EIRCODE</th>
+            <th scope="col" class="px-6 py-3">SERVICE NAME</th>
+            <th scope="col" class="px-6 py-3">METER</th>
+            <th scope="col" class="px-6 py-3 text-center">SHOW</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr class="bg-white border-b hover:bg-gray-50">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Apple MacBook Pro 17"</th>
+            <td class="px-6 py-4">Silver</td>
+            <td class="px-6 py-4">Laptop</td>
+            <td class="px-6 py-4">$2999</td>
+            <td class="px-6 py-4">
+              <div class="flex items-center justify-center">
+                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 2 -->
+          <tr class="bg-gray-50 border-b hover:bg-gray-100">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Microsoft Surface Pro</th>
+            <td class="px-6 py-4">White</td>
+            <td class="px-6 py-4">Laptop PC</td>
+            <td class="px-6 py-4">$1999</td>
+            <td class="px-6 py-4">
+              <div class="flex items-center justify-center">
+                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 3 -->
+          <tr class="bg-white hover:bg-gray-50">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Magic Mouse 2</th>
+            <td class="px-6 py-4">Black</td>
+            <td class="px-6 py-4">Accessories</td>
+            <td class="px-6 py-4">$99</td>
+            <td class="px-6 py-4">
+              <div class="flex items-center justify-center">
+                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+
+</body>
+</html>

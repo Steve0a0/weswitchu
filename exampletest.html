@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Responsive Layout</title>
+</head>
+<body class="bg-gray-50 p-4">
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-800">Welcome Back</h1>
+      <nav class="flex items-center text-sm text-gray-500 space-x-2 mt-1">
+        <span class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7m-7 7h18m-6 6H5m5 0l-2 2m2-2v6" />
+          </svg>
+          Dashboard
+        </span>
+        <span>&gt;</span>
+        <span class="text-purple-600">Overview</span>
+      </nav>
+    </div>
+    <div class="flex space-x-4">
+      <button class="flex items-center px-4 py-2 text-sm font-semibold text-red-600 bg-red-100 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 3h.01m-6.938 4h13.856c1.054 0 1.502-1.28.732-1.961L13.732 10.04c-.77-.682-2.694-.682-3.464 0L3.34 16.039c-.77.682-.322 1.961.732 1.961z" />
+        </svg>
+        Gas Emergency
+      </button>
+      <button class="flex items-center px-4 py-2 text-sm font-semibold text-orange-600 bg-orange-100 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 3h.01m-6.938 4h13.856c1.054 0 1.502-1.28.732-1.961L13.732 10.04c-.77-.682-2.694-.682-3.464 0L3.34 16.039c-.77.682-.322 1.961.732 1.961z" />
+        </svg>
+        Electricity Emergency
+      </button>
+    </div>
+  </div>
+</body>
+</html>

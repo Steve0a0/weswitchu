@@ -301,12 +301,12 @@
             box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
             z-index: 2;
         }
-        .trustpilot-container a img{
+        /* .trustpilot-container a img{
     position: absolute;
     top: 112%;
     text-align: right;
     width: 200px;
-}
+} */
 
 
         .arrow {
@@ -364,7 +364,7 @@
    
 /* Adjust height for smaller screens */
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .trustpilot-container a img{
         position: absolute;
                 top: 103%;
@@ -377,7 +377,7 @@
                 top: 103%;
                 right: 24% !important;
             }
-}
+} */
 @media (max-width: 768px) {
     .how-it-works-card {
         height: auto; /* Allow cards to grow naturally on smaller screens */
@@ -389,12 +389,17 @@
         text-align: center; /* Center the text inside the button */
         margin: 10px auto; /* Add spacing and center the button */
     }
-    .trustpilot-container a img{
+    .trustpilot-container {
+    justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        flex-direction: column; /* Stack content if needed */
+  }
+    /* .trustpilot-container a img{
         position: absolute;
                 top: 103%;
                 right: 31%;
             }
-    
+     */
 
 }
 @media (max-width: 642px) {
@@ -440,6 +445,17 @@
     font-size: 40px;
   }
 
+  
+  .trustpilot-container {
+    display: flex;
+  
+    margin-top: 70px; /* Add spacing from content above */
+}
+
+.trustpilot-image {
+    max-width: 200px; /* Adjust size as needed */
+    height: auto;
+}
 
     </style>
 </head>
@@ -449,7 +465,7 @@
 <nav class="navbar navbar-expand-xl navbar-dark" style="background-color: #31264B;">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="images/weswitchu.png" alt="WeSwitchU.ie" width="250" height="70">
+            <img src="{{asset('web/images/weswitchu.png')}}" alt="WeSwitchU.ie" width="250" height="70">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -492,9 +508,9 @@
    style="background-color: #69CCA2; color: #31264B; box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.4);">
     Get Started
 </a>
-<div class="trustpilot-container">
+<div class="trustpilot-container text-center mt-4">
     <a href="https://www.trustpilot.com/review/weswitchu.ie" target="_blank" title="Visit Trustpilot" rel="noopener noreferrer">
-        <img src="images/trustpilot.png" alt="Excellent Rating" >
+        <img src="images/trustpilot.png" alt="Excellent Rating" class="trustpilot-image">
     </a>
 </div>
 

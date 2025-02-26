@@ -1,151 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Choose Us</title>
-    <style>
-/* Why Choose Us Section */
-.why-choose-us-section {
-    background-color: #69CCA2; /* Matches the green background */
-    padding: 60px 20px; /* Adds padding to the section */
-}
-
-.why-choose-us-section h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #31264B; /* Darker text for contrast */
-    margin-bottom: 10px;
-}
-
-.why-choose-us-section p {
-    color: #31264B;
-    font-size: 1rem;
-    margin-bottom: 30px;
-}
-
-.step-card {
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for cards */
-    padding: 20px;
-    width: 250px; /* Fixed card width */
-    height: 250px; /* Fixed card height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-
-.step-card::before {
-    content: '';
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
-    background-color: #69CCA2;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.step-number {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-}
-
-.arrow {
-    font-size: 2rem;
-    color: #948CB0;
-    margin: 0 15px; /* Space around arrows */
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .arrow {
-        display: none; /* Hide arrows on smaller screens */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Loading Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      font-family: "Poppins", sans-serif;
+      margin: 0;
     }
 
-    .step-card {
-        width: 100%; /* Full width on smaller screens */
-        height: auto;
-    }
-}
+    /* .loading-container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    } */
 
-@media (max-width: 576px) {
-    .why-choose-us-section h2 {
-        font-size: 1.6rem; /* Smaller title on mobile */
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 8px solid #e0e0e0;
+      border-top: 8px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+      background: conic-gradient(#4facfe, #00f2fe);
+      margin: 0 auto 20px;
     }
 
-    .why-choose-us-section p {
-        font-size: 0.9rem;
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
-    .step-card {
-        width: 100%; /* Full width cards on mobile */
+    .loading-text {
+      font-size: 20px;
+      color: #333;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeText 2s ease-in-out infinite;
     }
-}
 
-    </style>
+    @keyframes fadeText {
+      0%, 100% { opacity: 0; transform: translateY(10px); }
+      50% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <section class="why-choose-us-section">
-        <div class="container text-center">
-            <h2>Why choose us?</h2>
-            <p>There are plenty of reasons why</p>
-            <div class="row justify-content-center align-items-center">
-                <!-- Step 1 -->
-                <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <p>We'll take the hassle out of switching, saving you time and money.</p>
-                    </div>
-                </div>
-    
-                <!-- Arrow -->
-                <div class="col-md-auto d-none d-md-flex align-items-center">
-                    <span class="arrow">&rarr;</span>
-                </div>
-    
-                <!-- Step 2 -->
-                <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center">
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <p>Track your savings & contract switches in your customer portal.</p>
-                    </div>
-                </div>
-    
-                <!-- Arrow -->
-                <div class="col-md-auto d-none d-md-flex align-items-center">
-                    <span class="arrow">&rarr;</span>
-                </div>
-    
-                <!-- Step 3 -->
-                <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center">
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <p>Using the latest technology, we securely find you the best deals all year round.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
+  <div class="loading-container">
+    <div class="spinner" id="spinner"></div>
+    <div class="loading-text" id="loadingText">Processing...</div>
+  </div>
+
+  <script>
+    const messages = [
+      "Processing...",
+      "Searching the market...",
+      "Finding you the best deal..."
+    ];
+
+    let index = 0;
+
+    // Smooth text cycling
+    const textInterval = setInterval(() => {
+      index = (index + 1) % messages.length;
+      const loadingText = document.getElementById('loadingText');
+      loadingText.style.opacity = 0;
+
+      setTimeout(() => {
+        loadingText.textContent = messages[index];
+        loadingText.style.opacity = 1;
+      }, 500);
+    }, 3000); // Changes text every 3 seconds
+
+    // Simulate async loading operation
+    async function fetchData() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("✅ Deal Found! Enjoy Your Savings!");
+        }, 9000); // Simulated dynamic fetch time
+      });
+    }
+
+    async function loadData() {
+      const result = await fetchData();
+      clearInterval(textInterval);
+      document.getElementById('spinner').style.display = "none";
+      document.getElementById('loadingText').textContent = result;
+    }
+
+    loadData();
+  </script>
+
 </body>
 </html>

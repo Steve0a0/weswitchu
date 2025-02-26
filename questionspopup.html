@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Step Form</title>
+  <style>
+    .text-center {
+  text-align: center;
+}
+.w-32 {
+  width: 8rem; 
+}
+.fixed-container {
+    position: fixed;
+    top: 10%; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Or any suitable width */
+    max-width: 800px; /* Limit width */
+}
+
+.card {
+    position: relative; 
+    overflow-y: auto; 
+    max-height: 80vh; 
+}
+
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <div class="max-w-4xl mx-auto mt-10 p-6">
+  
+    <div class="flex items-center justify-between mb-8">
+      
+  
+      
+      <div class="flex flex-col items-center space-y-1 step-indicator property-setup-indicator text-blue-600">
+        <img src="images/home-icon-silhouette.png" alt="Step 1" class="w-8 h-8 sm:w-6 sm:h-6">
+        <p class="text-xs sm:text-[9px] font-medium">Property Setup</p>
+    </div>
+    <div class="flex-1 h-[2px] bg-gray-300 step-line"></div>
+      <div class="flex flex-col items-center space-y-1 step-indicator residence-check-indicator text-gray-400">
+        <img src="images/home-icon-silhouette.png" alt="Step 6" class="w-8 h-8 sm:w-6 sm:h-6">
+        <p class="text-xs sm:text-[9px] font-medium">Residence Check</p>
+    </div>
+    <div class="flex-1 h-[2px] bg-gray-300 step-line"></div>
+      <!-- Step 2 Indicator -->
+      <div class="flex flex-col items-center space-y-1 step-indicator home-details-indicator text-gray-400">
+          <img src="images/home-icon-silhouette.png" alt="Step 2" class="w-8 h-8 sm:w-6 sm:h-6 filter-gray">
+          <p class="text-xs sm:text-[9px] font-medium">Home Details</p>
+      </div>
+      <div class="flex-1 h-[2px] bg-gray-300 step-line"></div>
+  
+      
+      <!-- Step 3 Indicator -->
+      <div class="flex flex-col items-center space-y-1 step-indicator utilities-indicator text-gray-400">
+          <img src="images/utilities.png" alt="Step 3" class="w-8 h-8 sm:w-6 sm:h-6 filter-gray">
+          <p class="text-xs sm:text-[9px] font-medium">Utilities</p>
+      </div>
+      <div class="flex-1 h-[2px] bg-gray-300 step-line"></div>
+  
+      <!-- Step 4 Indicator -->
+      <div class="flex flex-col items-center space-y-1 step-indicator consent-indicator text-gray-400">
+          <img src="images/informed-consent.png" alt="Step 4" class="w-8 h-8 sm:w-6 sm:h-6 filter-gray">
+          <p class="text-xs sm:text-[9px] font-medium">Consent</p>
+      </div>
+  </div>
+  
+    
+  <div class="scroll-container space-y-6">
+
+  <!-- Step 1: Property Setup -->
+  <form id="property-setup" class="step space-y-6">
+    <h2 class="text-lg font-bold">Property Setup</h2>
+    <p class="text-gray-600 text-center">Do you have more than one property / address to switch?</p>
+  
+    <div class="flex justify-center space-x-4 mt-4">
+      <button type="button" class="yes-button w-32 px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700" data-next="residence-check">
+          Yes
+      </button>
+      <button type="button" class="no-button w-32 px-4 py-2 text-white bg-gray-500 rounded-lg hover:bg-gray-600" data-next="residence-check">
+          No
+      </button>
+    </div>
+  
+  </form>
+  
+
+<!-- Step 2: Residence Check -->
+<form id="residence-check" class="step hidden space-y-6">
+  <h2 class="text-lg font-bold">Residence Check</h2>
+  <p class="text-gray-600 text-center">Is this your main residence / home?</p>
+
+  <div class="flex justify-center space-x-4 mt-4">
+      <button type="button" class="yes-button w-32 px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700" 
+          data-next="home-details" >
+          Yes
+      </button>
+      <button type="button" class="no-button w-32 px-4 py-2 text-white bg-gray-500 rounded-lg hover:bg-gray-600" 
+          data-next="property-alias" >
+          No
+      </button>
+  </div>
+
+  <div class="flex justify-between items-center">
+      <button type="button" class="prev-button px-4 py-2 text-gray-600 bg-gray-200 rounded-lg" data-prev="property-setup">
+          Back
+      </button>
+  </div>
+</form>
+
+
+
+<form id="property-alias" class="step hidden space-y-6">
+    <h2 class="text-lg font-bold">What do you refer to this property as?</h2>
+    <p class="text-gray-600 text-center">i.e., Holiday Home, Outfarm etc. (This is what we will call the property in any future communications)</p>
+    
+    <div>
+      <input type="text" id="property-name" name="property-name" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter property alias">
+    </div>
+    
+    <div class="flex justify-between items-center">
+      <button type="button" class="prev-button px-4 py-2 text-gray-600 bg-gray-200 rounded-lg" data-prev="residence-check">
+        Back
+      </button>
+      <button type="button" class="next-button px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700" onclick="showStep('home-details')">
+        Next
+      </button>
+    </div>
+</form>
+
+
+    <!-- Step 2: Home Details -->
+    <form id="home-details" class="step hidden space-y-6">
+      <h3 id="dynamic-property-line" class="text-lg font-bold"></h3>
+      <h2 class="text-lg font-bold">Home Details</h2>
+    
+      <div>
+          <label for="home-type" class="block text-sm font-medium text-gray-700">Home Type</label>
+          <select id="home-type" name="home-type" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+              <option>House</option>
+              <option>Apartment</option>
+              <option>Terrace</option>
+              <option>Semi-Detached</option>
+              <option>Detached</option>
+              <option>Farm House</option>
+          </select>
+      </div>
+    
+      <div class="space-y-2 mt-4">
+        <label for="primary-heating-source" class="block text-gray-700 font-medium">What is your primary heating source (if any)?</label>
+        <select id="primary-heating-source" name="primary-heating-source" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            <option value="" disabled selected>Select an option</option>
+            <option value="gas">Gas</option>
+            <option value="electric">Electric</option>
+            <option value="oil">Oil</option>
+            <option value="wood">Wood / Biomass</option>
+            <option value="heat-pump">Heat Pump</option>
+            <option value="none">No heating source</option>
+        </select>
+      </div>
+      <div class="space-y-2 mt-4">
+        <label for="best-describes-you" class="block text-gray-700 font-medium">What best describes you?</label>
+        <select id="best-describes-you" name="best-describes-you" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            <option value="" disabled selected>Select an option</option>
+            <option value="homeowner">Homeowner</option>
+            <option value="renter">Renter</option>
+            <option value="business-owner">Business Owner</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    
+    
+      <div class="flex justify-between items-center">
+          <button type="button" class="prev-button px-4 py-2 text-gray-600 bg-gray-200 rounded-lg" 
+              id="home-details-back" onclick="goBackToPreviousStep()">
+              Back
+          </button>
+          <button type="button" class="next-button px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700" data-next="utilities">
+              Next
+          </button>
+      </div>
+    </form>
+    
+<form id="utilities" class="step hidden space-y-6">
+  <h2 class="text-lg font-bold">Utilities</h2>
+  <!-- Property List Display -->
+
+
+  <div class="container mx-auto p-6 ">
+    
+    <!-- Toggle Switches Container -->
+    <div class="flex flex-wrap justify-center gap-4 mb-6">
+  
+      <!-- Gas Toggle -->
+      <div class="flex items-center space-x-3 px-6 py-3 bg-blue-50 rounded-lg shadow-md w-full sm:w-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7307bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>        <span class="text-blue-600 font-medium">Gas</span>
+        <label class="relative inline-flex items-center cursor-pointer ml-2">
+          <input id="toggle-gas" type="checkbox" class="sr-only peer" onchange="toggleSection('gas-service-details')">
+          <div class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-blue-600 peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+        </label>
+      </div>
+    
+      <!-- Electricity Toggle -->
+      <div class="flex items-center space-x-3 px-6 py-3 bg-blue-50 rounded-lg shadow-md w-full sm:w-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b01b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>        <span class="text-blue-600 font-medium">Electricity</span>
+        <label class="relative inline-flex items-center cursor-pointer ml-2">
+          <input id="toggle-electricity" type="checkbox" class="sr-only peer" onchange="toggleSection('electricity-service-details')">
+          <div class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-blue-600 peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+        </label>
+      </div>
+    
+      <!-- Broadband Toggle -->
+      <div class="flex items-center space-x-3 px-6 py-3 bg-blue-50 rounded-lg shadow-md w-full sm:w-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b01b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>        <span class="text-blue-600 font-medium">Broadband</span>
+        <label class="relative inline-flex items-center cursor-pointer ml-2">
+          <input id="toggle-broadband" type="checkbox" class="sr-only peer" onchange="toggleSection('broadband-service-details')">
+          <div class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-blue-600 peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+        </label>
+      </div>
+    
+    </div>
+    
+
+    <!-- Service Details Sections -->
+
+    <!-- Gas Service Details -->
+    <!-- <div id="gas-service-details" class="hidden bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-bold text-blue-600">🔥 Gas Service Details</h3>
+        <label for="gas-units" class="block text-gray-700 mt-4">Number of gas services</label>
+        <input type="number" id="gas-units" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" placeholder="Enter number of gas services">
+    </div> -->
+
+    <!-- Electricity Service Details -->
+    <div id="electricity-service-details" class="hidden bg-white p-6 rounded-lg shadow-md mt-6">
+      <h3 class="text-lg font-bold text-blue-600">⚡ Electricity Service Details</h3>
+  
+      <!-- Solar PV Dropdown -->
+      <div class="mt-4">
+          <label for="solar-pv" class="block text-gray-700 font-medium">Do you have solar PV?</label>
+          <select id="solar-pv" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500" onchange="toggleSolarFields()">
+              <option value="no" selected>No</option>
+              <option value="yes">Yes</option>
+          </select>
+      </div>
+  
+      <!-- Conditional Solar Questions -->
+      <div id="solar-questions" class="hidden mt-4 space-y-4">
+          <div>
+              <label for="solar-size" class="block text-gray-700 font-medium">What Size Solar System Do You Have?</label>
+              <select id="solar-size" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
+                  <option value="less-2kw">Less than 2kW</option>
+                  <option value="2-5kw">2-5kW</option>
+                  <option value="5-10kw">5-10kW</option>
+                  <option value="more-10kw">More than 10kW</option>
+              </select>
+          </div>
+  
+          <div>
+              <label for="solar-direction" class="block text-gray-700 font-medium">What way do your solar panels face?</label>
+              <select id="solar-direction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
+                  <option value="north">North</option>
+                  <option value="south">South</option>
+                  <option value="east">East</option>
+                  <option value="west">West</option>
+                  <option value="multiple">Multiple Directions</option>
+              </select>
+          </div>
+  
+          <div>
+              <label for="solar-battery" class="block text-gray-700 font-medium">Do you have a battery?</label>
+              <select id="solar-battery" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" onchange="toggleBatteryCapacity()">
+                  <option value="no" selected>No</option>
+                  <option value="yes">Yes</option>
+              </select>
+          </div>
+  
+          <!-- Battery Capacity (Hidden by Default) -->
+          <div id="battery-capacity-question" class="hidden">
+              <label for="battery-capacity" class="block text-gray-700 font-medium">What is your total battery storage capacity?</label>
+              <input type="number" id="battery-capacity" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500" placeholder="Enter capacity in kWh">
+          </div>
+      </div>
+  
+      <!-- EV Ownership Question -->
+     <!-- EV Ownership Question -->
+<div class="mt-4">
+  <label for="ev-ownership" class="block text-gray-700 font-medium">Do you have an EV?</label>
+  <select id="ev-ownership" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" onchange="toggleEVQuestions()">
+      <option value="none" selected>None</option>
+      <option value="one">One</option>
+      <option value="more-than-one">More than One</option>
+  </select>
+</div>
+
+<!-- EV Questions for "One" -->
+<div id="ev-one-questions" class="hidden mt-4 space-y-4">
+  <div>
+      <label for="ev-type" class="block text-gray-700 font-medium">Is it a full battery EV (BEV) or Plug In Hybrid (PHEV)?</label>
+      <select id="ev-type" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
+          <option value="bev">Full Battery EV (BEV)</option>
+          <option value="phev">Plug In Hybrid (PHEV)</option>
+      </select>
+  </div>
+
+  <div>
+      <label for="ev-battery-size" class="block text-gray-700 font-medium">What size is your car's battery?</label>
+      <input type="number" id="ev-battery-size" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500" placeholder="Enter battery size in kWh">
+  </div>
+
+  <div>
+      <label for="ev-annual-km" class="block text-gray-700 font-medium">How many KM do you think you drive per year?</label>
+      <input type="number" id="ev-annual-km" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500" placeholder="Enter KM per year">
+  </div>
+</div>
+
+<!-- EV Questions for "More than One" -->
+<div id="ev-multiple-questions" class="hidden mt-4 space-y-4">
+  <h4 class="font-bold text-gray-700">Starting with your first EV:</h4>
+
+  <div>
+      <label for="ev1-type" class="block text-gray-700 font-medium">Is it a full battery EV (BEV) or Plug In Hybrid (PHEV)?</label>
+      <select id="ev1-type" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
+          <option value="bev">Full Battery EV (BEV)</option>
+          <option value="phev">Plug In Hybrid (PHEV)</option>
+      </select>
+  </div>
+
+  <div>
+      <label for="ev1-battery-size" class="block text-gray-700 font-medium">What size is your car's battery?</label>
+      <input type="number" id="ev1-battery-size" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500" placeholder="Enter battery size in kWh">
+  </div>
+
+  <div>
+      <label for="ev1-annual-km" class="block text-gray-700 font-medium">How many KM do you think you drive per year?</label>
+      <input type="number" id="ev1-annual-km" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500" placeholder="Enter KM per year">
+  </div>
+
+  <button type="button" onclick="addAnotherEV()" class="px-4 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Add Another EV</button>
+</div>
+
+  </div>
+  
+
+    <!-- Broadband Service Details -->
+    <div id="broadband-service-details" class="hidden bg-white p-6 rounded-lg shadow-md mt-6">
+      <h3 class="text-lg font-bold text-blue-600">📡 Broadband Service Details</h3>
+    
+      <!-- Broadband Supplier -->
+      <label for="broadband-supplier" class="block text-gray-700 mt-4">Who is your supplier?</label>
+      <select id="broadband-supplier" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" onchange="updateSelectedProvider()">
+          <option value="" disabled selected>Select your broadband provider</option>
+          <option value="Virgin Media Ireland Ltd">Virgin Media Ireland Ltd</option>
+          <option value="Vodafone Ireland Ltd">Vodafone Ireland Ltd</option>
+          <option value="Westnet Broadband">Westnet Broadband</option>
+          <option value="Whizzy Internet">Whizzy Internet</option>
+          <option value="Wireless Connect">Wireless Connect</option>
+          <option value="Workair">Workair</option>
+          <option value="Yellowcom">Yellowcom</option>
+          <option value="Premier Broadband">Premier Broadband</option>
+          <option value="Prepay Power">Prepay Power</option>
+          <option value="Pure Telecom">Pure Telecom</option>
+          <option value="QZ Connect">QZ Connect</option>
+          <option value="Real Broadband">Real Broadband</option>
+          <option value="Regional Broadband">Regional Broadband</option>
+          <option value="Rocte Ltd">Rocte Ltd</option>
+          <option value="Rural Broadband">Rural Broadband</option>
+          <option value="Sky">Sky</option>
+          <option value="Sleepless Server Solutions Ltd">Sleepless Server Solutions Ltd</option>
+          <option value="Standard Utilities">Standard Utilities</option>
+          <option value="Synoptic">Synoptic</option>
+          <option value="Teleom">Teleom</option>
+          <option value="Three">Three</option>
+          <option value="Verizon">Verizon</option>
+          <option value="Viatel">Viatel</option>
+          <option value="IFA Telecom">IFA Telecom</option>
+          <option value="Imagine Broadband">Imagine Broadband</option>
+          <option value="In2tel">In2tel</option>
+          <option value="Innovate">Innovate</option>
+          <option value="IP River Limited">IP River Limited</option>
+          <option value="IP Telecom">IP Telecom</option>
+          <option value="Ivertec">Ivertec</option>
+          <option value="Kerry Broadband">Kerry Broadband</option>
+          <option value="Lightnet">Lightnet</option>
+          <option value="Magnet Plus">Magnet Plus</option>
+          <option value="MTS Media">MTS Media</option>
+          <option value="Mynet">Mynet</option>
+          <option value="Net1 Broadband">Net1 Broadband</option>
+          <option value="NuWave">NuWave</option>
+          <option value="Orange Business Telecommunications Services Ltd (Equant)">Orange Business Telecommunications Services Ltd (Equant)</option>
+          <option value="Phone Pulse">Phone Pulse</option>
+          <option value="Colt">Colt</option>
+          <option value="Conversation Piece">Conversation Piece</option>
+          <option value="Diacom">Diacom</option>
+          <option value="Digital Well">Digital Well</option>
+          <option value="Digiweb">Digiweb</option>
+          <option value="EBroadband">EBroadband</option>
+          <option value="Echo IT">Echo IT</option>
+          <option value="Eir">Eir</option>
+          <option value="Elio Networks">Elio Networks</option>
+          <option value="Enet">Enet</option>
+          <option value="ETS/Lancehawk Limited">ETS/Lancehawk Limited</option>
+          <option value="Eurona Ireland">Eurona Ireland</option>
+          <option value="EvolveODM">EvolveODM</option>
+          <option value="Fastcom Broadband Limited">Fastcom Broadband Limited</option>
+          <option value="Gamma">Gamma</option>
+          <option value="HCS Business Solutions">HCS Business Solutions</option>
+          <option value="Gnet">Gnet</option>
+          <option value="Advantage Communications">Advantage Communications</option>
+          <option value="Airwave Internet">Airwave Internet</option>
+          <option value="Airwire">Airwire</option>
+          <option value="Aptus Broadband">Aptus Broadband</option>
+          <option value="Arra Communications">Arra Communications</option>
+          <option value="Atlantek Computers Ltd / MayoFibre.ie">Atlantek Computers Ltd / MayoFibre.ie</option>
+          <option value="B4B Group">B4B Group</option>
+          <option value="BBnet">BBnet</option>
+          <option value="Blacknight">Blacknight</option>
+          <option value="BT Communications Ireland Limited">BT Communications Ireland Limited</option>
+          <option value="Carnsore Broadband">Carnsore Broadband</option>
+          <option value="Cellnet">Cellnet</option>
+          <option value="Celtic Broadband">Celtic Broadband</option>
+          <option value="Chillwifi">Chillwifi</option>
+          <option value="Clarity Telecom">Clarity Telecom</option>
+      </select>
+        
+      <!-- Contract Status -->
+      <label for="broadband-contract" class="block text-gray-700 mt-4">Are you in a contract?</label>
+      <select id="broadband-contract" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+      </select>
+  
+      <!-- Monthly Payment -->
+      <label for="broadband-cost" class="block text-gray-700 mt-4">How much do you pay per month?</label>
+      <input type="number" id="broadband-cost" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" placeholder="Enter monthly cost in €">
+  </div>
+  
+
+</div>
+
+
+
+
+<div class="flex justify-between items-center">
+  <button type="button" class="prev-button px-4 py-2 text-gray-600 bg-gray-200 rounded-lg" data-prev="home-details">
+      Back
+  </button>
+  <div class="flex space-x-4">
+      <button type="button" class="next-button add-property-button px-4 py-2 text-white bg-green-600 rounded-lg hover:bg-green-700 hidden">
+          Add Another Property
+      </button>
+      <button type="button" class="next-button consent-button px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700" data-next="consent">
+          Proceed to Consent
+      </button>
+  </div>
+</div>
+
+
+</form>
+
+<!-- Step 5: Consent -->
+<form id="consent" class="step hidden space-y-6">
+  <h2 class="text-lg font-bold">Consent</h2>
+  <div id="property-list" class="hidden p-6 mt-6">
+    <h3 class="text-xl font-semibold text-blue-700 mb-4 flex items-center space-x-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v13h18V7m-1-4H4a1 1 0 00-1 1v3h20V4a1 1 0 00-1-1z" />
+      </svg>
+      <span>Saved Properties</span>
+    </h3>
+  
+    <ul id="property-list-items" class="space-y-3">
+      <!-- List items will be dynamically inserted here -->
+    </ul>
+  </div>
+  
+  <div class="space-y-4">
+    <!-- Checkbox 1 -->
+    <div class="flex items-start">
+      <input id="consent-1" type="checkbox" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+      <label for="consent-1" class="ml-3 text-gray-700">
+        I give Weswitchu permission to access my electricity usage data from ESB Networks and use it to provide me with energy insights and tariff matching. Weswitchu will never sell or share your data with others. Once registered, you can upload your Smart Meter Data file (HDF File) to your Weswitchu Portal for in depth & accurate usage analysis.      </label>
+    </div>
+
+    <!-- Checkbox 2 -->
+    <div class="flex items-start">
+      <input id="consent-2" type="checkbox" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+      <label for="consent-2" class="ml-3 text-gray-700">
+        I would like to use my home's SEAI / BER data to build a more accurate energy profile and suggest ways to save energy & money.
+      </label>
+    </div>
+
+    <!-- Checkbox 3 -->
+    <div class="flex items-start">
+      <input id="consent-3" type="checkbox" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+      <label for="consent-3" class="ml-3 text-gray-700">
+        I am the home owner and responsible for paying the utility bills at the above property.
+      </label>
+    </div>
+  </div>
+
+  <div class="flex justify-between items-center">
+    <button type="button" class="prev-button px-4 py-2 text-gray-600 bg-gray-200 rounded-lg" data-prev="utilities">
+      Back
+  </button>    
+  <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Complete</button>
+  </div>
+</form>
+
+  </div>
+  </div>
+
+   
+  
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
+ 
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

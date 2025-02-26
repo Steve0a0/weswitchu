@@ -701,7 +701,7 @@ body {
 /* Selected state styles */
 .blue-card.selected {
     background-color: #31264B;
-    border: 6px solid #4a873c; /* Highlight the selected card */
+    border: 6px solid #69CCA2; /* Highlight the selected card */
 }
 
 /* Responsive fixes for smaller screens */
@@ -969,14 +969,7 @@ body {
 
     <section class="form-section">
         <div class="containerr">
-            <!-- <div id="formContainer">
-                <div class="form-header text-center">
-                    <h2>Let's Begin</h2>
-                    <p>WeSwitchU is a premium, paid electricity and gas switching service with a simple mission - to save customers time and money every year. <a href="#" class="text-decoration-underline">Learn more here</a></p>
-                    <p>We just need a few details from you before you get started...</p>
-                </div> -->
-    
-                <!-- Initial Form -->
+
                 <form id="mainForm" class="mt-1">
                     <div id="letsBeginText" class="text-center">
                         <h2>Let's Begin</h2>
@@ -1014,7 +1007,6 @@ body {
                             </div>
                             <div class="col-md-6 position-relative" id="phoneField">
                                 <label for="phone" class="form-label">Your mobile phone number *</label>
-                                <!-- <span class="position-absolute tooltip-text" style="top: 70%; right: 15px; transform: translateY(-50%);">10 digits</span> -->
                             <input 
     type="tel" 
     class="form-control" 
@@ -1117,9 +1109,6 @@ body {
                               Terms & Conditions <a href="t&c.html">Click to View</a>
                             </label>
                           </div>
-                          
-                          
-                        <!-- <button type="button" class="btn float-end nextbtn" id="nextButton" onclick="validateStep1AndProceed()">Next ></button> -->
                     </div>
                         
                        
@@ -1140,10 +1129,9 @@ body {
                             <div id="dropdown-menu" class="dropdown-menu" style="display: none;"></div>
                         </div>
                     
-                        <div class="container text-center my-4">
+                        <div class="container text-center my-4" style="display: none;">
                             <h5 class="mb-4">Which Utilities would you like us to manage for you?</h5>
                             <div class="row justify-content-center">
-                                
                                 <div class="col-4 col-sm-6 col-md-4 mb-3">
                                     <div class="blue-card" data-option="Electricity" onclick="toggleSelection(this)">
                                         <i class="bi bi-lightning" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
@@ -1163,36 +1151,22 @@ body {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        
-                    
-                        <div class="upload-container">
-                            <div class="upload-box" id="uploadBox">
-                                <div class="upload-content">
-                                    <p>Upload and / or take a photo of your lates bills & current meter readings</p>
-                                    <p>Accepted formats: PDF, PNG, JPG, DOC</p>
-                                    <img src="https://cdn-icons-png.flaticon.com/128/2956/2956800.png" alt="Upload Icon" class="upload-icon">
+                            
+                            <div class="upload-container" style="display: none;">
+                                <div class="upload-box" id="uploadBox">
+                                    <div class="upload-content">
+                                        <p>Upload and/or take a photo of your latest bills & current meter readings</p>
+                                        <p>Accepted formats: PDF, PNG, JPG, DOC</p>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/2956/2956800.png" alt="Upload Icon" class="upload-icon">
+                                    </div>
+                                    <input type="file" id="fileInput" multiple accept=".pdf,.png,.jpg,.jpeg,.doc,.docx" hidden>
                                 </div>
-                                <input type="file" id="fileInput" multiple accept=".pdf,.png,.jpg,.jpeg,.doc,.docx" hidden>
                             </div>
-                          
-                        </div>
-                        <ul id="fileList" class="file-list"></ul>
-                        <div class="no-bill-container">
-                            <div class="form-check">
-                                <input 
-                                    class="form-check-input no-bill-checkbox" 
-                                    type="checkbox" 
-                                    id="noBillCheckbox"
-                                >
-                                <label class="form-check-label" for="noBillCheckbox">
-                                    I have just moved in and I don't have a bill?
-                                </label>
-                            </div>
-                        </div>
-                        
-                    
+                            
+                            <ul id="fileList" class="file-list"></ul>
+                        <div class="no-bill-container" style="display: none;">
+    <button class="no-bill-button" id="noBillButton">Don't have a bill?</button>
+</div>
                     </div>
 
                 <!-- Step 3 Fields (Hidden by default) -->
@@ -1364,7 +1338,23 @@ body {
             function toggleSelection(element) {
                 // Toggle the 'selected' class on the clicked option card
                 element.classList.toggle("selected");
-            }
+            // Get the upload and no-bill containers
+    const uploadContainer = document.querySelector(".upload-container");
+    const noBillContainer = document.querySelector(".no-bill-container");
+
+    // Check if any card is selected
+    const selectedCards = document.querySelectorAll(".blue-card.selected");
+
+    if (selectedCards.length > 0) {
+        // Show the upload and no-bill containers if a card is selected
+        uploadContainer.style.display = "block";
+        noBillContainer.style.display = "block";
+    } else {
+        // Hide the containers if no cards are selected
+        uploadContainer.style.display = "none";
+        noBillContainer.style.display = "none";
+    }
+}
         </script>
        
     
@@ -1422,6 +1412,43 @@ window.addEventListener('scroll', handleScroll);
 // Ensure it runs on page load
 document.addEventListener('DOMContentLoaded', handleScroll);
 
+
+   </script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("mainForm");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevents default form submission
+        submitForm();
+    });
+});
+
+function submitForm() {
+    // Optional: Validate Step 2 if needed
+    if (validateStep2()) { 
+        window.location.href = "dashboard.html?showPopup=true"; // Redirect with query param
+    } else {
+        alert("Please complete all required fields before submitting.");
+    }
+}
+
+function validateStep2() {
+    const eircode = document.getElementById("eir-code").value.trim();
+    const selectedUtilities = document.querySelectorAll(".blue-card.selected");
+
+    if (!eircode) {
+        alert("Please enter your Eircode.");
+        return false;
+    }
+
+    if (selectedUtilities.length === 0) {
+        alert("Please select at least one utility service.");
+        return false;
+    }
+
+    return true; // Validation successful
+}
 
    </script>
     
@@ -1678,6 +1705,25 @@ function validateStep1AndProceed() {
         showError("phone", "phoneError", "Mobile phone number must be 10 digits.");
     }
 
+    // Validate the checkbox
+    const termsCheckbox = document.getElementById("termsCheckbox");
+    const termsError = document.getElementById("termsError");
+    if (!termsCheckbox.checked) {
+        if (!termsError) {
+            // Create an error message if it doesn't exist
+            const errorMessage = document.createElement("div");
+            errorMessage.id = "termsError";
+            errorMessage.style.color = "red";
+            errorMessage.style.fontSize = "0.875rem";
+            errorMessage.textContent = "You must agree to the Terms & Conditions to proceed.";
+            termsCheckbox.parentElement.appendChild(errorMessage);
+        }
+        if (!firstErrorField) firstErrorField = termsCheckbox;
+    } else if (termsError) {
+        // Remove error message if checkbox is checked
+        termsError.remove();
+    }
+
     // Validate password criteria
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
@@ -1869,16 +1915,23 @@ function navigateStep(stepChange) {
 }
 
 // Function to select Eircode from dropdown
+
 function selectEircode(element) {
     const selectedEircode = element.getAttribute('data-eircode');
     const selectedAddress = element.textContent;
     const eirCodeInput = document.getElementById('eir-code');
     const addressInput = document.getElementById('addressInput');
+    const utilitiesSection = document.querySelector(".container.text-center.my-4");
 
     // Set selected Eircode and address, hide dropdown
     eirCodeInput.value = selectedEircode;
     addressInput.textContent = selectedAddress;
     $('#dropdown-menu').hide();
+
+    // Show the utilities section after selecting an address
+    if (selectedAddress.trim() !== "") {
+        utilitiesSection.style.display = "block";
+    }
 
     // Optional: Show the selected address div if hidden
     document.getElementById('addressDiv').style.display = 'block';
@@ -1886,21 +1939,50 @@ function selectEircode(element) {
 
 // Toggle the 'selected' class on service cards for multi-selection
 function toggleSelection(element) {
+    // Toggle the 'selected' class on the clicked option card
     element.classList.toggle("selected");
+
+    // Get all selected cards
+    const selectedCards = document.querySelectorAll(".blue-card.selected");
+
+    // Get the upload and no-bill containers
+    const uploadContainer = document.querySelector(".upload-container");
+    const noBillContainer = document.querySelector(".no-bill-container");
+
+    // Show the containers if at least one card is selected, otherwise hide them
+    if (selectedCards.length > 0) {
+        uploadContainer.style.display = "block";
+        noBillContainer.style.display = "block";
+    } else {
+        uploadContainer.style.display = "none";
+        noBillContainer.style.display = "none";
+    }
 }
+
+
     </script>
     <script>
-        // Function to toggle selection
         function toggleSelection(element) {
-            element.classList.toggle("selected");
-    
-            // Optional: Display selected options in the console
-            const selectedOptions = Array.from(
-                document.querySelectorAll(".blue-card.selected")
-            ).map((card) => card.getAttribute("data-option"));
-    
-            console.log("Selected options:", selectedOptions);
-        }
+    // Toggle the 'selected' class on the clicked option card
+    element.classList.toggle("selected");
+
+    // Get all selected cards
+    const selectedCards = document.querySelectorAll(".blue-card.selected");
+
+    // Get the upload and no-bill containers
+    const uploadContainer = document.querySelector(".upload-container");
+    const noBillContainer = document.querySelector(".no-bill-container");
+
+    // Show the containers if at least one card is selected, otherwise hide them
+    if (selectedCards.length > 0) {
+        uploadContainer.style.display = "block";
+        noBillContainer.style.display = "block";
+    } else {
+        uploadContainer.style.display = "none";
+        noBillContainer.style.display = "none";
+    }
+}
+
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -1994,6 +2076,12 @@ function toggleSelection(element) {
         });
     </script>
     
+    <script>
+        document.getElementById("noBillButton").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent form submission
+        this.classList.toggle("selected"); // Toggle the selected state
+    });
+    </script>
     
    
 

@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    .herosec{
+        padding-left: 100px;
+      }
+
+    
+    @media (max-width: 724px) {
+      .herosec{
+        padding-left: 10px;
+      }
+      .gasemer{
+        font-size: 10px;
+    }
+    .elecemer{
+        font-size: 10px;
+    }
+    }
+    
+  </style>
+</head>
+<body class=" bg-[#EBE9F2]">
+   
+
+ <!-- Navbar -->
+ <nav class="bg-[#31264B] border-gray-200">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto px-6 py-4">
+    
+      <!-- Left Section: Hamburger + Logo -->
+      <div class="flex items-center space-x-4">
+        <!-- Hamburger Icon -->
+        <button id="hamburger" class="text-gray-300 focus:outline-none">
+          <!-- Default Hamburger Icon -->
+          <svg id="hamburger-icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+          <!-- X Icon (Hidden by Default) -->
+          <svg id="close-icon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+    
+        <!-- Logo -->
+        <a href="#" class="flex items-center">
+          <img src="images/weswitchu.png" class="h-8" alt="WeSwitchU.ie Logo">
+        </a>
+      </div>
+    
+      <!-- Right Section -->
+      <div class="flex items-center space-x-3 md:space-x-6">
+        <!-- Profile Image with Dropdown -->
+        <div class="relative">
+          <button id="user-menu-button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="User Photo">
+          </button>
+          <div id="user-dropdown" class="hidden absolute right-0 mt-2 bg-white text-gray-700 rounded-lg shadow-md w-48 z-50">
+            <div class="px-4 py-3">
+              <p class="text-sm font-medium text-gray-900">John Doe</p>
+              <p class="text-sm text-gray-500 truncate">email@example.com</p>
+            </div>
+            <ul class="py-2">
+              <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside id="default-sidebar" class="fixed top-[63px] left-0 z-40 w-64 h-[calc(100%-65px)] transition-transform -translate-x-full bg-[#31264B]" aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto">
+      <ul class="space-y-2 font-medium text-white">
+        
+        <!-- Dashboard Dropdown -->
+        <li>
+            <a href="dashboard.html"  class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
+              <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
+                <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
+              </svg>
+              <span class="ms-3">Dashboard</span>
+            </a>
+          </li>
+  
+        <!-- Products Dropdown -->
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('products-dropdown')">
+            <img src="images/business_15931237.png" class="w-5 h-5 mr-2" alt="Bills" style="filter: invert(1);"> <!-- Bills Icon -->
+            <span class="ms-3 flex-1 text-left">Bills</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="products-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="javascript:void(0)" onclick="loadContent('billlist.html')" class="block p-2 rounded-lg hover:bg-gray-600">Bill List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Gas Bills</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Electricity Bills</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('meter-dropdown')">
+            <img src="images/bar-graph.png" class="w-5 h-5 mr-2" alt="Meter Readings" style="filter: invert(1);"> <!-- Meter Icon -->
+            <span class="ms-3 flex-1 text-left">Meter Readings</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="meter-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="javascript:void(0)" onclick="loadContent('meter-reading-list.html')" class="block p-2 rounded-lg hover:bg-gray-600">Meter Reading List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Gas Readings</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Electricity Readings</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('budget-dropdown')">
+            <img src="images/money-bag.png" class="w-5 h-5 mr-2" style="filter: invert(1);" alt="Budget Plans">
+            <span class="ms-3 flex-1 text-left">Budget Plans</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="budget-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Budget Plan List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Payment List</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('documents-dropdown')">
+            <img src="images/folder.png" class="w-5 h-5 mr-2" style="filter: invert(1);" alt="Documents">
+            <span class="ms-3 flex-1 text-left">Documents</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="documents-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Document List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add HDF File</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('settings-dropdown')">
+            <img src="images/settings_3524636.png" class="w-5 h-5 mr-2" style="filter: invert(1);" alt="Documents">
+            <span class="ms-3 flex-1 text-left">Settings</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="settings-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="javascript:void(0)" onclick="loadContent('update.html')" class="block p-2 rounded-lg hover:bg-gray-600">Property Settings</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Contact</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Location</a></li>
+          </ul>
+        </li>
+  
+      </ul>
+    </div>
+  </aside>
+  
+  <main id="content-area">
+  <div class="flex flex-wrap items-center justify-between pr-8 py-6">
+    <!-- Left Section: Welcome Message and Breadcrumb -->
+    <div class="space-y-2 herosec">
+      <h1 class="text-2xl font-bold text-gray-900 ">Welcome Back</h1>
+      <div class="flex items-center text-sm text-gray-500 space-x-2">
+        <span class="flex items-center space-x-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </svg>
+          <span>Dashboard</span>
+        </span>
+        <span>›</span>
+        <a href="#" class="text-purple-600 hover:underline">Overview</a>
+      </div>
+    </div>
+  
+    <!-- Right Section: Emergency Alerts -->
+    <div class="flex flex-wrap items-center space-x-4 mt-4">
+      <!-- Gas Emergency Button -->
+      <button
+      class="gasemer flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md hover:bg-red-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"> 
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>        <span>Gas Emergency</span>
+      </button>
+  
+      <!-- Electricity Emergency Button -->
+      <button
+      class="elecemer flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Electricity Emergency</span>
+      </button>
+    </div>
+  </div>
+  
+  
+
+  <div class="container px-5 mx-auto mt-5">
+    <div class="grid gap-6 grid-cols-1 lg:grid-cols-3">
+      <!-- Card 1: Estimated Savings -->
+      <div class="flex items-center justify-between p-6 bg-white rounded-xl shadow-sm">
+          <div class="flex items-center space-x-4">
+              <div class="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#31264B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg>              </div>
+              <div>
+                  <p class="text-3xl font-bold text-gray-900">€2,459</p>
+                  <p class="text-gray-500 text-sm">Estimated Savings</p>
+              </div>
+          </div>
+          <span class="px-3 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-lg">
+              ↑ +14.2%
+          </span>
+      </div>
+  
+      <!-- Card 2: Energy Usage -->
+      <div class="flex items-center justify-between p-6 bg-white rounded-xl shadow-sm">
+          <div class="flex items-center space-x-4">
+              <div class="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#31264B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-lightning"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"/><path d="m13 12-3 5h4l-3 5"/></svg>              
+              </div>
+              <div>
+                  <p class="text-3xl font-bold text-gray-900">892 kWh</p>
+                  <p class="text-gray-500 text-sm">Energy Usage</p>
+              </div>
+          </div>
+          <span class="px-3 py-1 text-sm font-semibold text-red-700 bg-red-100 rounded-lg">
+              ↓ -5.1%
+          </span>
+      </div>
+  
+      <!-- Card 3: Refer a Friend -->
+      <div class="flex flex-col justify-between p-6 bg-gradient-to-r from-[#31264B] to-[#6A4F9E] text-white rounded-xl shadow-md">
+          <div class="flex justify-between items-center">
+              <div class="flex items-center space-x-4">
+                  <div class="flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gift"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
+                  </div>
+                  <div>
+                      <p class="text-3xl font-bold">Earn €10</p>
+                      <p class="text-sm">Refer a Friend</p>
+                  </div>
+              </div>
+              <button class="px-3 py-1 bg-white bg-opacity-20 rounded-lg text-white text-sm flex items-center space-x-2 hover:bg-opacity-30 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21h6M17 10a5 5 0 015 5v1H2v-1a5 5 0 015-5h10z"></path>
+                  </svg>
+                  <span>Share</span>
+              </button>
+          </div>
+          <div class="flex justify-between items-center mt-4">
+              <p class="text-sm">12 Friends Joined</p>
+              <button class="px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-gray-100 transition">
+                  Invite Friends →
+              </button>
+          </div>
+      </div>
+  </div>
+  
+  
+  
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap gap-6">
+      <!-- Energy Features Section -->
+      <div class="flex-1 min-w-[300px]">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Energy Features</h2>
+        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2">
+          <!-- Solar Panels -->
+          <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 110 20 10 10 0 010-20zM12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-800">Solar Panels</h3>
+              <p class="text-sm text-gray-500">Not Installed</p>
+            </div>
+          </div>
+          <!-- Home Battery -->
+          <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11V9a4 4 0 118 0v2m-4 4h.01"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-800">Home Battery</h3>
+              <p class="text-sm text-gray-500">Not Installed</p>
+            </div>
+          </div>
+          <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11V9a4 4 0 118 0v2m-4 4h.01"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-800">Home Battery</h3>
+              <p class="text-sm text-gray-500">Not Installed</p>
+            </div>
+          </div>
+          <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11V9a4 4 0 118 0v2m-4 4h.01"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-800">Home Battery</h3>
+              <p class="text-sm text-gray-500">Not Installed</p>
+            </div>
+          </div>
+          <!-- Electric Vehicles -->
+          <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21h6M17 10a5 5 0 015 5v1H2v-1a5 5 0 015-5h10z"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-800">Electric Vehicles</h3>
+              <p class="text-sm text-gray-500">None</p>
+            </div>
+          </div>
+          <!-- Heat Pump -->
+          <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 18v-6a9 9 0 0118 0v6M9 21h6"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-800">Heat Pump</h3>
+              <p class="text-sm text-gray-500">Not Installed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Household Profile Section -->
+      <div class="flex-1 min-w-[300px]">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Household Profile</h2>
+        <div class="p-6 bg-white rounded-lg shadow-sm">
+          <div class="flex items-center mb-4">
+            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A8.966 8.966 0 0112 15c1.747 0 3.383.504 4.879 1.364M15 12H9m6 6H9m6 6H9"></path>
+              </svg>
+            </div>
+            <h3 class="ml-4 text-lg font-semibold text-gray-800">Household Profile</h3>
+          </div>
+          <ul class="text-sm text-gray-500 space-y-2">
+            <li><span class="font-semibold text-gray-800">Occupants:</span> 1</li>
+            <li><span class="font-semibold text-gray-800">Bedrooms:</span> 1</li>
+            <li><span class="font-semibold text-gray-800">Property Type:</span> House</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap gap-6">
+      <!-- Utility Services Section -->
+      <div class="flex-1 bg-white rounded-lg shadow-sm p-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Utility Services</h2>
+        <p class="text-sm text-gray-500">List or description of utility services can go here.</p>
+      </div>
+  
+      <!-- Quick Actions Section -->
+      <div class="w-full sm:w-64 bg-white rounded-lg shadow-sm p-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+        <div class="space-y-3">
+          <!-- Add Location -->
+          <div class="flex items-center justify-between p-3 bg-purple-50 text-purple-600 rounded-lg shadow-sm cursor-pointer hover:bg-purple-100 transition">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+              <span class="ml-3 text-sm font-semibold">Add Location</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <!-- Add Documents -->
+          <div class="flex items-center justify-between p-3 bg-purple-50 text-purple-600 rounded-lg shadow-sm cursor-pointer hover:bg-purple-100 transition">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+              <span class="ml-3 text-sm font-semibold">Add Documents</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="questionModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-start pt-20 hidden">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl mx-4 relative overflow-y-auto max-h-[80vh]">
+      <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onclick="closeModal()">
+          &times;
+      </button>
+      <div id="popupContent">Loading...</div>
+  </div>
+</div>
+
+</body>
+<script>
+  function toggleSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.classList.toggle("hidden");
+  } else {
+    console.warn(`Section with ID "${sectionId}" not found.`);
+  }
+}
+</script>
+<script>
+ // Array to store property details for the current session only
+let filledProperties = [];
+
+// Function to collect property details from the form
+function collectPropertyDetails() {
+  const propertyAlias = document.getElementById("property-name").value || "Main Residence";
+  const homeType = document.getElementById("home-type").value;
+  const heatingSource = document.getElementById("primary-heating-source").value;
+  const description = document.getElementById("best-describes-you").value;
+
+  // Collect utility selections
+  const electricity = document.getElementById("toggle-electricity").checked ? "Yes" : "No";
+  const gas = document.getElementById("toggle-gas").checked ? "Yes" : "No";
+  const broadband = document.getElementById("toggle-broadband").checked ? "Yes" : "No";
+
+  // Create a property object
+  const propertyDetails = {
+    alias: propertyAlias,
+    homeType: homeType,
+    heatingSource: heatingSource,
+    description: description,
+    utilities: {
+      electricity: electricity,
+      gas: gas,
+      broadband: broadband
+    }
+  };
+
+  // Add property to the list
+  filledProperties.push(propertyDetails);
+  console.log("Property collected and added:", propertyDetails);
+  console.log("Current filled properties:", filledProperties);
+}
+
+function displayRecentProperties() {
+  console.log("Displaying property names on consent page...");
+  console.log("Current properties:", filledProperties);
+
+  const propertyList = document.getElementById("property-list-items");
+  const propertyListContainer = document.getElementById("property-list");
+
+  if (!propertyList || !propertyListContainer) {
+    console.error("Property list elements not found in DOM!");
+    return;
+  } else {
+    console.log("Property list elements found!");
+  }
+
+  propertyList.innerHTML = ""; // Clear the list before appending
+
+  if (filledProperties.length === 0) {
+    console.warn("No properties available to display!");
+  }
+
+  // Display only the property alias in the list
+  filledProperties.forEach((property, index) => {
+    console.log(`Adding property to list: ${property.propertyAlias}`); // Log each property alias
+    const listItem = document.createElement("li");
+    listItem.textContent = `${index + 1}. ${property.propertyAlias}`; // Display only the house name
+    propertyList.appendChild(listItem);
+  });
+
+  // Make sure the list is visible
+  propertyListContainer.classList.remove("hidden");
+  console.log("Property names displayed successfully on the consent page.");
+}
+
+
+document.addEventListener("click", function (event) {
+  if (event.target && event.target.classList.contains("consent-button")) {
+    console.log("Consent button clicked!");
+    // collectPropertyDetails();
+    displayRecentProperties();
+    showStep("consent");
+  }
+});
+
+
+
+// Add Event Listener for "Add Another Property" button
+document.querySelector(".add-property-button").addEventListener("click", function () {
+  collectPropertyDetails(); // Save current property details
+  alert("Property Added! You can now add a new property.");
+  resetFormFields(); // Reset form for new property
+});
+
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded. Attaching event listeners...");
+    attachEventListeners();
+    updateHomeDetailsBackButton();
+    // updatePropertyList();
+});
+
+// let propertyEntries = JSON.parse(sessionStorage.getItem("propertyEntries")) || [];
+
+function attachEventListeners() {
+    console.log("Attaching event listeners...");
+
+    // Handle "Next" button clicks for standard flow
+    document.querySelectorAll(".next-button:not(.add-property-button)").forEach(button => {
+        button.addEventListener("click", function () {
+            let nextStepId = this.getAttribute("data-next");
+            if (nextStepId) {
+                console.log(`Navigating to ${nextStepId}`);
+                showStep(nextStepId);
+            }
+        });
+    });
+
+    // Handle "Add Another Property" click separately
+    const addPropertyButton = document.querySelector(".add-property-button");
+    if (addPropertyButton) {
+        addPropertyButton.addEventListener("click", function () {
+            saveCurrentProperty(); // Save current form data
+            resetFormFields(); // Clear form fields for a new property
+            showStep("property-alias"); // Move to Property Alias step
+        });
+    }
+    document.querySelector(".consent-button").addEventListener("click", function () {
+        saveCurrentProperty(); // Save form data before proceeding
+        // updatePropertyList(); // Update property list in Consent section
+        showStep("consent"); // Move to Consent step
+    });
+
+    // Handle "Back" button clicks
+    document.querySelectorAll(".prev-button").forEach(button => {
+        button.addEventListener("click", function () {
+            let prevStepId = this.getAttribute("data-prev");
+            if (prevStepId) {
+                console.log(`Navigating back to ${prevStepId}`);
+                showStep(prevStepId);
+            }
+        });
+    });
+
+    // Handle Yes/No buttons in Property Setup
+    document.querySelectorAll("#property-setup .yes-button, #property-setup .no-button").forEach(button => {
+        button.addEventListener("click", function () {
+            let nextStepId = this.getAttribute("data-next");
+
+            if (this.classList.contains("yes-button")) {
+                sessionStorage.setItem("propertySetupSelection", "yes");
+                sessionStorage.setItem("propertyAlias", "Main");
+            } else {
+                sessionStorage.setItem("propertySetupSelection", "no");
+            }
+
+            if (nextStepId) {
+                showStep(nextStepId);
+            }
+        });
+    });
+
+    // Handle Yes/No buttons in Residence Check
+    document.querySelectorAll("#residence-check .yes-button, #residence-check .no-button").forEach(button => {
+        button.addEventListener("click", function () {
+            let nextStepId = this.getAttribute("data-next");
+
+            if (this.classList.contains("yes-button")) {
+                sessionStorage.setItem("residenceSelection", "yes");
+            } else {
+                sessionStorage.setItem("residenceSelection", "no");
+            }
+
+            if (nextStepId) {
+                showStep(nextStepId);
+            }
+        });
+    });
+
+    // Watch for step change in Utilities
+    const utilitiesSection = document.getElementById("utilities");
+    if (utilitiesSection) {
+        const observer = new MutationObserver(() => {
+            if (!utilitiesSection.classList.contains("hidden")) {
+                updateUtilitiesNextButton();
+            }
+        });
+        observer.observe(utilitiesSection, { attributes: true, attributeFilter: ["class"] });
+    }
+
+    // Listen for input changes in Property Alias field
+    const propertyInput = document.getElementById("property-name");
+    if (propertyInput) {
+        propertyInput.addEventListener("input", function () {
+            if (sessionStorage.getItem("residenceSelection") === "no") {
+                sessionStorage.setItem("propertyAlias", this.value.trim());
+            }
+            updateHeaderText();
+        });
+    }
+}
+
+// Function to show/hide steps
+function showStep(step) {
+    console.log(`Showing step: ${step}`);
+    document.querySelectorAll('.step').forEach(el => el.classList.add('hidden'));
+    const nextStepElement = document.getElementById(step);
+
+    if (nextStepElement) {
+        nextStepElement.classList.remove('hidden');
+        updateHeaderText();
+    } else {
+        console.error(`Step ${step} not found!`);
+    }
+}
+
+// Function to save form data before adding another property
+function saveCurrentProperty() {
+  let propertyAlias = sessionStorage.getItem("propertyAlias") || "Main Residence";
+
+  if (sessionStorage.getItem("residenceSelection") === "yes") {
+    propertyAlias = "Main";
+  }
+
+  const homeType = document.getElementById("home-type").value;
+  const heatingSource = document.getElementById("primary-heating-source").value;
+  const bestDescribesYou = document.getElementById("best-describes-you").value;
+  const hasSolar = document.getElementById("solar-pv").value;
+  const hasEV = document.getElementById("ev-ownership").value;
+
+  if (!propertyAlias) {
+    alert("Please enter a property name before adding another.");
+    return;
+  }
+
+  const propertyData = {
+    propertyAlias,
+    homeType,
+    heatingSource,
+    bestDescribesYou,
+    hasSolar,
+    hasEV
+  };
+
+  filledProperties.push(propertyData); // Use filledProperties instead of propertyEntries
+  console.log("Saved Property:", propertyData);
+}
+// function updatePropertyList() {
+//     const propertyListContainer = document.getElementById("property-list");
+//     const propertyList = document.getElementById("property-list-items");
+//     propertyList.innerHTML = ""; // Clear existing list
+
+//     const savedProperties = JSON.parse(sessionStorage.getItem("propertyEntries")) || [];
+    
+//     if (savedProperties.length > 0) {
+//         propertyListContainer.classList.remove("hidden"); // Show the list container
+//         savedProperties.forEach((property, index) => {
+//             const listItem = document.createElement("li");
+//             listItem.textContent = `${index + 1}. ${property.propertyAlias} (${property.homeType})`;
+//             propertyList.appendChild(listItem);
+//         });
+//     } else {
+//         propertyListContainer.classList.add("hidden"); // Hide the list if empty
+//     }
+// }
+
+// Show property list when entering Utilities step
+const utilitiesSection = document.getElementById("utilities");
+if (utilitiesSection) {
+    const observer = new MutationObserver(() => {
+        if (!utilitiesSection.classList.contains("hidden")) {
+            // updatePropertyList(); // Update list when Utilities step is shown
+        }
+    });
+
+    observer.observe(utilitiesSection, { attributes: true, attributeFilter: ["class"] });
+}
+
+// Function to reset form fields when starting a new property
+function resetFormFields() {
+    document.getElementById("property-name").value = "";
+    document.getElementById("home-type").selectedIndex = 0;
+    document.getElementById("primary-heating-source").selectedIndex = 0;
+    document.getElementById("best-describes-you").selectedIndex = 0;
+    document.getElementById("solar-pv").selectedIndex = 0;
+    document.getElementById("ev-ownership").selectedIndex = 0;
+    sessionStorage.removeItem("propertyAlias");
+}
+
+// Function to update the Next button in Utilities if "Yes" was selected in Property Setup
+function updateUtilitiesNextButton() {
+    const selection = sessionStorage.getItem("propertySetupSelection");
+    const addPropertyButton = document.querySelector(".add-property-button");
+    const consentButton = document.querySelector(".consent-button");
+
+    if (selection === "yes") {
+        addPropertyButton.classList.remove("hidden"); // Show "Add Another Property"
+    } else {
+        addPropertyButton.classList.add("hidden"); // Hide it if "No" was selected
+    }
+}
+
+// Function to update header text dynamically
+function updateHeaderText() {
+    const dynamicLine = document.getElementById("dynamic-property-line");
+    const propertyAlias = sessionStorage.getItem("propertyAlias") || "";
+
+    if (!dynamicLine) return;
+
+    if (sessionStorage.getItem("residenceSelection") === "yes") {
+        dynamicLine.innerHTML = "Let's set up your main home for you";
+    } else {
+        dynamicLine.innerHTML = `Let's set up ${propertyAlias ? propertyAlias : "your property"} for you`;
+    }
+}
+
+</script>
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Check if the URL contains showPopup=true
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("showPopup") === "true") {
+        showPopup();
+    }
+});
+
+function showPopup() {
+    fetch("questionspopup.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("popupContent").innerHTML = html;
+            document.getElementById("questionModal").classList.remove("hidden");
+
+            // Reattach event listeners after loading the popup
+            setTimeout(attachEventListeners, 100); 
+        })
+        .catch(error => console.error("Error loading popup:", error));
+}
+
+
+function closeModal() {
+    document.getElementById("questionModal").classList.add("hidden");
+}
+
+</script>
+
+
+<script>
+  function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.classList.toggle("hidden");
+  }
+
+  function toggleSolarFields() {
+      const solarQuestions = document.getElementById("solar-questions");
+      const solarPV = document.getElementById("solar-pv").value;
+      if (solarPV === "yes") {
+          solarQuestions.classList.remove("hidden");
+      } else {
+          solarQuestions.classList.add("hidden");
+      }
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("ev-ownership").addEventListener("change", toggleEVQuestions);
+    document.getElementById("solar-pv").addEventListener("change", toggleSolarFields);
+    document.getElementById("solar-battery").addEventListener("change", toggleBatteryCapacity);
+});
+
+function toggleEVQuestions() {
+    const evSelection = document.getElementById("ev-ownership").value;
+    const evOneQuestions = document.getElementById("ev-one-questions");
+    const evMultipleQuestions = document.getElementById("ev-multiple-questions");
+
+    evOneQuestions.classList.add("hidden");
+    evMultipleQuestions.classList.add("hidden");
+
+    if (evSelection === "one") {
+        evOneQuestions.classList.remove("hidden");
+    } else if (evSelection === "more-than-one") {
+        evMultipleQuestions.classList.remove("hidden");
+    }
+}
+
+function toggleSolarFields() {
+    const solarSelection = document.getElementById("solar-pv").value;
+    const solarQuestions = document.getElementById("solar-questions");
+    solarQuestions.classList.toggle("hidden", solarSelection === "no");
+}
+
+function toggleBatteryCapacity() {
+    const batterySelection = document.getElementById("solar-battery").value;
+    const batteryCapacityQuestion = document.getElementById("battery-capacity-question");
+    batteryCapacityQuestion.classList.toggle("hidden", batterySelection === "no");
+}
+
+let evCount = 0; // Track number of EVs added
+
+function addAnotherEV() {
+    evCount++;
+    const evContainer = document.getElementById("ev-multiple-questions");
+
+    // Create EV Entry Container
+    const newEV = document.createElement("div");
+    newEV.classList.add("ev-entry", "bg-gray-100", "p-4", "rounded-lg", "shadow-md", "mt-4");
+    newEV.setAttribute("id", `ev-entry-${evCount}`);
+
+    // Inner HTML with Add and Delete Button
+    newEV.innerHTML = `
+        <h4 class="font-bold text-gray-700">EV ${evCount} Details:</h4>
+        <div>
+            <label class="block text-gray-700 font-medium">Is it a full battery EV (BEV) or Plug In Hybrid (PHEV)?</label>
+            <select class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
+                <option value="bev">Full Battery EV (BEV)</option>
+                <option value="phev">Plug In Hybrid (PHEV)</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-gray-700 font-medium">What size is your car's battery?</label>
+            <input type="number" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" placeholder="Enter battery size in kWh">
+        </div>
+        <div>
+            <label class="block text-gray-700 font-medium">How many KM do you think you drive per year?</label>
+            <input type="number" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" placeholder="Enter KM per year">
+        </div>
+        <div class="flex justify-between mt-4">
+            <button type="button" class="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700" onclick="removeEV('ev-entry-${evCount}')">Delete</button>
+            <button type="button" id="add-ev-btn" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700" onclick="addAnotherEV()">Add Another EV</button>
+        </div>
+    `;
+
+    // Remove previous "Add Another EV" button
+    const existingButtons = evContainer.querySelectorAll(".ev-entry button#add-ev-btn");
+    existingButtons.forEach(button => button.remove());
+
+    evContainer.appendChild(newEV);
+}
+
+function removeEV(evId) {
+    const evElement = document.getElementById(evId);
+    if (evElement) {
+        evElement.remove();
+    }
+
+    // If no EVs are left, reset the evCount
+    const remainingEVs = document.querySelectorAll(".ev-entry").length;
+    if (remainingEVs === 0) {
+        evCount = 0;
+    }
+}
+
+
+</script>
+<script>
+  function toggleSolarFields() {
+      const solarPV = document.getElementById("solar-pv").value;
+      const solarQuestions = document.getElementById("solar-questions");
+
+      if (solarPV === "yes") {
+          solarQuestions.classList.remove("hidden");
+      } else {
+          solarQuestions.classList.add("hidden");
+      }
+  }
+</script>
+<script>
+  function showStep(step) {
+    // Hide all steps
+    document.querySelectorAll('.step').forEach(el => el.classList.add('hidden'));
+    document.getElementById(step).classList.remove('hidden');
+
+    // Define step order
+    let steps = ['property-setup', 'residence-check', 'property-alias', 'home-details', 'utilities', 'consent'];
+    let stepLines = document.querySelectorAll('.step-line');
+
+    steps.forEach((stepId, index) => {
+        let indicator = document.querySelector(`.${stepId}-indicator`);
+        let img = indicator ? indicator.querySelector('img') : null;
+        let line = stepLines[index - 1]; // Step line connects previous step to the current one
+
+        if (indicator && img) {
+            if (stepId === step) {
+                // Current step
+                indicator.classList.add('text-blue-600');
+                indicator.classList.remove('text-gray-400');
+                img.classList.add('filter-blue');
+                img.classList.remove('filter-gray');
+            } else if (steps.indexOf(stepId) < steps.indexOf(step)) {
+                // Completed steps
+                indicator.classList.add('text-blue-600');
+                indicator.classList.remove('text-gray-400');
+                img.classList.add('filter-blue');
+                img.classList.remove('filter-gray');
+                if (line) line.classList.add('bg-blue-600');
+            } else {
+                // Future steps (gray)
+                indicator.classList.add('text-gray-400');
+                indicator.classList.remove('text-blue-600');
+                img.classList.add('filter-gray');
+                img.classList.remove('filter-blue');
+                if (line) line.classList.remove('bg-blue-600');
+            }
+        }
+    });
+
+    // Update header text dynamically (if applicable)
+    updateHeaderText();
+}
+
+// Function to move to the next step
+function nextStep() {
+    let steps = ['property-setup', 'residence-check', 'property-alias', 'home-details', 'utilities', 'consent'];
+    let currentStep = steps.find(step => !document.getElementById(step).classList.contains('hidden'));
+    let nextIndex = steps.indexOf(currentStep) + 1;
+
+    if (nextIndex < steps.length) {
+        showStep(steps[nextIndex]);
+    }
+}
+
+// Function to move to the previous step
+function prevStep() {
+    let steps = ['property-setup', 'residence-check', 'property-alias', 'home-details', 'utilities', 'consent'];
+    let currentStep = steps.find(step => !document.getElementById(step).classList.contains('hidden'));
+    let prevIndex = steps.indexOf(currentStep) - 1;
+
+    if (prevIndex >= 0) {
+        showStep(steps[prevIndex]);
+    }
+}
+
+// Attach event listeners to buttons
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".next-button").addEventListener("click", nextStep);
+    document.querySelector(".prev-button").addEventListener("click", prevStep);
+});
+
+
+</script>
+
+
+<script>
+  function toggleField(toggleId, fieldId) {
+      const toggle = document.getElementById(toggleId);
+      const field = document.getElementById(fieldId);
+      if (toggle.checked) {
+          field.classList.remove("hidden");
+      } else {
+          field.classList.add("hidden");
+      }
+  }
+</script>
+<script>
+  function toggleCard(cardId, sectionId) {
+    const section = document.getElementById(sectionId);
+    section.classList.toggle('hidden');
+  }
+
+  function toggleSolarFields() {
+    const solarSection = document.getElementById('solar-questions');
+    solarSection.classList.toggle('hidden');
+  }
+</script>
+
+<script>
+    function loadContent(page) {
+    const contentArea = document.getElementById('content-area');
+    const sidebar = document.getElementById('default-sidebar');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    // Fetch the content of the page and load it into the content area
+    fetch(page)
+        .then(response => response.text())
+        .then(data => {
+            contentArea.innerHTML = data;
+
+            // Close the sidebar after loading the content
+            if (!sidebar.classList.contains("-translate-x-full")) {
+                sidebar.classList.add("-translate-x-full");
+                hamburgerIcon.classList.remove("hidden"); // Show Hamburger Icon
+                closeIcon.classList.add("hidden"); // Hide Close Icon
+            }
+        })
+        .catch(error => {
+            console.error('Error loading content:', error);
+            contentArea.innerHTML = '<p class="text-red-500">Failed to load content. Please try again later.</p>';
+        });
+}
+
+  </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.getElementById("hamburger");
+      const sidebar = document.getElementById("default-sidebar");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+
+      // Toggle Sidebar Visibility
+      hamburger.addEventListener("click", function () {
+        sidebar.classList.toggle("-translate-x-full");
+
+        // Toggle between hamburger and close icons
+        hamburgerIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+    });
+  </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const userMenuButton = document.getElementById("user-menu-button");
+        const userDropdown = document.getElementById("user-dropdown");
+
+        userMenuButton.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent click from closing immediately
+            userDropdown.classList.toggle("hidden");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add("hidden");
+            }
+        });
+    });
+</script>
+
+<script>
+    function toggleDropdown(dropdownId) {
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = document.getElementById(`${dropdownId.split('-')[0]}-arrow`);
+  
+      // Toggle visibility
+      dropdown.classList.toggle("hidden");
+  
+      // Rotate the arrow icon
+      arrow.classList.toggle("rotate-180");
+    }
+  </script>
+  <script>
+    function toggleModernDropdown(dropdownId) {
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = document.getElementById(`${dropdownId}-arrow`);
+  
+      // Toggle dropdown visibility
+      dropdown.classList.toggle("show");
+  
+      // Rotate arrow
+      arrow.classList.toggle("up");
+    }
+  
+    // Close dropdown when clicking outside (for modern dropdown)
+    window.addEventListener("click", function (event) {
+      if (!event.target.closest(".modern-dropdown")) {
+        document.querySelectorAll(".dropdown-content").forEach((menu) => {
+          menu.classList.remove("show");
+        });
+        document.querySelectorAll(".dropdown-arrow").forEach((arrow) => {
+          arrow.classList.remove("up");
+        });
+      }
+    });
+  </script>
+  
+  
+  <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script></body>
+</html>
