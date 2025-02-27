@@ -1,4 +1,4 @@
-<!-- <script>
+
   function toggleSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -7,8 +7,8 @@
     console.warn(`Section with ID "${sectionId}" not found.`);
   }
 }
-</script>
-<script>
+
+
  // Array to store property details for the current session only
 let filledProperties = [];
 
@@ -95,9 +95,9 @@ document.querySelector(".add-property-button").addEventListener("click", functio
   resetFormFields(); // Reset form for new property
 });
 
-</script>
 
-<script>
+
+
   document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded. Attaching event listeners...");
     attachEventListeners();
@@ -111,40 +111,49 @@ function attachEventListeners() {
     console.log("Attaching event listeners...");
 
     // Handle "Next" button clicks for standard flow
-    document.querySelectorAll(".next-button:not(.add-property-button)").forEach(button => {
-        button.addEventListener("click", function () {
-            let nextStepId = this.getAttribute("data-next");
-            if (nextStepId) {
-                console.log(`Navigating to ${nextStepId}`);
-                showStep(nextStepId);
-            }
-        });
-    });
+    document.querySelectorAll(".next-button:not(.add-property-button)")
+      .forEach(button => {
+          button.addEventListener("click", function () {
+              let nextStepId = this.getAttribute("data-next");
+              if (nextStepId) {
+                  console.log(`Navigating to ${nextStepId}`);
+                  showStep(nextStepId);
+              }
+          });
+      });
 
-    // Handle "Add Another Property" click separately
+      if (document.querySelector(".add-property-button")) {
     const addPropertyButton = document.querySelector(".add-property-button");
-    if (addPropertyButton) {
-        addPropertyButton.addEventListener("click", function () {
-            saveCurrentProperty(); // Save current form data
-            resetFormFields(); // Clear form fields for a new property
-            showStep("property-alias"); // Move to Property Alias step
-        });
-    }
-    document.querySelector(".consent-button").addEventListener("click", function () {
-        saveCurrentProperty(); // Save form data before proceeding
-        // updatePropertyList(); // Update property list in Consent section
-        showStep("consent"); // Move to Consent step
+    addPropertyButton.addEventListener("click", function () {
+      collectPropertyDetails();
+      alert("Property Added! You can now add a new property.");
+      resetFormFields();
     });
+  } else {
+    console.warn('Element with class "add-property-button" not found.');
+  }
+
+
+    // Handle "Consent" button clicks
+    if (document.querySelector(".consent-button")) {
+    const consentButton = document.querySelector(".consent-button");
+    consentButton.addEventListener("click", function () {
+      saveCurrentProperty();
+      showStep("consent");
+    });
+  } else {
+    console.warn('Element with class "consent-button" not found.');
+  }
 
     // Handle "Back" button clicks
     document.querySelectorAll(".prev-button").forEach(button => {
-        button.addEventListener("click", function () {
-            let prevStepId = this.getAttribute("data-prev");
-            if (prevStepId) {
-                console.log(`Navigating back to ${prevStepId}`);
-                showStep(prevStepId);
-            }
-        });
+      button.addEventListener("click", function () {
+        let prevStepId = this.getAttribute("data-prev");
+        if (prevStepId) {
+          console.log(`Navigating back to ${prevStepId}`);
+          showStep(prevStepId);
+        }
+      });
     });
 
     // Handle Yes/No buttons in Property Setup
@@ -319,9 +328,9 @@ function updateHeaderText() {
     }
 }
 
-</script>
+
   
-<script>
+
   document.addEventListener("DOMContentLoaded", function () {
     // Check if the URL contains showPopup=true
     const urlParams = new URLSearchParams(window.location.search);
@@ -348,10 +357,10 @@ function closeModal() {
     document.getElementById("questionModal").classList.add("hidden");
 }
 
-</script>
 
 
-<script>
+
+
   function toggleSection(sectionId) {
       const section = document.getElementById(sectionId);
       section.classList.toggle("hidden");
@@ -366,8 +375,8 @@ function closeModal() {
           solarQuestions.classList.add("hidden");
       }
   }
-</script>
-<script>
+
+
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("ev-ownership").addEventListener("change", toggleEVQuestions);
     document.getElementById("solar-pv").addEventListener("change", toggleSolarFields);
@@ -401,20 +410,20 @@ function toggleBatteryCapacity() {
     batteryCapacityQuestion.classList.toggle("hidden", batterySelection === "no");
 }
 
-let evCount = 0; // Track number of EVs added
+let evCountForAddAnother = 0; // Track number of EVs added
 
 function addAnotherEV() {
-    evCount++;
+    evCountForAddAnother++;
     const evContainer = document.getElementById("ev-multiple-questions");
 
     // Create EV Entry Container
     const newEV = document.createElement("div");
     newEV.classList.add("ev-entry", "bg-gray-100", "p-4", "rounded-lg", "shadow-md", "mt-4");
-    newEV.setAttribute("id", `ev-entry-${evCount}`);
+    newEV.setAttribute("id", `ev-entry-${evCountForAddAnother}`);
 
     // Inner HTML with Add and Delete Button
     newEV.innerHTML = `
-        <h4 class="font-bold text-gray-700">EV ${evCount} Details:</h4>
+        <h4 class="font-bold text-gray-700">EV ${evCountForAddAnother} Details:</h4>
         <div>
             <label class="block text-gray-700 font-medium">Is it a full battery EV (BEV) or Plug In Hybrid (PHEV)?</label>
             <select class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
@@ -431,7 +440,7 @@ function addAnotherEV() {
             <input type="number" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm" placeholder="Enter KM per year">
         </div>
         <div class="flex justify-between mt-4">
-            <button type="button" class="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700" onclick="removeEV('ev-entry-${evCount}')">Delete</button>
+            <button type="button" class="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700" onclick="removeEV('ev-entry-${evCountForAddAnother}')">Delete</button>
             <button type="button" id="add-ev-btn" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700" onclick="addAnotherEV()">Add Another EV</button>
         </div>
     `;
@@ -449,16 +458,17 @@ function removeEV(evId) {
         evElement.remove();
     }
 
-    // If no EVs are left, reset the evCount
+    // If no EVs are left, reset the counter
     const remainingEVs = document.querySelectorAll(".ev-entry").length;
     if (remainingEVs === 0) {
-        evCount = 0;
+        evCountForAddAnother = 0;
     }
 }
 
 
-</script>
-<script>
+
+
+
   function toggleSolarFields() {
       const solarPV = document.getElementById("solar-pv").value;
       const solarQuestions = document.getElementById("solar-questions");
@@ -469,8 +479,8 @@ function removeEV(evId) {
           solarQuestions.classList.add("hidden");
       }
   }
-</script>
-<script>
+
+
   function showStep(step) {
     // Hide all steps
     document.querySelectorAll('.step').forEach(el => el.classList.add('hidden'));
@@ -543,10 +553,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-</script>
 
 
-<script>
+
+
   function toggleField(toggleId, fieldId) {
       const toggle = document.getElementById(toggleId);
       const field = document.getElementById(fieldId);
@@ -556,8 +566,8 @@ document.addEventListener("DOMContentLoaded", function () {
           field.classList.add("hidden");
       }
   }
-</script>
-<script>
+
+
   function toggleCard(cardId, sectionId) {
     const section = document.getElementById(sectionId);
     section.classList.toggle('hidden');
@@ -567,9 +577,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const solarSection = document.getElementById('solar-questions');
     solarSection.classList.toggle('hidden');
   }
-</script>
 
-<script>
+
+
     function loadContent(page) {
     const contentArea = document.getElementById('content-area');
     const sidebar = document.getElementById('default-sidebar');
@@ -595,8 +605,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 }
 
-  </script>
-<script>
+  
+
     document.addEventListener("DOMContentLoaded", function () {
       const hamburger = document.getElementById("hamburger");
       const sidebar = document.getElementById("default-sidebar");
@@ -612,13 +622,13 @@ document.addEventListener("DOMContentLoaded", function () {
         closeIcon.classList.toggle("hidden");
       });
     });
-  </script>
-  <script>
+  
+  
     document.addEventListener("DOMContentLoaded", function () {
       lucide.createIcons();
     });
-  </script>
-<script>
+  
+
     document.addEventListener("DOMContentLoaded", function () {
         const userMenuButton = document.getElementById("user-menu-button");
         const userDropdown = document.getElementById("user-dropdown");
@@ -635,9 +645,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-</script>
 
-<script>
+
+
     function toggleDropdown(dropdownId) {
   const dropdown = document.getElementById(dropdownId);
   // Use backticks for proper string interpolation:
@@ -656,8 +666,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
 
-  </script>
-  <script>
+  
+  
     function toggleModernDropdown(dropdownId) {
       const dropdown = document.getElementById(dropdownId);
       const arrow = document.getElementById(`${dropdownId}-arrow`);
@@ -680,9 +690,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     });
-  </script>
+  
 
-<script>
+
   // Generic function to handle dropdowns (renamed from toggleDropdown)
   function setupDropdown(buttonId, contentId, arrowId) {
     document.getElementById(buttonId).addEventListener('click', function (event) {
@@ -763,5 +773,3 @@ document.addEventListener("DOMContentLoaded", function () {
       addEv(evDetails, evCount);
     });
   }
-</script>
-   -->
