@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* Rotate arrow 180 degrees when toggled */
+    .rotate-180 {
+      transform: rotate(180deg);
+    }
+    /* Simple dropdown styling for your "modernDropdownMenu" */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      margin-top: 0.5rem;
+      background: #ffffff;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      padding: 0.5rem 0;
+      z-index: 10;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #4b5563; /* text-gray-600 */
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background: #f3f4f6; /* hover: bg-gray-100 */
+    }
+    .dropdown.show {
+      display: block;
+    }
+    
+  </style>
+</head>
+<body class=" bg-[#EBE9F2]"></body>
+<nav class="bg-[#31264B] border-gray-200">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto px-6 py-4">
+    
+      <div class="flex items-center space-x-4">
+        <button id="hamburger" class="text-gray-300 focus:outline-none">
+        
+          <svg id="hamburger-icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        
+          <svg id="close-icon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+    
+        
+        <a href="#" class="flex items-center">
+          <img src="images/weswitchu.png" class="h-8" alt="WeSwitchU.ie Logo">
+        </a>
+      </div>
+    
+      <div class="flex items-center space-x-3 md:space-x-6">
+        <div class="relative">
+          <button id="user-menu-button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="User Photo">
+          </button>
+          <div id="user-dropdown" class="hidden absolute right-0 mt-2 bg-white text-gray-700 rounded-lg shadow-md w-48 z-50">
+            <div class="px-4 py-3">
+              <p class="text-sm font-medium text-gray-900">John Doe</p>
+              <p class="text-sm text-gray-500 truncate">email@example.com</p>
+            </div>
+            <ul class="py-2">
+              <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+   <!-- Sidebar -->
+   <aside id="default-sidebar"
+    class="fixed top-[63px] left-0 z-40 w-64 h-[calc(100%-63px)] transition-transform -translate-x-full bg-[#31264B] overflow-y-auto"
+    aria-label="Sidebar">
+    <div class="h-full px-3 py-4">
+        <ul class="space-y-2 font-medium text-white">
+        
+        <!-- Dashboard Dropdown -->
+        <li>
+            <a href="dashboard.html"  class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
+              <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
+                <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
+              </svg>
+              <span class="ms-3">Dashboard</span>
+            </a>
+          </li>
+  
+        <!-- Products Dropdown -->
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('products-dropdown')">
+            <img src="images/business_15931237.png" class="w-5 h-5 mr-2" alt="Bills" style="filter: invert(1);"> <!-- Bills Icon -->
+            <span class="ms-3 flex-1 text-left">Bills</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="settings-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="products-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="Bill_List.html"  class="block p-2 rounded-lg hover:bg-gray-600">Bill List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Upload Bills</a></li>
+            <!-- <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Electricity Bills</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('meter-dropdown')">
+            <img src="images/bar-graph.png" class="w-5 h-5 mr-2" alt="Meter Readings" style="filter: invert(1);"> <!-- Meter Icon -->
+            <span class="ms-3 flex-1 text-left">Meter Readings</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="meter-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="javascript:void(0)" onclick="loadContent('meter-reading-list.html')" class="block p-2 rounded-lg hover:bg-gray-600">Meter Reading List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Gas Readings</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Electricity Readings</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('budget-dropdown')">
+            <img src="images/money-bag.png" class="w-5 h-5 mr-2" style="filter: invert(1);" alt="Budget Plans">
+            <span class="ms-3 flex-1 text-left">Fees</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="budget-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Invoices</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Payments</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('documents-dropdown')">
+            <img src="images/folder.png" class="w-5 h-5 mr-2" style="filter: invert(1);" alt="Documents">
+            <span class="ms-3 flex-1 text-left">Documents</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="documents-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Document List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add HDF File</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="flex items-center w-full p-2 rounded-lg hover:bg-gray-700 group" onclick="toggleDropdown('settings-dropdown')">
+            <img src="images/settings_3524636.png" class="w-5 h-5 mr-2" style="filter: invert(1);" alt="Documents">
+            <span class="ms-3 flex-1 text-left">Settings</span>
+            <svg class="w-4 h-4 transition-transform group-hover:text-white" id="products-arrow" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 8l5 5 5-5H5z" />
+            </svg>
+          </button>
+          <ul id="settings-dropdown" class="pl-6 mt-1 hidden space-y-1">
+            <li><a href="editproperties.html" class="block p-2 rounded-lg hover:bg-gray-600">Property Settings</a></li>
+            <li><a href="personalsettings.html" class="block p-2 rounded-lg hover:bg-gray-600">Personal Settings</a></li>
+            <li><a href="paymentmethodadd.html" class="block p-2 rounded-lg hover:bg-gray-600">Payment Settings</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Contact</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Location</a></li>
+          </ul>
+        </li>
+  
+      </ul>
+    </div>
+  </aside>
+  
+  
+  
+
+  <!-- Header Section -->
+  <div class="flex flex-wrap items-center justify-between px-8 py-6">
+    <!-- Left Section: Page Title & Breadcrumb -->
+    <div class="space-y-2">
+      <h1 class="text-2xl font-bold text-gray-900">Property Settings</h1>
+      <div class="flex items-center text-sm text-gray-500 space-x-2">
+        <span class="flex items-center space-x-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+        </span>
+        <span>›</span>
+        <a href="#" class="text-purple-600 hover:underline">Property Settings</a>
+      </div>
+    </div>
+
+    <!-- Right Section: Emergency Alerts -->
+    <div class="flex flex-wrap items-center space-x-4 mt-4">
+      <!-- Gas Emergency Button -->
+      <button
+        class="flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md
+               hover:bg-red-100 hover:shadow-lg transition-all duration-300 sm:px-3 sm:py-1 sm:text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
+          <path d="M12 9v4"/>
+          <path d="M12 17h.01"/>
+        </svg>
+        <span class="text-sm">Gas Emergency</span>
+      </button>
+
+      <!-- Electricity Emergency Button -->
+      <button
+        class="flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md
+               hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 sm:px-3 sm:py-1 sm:text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
+          <path d="M12 9v4"/>
+          <path d="M12 17h.01"/>
+        </svg>
+        <span class="text-sm">Electricity Emergency</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="w-full max-w-2xl mx-auto space-y-6 p-4 pb-24">
+    
+    <div class="bg-white rounded-lg shadow-sm flex items-center justify-between p-4 cursor-pointer"
+     onclick="togglePropertyDropdown('propertySetupMenu')">
+  <div class="flex items-center space-x-2">
+    <img src="images/home.png" alt="Property" class="h-5 w-5 text-blue-600"/>
+    <span id="selectedPropertyName" class="text-gray-800 font-medium">Select a Property</span>
+  </div>
+  <img src="images/down-arrow.png" alt="Dropdown Arrow" id="propertySetupMenu-arrow"
+       class="h-4 w-4 text-gray-400 transition-transform duration-300"/>
+</div>
+
+<!-- Dropdown Content -->
+<div id="propertySetupMenu" class="hidden p-4 bg-gray-50 rounded-lg mt-2 space-y-4 shadow-md">
+  <div class="flex items-center justify-between">
+    <span class="text-gray-800 font-medium">Multiple Properties</span>
+    <span id="propertyCount" class="text-gray-500 text-sm"></span>
+  </div>
+
+  <!-- Dynamic List of Properties -->
+  <ul id="propertyList" class="space-y-2 mt-2">
+    <!-- Property items will be injected here -->
+  </ul>
+</div>
+
+    <!-- Residence Check -->
+    <!-- <div class="bg-white rounded-lg shadow-sm flex items-center justify-between p-4 cursor-pointer"
+         onclick="toggleResidenceCheck()">
+      <div class="flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-5H9v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg>
+        <span class="text-gray-800 font-medium">How would you like us to refer to this property?</span>
+      </div>
+      <svg id="residenceCheckMenu-arrow" xmlns="http://www.w3.org/2000/svg"
+           class="h-4 w-4 text-gray-600 transition-transform duration-300"
+           fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+    <div id="residenceCheckMenu" class="hidden p-4 bg-gray-50 rounded-lg mt-2 space-y-4">
+      <div class="bg-white p-4 rounded-lg shadow space-y-2">
+        <!-- <label for="propertyAlias" class="block text-gray-700 font-medium"></label> -->
+        <!-- <input id="propertyAlias" type="text" placeholder="Beach House"
+               class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"/>
+      </div>
+    </div> -->
+
+    <!-- Home Details -->
+    <div class="relative bg-white rounded-lg shadow-sm">
+      <button id="homeDetailsDropdownButton"
+              class="flex items-center justify-between w-full p-4 rounded-lg hover:shadow-md transition cursor-pointer"
+              onclick="toggleHomeDetails()">
+        <div class="flex items-center space-x-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 2C10.895 2 10 2.895 10 4s.895 2 2 2 2-.895 2-2-.895-2-2-2zm0 8c-2.21 0-4 1.79-4 4v6h2v-6c0-1.105.895-2 2-2s2 .895 2 2v6h2v-6c0-2.21-1.79-4-4-4z"/>
+          </svg>
+          <span class="text-gray-800 font-semibold">Home Details</span>
+        </div>
+        <svg id="homeDetailsDropdownArrow" xmlns="http://www.w3.org/2000/svg"
+             class="h-4 w-4 text-gray-600 transition-transform duration-300"
+             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div id="homeDetailsDropdownContent" class=" p-4 bg-gray-50 rounded-lg mt-2 space-y-4">
+        <div class="space-y-2">
+          <label for="homeType" class="block text-gray-700 font-medium">Property Type</label>
+          <select id="homeType"
+                  class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+                  <option>Apartment</option>
+                  <option>Terraced</option>
+            <option>Semi-Detached</option>
+            <option>Detached</option>
+            <option>Large Detached</option>
+            <option>Bungalow</option>
+            <option>Farm</option>
+          </select>
+        </div>
+        <div class="space-y-2">
+          <label for="heatingSource" class="block text-gray-700 font-medium">What is your primary heating source (if any)?</label>
+          <select id="heatingSource"
+                  class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+            <option>Heat Pump</option>
+            <option>Gas Boiler</option>
+            <option>Gas Combi</option>
+            <option>Electric Heaters</option>
+            <option>Oil Fired Heating</option>
+            <option>Wood / Biomass</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="space-y-2">
+            <label for="bedrooms" class="block text-gray-700 font-medium">How Many Bedrooms in Your Home?</label>
+            <select id="bedrooms" name="bedrooms" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+              <option value="" disabled selected>Select an option</option>
+              <option value="1">1 Bedroom</option>
+              <option value="2">2 Bedrooms</option>
+              <option value="3">3 Bedrooms</option>
+              <option value="4">4 Bedrooms</option>
+              <option value="5">5+ Bedrooms</option>
+            </select>
+          </div>
+        
+          <!-- What best describes you? -->
+          <div class="space-y-2">
+            <label for="bestDescribesYou" class="block text-gray-700 font-medium">What best describes you?</label>
+            <select id="bestDescribesYou" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+              <option value="" disabled selected>Select an option</option>
+              <option>Homeowner</option>
+              <option>Renter</option>
+              <option>Landlord</option>
+              <option>Student</option>
+              <option>Living with Parents</option>
+              <option>Other</option>
+            </select>
+          </div>
+      </div>
+    </div>
+
+    <!-- Utilities -->
+    <div class="relative bg-white rounded-lg shadow-sm">
+      <button id="utilitiesDropdownButton"
+              class="flex items-center justify-between w-full p-4 rounded-lg hover:shadow-md transition cursor-pointer"
+              onclick="toggleUtilities()">
+        <div class="flex items-center space-x-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span class="text-gray-800 font-semibold">Utilities</span>
+        </div>
+        <svg id="utilitiesDropdownArrow" xmlns="http://www.w3.org/2000/svg"
+             class="h-4 w-4 text-gray-600 transition-transform duration-300"
+             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div id="utilitiesDropdownContent"
+           class=" p-4 bg-gray-50 rounded-lg mt-2 space-y-4">
+        <!-- Gas Service Toggle -->
+        <div class="flex items-center justify-between bg-white p-4 rounded-lg shadow">
+          <span class="text-gray-800 font-medium">Gas Service</span>
+          <label class="inline-flex relative items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer" />
+            <div
+              class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300
+                     rounded-full peer dark:bg-gray-300 peer-checked:bg-blue-600 peer-checked:after:translate-x-full
+                     peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px]
+                     after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full
+                     after:h-5 after:w-5 after:transition-all">
+            </div>
+          </label>
+        </div>
+        <!-- Electricity Service Toggle -->
+        <div class="flex items-center justify-between bg-white p-4 rounded-lg shadow">
+          <span class="text-gray-800 font-medium">Electricity Service</span>
+          <label class="inline-flex relative items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer" checked />
+            <div
+              class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300
+                     rounded-full peer dark:bg-gray-300 peer-checked:bg-blue-600 peer-checked:after:translate-x-full
+                     peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px]
+                     after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full
+                     after:h-5 after:w-5 after:transition-all">
+            </div>
+          </label>
+        </div>
+        <div class="flex items-center justify-between bg-white p-4 rounded-lg shadow">
+            <span class="text-gray-800 font-medium">Broadband Service</span>
+            <label class="inline-flex relative items-center cursor-pointer">
+              <input type="checkbox" id="broadbandToggle" class="sr-only peer" onchange="toggleBroadbandSection()" />
+              <div
+                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300
+                       rounded-full peer dark:bg-gray-300 peer-checked:bg-blue-600 peer-checked:after:translate-x-full
+                       peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px]
+                       after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full
+                       after:h-5 after:w-5 after:transition-all">
+              </div>
+            </label>
+          </div>
+      </div>
+    </div>
+
+    <!-- Solar Setup -->
+    <div class="relative bg-white rounded-lg shadow-sm">
+      <button id="solarDropdownButton"
+              class="flex items-center justify-between w-full p-4 rounded-lg hover:shadow-md transition cursor-pointer"
+              onclick="toggleSolar()">
+        <div class="flex items-center space-x-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 2v2m0 16v2m4.24-15.76l1.42 1.42M4.34 19.66l1.42-1.42m12.02 0
+                     l1.42 1.42M4.34 4.34l1.42 1.42M22 12h-2M4 12H2m8 4a4 4 0 100-8 4 4 0 000 8z"/>
+          </svg>
+          <span class="text-gray-800 font-semibold">Solar Setup</span>
+        </div>
+        <svg id="solarDropdownArrow" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-600
+             transition-transform duration-300" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div id="solarDropdownContent" class=" p-4 bg-gray-50 rounded-lg mt-2 space-y-4">
+        <div class="flex items-center justify-between bg-white p-4 rounded-lg shadow">
+          <span class="text-gray-800 font-medium">Solar PV Installed</span>
+          <label class="inline-flex relative items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer" checked />
+            <div
+              class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300
+                     rounded-full peer-checked:bg-blue-600 peer-checked:after:translate-x-full
+                     peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px]
+                     after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full
+                     after:h-5 after:w-5 after:transition-all">
+            </div>
+          </label>
+        </div>
+        <div class="space-y-2">
+          <label for="solarSystemSize" class="block text-gray-700 font-medium">Solar System Size (kW Capacity)</label>
+                  
+                  <input type="numbers" id="broadband-cost"
+                         class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300"
+                         placeholder="Capacity in kW"/>
+        </div>
+        <div class="space-y-2">
+          <label for="solarPanelDirection" class="block text-gray-700 font-medium">Solar Panel Direction</label>
+          <select id="solarPanelDirection"
+                  class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+            <option>East</option>
+            <option>West</option>
+            <option>South</option>
+            <option>North</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+<!-- Electric Vehicle Section -->
+<div class="relative bg-white rounded-lg shadow-sm">
+    <!-- Toggle button for expanding/collapsing -->
+    <button id="evDropdownButton"
+            class="flex items-center justify-between w-full p-4 rounded-lg hover:shadow-md transition cursor-pointer"
+            onclick="toggleEV()">
+      <div class="flex items-center space-x-3">
+        <!-- Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5 16V7a2 2 0 012-2h10a2 2 0 012 2v9m-4 4h-4v-2h4v2z"/>
+        </svg>
+        <span class="text-gray-800 font-semibold">Electric Vehicle</span>
+      </div>
+      <!-- Dropdown Arrow -->
+      <svg id="evDropdownArrow" xmlns="http://www.w3.org/2000/svg"
+           class="h-4 w-4 text-gray-600 transition-transform duration-300"
+           fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </button>
+  
+    <!-- Expandable Content -->
+    <div id="evDropdownContent" class=" p-4 bg-gray-50 rounded-lg mt-2 space-y-4">
+      <!-- Dropdown: Do you have an EV? -->
+      <div class="space-y-2">
+        <label for="haveEV" class="block text-gray-700 font-medium">Do you have an EV?</label>
+        <select id="haveEV" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+          <option>None</option>
+          <option selected>One</option>
+          <option>More than One</option>
+        </select>
+      </div>
+  
+      <!-- EV Details Section -->
+      <div id="evDetails" class="space-y-6">
+        <!-- EV 1 -->
+        <div class="bg-white p-4 rounded-lg shadow space-y-4">
+          <h3 class="text-lg font-semibold text-gray-800">EV 1</h3>
+  
+          <label class="block text-gray-700 font-medium">EV Type</label>
+          <select class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+            <option>Full Battery EV (BEV)</option>
+            <option>Plug-in Hybrid EV (PHEV)</option>
+            <option>Hybrid EV (HEV)</option>
+          </select>
+  
+          <label class="block text-gray-700 font-medium">Battery Size (kWh)</label>
+          <input type="number" value="75"
+                 class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+  
+          <label class="block text-gray-700 font-medium">Annual Driving Distance (km)</label>
+          <input type="number" value="15000"
+                 class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+        </div>
+      </div>
+  
+      <!-- Button to add another EV -->
+      <button id="addEvButton" class="flex items-center text-blue-600 font-medium hover:underline" onclick="addAnotherEv()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+        Add Another EV
+      </button>
+    </div>
+  </div>
+  
+  
+
+    <!-- Broadband -->
+    <div id="broadbandSection" class="hidden">
+        <div class="relative bg-white rounded-lg shadow-md mt-2">
+          <button id="broadbandDropdownButton"
+                  class="flex items-center justify-between w-full p-4 rounded-lg hover:shadow-lg transition cursor-pointer"
+                  onclick="toggleBroadbandDropdown()">
+            <div class="flex items-center space-x-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M9 15a3 3 0 0 1 6 0m-9-3a7 7 0 0 1 14 0"/>
+              </svg>
+              <span class="text-gray-900 font-semibold">Broadband</span>
+            </div>
+            <svg id="broadbandDropdownArrow" xmlns="http://www.w3.org/2000/svg"
+                 class="h-5 w-5 text-gray-600 transition-transform duration-300"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="broadband-service-details" class=" p-6 bg-gray-50 rounded-lg mt-2 shadow-md space-y-4">
+            <div class="space-y-2">
+              <label for="broadband-supplier" class="block text-gray-700 font-medium">Who is your supplier?</label>
+              <select id="broadband-supplier"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300">
+                <option value="" disabled selected>Select your broadband provider</option>
+                <option value="Virgin Media Ireland Ltd">Virgin Media Ireland Ltd</option>
+                <option value="Vodafone Ireland Ltd">Vodafone Ireland Ltd</option>
+                <option value="Eir">Eir</option>
+                <option value="Sky">Sky</option>
+                <option value="Three">Three</option>
+                <option value="Digiweb">Digiweb</option>
+                <option value="Pure Telecom">Pure Telecom</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label for="broadband-contract" class="block text-gray-700 font-medium">Are you in a contract?</label>
+              <select id="broadband-contract"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+                <label class="block text-gray-700 font-medium">Contract End Date</label>
+            </div>
+            <div class="space-y-2">
+                <label class="block text-gray-700 font-medium">Is your Broadband bundled with TV or Mobile?</label>
+                <select id="broadband-bundled"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+            </div>
+      
+            <div class="space-y-2">
+              <label for="broadband-cost" class="block text-gray-700 font-medium">How much do you pay per month?</label>
+              <input type="number" id="broadband-cost"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300"
+                     placeholder="Enter monthly cost in €"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Fixed Footer for 'Save Changes' -->
+  <div class="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex">
+    <button class="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17 9V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4m0 0H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2v-8a2 2 0 00-2-2h-2m-6 0V5m0 4h4"/>
+      </svg>
+      Save Changes
+    </button>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("default-sidebar");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const closeIcon = document.getElementById("close-icon");
+        const body = document.body;
+    
+        function openSidebar() {
+            sidebar.classList.remove("-translate-x-full");
+            body.classList.add("overflow-hidden"); // Prevent scrolling
+        }
+    
+        function closeSidebar() {
+            sidebar.classList.add("-translate-x-full");
+            body.classList.remove("overflow-hidden"); // Enable scrolling
+        }
+    
+        // Toggle Sidebar
+        if (hamburger && sidebar) {
+            hamburger.addEventListener("click", function () {
+                if (sidebar.classList.contains("-translate-x-full")) {
+                    openSidebar();
+                } else {
+                    closeSidebar();
+                }
+            });
+        }
+    
+        // Close sidebar when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+                closeSidebar();
+            }
+        });
+    });
+    </script>
+  <script>
+    // Toggle Arrow Rotation Only (Dropdowns Always Open)
+function toggleModernDropdown(dropdownId) {
+  const arrow = document.getElementById(`${dropdownId}-arrow`);
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+// Toggle for the Property Setup Dropdown
+function togglePropertyDropdown(dropdownId) {
+  const arrow = document.getElementById(`${dropdownId}-arrow`);
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+// Toggle for the Residence Check Dropdown
+function toggleResidenceCheck() {
+  const arrow = document.getElementById("residenceCheckMenu-arrow");
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+// Toggle for the Home Details Section
+function toggleHomeDetails() {
+  const arrow = document.getElementById("homeDetailsDropdownArrow");
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+// Toggle for the Utilities Section
+function toggleUtilities() {
+  const arrow = document.getElementById("utilitiesDropdownArrow");
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+// Toggle for the Solar Setup Section
+function toggleSolar() {
+  const arrow = document.getElementById("solarDropdownArrow");
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+// Toggle for the Electric Vehicle Section
+function toggleEV() {
+  const arrow = document.getElementById("evDropdownArrow");
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+// Toggle for the Broadband Section
+function toggleBroadband() {
+  const arrow = document.getElementById("broadbandDropdownArrow");
+  if (arrow) arrow.classList.toggle("rotate-180");
+}
+
+    // Global counter to track the number of EV blocks added
+    let evCount = 1;
+  
+  // Function to add another EV block dynamically
+  function addAnotherEv() {
+    evCount++;
+    const evDetailsContainer = document.getElementById("evDetails");
+    if (!evDetailsContainer) {
+      console.error("Could not find #evDetails container.");
+      return;
+    }
+    
+    // Create a wrapper <div> with a unique ID so we can remove it easily
+    const newEvDiv = document.createElement("div");
+    newEvDiv.id = `ev-entry-${evCount}`;
+    newEvDiv.className = "bg-white p-4 rounded-lg shadow space-y-4";
+
+    // Add the HTML for the EV block, including a Delete button
+    newEvDiv.innerHTML = `
+      <h3 class="text-lg font-semibold text-gray-800">EV ${evCount}</h3>
+      <label class="block text-gray-700 font-medium">EV Type</label>
+      <select class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+        <option>Full Battery EV (BEV)</option>
+        <option>Plug-in Hybrid EV (PHEV)</option>
+        <option>Hybrid EV (HEV)</option>
+      </select>
+
+      <label class="block text-gray-700 font-medium">Battery Size (kWh)</label>
+      <input type="number" placeholder="Enter the value"
+             class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+
+      <label class="block text-gray-700 font-medium">Annual Driving Distance (km)</label>
+      <input type="number" value="15000"
+             class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+
+      <!-- Delete button -->
+      <button type="button"
+              class="px-3 py-2 text-red-600 font-medium hover:text-red-800 transition"
+              onclick="removeEv(${evCount})">
+        Delete
+      </button>
+    `;
+
+    // Append the new EV block
+    evDetailsContainer.appendChild(newEvDiv);
+  }
+
+  // Function to remove the EV block
+  function removeEv(evId) {
+    const evBlock = document.getElementById(`ev-entry-${evId}`);
+    if (evBlock) {
+      evBlock.remove();
+    }
+  }
+  </script>
+  <script>
+    // List of properties
+    let properties = ["Beach House", "Mountain Cabin", "City Apartment", "Country Villa"];
+    let selectedProperty = null;
+  
+    function togglePropertyDropdown(dropdownId) {
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = document.getElementById(`${dropdownId}-arrow`);
+      const propertyList = document.getElementById("propertyList");
+      const propertyCount = document.getElementById("propertyCount");
+  
+      if (dropdown) {
+        dropdown.classList.toggle("hidden");
+        arrow.classList.toggle("rotate-180");
+      }
+  
+      // Update property count
+      propertyCount.textContent = `${properties.length} properties configured`;
+  
+      // Clear existing list and re-render properties
+      propertyList.innerHTML = "";
+      properties.forEach((property, index) => {
+        const listItem = document.createElement("li");
+        listItem.className = `flex justify-between items-center bg-white p-3 rounded-md shadow-sm cursor-pointer ${
+          selectedProperty === property ? "bg-blue-100 border border-blue-500" : "hover:bg-gray-200"
+        }`;
+        listItem.innerHTML = `
+          <span class="text-gray-800">${property}</span>
+          <button onclick="removeProperty(event, ${index})" class="text-red-600 hover:text-red-800">Delete</button>
+        `;
+        listItem.addEventListener("click", () => selectProperty(property, listItem));
+        propertyList.appendChild(listItem);
+      });
+    }
+  
+    function selectProperty(property, listItem) {
+      selectedProperty = property;
+      document.getElementById("selectedPropertyName").textContent = property;
+      document.getElementById("propertySetupMenu").classList.add("hidden"); // Close dropdown
+      togglePropertyDropdown("propertySetupMenu"); // Refresh list to highlight selection
+    }
+  
+    function removeProperty(event, index) {
+      event.stopPropagation(); // Prevent clicking on the property
+      properties.splice(index, 1);
+      if (selectedProperty === properties[index]) {
+        selectedProperty = null;
+        document.getElementById("selectedPropertyName").textContent = "Select a Property";
+      }
+      togglePropertyDropdown("propertySetupMenu"); // Refresh dropdown
+    }
+  </script>
+  <script>
+    function toggleBroadbandSection() {
+      const broadbandSection = document.getElementById("broadbandSection");
+      const broadbandToggle = document.getElementById("broadbandToggle");
+  
+      if (broadbandToggle.checked) {
+        broadbandSection.classList.remove("hidden"); // Show section when toggled ON
+      } else {
+        broadbandSection.classList.add("hidden"); // Hide section when toggled OFF
+      }
+    }
+  
+    function toggleBroadbandDropdown() {
+      const content = document.getElementById("broadband-service-details");
+      const arrow = document.getElementById("broadbandDropdownArrow");
+  
+      if (content.classList.contains("hidden")) {
+        content.classList.remove("hidden");
+        arrow.classList.add("rotate-180");
+      } else {
+        content.classList.add("hidden");
+        arrow.classList.remove("rotate-180");
+      }
+    }
+  </script>
+  
+    <script>
+    function toggleDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const arrow = document.getElementById(`${dropdownId.split('-')[0]}-arrow`);
+  if (dropdown) {
+    dropdown.classList.toggle("hidden");
+  } else {
+    console.warn(`Dropdown element with ID "${dropdownId}" not found.`);
+  }
+  if (arrow) {
+    arrow.classList.toggle("rotate-180");
+  } else {
+    console.warn(`Arrow element with ID "${dropdownId.split('-')[0]}-arrow" not found.`);
+  }
+}
+  </script>
+ 
+  <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
+</body>
+</html>

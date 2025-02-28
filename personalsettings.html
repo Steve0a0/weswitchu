@@ -111,7 +111,7 @@
             </svg>
           </button>
           <ul id="meter-dropdown" class="pl-6 mt-1 hidden space-y-1">
-            <li><a href="javascript:void(0)" onclick="loadContent('meter-reading-list.html')" class="block p-2 rounded-lg hover:bg-gray-600">Meter Reading List</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Meter Reading List</a></li>
             <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Gas Readings</a></li>
             <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Electricity Readings</a></li>
           </ul>
@@ -153,7 +153,7 @@
           <ul id="settings-dropdown" class="pl-6 mt-1 hidden space-y-1">
             <li><a href="editproperties.html" class="block p-2 rounded-lg hover:bg-gray-600">Property Settings</a></li>
             <li><a href="personalsettings.html" class="block p-2 rounded-lg hover:bg-gray-600">Personal Settings</a></li>
-            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Payment Settings</a></li>
+            <li><a href="paymentmethodadd.html" class="block p-2 rounded-lg hover:bg-gray-600">Payment Settings</a></li>
             <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Contact</a></li>
             <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Location</a></li>
           </ul>
@@ -165,7 +165,7 @@
   <div class="flex flex-wrap items-center justify-between pr-8 py-6">
     <!-- Left Section: Welcome Message and Breadcrumb -->
     <div class="space-y-2 herosec ml-20">
-      <h1 class="text-2xl font-bold text-gray-900">Bill List</h1>
+      <h1 class="text-2xl font-bold text-gray-900">Personal Settings</h1>
       <div class="flex items-center text-sm text-gray-500 space-x-2">
         <span class="flex items-center space-x-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -173,7 +173,7 @@
           </svg>
         </span>
         <span>›</span>
-        <a href="#" class="text-purple-600 hover:underline">Bill List</a>
+        <a href="#" class="text-purple-600 hover:underline">Personal Settings</a>
       </div>
     </div>
   
@@ -200,12 +200,158 @@
       </button>
     </div>
   </div>
-  
-  
+  </div>
+  <div class="flex flex-col items-center justify-center ">
+  <div class=" bg-white p-2 rounded-lg shadow-lg flex">
+    <button id="tab1" class="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-gradient-to-r from-[#31264B] to-[#554C69] focus:outline-none" onclick="toggleTab('tab1')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25V9m-3.75 0h15m-15 0a2.25 2.25 0 00-2.25 2.25v7.5A2.25 2.25 0 006.75 21h10.5a2.25 2.25 0 002.25-2.25v-7.5A2.25 2.25 0 0017.25 9m-10.5 0V5.25A2.25 2.25 0 0110.5 3h3a2.25 2.25 0 012.25 2.25V9" />
+        </svg>
+        Personal Information
+    </button>
+    <button id="tab2" class="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 bg-transparent hover:bg-gray-200 focus:outline-none" onclick="toggleTab('tab2')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18m-9-9v18" />
+        </svg>
+        Accessibility Information
+    </button>
+</div>
+<div class="personal-info w-full max-w-4xl bg-white shadow-lg rounded-lg mt-6">
+  <div class="bg-gradient-to-r from-[#31264B] via-[#453A5E] to-[#6A5D83] p-4 rounded-t-lg text-white text-lg font-semibold flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25V9m-3.75 0h15m-15 0a2.25 2.25 0 00-2.25 2.25v7.5A2.25 2.25 0 006.75 21h10.5a2.25 2.25 0 002.25-2.25v-7.5A2.25 2.25 0 0017.25 9m-10.5 0V5.25A2.25 2.25 0 0110.5 3h3a2.25 2.25 0 012.25 2.25V9" />
+      </svg>
+      Personal Information
+  </div>
+  <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+          <label class="block font-medium text-gray-700">First Name</label>
+          <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Safiye">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">Last Name</label>
+          <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Elibol">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">Email</label>
+          <input type="email" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="safiyebkkl@gmail.com">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">Contact Phone</label>
+          <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="+353 85 800 7335">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">Contact New Password</label>
+          <input type="password" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="••••••••">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">Onebill Email</label>
+          <input type="email" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="safiyebkkl@gmail.com">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">Onebill Email Password</label>
+          <input type="password" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="••••">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">Address</label>
+          <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Ireland">
+      </div>
+      <div>
+          <label class="block font-medium text-gray-700">EirCode</label>
+          <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="111">
+      </div>
+     
+      <div>
+          <label class="block font-medium text-gray-700">Payment Frequency</label>
+          <select class="w-full border rounded-lg px-3 py-2 mt-1">
+              <option>Monthly</option>
+              <option>Quarterly</option>
+              <option>Yearly</option>
+          </select>
+      </div>
+  </div>
+</div>
+<!-- Accessibility Information Section -->
+<div class="accessibility-info w-full max-w-4xl bg-white shadow-lg rounded-lg mt-6 hidden">
+<div class="bg-gradient-to-r from-[#31264B] via-[#453A5E] to-[#6A5D83] p-4 rounded-t-lg text-white text-lg font-semibold flex items-center">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18m-9-9v18" />
+  </svg>
+  Accessibility Information
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div>
+      <label class="block font-medium text-gray-700">Advancing Age</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+          <option>Yes</option>
+          <option>No</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Dexterity Impaired</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+          <option>Yes</option>
+          <option>No</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Hearing Impaired</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Language Difficulty</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Learning Difficulty</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Mental Health</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Mobility Impaired</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Speech Impaired</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+      </select>
+  </div>
+  <div>
+      <label class="block font-medium text-gray-700">Visually Impaired</label>
+      <select class="w-full border rounded-lg px-3 py-2 mt-1">
+          <option>Select Option</option>
+      </select>
+  </div>
+</div>
+</div>
+<div class="flex justify-end mt-4">
+<button class="flex items-center gap-2 px-6 py-3 rounded-lg text-white bg-[#31264B] shadow-lg hover:scale-105 transition-transform duration-200">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75V5.25A2.25 2.25 0 0015 3H9a2.25 2.25 0 00-2.25 2.25v1.5M3 6.75h18M6.75 6.75v11.25A2.25 2.25 0 009 20.25h6a2.25 2.25 0 002.25-2.25V6.75M10.5 11.25h3m-3 3h3" />
+</svg>
+Save Profile
+</button>
+</div>
+</div>
 
   
-  
-  <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
         const hamburger = document.getElementById("hamburger");
         const sidebar = document.getElementById("default-sidebar");
@@ -242,7 +388,34 @@
         });
     });
     </script>
+ 
+ <script>
+    function toggleTab(selected) {
+      let tab1 = document.getElementById("tab1");
+      let tab2 = document.getElementById("tab2");
+      let personalInfo = document.querySelector(".personal-info");
+      let accessibilityInfo = document.querySelector(".accessibility-info");
     
+      if (selected === 'tab1') {
+          tab1.classList.add("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+          tab1.classList.remove("text-gray-700", "bg-transparent");
+          tab2.classList.add("text-gray-700", "bg-transparent");
+          tab2.classList.remove("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+  
+          personalInfo.classList.remove("hidden");
+          accessibilityInfo.classList.add("hidden");
+      } else {
+          tab2.classList.add("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+          tab2.classList.remove("text-gray-700", "bg-transparent");
+          tab1.classList.add("text-gray-700", "bg-transparent");
+          tab1.classList.remove("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+  
+          accessibilityInfo.classList.remove("hidden");
+          personalInfo.classList.add("hidden");
+      }
+  }
+  
+  </script>
   <script>
     function toggleDropdown(dropdownId) {
   const dropdown = document.getElementById(dropdownId);
@@ -259,7 +432,6 @@
   }
 }
   </script>
-  
   <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
 </body>
 </html>

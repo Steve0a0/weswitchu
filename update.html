@@ -135,7 +135,7 @@
           <path stroke-linecap="round" stroke-linejoin="round"
                 d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-5H9v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
         </svg>
-        <span class="text-gray-800 font-medium">Residence Check</span>
+        <span class="text-gray-800 font-medium">How would you like us to refer to this property?</span>
       </div>
       <svg id="residenceCheckMenu-arrow" xmlns="http://www.w3.org/2000/svg"
            class="h-4 w-4 text-gray-600 transition-transform duration-300"
@@ -145,7 +145,7 @@
     </div>
     <div id="residenceCheckMenu" class="hidden p-4 bg-gray-50 rounded-lg mt-2 space-y-4">
       <div class="bg-white p-4 rounded-lg shadow space-y-2">
-        <label for="propertyAlias" class="block text-gray-700 font-medium">Property Alias</label>
+        <!-- <label for="propertyAlias" class="block text-gray-700 font-medium"></label> -->
         <input id="propertyAlias" type="text" placeholder="Beach House"
                class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"/>
       </div>
@@ -172,13 +172,16 @@
       </button>
       <div id="homeDetailsDropdownContent" class="hidden p-4 bg-gray-50 rounded-lg mt-2 space-y-4">
         <div class="space-y-2">
-          <label for="homeType" class="block text-gray-700 font-medium">Home Type</label>
+          <label for="homeType" class="block text-gray-700 font-medium">Property Type</label>
           <select id="homeType"
                   class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
-            <option>Detached</option>
+                  <option>Apartment</option>
+                  <option>Terraced</option>
             <option>Semi-Detached</option>
-            <option>Terraced</option>
+            <option>Detached</option>
+            <option>Large Detached</option>
             <option>Bungalow</option>
+            <option>Farm</option>
           </select>
         </div>
         <div class="space-y-2">
@@ -187,8 +190,11 @@
                   class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
             <option>Heat Pump</option>
             <option>Gas Boiler</option>
-            <option>Electric Heater</option>
-            <option>Solar Panels</option>
+            <option>Gas Combi</option>
+            <option>Electric Heaters</option>
+            <option>Oil Fired Heating</option>
+            <option>Wood / Biomass</option>
+            <option>Other</option>
           </select>
         </div>
       </div>
@@ -280,14 +286,11 @@
           </label>
         </div>
         <div class="space-y-2">
-          <label for="solarSystemSize" class="block text-gray-700 font-medium">Solar System Size</label>
-          <select id="solarSystemSize"
-                  class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
-            <option>2-5kW</option>
-            <option>5-10kW</option>
-            <option>10-20kW</option>
-            <option>20kW+</option>
-          </select>
+          <label for="solarSystemSize" class="block text-gray-700 font-medium">Solar System Size (kW Capacity)</label>
+                  
+                  <input type="numbers" id="broadband-cost"
+                         class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300"
+                         placeholder="Capacity in kW"/>
         </div>
         <div class="space-y-2">
           <label for="solarPanelDirection" class="block text-gray-700 font-medium">Solar Panel Direction</label>
@@ -416,6 +419,19 @@
             <option value="no">No</option>
           </select>
         </div>
+        <div class="space-y-2">
+            <label class="block text-gray-700 font-medium">Contract End Date</label>
+
+        </div>
+        <div class="space-y-2">
+            <label class="block text-gray-700 font-medium">Is your Broadband bundled with TV or Mobile</label>
+            <select id="broadband-bundled"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+        </div>
+
         <div class="space-y-2">
           <label for="broadband-cost" class="block text-gray-700 font-medium">How much do you pay per month?</label>
           <input type="number" id="broadband-cost"

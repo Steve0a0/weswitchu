@@ -138,7 +138,7 @@
       <h2 class="text-lg font-bold">Home Details</h2>
     
       <div>
-          <label for="home-type" class="block text-sm font-medium text-gray-700">Home Type</label>
+          <label for="home-type" class="block text-sm font-medium text-gray-700">Property Type</label>
           <select id="home-type" name="home-type" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
               <option>House</option>
               <option>Apartment</option>
@@ -149,6 +149,18 @@
           </select>
       </div>
     
+      <div class="space-y-2 mt-4">
+        <label for="bedrooms" class="block text-gray-700 font-medium">How Many Bedrooms in Your Home?</label>
+        <select id="bedrooms" name="bedrooms" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 Bedroom</option>
+          <option value="2">2 Bedrooms</option>
+          <option value="3">3 Bedrooms</option>
+          <option value="4">4 Bedrooms</option>
+          <option value="5">5+ Bedrooms</option>
+        </select>
+      </div>
+      
       <div class="space-y-2 mt-4">
         <label for="primary-heating-source" class="block text-gray-700 font-medium">What is your primary heating source (if any)?</label>
         <select id="primary-heating-source" name="primary-heating-source" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
