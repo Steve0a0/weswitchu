@@ -617,40 +617,58 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.getElementById("hamburger");
-        const sidebar = document.getElementById("default-sidebar");
-        const hamburgerIcon = document.getElementById("hamburger-icon");
-        const closeIcon = document.getElementById("close-icon");
-        const body = document.body;
-    
-        function openSidebar() {
-            sidebar.classList.remove("-translate-x-full");
-            body.classList.add("overflow-hidden"); // Prevent scrolling
-        }
-    
-        function closeSidebar() {
-            sidebar.classList.add("-translate-x-full");
-            body.classList.remove("overflow-hidden"); // Enable scrolling
-        }
-    
-        // Toggle Sidebar
-        if (hamburger && sidebar) {
-            hamburger.addEventListener("click", function () {
-                if (sidebar.classList.contains("-translate-x-full")) {
-                    openSidebar();
-                } else {
-                    closeSidebar();
-                }
-            });
-        }
-    
-        // Close sidebar when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+    const hamburger = document.getElementById("hamburger");
+    const sidebar = document.getElementById("default-sidebar");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const body = document.body;
+    const userMenuButton = document.getElementById("user-menu-button");
+    const userDropdown = document.getElementById("user-dropdown");
+
+    function openSidebar() {
+        sidebar.classList.remove("-translate-x-full");
+        body.classList.add("overflow-hidden"); // Prevent scrolling
+    }
+
+    function closeSidebar() {
+        sidebar.classList.add("-translate-x-full");
+        body.classList.remove("overflow-hidden"); // Enable scrolling
+    }
+
+    // Toggle Sidebar
+    if (hamburger && sidebar) {
+        hamburger.addEventListener("click", function () {
+            if (sidebar.classList.contains("-translate-x-full")) {
+                openSidebar();
+            } else {
                 closeSidebar();
             }
         });
+    }
+
+    // Close sidebar when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+            closeSidebar();
+        }
     });
+
+    // Toggle User Dropdown
+    if (userMenuButton && userDropdown) {
+        userMenuButton.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent closing when clicking inside dropdown
+            userDropdown.classList.toggle("hidden");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add("hidden");
+            }
+        });
+    }
+});
+
     </script>
   <script>
     // Toggle Arrow Rotation Only (Dropdowns Always Open)

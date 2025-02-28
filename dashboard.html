@@ -906,49 +906,7 @@ function attachEventListeners() {
 /* ===========================================================
    DOMContentLoaded – Initialization
 =========================================================== */
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded. Initializing...");
-  attachEventListeners();
-  // Call updateHomeDetailsBackButton if defined
-  if (typeof updateHomeDetailsBackButton === "function") {
-    updateHomeDetailsBackButton();
-  }
-  // Check for popup parameter in URL
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("showPopup") === "true") {
-    showPopup();
-  }
-  // Sidebar toggle
-  const hamburger = document.getElementById("hamburger");
-  const sidebar = document.getElementById("default-sidebar");
-  const hamburgerIcon = document.getElementById("hamburger-icon");
-  const closeIcon = document.getElementById("close-icon");
-  if (hamburger && sidebar && hamburgerIcon && closeIcon) {
-    hamburger.addEventListener("click", function () {
-      sidebar.classList.toggle("-translate-x-full");
-      hamburgerIcon.classList.toggle("hidden");
-      closeIcon.classList.toggle("hidden");
-    });
-  }
-  // Initialize lucide icons if available
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-  // User menu toggle
-  const userMenuButton = document.getElementById("user-menu-button");
-  const userDropdown = document.getElementById("user-dropdown");
-  if (userMenuButton && userDropdown) {
-    userMenuButton.addEventListener("click", function (event) {
-      event.stopPropagation();
-      userDropdown.classList.toggle("hidden");
-    });
-    document.addEventListener("click", function (event) {
-      if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
-        userDropdown.classList.add("hidden");
-      }
-    });
-  }
-});
+
 
 </script>
 
@@ -1083,7 +1041,61 @@ function toggleResidenceCheck() {
     evDetailsContainer.appendChild(newEvDiv);
   }
 </script>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const sidebar = document.getElementById("default-sidebar");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const body = document.body;
+    const userMenuButton = document.getElementById("user-menu-button");
+    const userDropdown = document.getElementById("user-dropdown");
 
+    function openSidebar() {
+        sidebar.classList.remove("-translate-x-full");
+        body.classList.add("overflow-hidden"); // Prevent scrolling
+    }
+
+    function closeSidebar() {
+        sidebar.classList.add("-translate-x-full");
+        body.classList.remove("overflow-hidden"); // Enable scrolling
+    }
+
+    // Toggle Sidebar
+    if (hamburger && sidebar) {
+        hamburger.addEventListener("click", function () {
+            if (sidebar.classList.contains("-translate-x-full")) {
+                openSidebar();
+            } else {
+                closeSidebar();
+            }
+        });
+    }
+
+    // Close sidebar when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+            closeSidebar();
+        }
+    });
+
+    // Toggle User Dropdown
+    if (userMenuButton && userDropdown) {
+        userMenuButton.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent closing when clicking inside dropdown
+            userDropdown.classList.toggle("hidden");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add("hidden");
+            }
+        });
+    }
+});
+
+  </script>
 
   
   <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
