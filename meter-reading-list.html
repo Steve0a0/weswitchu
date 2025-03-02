@@ -43,79 +43,53 @@
   
 
   <div class="container mx-auto mt-6 px-4">
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
-      <table class="w-full text-sm text-left text-gray-500">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
-          <tr>
-            <th scope="col" class="px-6 py-3">Meter Reading Date</th>
-            <th scope="col" class="px-6 py-3">24 Hour</th>
-            <th scope="col" class="px-6 py-3">Day</th>
-            <th scope="col" class="px-6 py-3">Night</th>
-            <th scope="col" class="px-6 py-3">Peak</th>
-            <th scope="col" class="px-6 py-3 text-center">Show</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Row 1 -->
-          <tr class="bg-white border-b hover:bg-gray-50">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Apple MacBook Pro 17"</th>
-            <td class="px-6 py-4">Silver</td>
-            <td class="px-6 py-4">Laptop</td>
-            <td class="px-6 py-4">$2999</td>
-            <td class="px-6 py-4">
-              <div class="flex items-center justify-center">
-                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
-                    <path d="M15 3h6v6" />
-                    <path d="M10 14 21 3" />
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  </svg>
-                </a>
-              </div>
-            </td>
-          </tr>
-          <!-- Row 2 -->
-          <tr class="bg-gray-50 border-b hover:bg-gray-100">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Microsoft Surface Pro</th>
-            <td class="px-6 py-4">White</td>
-            <td class="px-6 py-4">Laptop PC</td>
-            <td class="px-6 py-4">$1999</td>
-            <td class="px-6 py-4">
-              <div class="flex items-center justify-center">
-                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
-                    <path d="M15 3h6v6" />
-                    <path d="M10 14 21 3" />
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  </svg>
-                </a>
-              </div>
-            </td>
-          </tr>
-          <!-- Row 3 -->
-          <tr class="bg-white hover:bg-gray-50">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Magic Mouse 2</th>
-            <td class="px-6 py-4">Black</td>
-            <td class="px-6 py-4">Accessories</td>
-            <td class="px-6 py-4">$99</td>
-            <td class="px-6 py-4">
-              <div class="flex items-center justify-center">
-                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
-                    <path d="M15 3h6v6" />
-                    <path d="M10 14 21 3" />
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  </svg>
-                </a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="relative overflow-x-auto shadow-lg rounded-lg bg-white">
+        <table class="w-full text-sm text-left text-gray-600">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                <tr>
+                    <th scope="col" class="px-6 py-3">Meter Reading Date</th>
+                    <th scope="col" class="px-6 py-3">24 Hour</th>
+                    <th scope="col" class="px-6 py-3">Day</th>
+                    <th scope="col" class="px-6 py-3">Night</th>
+                    <th scope="col" class="px-6 py-3">Peak</th>
+                    <th scope="col" class="px-6 py-3 text-center">Show</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example MCC1 Row: Only Shows "24 Hour" -->
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900">MCC1 Example</th>
+                    <td class="px-6 py-4">Silver</td>
+                    <td class="px-6 py-4 text-gray-300 hidden">-</td>
+                    <td class="px-6 py-4 text-gray-300 hidden">-</td>
+                    <td class="px-6 py-4 text-gray-300 hidden">-</td>
+                    <td class="px-6 py-4 text-center">
+                        <a href="#" class="text-purple-600 hover:text-purple-800">
+                            🔗
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- Example MCC2 Row: Shows All Columns -->
+                <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900">MCC2 Example</th>
+                    <td class="px-6 py-4">White</td>
+                    <td class="px-6 py-4">Laptop</td>
+                    <td class="px-6 py-4">$1999</td>
+                    <td class="px-6 py-4">$500</td>
+                    <td class="px-6 py-4 text-center">
+                        <a href="#" class="text-purple-600 hover:text-purple-800">
+                            🔗
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- More Rows -->
+            </tbody>
+        </table>
     </div>
-  </div>
-  
-  
+</div>
+
 
 </body>
 </html>

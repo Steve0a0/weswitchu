@@ -7,25 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-  <!-- <style>
-    .herosec{
-        padding-left: 100px;
-      }
-
-    
-    @media (max-width: 724px) {
-      .herosec{
-        padding-left: 10px;
-      }
-      .gasemer{
-        font-size: 10px;
-    }
-    .elecemer{
-        font-size: 10px;
-    }
-    }
-    
-  </style> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
 </head>
 <body class=" bg-[#EBE9F2]"></body>
 <nav class="bg-[#31264B] border-gray-200">
@@ -44,7 +27,7 @@
         </button>
     
         
-        <a href="dashboard.html" class="flex items-center">
+        <a href="#" class="flex items-center">
           <img src="images/weswitchu.png" class="h-8" alt="WeSwitchU.ie Logo">
         </a>
       </div>
@@ -61,18 +44,7 @@
             </div>
             <ul class="py-2">
               <li>
-                <a href="personalsettings.html" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  <!-- Cog Icon for Personal Settings -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-                  Personal Settings
-                </a>
-              </li>
-              <li>
-                <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  <!-- Logout Icon for Sign out -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
-                  Sign out
-                </a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
               </li>
             </ul>
           </div>
@@ -164,7 +136,7 @@
           <ul id="settings-dropdown" class="pl-6 mt-1 hidden space-y-1">
             <li><a href="editproperties.html" class="block p-2 rounded-lg hover:bg-gray-600">Property Settings</a></li>
             <li><a href="personalsettings.html" class="block p-2 rounded-lg hover:bg-gray-600">Personal Settings</a></li>
-            <li><a href="paymentmethodadd.html" class="block p-2 rounded-lg hover:bg-gray-600">Payment Settings</a></li>
+            <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Payment Settings</a></li>
             <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Contact</a></li>
             <li><a href="#" class="block p-2 rounded-lg hover:bg-gray-600">Add Location</a></li>
           </ul>
@@ -173,167 +145,183 @@
       </ul>
     </div>
   </aside>
-  <div class="flex flex-wrap items-center justify-between pr-8 py-6">
+  <div class="flex flex-wrap items-center justify-between pr-4 py-6">
     <!-- Left Section: Welcome Message and Breadcrumb -->
-    <div class="space-y-2 herosec ml-20">
-      <h1 class="text-2xl font-bold text-gray-900">Bill List</h1>
+    <div class="space-y-2 herosec ml-0 md:ml-20">
+
+      <h1 class="text-2xl font-bold text-gray-900">Document List</h1>
       <div class="flex items-center text-sm text-gray-500 space-x-2">
-        <a href="dashboard.html" class="flex items-center space-x-1">
+        <span class="flex items-center space-x-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
           </svg>
-        </a>
-        
+          Dashboard
+        </span>
         <span>›</span>
-        <a href="#" class="text-purple-600 hover:underline">Bill List</a>
+        <a href="#" class="text-purple-600 hover:underline">Document List</a>
       </div>
     </div>
   
-    <div class="flex flex-wrap items-center space-x-4 mt-4">
+    <div class="flex items-center space-x-4 mt-4">
       <!-- Gas Emergency Button -->
       <button
       class="gasemer flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md hover:bg-red-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"> 
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>        <span>Gas Emergency</span>
-      </button>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>      
+      <span class="text-xs sm:text-sm">Gas Emergency</span>
+    </button>
   
       <!-- Electricity Emergency Button -->
       <button
       class="elecemer flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"      >
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-        <span>Electricity Emergency</span>
-      </button>
+      <span class="text-xs sm:text-sm">Electricity Emergency</span>
+    </button>
     </div>
   </div>
   
-  
+  <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow">
+    <h1 class="text-2xl font-bold text-gray-900">My Documents</h1>
+    <p class="text-gray-500">Manage and view all your important documents</p>
 
-  <div class="container mx-auto mt-6 px-4">
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
-      <table class="w-full text-sm text-left text-gray-500">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
-          <tr>
-            <th scope="col" class="px-6 py-3">NAME</th>
-            <th scope="col" class="px-6 py-3">EIRCODE</th>
-            <th scope="col" class="px-6 py-3">SERVICE NAME</th>
-            <th scope="col" class="px-6 py-3">METER</th>
-            <th scope="col" class="px-6 py-3 text-center">SHOW</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Row 1 -->
-          <tr class="bg-white border-b hover:bg-gray-50">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Apple MacBook Pro 17"</th>
-            <td class="px-6 py-4">Silver</td>
-            <td class="px-6 py-4">Laptop</td>
-            <td class="px-6 py-4">$2999</td>
-            <td class="px-6 py-4">
-              <div class="flex items-center justify-center">
-                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
-                    <path d="M15 3h6v6" />
-                    <path d="M10 14 21 3" />
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  </svg>
-                </a>
-              </div>
-            </td>
-          </tr>
-          <!-- Row 2 -->
-          <tr class="bg-gray-50 border-b hover:bg-gray-100">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Microsoft Surface Pro</th>
-            <td class="px-6 py-4">White</td>
-            <td class="px-6 py-4">Laptop PC</td>
-            <td class="px-6 py-4">$1999</td>
-            <td class="px-6 py-4">
-              <div class="flex items-center justify-center">
-                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
-                    <path d="M15 3h6v6" />
-                    <path d="M10 14 21 3" />
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  </svg>
-                </a>
-              </div>
-            </td>
-          </tr>
-          <!-- Row 3 -->
-          <tr class="bg-white hover:bg-gray-50">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900">Magic Mouse 2</th>
-            <td class="px-6 py-4">Black</td>
-            <td class="px-6 py-4">Accessories</td>
-            <td class="px-6 py-4">$99</td>
-            <td class="px-6 py-4">
-              <div class="flex items-center justify-center">
-                <a href="https://example.com" target="_blank" class="text-purple-600 hover:text-purple-800">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link">
-                    <path d="M15 3h6v6" />
-                    <path d="M10 14 21 3" />
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  </svg>
-                </a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
+    <div class="mt-6 overflow-x-auto">
+      <table class="w-full bg-white border rounded-lg hidden md:table">
+          <thead>
+              <tr class="bg-gray-100 text-left">
+                  <th class="p-3">File Name</th>                        
+                  <th class="p-3">Date</th>
+                  <th class="p-3">Status</th>
+                  <th class="p-3">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="border-t">
+                  <td class="p-3 text-blue-700 font-semibold">Letter Of Authority</td>
+                  <td class="p-3">Mar 15, 2025</td>
+                  <td class="p-3">
+                      <span class="status-span bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Pending</span>
+                  </td>
+                  <td class="p-3 flex space-x-2">
+                      <!-- Download Button -->
+                      <button class="relative group p-2 border rounded-lg hover:bg-gray-100">
+                          <i class="fa-solid fa-download"></i>
+                          <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition">
+                              Download
+                          </span>
+                      </button>
+                      
+                      <!-- View Button -->
+                      <button class="relative group p-2 border rounded-lg hover:bg-gray-100">
+                          <i class="fa-solid fa-eye"></i>
+                          <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition">
+                              View
+                          </span>
+                      </button>
+
+                      <!-- Activate/Cancel Button -->
+                      <button class="relative group p-2 border rounded-lg hover:bg-gray-100 text-green-600" onclick="toggleStatus(this)">
+                          Activate
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-    </div>
+
+      <!-- Mobile View (Card Layout) -->
+      <div class="md:hidden">
+          <div class="card-container bg-white p-4 rounded-lg shadow mb-4">
+              <h2 class="text-lg font-semibold text-blue-700">Letter Of Authority</h2>
+              <p class="text-gray-500 text-sm">Date: Mar 15, 2025</p>
+              <span class="status-span bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-sm">Pending</span>
+              
+              <div class="flex space-x-2 mt-3">
+                  <!-- Download Button -->
+                  <button class="relative group p-2 border rounded-lg hover:bg-gray-100">
+                      <i class="fa-solid fa-download"></i>
+                      <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition">
+                          Download
+                      </span>
+                  </button>
+
+                  <!-- View Button -->
+                  <button class="relative group p-2 border rounded-lg hover:bg-gray-100">
+                      <i class="fa-solid fa-eye"></i>
+                      <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition">
+                          View
+                      </span>
+                  </button>
+
+                  <!-- Activate/Cancel Button -->
+                  <button class="relative group p-2 border rounded-lg hover:bg-gray-100 text-green-600" onclick="toggleStatus(this)">
+                      Activate
+                  </button>
+              </div>
+          </div>
+      </div>
+
   </div>
+
+</div>
+  
+<script>
+  function toggleStatus(button) {
+      let parentElement = button.closest('tr') || button.closest('.card-container');
+      let statusSpan = parentElement.querySelector('.status-span');
+
+      if (statusSpan) {
+          if (button.innerText.trim() === "Activate") {
+              statusSpan.innerText = "Active";
+              statusSpan.className = "status-span bg-green-100 text-green-700 px-2 py-1 rounded";
+              button.innerText = "Cancel";
+              button.className = "p-2 border rounded-lg hover:bg-gray-100 text-red-600";
+          } else {
+              statusSpan.innerText = "Cancelled";
+              statusSpan.className = "status-span bg-red-100 text-red-700 px-2 py-1 rounded";
+              button.innerText = "Activate";
+              button.className = "p-2 border rounded-lg hover:bg-gray-100 text-green-600";
+          }
+      }
+  }
+</script>
+  
   
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.getElementById("hamburger");
-    const sidebar = document.getElementById("default-sidebar");
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const closeIcon = document.getElementById("close-icon");
-    const body = document.body;
-    const userMenuButton = document.getElementById("user-menu-button");
-    const userDropdown = document.getElementById("user-dropdown");
-
-    function openSidebar() {
-        sidebar.classList.remove("-translate-x-full");
-        body.classList.add("overflow-hidden"); // Prevent scrolling
-    }
-
-    function closeSidebar() {
-        sidebar.classList.add("-translate-x-full");
-        body.classList.remove("overflow-hidden"); // Enable scrolling
-    }
-
-    // Toggle Sidebar
-    if (hamburger && sidebar) {
-        hamburger.addEventListener("click", function () {
-            if (sidebar.classList.contains("-translate-x-full")) {
-                openSidebar();
-            } else {
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("default-sidebar");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const closeIcon = document.getElementById("close-icon");
+        const body = document.body;
+    
+        function openSidebar() {
+            sidebar.classList.remove("-translate-x-full");
+            body.classList.add("overflow-hidden"); // Prevent scrolling
+        }
+    
+        function closeSidebar() {
+            sidebar.classList.add("-translate-x-full");
+            body.classList.remove("overflow-hidden"); // Enable scrolling
+        }
+    
+        // Toggle Sidebar
+        if (hamburger && sidebar) {
+            hamburger.addEventListener("click", function () {
+                if (sidebar.classList.contains("-translate-x-full")) {
+                    openSidebar();
+                } else {
+                    closeSidebar();
+                }
+            });
+        }
+    
+        // Close sidebar when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
                 closeSidebar();
             }
         });
-    }
-
-    // Close sidebar when clicking outside
-    document.addEventListener("click", function (event) {
-        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
-            closeSidebar();
-        }
     });
-
-    // Toggle User Dropdown
-    if (userMenuButton && userDropdown) {
-        userMenuButton.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevent closing when clicking inside dropdown
-            userDropdown.classList.toggle("hidden");
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
-                userDropdown.classList.add("hidden");
-            }
-        });
-    }
-});
-
     </script>
+    
   <script>
     function toggleDropdown(dropdownId) {
   const dropdown = document.getElementById(dropdownId);
