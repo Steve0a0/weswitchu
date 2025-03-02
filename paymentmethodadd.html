@@ -7,27 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-  <!-- <style>
-    .herosec{
-        padding-left: 100px;
-      }
+  <style>
+   .signature-container {
+  border: 2px dotted #CCCCCC;
+  
+}
 
     
-    @media (max-width: 724px) {
-      .herosec{
-        padding-left: 10px;
-      }
-      .gasemer{
-        font-size: 10px;
-    }
-    .elecemer{
-        font-size: 10px;
-    }
-    }
-    
-  </style> -->
+  </style>
 </head>
-<body class=" bg-[#EBE9F2]"></body>
+<body class=" bg-[#EBE9F2] pb-20">
 <nav class="bg-[#31264B] border-gray-200">
     <div class="max-w-screen-xl flex items-center justify-between mx-auto px-6 py-4">
     
@@ -44,7 +33,7 @@
         </button>
     
         
-        <a href="#" class="flex items-center">
+        <a href="dashboard.html" class="flex items-center">
           <img src="images/weswitchu.png" class="h-8" alt="WeSwitchU.ie Logo">
         </a>
       </div>
@@ -60,6 +49,9 @@
               <p class="text-sm text-gray-500 truncate">email@example.com</p>
             </div>
             <ul class="py-2">
+              <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Personal Settings</a>
+              </li>
               <li>
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
               </li>
@@ -167,39 +159,31 @@
     <div class="space-y-2 herosec ml-20">
       <h1 class="text-2xl font-bold text-gray-900">Add Payment Method</h1>
       <div class="flex items-center text-sm text-gray-500 space-x-2">
-        <span class="flex items-center space-x-1">
+        <a href="dashboard.html" class="flex items-center space-x-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
           </svg>
-        </span>
+        </a>
         <span>›</span>
         <a href="#" class="text-purple-600 hover:underline">Add Payment Method</a>
       </div>
     </div>
   
-    <!-- Right Section: Emergency Alerts -->
     <div class="flex flex-wrap items-center space-x-4 mt-4">
       <!-- Gas Emergency Button -->
-      <button class="gasemer flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md hover:bg-red-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
-          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
-          <path d="M12 9v4"/>
-          <path d="M12 17h.01"/>
-        </svg>
-        <span>Gas Emergency</span>
+      <button
+      class="gasemer flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md hover:bg-red-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"> 
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>       
+       <span class="text-xs sm:text-sm">Gas Emergency</span>
       </button>
   
       <!-- Electricity Emergency Button -->
-      <button class="elecemer flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
-          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
-          <path d="M12 9v4"/>
-          <path d="M12 17h.01"/>
-        </svg>
-        <span>Electricity Emergency</span>
+      <button
+      class="elecemer flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span class="text-xs sm:text-sm">Electricity Emergency</span>
       </button>
     </div>
-  </div>
   </div>
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative top-[40px]">
 
@@ -327,32 +311,55 @@
 
 <!-- Add Payment Modal -->
 <div id="payment-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
-    <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-        <h2 class="text-xl font-semibold mb-4">Add Payment Method</h2>
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+      <h2 class="text-xl font-semibold mb-4">Add Payment Method</h2>
 
-        <label class="block text-gray-700">Bank Name</label>
-        <input type="text" id="bank-name" class="w-full border rounded-md p-2 mb-4" placeholder="Enter Bank Name">
+      <!-- Bank Name -->
+      <label class="block text-gray-700">Bank Name</label>
+      <input type="text" id="bank-name" class="w-full border rounded-md p-2 mb-1" placeholder="Enter Bank Name">
+      <p id="bank-name-error" class="text-red-600 text-sm mb-4 hidden">Bank Name is required.</p>
 
-        <label class="block text-gray-700">IBAN</label>
-        <input type="text" id="iban" class="w-full border rounded-md p-2 mb-4" placeholder="Enter IBAN">
+      <!-- IBAN -->
+      <label class="block text-gray-700">IBAN</label>
+      <input type="text" id="iban" class="w-full border rounded-md p-2 mb-1" placeholder="Enter IBAN" maxlength="22">
+      <p id="iban-error" class="text-red-600 text-sm mb-4 hidden">Invalid IBAN. Must be 22 characters long.</p>
 
-        <div class="flex items-center mb-4">
-            <input type="checkbox" id="authorize" class="mr-2">
-            <p class="text-gray-700">I authorize the company to debit my account.</p>
-        </div>
-        <label class='block text-gray-700 mb-2'>Signature</label>
-          <canvas id='signature-pad' class='border-2 border-dotted border-gray-400 rounded-lg w-full h-40 mb-4 cursor-crosshair'></canvas>
-          <button id='clear-signature' class='bg-gray-300 px-4 py-2 rounded-md mb-4'>Clear Signature</button>
-          <div class='bg-blue-100 text-blue-600 p-3 rounded-md text-sm mb-4'>
-              <p>🔒 Your bank details are secure and will only be used for the purpose of processing payments you authorize.</p>
-          </div>
+      <!-- Authorization Checkbox -->
+      <div class="flex items-center mb-1">
+          <input type="checkbox" id="authorize" class="mr-2">
+          <p class="text-gray-700">I authorize the company to debit my account.</p>
+      </div>
+      <p id="authorize-error" class="text-red-600 text-sm mb-4 hidden">You must authorize the debit.</p>
 
-        <div class="flex justify-between">
-            <button id="cancel-btn" class="bg-gray-200 px-4 py-2 rounded-md">Cancel</button>
-            <button id="save-payment" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Save</button>
-        </div>
+     
+      <h1 class="text-xl font-semibold text-gray-800 pb-6">Draw Your Signature</h1>
+            <div class="signature-container">
+        
+        <canvas id="signature-pad"></canvas>
+        
+        <p id="saved-signature"></p>
     </div>
+		
+    <div class="buttons pt-6 pb-6">
+      <button id="clear-btn" class="px-4 py-2 bg-blue-900 text-white rounded-lg shadow hover:bg-red-600 transition">
+        Clear
+    </button>
+    
+  </div>
+		
+      <!-- Security Info -->
+      <div class="bg-blue-100 text-blue-600 p-3 rounded-md text-sm mb-4">
+          <p>🔒 Your bank details are secure and will only be used for processing payments you authorize.</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-between">
+          <button id="cancel-btn" class="bg-gray-200 px-4 py-2 rounded-md">Cancel</button>
+          <button id="save-payment" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Save</button>
+      </div>
+  </div>
 </div>
+
   
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -409,144 +416,224 @@
 });
 
     </script>
-  <script>
-    // Show Add Payment Modal
-    document.addEventListener("DOMContentLoaded", function () {
-    // Show Add Payment Modal
-    document.getElementById('add-payment-btn').addEventListener('click', function () {
-        document.getElementById('payment-modal').classList.remove('hidden');
-    });
-
-    // Hide Modal
-    document.getElementById('cancel-btn').addEventListener('click', function () {
-        document.getElementById('payment-modal').classList.add('hidden');
-    });
-
-    // Save Payment & Add to List
-    document.getElementById('save-payment').addEventListener('click', function () {
-        const bankName = document.getElementById('bank-name').value.trim();
-        const iban = document.getElementById('iban').value.trim();
-
-        // Validate Input Fields
-        if (!bankName || !iban) {
-            alert("Please enter both the Bank Name and IBAN.");
-            return;
-        }
-
-        const reference = `REF-${Math.floor(Math.random() * 9000) + 1000}`;
-
-        // Create Payment Card
-        const paymentCard = document.createElement("div");
-        paymentCard.classList.add("border", "rounded-lg", "p-4", "mb-4", "flex", "flex-col", "md:flex-row", "items-start", "md:items-center", "justify-between", "shadow-sm", "gap-4", "md:gap-0");
-
-        paymentCard.innerHTML = `
-            <div class="flex items-start md:items-center w-full md:w-auto">
-                <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded-full mr-3 shrink-0">
-                    <span class="text-gray-600 text-xl">🏦</span>
-                </div>
-                <div class="w-full">
-                    <h3 class="font-semibold text-gray-900 text-lg">${bankName}</h3>
-                    <p class="text-gray-600 text-sm break-words">IBAN: <span class="font-mono">${iban}</span></p>
-                    <p class="text-gray-600 text-sm">Reference: <span class="font-mono">${reference}</span></p>
-                </div>
-            </div>
-
-            <div class="text-right md:text-left flex flex-col md:items-end w-full md:w-auto">
-                <span class="bg-green-100 text-green-600 text-xs font-semibold px-3 py-1 rounded-full status inline-block w-fit transition-all">Active</span>
-                <p class="text-gray-500 text-xs mt-1">Added on ${new Date().toISOString().split('T')[0]}</p>
-
-                <button class="cancel-btn mt-2 bg-gray-200 text-gray-700 px-3 py-2 rounded-md hover:bg-gray-300 transition-all duration-200 text-sm">
-                    Cancel
-                </button>
-            </div>
-        `;
-
-        // Append Payment Card to the List
-        document.getElementById("payment-list").appendChild(paymentCard);
-
-        // Hide Modal
-        document.getElementById('payment-modal').classList.add('hidden');
-
-        // Clear Input Fields
-        document.getElementById('bank-name').value = "";
-        document.getElementById('iban').value = "";
-
-    });
-
-    // Cancel Button Event (Event Delegation)
-    document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("cancel-btn")) {
-            const paymentCard = event.target.closest(".border.rounded-lg.p-4");
-            const statusElement = paymentCard.querySelector(".status");
-
-            // Update status to "Cancelled"
-            statusElement.textContent = "Cancelled";
-            statusElement.classList.remove("bg-green-100", "text-green-600");
-            statusElement.classList.add("bg-red-100", "text-red-600");
-
-            // Remove the Cancel button smoothly
-            event.target.classList.add("opacity-0", "transition-all", "duration-300");
-            setTimeout(() => event.target.remove(), 300);
-        }
-    });
-});
-
-</script>
-<script>
-    const canvas = document.getElementById('signature-pad');
-      const ctx = canvas.getContext('2d');
-      let drawing = false;
-  
-      function getMousePos(canvas, event) {
-          const rect = canvas.getBoundingClientRect();
-          return {
-              x: event.clientX - rect.left,
-              y: event.clientY - rect.top
-          };
-      }
-  
-      function draw(event) {
-          if (!drawing) return;
-          const pos = getMousePos(canvas, event);
-          ctx.lineWidth = 2;
-          ctx.lineCap = 'round';
-          ctx.strokeStyle = 'black';
-          ctx.lineTo(pos.x, pos.y);
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.moveTo(pos.x, pos.y);
-      }
-  
-      canvas.addEventListener('mousedown', () => {
-          drawing = true;
-          ctx.beginPath();
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const ibanInput = document.getElementById("iban");
+          const ibanError = document.getElementById("iban-error");
+          const saveButton = document.getElementById("save-payment");
+      
+          // Ensure IBAN is always uppercase and only contains allowed characters
+          ibanInput.addEventListener("input", function () {
+              this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 22);
+              ibanError.classList.add("hidden"); // Hide error when user types
+          });
+      
+          // Validate IBAN format
+          function validateIBAN(iban) {
+              // Ensure correct length (22 characters)
+              if (iban.length !== 22) return false;
+      
+              // Match Irish IBAN structure: IEkkAAAA123456789012345
+              const regex = /^IE\d{2}[A-Z]{4}\d{14}$/;
+              return regex.test(iban);
+          }
+      
+          // Handle form submission
+          saveButton.addEventListener("click", function (event) {
+              event.preventDefault(); // Prevent form submission
+      
+              const ibanValue = ibanInput.value.trim();
+              if (!validateIBAN(ibanValue)) {
+                  ibanError.textContent = "Invalid IBAN. Must follow format: IEkkAAAA123456789012345";
+                  ibanError.classList.remove("hidden");
+              } else {
+                  ibanError.classList.add("hidden");
+                  alert("IBAN is valid and saved successfully!"); // Placeholder action
+                  // Proceed with form submission logic...
+              }
+          });
       });
-  
-      canvas.addEventListener('mouseup', () => {
-          drawing = false;
-          ctx.beginPath();
-      });
-  
-      canvas.addEventListener('mousemove', draw);
-  
-      document.getElementById('clear-signature').addEventListener('click', () => ctx.clearRect(0, 0, canvas.width, canvas.height));
-</script>
-<script>
-    function toggleDropdown(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  const arrow = document.getElementById(`${dropdownId.split('-')[0]}-arrow`);
-  if (dropdown) {
-    dropdown.classList.toggle("hidden");
-  } else {
-    console.warn(`Dropdown element with ID "${dropdownId}" not found.`);
-  }
-  if (arrow) {
-    arrow.classList.toggle("rotate-180");
-  } else {
-    console.warn(`Arrow element with ID "${dropdownId.split('-')[0]}-arrow" not found.`);
-  }
-}
-  </script>
+      </script>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("payment-modal");
+            const saveButton = document.getElementById("save-payment");
+            const cancelButton = document.getElementById("cancel-btn");
+            const addPaymentButton = document.getElementById("add-payment-btn");
+            const bankNameInput = document.getElementById("bank-name");
+            const ibanInput = document.getElementById("iban");
+            const authorizeCheckbox = document.getElementById("authorize");
+            const signaturePad = document.getElementById("signature-pad");
+            const clearSignatureButton = document.getElementById("clear-btn");
+            const paymentList = document.getElementById("payment-list");
+        
+            // Error Messages
+            const errors = {
+                bankName: document.getElementById("bank-name-error"),
+                iban: document.getElementById("iban-error"),
+                authorize: document.getElementById("authorize-error"),
+                signature: document.getElementById("signature-error")
+            };
+        
+            // Open Modal
+            addPaymentButton.addEventListener("click", () => {
+                modal.classList.remove("hidden");
+            });
+        
+            // Close Modal
+            cancelButton.addEventListener("click", () => {
+                modal.classList.add("hidden");
+            });
+        
+            // Validate Irish IBAN Format
+            function validateIBAN(iban) {
+                iban = iban.toUpperCase().replace(/\s+/g, ""); // Remove spaces & ensure uppercase
+                return /^IE\d{2}[A-Z]{4}\d{14}$/.test(iban) && iban.length === 22;
+            }
+        
+            // Check if Signature is Empty
+            function isSignatureEmpty() {
+                const context = signaturePad.getContext("2d");
+                const pixelData = context.getImageData(0, 0, signaturePad.width, signaturePad.height).data;
+                return !pixelData.some((value, index) => index % 4 === 3 && value !== 0);
+            }
+        
+            // Form Validation
+            function validateForm() {
+                let isValid = true;
+        
+                // Validate Bank Name
+                if (!bankNameInput.value.trim()) {
+                    errors.bankName.classList.remove("hidden");
+                    isValid = false;
+                } else {
+                    errors.bankName.classList.add("hidden");
+                }
+        
+                // Validate IBAN
+                if (!validateIBAN(ibanInput.value.trim())) {
+                    errors.iban.classList.remove("hidden");
+                    isValid = false;
+                } else {
+                    errors.iban.classList.add("hidden");
+                }
+        
+                // Validate Authorization Checkbox
+                if (!authorizeCheckbox.checked) {
+                    errors.authorize.classList.remove("hidden");
+                    isValid = false;
+                } else {
+                    errors.authorize.classList.add("hidden");
+                }
+        
+                // Validate Signature
+                if (isSignatureEmpty()) {
+                    errors.signature.classList.remove("hidden");
+                    isValid = false;
+                } else {
+                    errors.signature.classList.add("hidden");
+                }
+        
+                return isValid;
+            }
+        
+            // Save Payment
+            saveButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                if (!validateForm()) return; // Show errors and stop if invalid
+        
+                const bankName = bankNameInput.value.trim();
+                const iban = ibanInput.value.trim();
+                const reference = `REF-${Math.floor(Math.random() * 9000) + 1000}`;
+        
+                // Create Payment Card
+                const paymentCard = document.createElement("div");
+                paymentCard.classList.add("border", "rounded-lg", "p-4", "mb-4", "flex", "flex-col", "md:flex-row", "items-start", "md:items-center", "justify-between", "shadow-sm", "gap-4");
+        
+                paymentCard.innerHTML = `
+                    <div class="flex items-start md:items-center w-full">
+                        <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded-full mr-3">
+                            <span class="text-gray-600 text-xl">🏦</span>
+                        </div>
+                        <div class="w-full">
+                            <h3 class="font-semibold text-gray-900 text-lg">${bankName}</h3>
+                            <p class="text-gray-600 text-sm break-words">IBAN: <span class="font-mono">${iban}</span></p>
+                            <p class="text-gray-600 text-sm">Reference: <span class="font-mono">${reference}</span></p>
+                        </div>
+                    </div>
+                    <div class="text-right md:text-left flex flex-col md:items-end w-full">
+                        <span class="bg-green-100 text-green-600 text-xs font-semibold px-3 py-1 rounded-full status">Active</span>
+                        <p class="text-gray-500 text-xs mt-1">Added on ${new Date().toISOString().split('T')[0]}</p>
+                        <button class="cancel-btn mt-2 bg-gray-200 text-gray-700 px-3 py-2 rounded-md hover:bg-gray-300 text-sm">Cancel</button>
+                    </div>
+                `;
+        
+                // Append Payment Card to List
+                paymentList.appendChild(paymentCard);
+        
+                // Reset & Hide Modal
+                modal.classList.add("hidden");
+                bankNameInput.value = "";
+                ibanInput.value = "";
+                authorizeCheckbox.checked = false;
+                clearSignature();
+        
+            });
+        
+            // Event Delegation for Cancel Button in Payment List
+            document.addEventListener("click", function (event) {
+                if (event.target.classList.contains("cancel-btn")) {
+                    const paymentCard = event.target.closest(".border.rounded-lg.p-4");
+                    const statusElement = paymentCard.querySelector(".status");
+        
+                    // Update status to "Cancelled"
+                    statusElement.textContent = "Cancelled";
+                    statusElement.classList.remove("bg-green-100", "text-green-600");
+                    statusElement.classList.add("bg-red-100", "text-red-600");
+        
+                    // Remove the Cancel button smoothly
+                    event.target.classList.add("opacity-0", "transition-all", "duration-300");
+                    setTimeout(() => event.target.remove(), 300);
+                }
+            });
+        
+            // Remove error when user starts typing/selecting
+            [bankNameInput, ibanInput].forEach(input => input.addEventListener("input", () => {
+                errors[input.id].classList.add("hidden");
+            }));
+            authorizeCheckbox.addEventListener("change", () => errors.authorize.classList.add("hidden"));
+        
+            // Signature Pad
+            const ctx = signaturePad.getContext("2d");
+            let drawing = false;
+        
+            function clearSignature() {
+                ctx.clearRect(0, 0, signaturePad.width, signaturePad.height);
+            }
+        
+            signaturePad.addEventListener("mousedown", () => { drawing = true; ctx.beginPath(); });
+            signaturePad.addEventListener("mouseup", () => { drawing = false; ctx.beginPath(); });
+            signaturePad.addEventListener("mousemove", (event) => {
+                if (!drawing) return;
+                const rect = signaturePad.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                ctx.lineWidth = 2;
+                ctx.lineCap = "round";
+                ctx.strokeStyle = "black";
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+            });
+        
+            // Clear Signature
+            clearSignatureButton.addEventListener("click", clearSignature);
+        });
+        </script>
+        
   <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
+
 </body>
 </html>

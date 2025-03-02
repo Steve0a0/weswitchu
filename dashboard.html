@@ -64,6 +64,9 @@
             </div>
             <ul class="py-2">
               <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Personal Settings</a>
+              </li>
+              <li>
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
               </li>
             </ul>
@@ -182,7 +185,6 @@
       </div>
     </div>
   
-    <!-- Right Section: Emergency Alerts -->
     <div class="flex flex-wrap items-center space-x-4 mt-4">
       <!-- Gas Emergency Button -->
       <button
@@ -255,13 +257,59 @@
           </div>
           <div class="flex justify-between items-center mt-4">
               <p class="text-sm">12 Friends Joined</p>
-              <button class="px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-gray-100 transition">
+              <button class="px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-gray-100 transition" onclick="openShareModal()">
                   Invite Friends →
               </button>
           </div>
       </div>
   </div>
-  
+  <div class="w-full p-6 mt-6">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Services At Property</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+      <!-- Electricity Button Card -->
+      <button class="flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 transition duration-200">
+          <div class="flex items-center space-x-2">
+              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              <span class="text-gray-900 font-medium">Electricity</span>
+          </div>
+          <!-- Service Provider -->
+          <div class="mt-2 flex items-center space-x-2">
+              <img src="images/bge-logo.png" alt="Electricity Provider" class="w-10 h-10 rounded-full">
+              <span class="text-sm text-gray-600">Electric Ireland</span>
+          </div>
+      </button>
+
+      <!-- Gas Button Card -->
+      <button class="flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 transition duration-200">
+          <div class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+              <span class="text-gray-900 font-medium">Gas</span>
+          </div>
+          <!-- Service Provider -->
+          <div class="mt-2 flex items-center space-x-2">
+              <img src="images/bge-logo.png" alt="Gas Provider" class="w-10 h-10 rounded-full">
+              <span class="text-sm text-gray-600">Bord Gáis Energy</span>
+          </div>
+      </button>
+
+      <!-- Broadband Button Card -->
+      <button class="flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 transition duration-200">
+          <div class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>
+              <span class="text-gray-900 font-medium">Broadband</span>
+          </div>
+          <!-- Service Provider -->
+          <div class="mt-2 flex items-center space-x-2">
+              <img src="images/bge-logo.png" alt="Broadband Provider" class="w-10 h-10 rounded-full">
+              <span class="text-sm text-gray-600">Virgin Media</span>
+          </div>
+      </button>
+
+  </div>
+</div>
   
   
   <div class="container mx-auto px-4 py-8">
@@ -344,26 +392,42 @@
       </div>
   
       <!-- Household Profile Section -->
-      <div class="flex-1 min-w-[300px]">
+      <div class="flex-1 min-w-[300px] relative">
         <h2 class="text-xl font-bold text-gray-900 mb-4">Household Profile</h2>
-        <div class="p-6 bg-white rounded-lg shadow-sm">
-          <div class="flex items-center mb-4">
-            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A8.966 8.966 0 0112 15c1.747 0 3.383.504 4.879 1.364M15 12H9m6 6H9m6 6H9"></path>
-              </svg>
+        
+        <div class="p-6 bg-white rounded-lg shadow-sm relative">
+            
+            <!-- Edit Settings Button -->
+            <button class="absolute top-2 right-2 flex items-center space-x-1 px-1 py-0.5 text-[8px] font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition 
+sm:px-1 sm:py-0.5 sm:text-[7px] sm:rounded-md lg:px-4 lg:py-2 lg:text-xs lg:rounded-lg">
+    <!-- Settings Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings sm:w-3 sm:h-3 lg:w-6 lg:h-6">
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+        <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="sm:text-[6px] lg:text-sm">Settings</span>
+</button>
+
+            
+          
+            
+            <div class="flex items-center mb-4">
+                <div class="flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A8.966 8.966 0 0112 15c1.747 0 3.383.504 4.879 1.364M15 12H9m6 6H9m6 6H9"></path>
+                    </svg>
+                </div>
+                <h3 class="ml-4 text-lg font-semibold text-gray-800">Household Profile</h3>
             </div>
-            <h3 class="ml-4 text-lg font-semibold text-gray-800">Household Profile</h3>
-          </div>
-          <ul class="text-sm text-gray-500 space-y-2">
-            <li><span class="font-semibold text-gray-800">Occupants:</span> 1</li>
-            <li><span class="font-semibold text-gray-800">Bedrooms:</span> 1</li>
-            <li><span class="font-semibold text-gray-800">Property Type:</span> House</li>
-          </ul>
+            
+            <ul class="text-sm text-gray-500 space-y-2">
+                <li><span class="font-semibold text-gray-800">Occupants:</span> 1</li>
+                <li><span class="font-semibold text-gray-800">Bedrooms:</span> 1</li>
+                <li><span class="font-semibold text-gray-800">Property Type:</span> House</li>
+            </ul>
         </div>
-      </div>
     </div>
-  </div>
+    
   <div class="container mx-auto px-4 py-8">
     <div class="flex flex-wrap gap-6">
       <!-- Utility Services Section -->
@@ -424,11 +488,346 @@
       <div id="popupContent">Loading...</div>
   </div>
 </div>
+<!-- Share Modal -->
+<div id="share-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+      <h2 class="text-xl font-semibold mb-4 text-gray-900">Share Your Referral Link</h2>
+      <p class="text-gray-700 mb-4">Invite your friends and earn rewards when they sign up!</p>
+
+      <!-- Referral Link Copy Box -->
+      <div class="flex items-center justify-between border border-gray-300 rounded-lg p-3 mb-4">
+          <span id="referral-link" class="text-gray-600 text-sm truncate">https://yourapp.com/signup?ref=USER123</span>
+          <button onclick="copyReferralLink()" class="text-blue-600 text-sm font-medium hover:underline">Copy</button>
+      </div>
+
+      <!-- Social Media Buttons -->
+      <div class="grid grid-cols-2 gap-3">
+          <a href="#" id="whatsapp-share" class="flex items-center justify-center bg-green-500 text-white px-3 py-2 rounded-lg hover:bg-green-600 transition">
+              WhatsApp
+          </a>
+          <a href="#" id="facebook-share" class="flex items-center justify-center bg-blue-500 text-white px-3 py-2 rounded-lg hover:bg-blue-600 transition">
+              Facebook
+          </a>
+          <a href="#" id="twitter-share" class="flex items-center justify-center bg-blue-400 text-white px-3 py-2 rounded-lg hover:bg-blue-500 transition">
+              Twitter
+          </a>
+          <a href="#" id="email-share" class="flex items-center justify-center bg-gray-500 text-white px-3 py-2 rounded-lg hover:bg-gray-600 transition">
+              Email
+          </a>
+      </div>
+
+      <!-- Close Button -->
+      <button onclick="closeShareModal()" class="mt-4 bg-gray-200 text-gray-700 px-4 py-2 rounded-md w-full hover:bg-gray-300 transition">
+          Close
+      </button>
+  </div>
+  <!-- Toast Notification -->
+<div id="toast" class="fixed bottom-5 right-5 flex items-center w-auto max-w-xs p-4 space-x-4 bg-gray-900 text-white text-sm rounded-lg shadow-lg hidden">
+  <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+  </svg>
+  <span>Referral link copied to clipboard!</span>
+</div>
+</div>
+
+
+
 
 <script>
-  /* ===========================================================
-   Utility Functions
+ const referralCode = "USER123"; // Dynamic Referral Code
+const referralLink = `https://yourapp.com/signup?ref=${referralCode}`;
+
+// Function to Copy Link and Show Toast
+function copyReferralLink() {
+    navigator.clipboard.writeText(referralLink).then(() => {
+        showToast("Referral link copied to clipboard!");
+    });
+}
+
+// Function to Show Toast
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.querySelector("span").textContent = message;
+    toast.classList.remove("hidden");
+    toast.classList.add("flex");
+
+    // Hide Toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.add("hidden");
+        toast.classList.remove("flex");
+    }, 3000);
+}
+
+// Open Share Modal
+function openShareModal() {
+    document.getElementById("share-modal").classList.remove("hidden");
+
+    // Update links dynamically
+    document.getElementById("referral-link").textContent = referralLink;
+    document.getElementById("whatsapp-share").href = `https://wa.me/?text=Join me on WeSwitchU and earn rewards! Sign up here: ${referralLink}`;
+    document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=${referralLink}`;
+    document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?text=Join%20me%20on%20WeSwitchU%20and%20earn%20rewards!%20Sign%20up%20here:%20${referralLink}`;
+    document.getElementById("email-share").href = `mailto:?subject=Join WeSwitchU&body=Sign up here: ${referralLink}`;
+}
+
+// Close Share Modal
+function closeShareModal() {
+    document.getElementById("share-modal").classList.add("hidden");
+}
+
+</script>
+<script>
+
+function loadContent(page) {
+  // Update the URL hash with the page name
+  location.hash = page;
+  
+  const contentArea = document.getElementById('content-area');
+  const sidebar = document.getElementById('default-sidebar');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  
+  fetch(page)
+    .then(response => response.text())
+    .then(data => {
+      contentArea.innerHTML = data;
+      // Optionally, hide the sidebar if open
+      if (sidebar && !sidebar.classList.contains("-translate-x-full")) {
+        sidebar.classList.add("-translate-x-full");
+        hamburgerIcon?.classList.remove("hidden");
+        closeIcon?.classList.add("hidden");
+      }
+    })
+    .catch(error => {
+      console.error('Error loading content:', error);
+      contentArea.innerHTML = '<p class="text-red-500">Failed to load content. Please try again later.</p>';
+    });
+}
+
+
+
+/* ===========================================================
+   Popup Handling
 =========================================================== */
+function showPopup() {
+  fetch("questionspopup.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(html => {
+      document.getElementById("popupContent").innerHTML = html;
+      document.getElementById("questionModal").classList.remove("hidden");
+      setTimeout(attachEventListeners, 100);
+    })
+    .catch(error => {
+      console.error("Error fetching popup:", error);
+      document.getElementById("popupContent").innerHTML = "<p class='text-red-500'>Failed to load popup.</p>";
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const sidebar = document.getElementById("default-sidebar");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const body = document.body;
+    const userMenuButton = document.getElementById("user-menu-button");
+    const userDropdown = document.getElementById("user-dropdown");
+
+    function openSidebar() {
+        sidebar.classList.remove("-translate-x-full");
+        body.classList.add("overflow-hidden"); // Prevent scrolling
+    }
+
+    function closeSidebar() {
+        sidebar.classList.add("-translate-x-full");
+        body.classList.remove("overflow-hidden"); // Enable scrolling
+    }
+
+    // Toggle Sidebar
+    if (hamburger && sidebar) {
+        hamburger.addEventListener("click", function () {
+            if (sidebar.classList.contains("-translate-x-full")) {
+                openSidebar();
+            } else {
+                closeSidebar();
+            }
+        });
+    }
+
+    // Close sidebar when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+            closeSidebar();
+        }
+    });
+
+    // Toggle User Dropdown
+    if (userMenuButton && userDropdown) {
+        userMenuButton.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent closing when clicking inside dropdown
+            userDropdown.classList.toggle("hidden");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add("hidden");
+            }
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to get URL parameters
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Check if `showPopup=true` exists in the URL
+    if (getQueryParam("showPopup") === "true") {
+        showPopup(); // Call the function to open the popup
+    }
+});
+
+
+</script>
+
+
+<!-- questionspopup.html -->
+<script>
+  function attachEventListeners() {
+  console.log("Attaching event listeners...");
+
+  // Next button (excluding add-property-button)
+  document.querySelectorAll(".next-button:not(.add-property-button)").forEach(button => {
+    button.addEventListener("click", function () {
+      const nextStepId = this.getAttribute("data-next");
+      if (nextStepId) {
+        console.log(`Navigating to ${nextStepId}`);
+        showStep(nextStepId);
+      }
+    });
+  });
+
+  const addPropertyButton = document.querySelector(".add-property-button");
+if (addPropertyButton) {
+    addPropertyButton.addEventListener("click", function () {
+        saveCurrentProperty();
+        console.log("Navigating to Property Alias Step...");
+        showStep("property-alias"); // Go to the "What do you refer to this property as?" step
+    });
+} else {
+    console.warn('Element with class "add-property-button" not found.');
+}
+
+
+const consentButton = document.querySelector(".consent-button");
+if (consentButton) {
+    consentButton.addEventListener("click", function () {
+        saveCurrentProperty();  
+        showStep("consent");    
+
+        setTimeout(displayRecentProperties, 200);
+    });
+} else {
+    console.warn('Element with class "consent-button" not found.');
+}
+
+  // Previous button
+  document.querySelectorAll(".prev-button").forEach(button => {
+    button.addEventListener("click", function () {
+      const prevStepId = this.getAttribute("data-prev");
+      if (prevStepId) {
+        console.log(`Navigating back to ${prevStepId}`);
+        showStep(prevStepId);
+      }
+    });
+  });
+
+  // Yes/No buttons in Property Setup
+      document.querySelectorAll("#property-setup .yes-button, #property-setup .no-button").forEach(button => {
+        button.addEventListener("click", function () {
+            const selectedYes = this.classList.contains("yes-button");
+
+            sessionStorage.setItem("propertySetupSelection", selectedYes ? "yes" : "no");
+
+            if (selectedYes) {
+                showStep("residence-check"); // Show residence-check if YES
+            } else {
+                showStep("home-details");  // Skip residence-check if NO
+            }
+        });
+    });
+
+
+
+  // Yes/No buttons in Residence Check
+  document.querySelectorAll("#residence-check .yes-button, #residence-check .no-button").forEach(button => {
+    button.addEventListener("click", function () {
+      const nextStepId = this.getAttribute("data-next");
+      if (this.classList.contains("yes-button")) {
+        sessionStorage.setItem("residenceSelection", "yes");
+      } else {
+        sessionStorage.setItem("residenceSelection", "no");
+      }
+      if (nextStepId) {
+        showStep(nextStepId);
+      }
+    });
+  });
+
+  // Observer for Utilities section
+  const utilitiesSection = document.getElementById("utilities");
+  if (utilitiesSection) {
+    const observer = new MutationObserver(() => {
+      if (!utilitiesSection.classList.contains("hidden")) {
+        updateUtilitiesNextButton();
+      }
+    });
+    observer.observe(utilitiesSection, { attributes: true, attributeFilter: ["class"] });
+  }
+
+  // Property Alias input listener
+  const propertyInput = document.getElementById("property-name");
+  if (propertyInput) {
+    propertyInput.addEventListener("input", function () {
+      if (sessionStorage.getItem("residenceSelection") === "no") {
+        sessionStorage.setItem("propertyAlias", this.value.trim());
+      }
+      updateHeaderText();
+    });
+  }
+}
+
+function toggleDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const arrow = document.getElementById(`${dropdownId.split('-')[0]}-arrow`);
+  if (dropdown) {
+    dropdown.classList.toggle("hidden");
+  } else {
+    console.warn(`Dropdown element with ID "${dropdownId}" not found.`);
+  }
+  if (arrow) {
+    arrow.classList.toggle("rotate-180");
+  } else {
+    console.warn(`Arrow element with ID "${dropdownId.split('-')[0]}-arrow" not found.`);
+  }
+}
+
+function toggleModernDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const arrow = document.getElementById(`${dropdownId}-arrow`);
+  if (dropdown) dropdown.classList.toggle("show");
+  if (arrow) arrow.classList.toggle("up");
+}
+
+
 function toggleSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -451,95 +850,129 @@ function resetFormFields() {
 /* ===========================================================
    Property Handling
 =========================================================== */
+// Global array to store filled properties
 let filledProperties = [];
 
-function collectPropertyDetails() {
-  const propertyAlias = document.getElementById("property-name").value || "Main Residence";
-  const homeType = document.getElementById("home-type").value;
-  const heatingSource = document.getElementById("primary-heating-source").value;
-  const description = document.getElementById("best-describes-you").value;
-  const electricity = document.getElementById("toggle-electricity")?.checked ? "Yes" : "No";
-  const gas = document.getElementById("toggle-gas")?.checked ? "Yes" : "No";
-  const broadband = document.getElementById("toggle-broadband")?.checked ? "Yes" : "No";
-
-  const propertyDetails = {
-    alias: propertyAlias,
-    homeType,
-    heatingSource,
-    description,
-    utilities: { electricity, gas, broadband }
-  };
-
-  filledProperties.push(propertyDetails);
-  console.log("Property collected and added:", propertyDetails);
-  console.log("Current filled properties:", filledProperties);
-}
-
-function displayRecentProperties() {
-  console.log("Displaying property names on consent page...");
-  const propertyList = document.getElementById("property-list-items");
-  const propertyListContainer = document.getElementById("property-list");
-
-  if (!propertyList || !propertyListContainer) {
-    console.error("Property list elements not found in DOM!");
-    return;
-  }
-  propertyList.innerHTML = "";
-  if (filledProperties.length === 0) {
-    console.warn("No properties available to display!");
-  }
-  filledProperties.forEach((property, index) => {
-    console.log(`Adding property to list: ${property.alias}`);
-    const listItem = document.createElement("li");
-    listItem.textContent = `${index + 1}. ${property.alias}`;
-    propertyList.appendChild(listItem);
-  });
-  propertyListContainer.classList.remove("hidden");
-  console.log("Property names displayed successfully on the consent page.");
-}
-
+/* ===========================================================
+   Collect and Store Property Details
+=========================================================== */
 function saveCurrentProperty() {
-  let propertyAlias = sessionStorage.getItem("propertyAlias") || "Main Residence";
-  if (sessionStorage.getItem("residenceSelection") === "yes") {
-    propertyAlias = "Main";
-  }
-  const homeType = document.getElementById("home-type").value;
-  const heatingSource = document.getElementById("primary-heating-source").value;
-  const bestDescribesYou = document.getElementById("best-describes-you").value;
-  const hasSolar = document.getElementById("solar-pv").value;
-  const hasEV = document.getElementById("ev-ownership").value;
+    let propertyAlias = document.getElementById("property-name").value.trim();
 
-  if (!propertyAlias) {
-    alert("Please enter a property name before adding another.");
-    return;
-  }
+    if (!propertyAlias) {
+        alert("Please enter a property name before adding another.");
+        return;
+    }
 
-  const propertyData = {
-    propertyAlias,
-    homeType,
-    heatingSource,
-    bestDescribesYou,
-    hasSolar,
-    hasEV
-  };
+    const homeType = document.getElementById("home-type").value;
+    const heatingSource = document.getElementById("primary-heating-source").value;
+    const bestDescribesYou = document.getElementById("best-describes-you").value;
+    const hasSolar = document.getElementById("solar-pv").value;
+    const hasEV = document.getElementById("ev-ownership").value;
+    const electricity = document.getElementById("toggle-electricity")?.checked ? "Yes" : "No";
+    const gas = document.getElementById("toggle-gas")?.checked ? "Yes" : "No";
+    const broadband = document.getElementById("toggle-broadband")?.checked ? "Yes" : "No";
 
-  filledProperties.push(propertyData);
-  console.log("Saved Property:", propertyData);
+    // Store the property in an object
+    const propertyData = {
+        alias: propertyAlias,  // Ensure consistency with display function
+        homeType,
+        heatingSource,
+        bestDescribesYou,
+        hasSolar,
+        hasEV,
+        utilities: { electricity, gas, broadband }
+    };
+
+    // Ensure we are appending to the array, not overwriting it
+    filledProperties.push(propertyData);
+
+    console.log("Saved Properties List:", filledProperties);
+
+    // Reset form fields after adding a property
+    resetFormFields();
+}
+
+/* ===========================================================
+   Display Recent Properties on Consent Page
+=========================================================== */
+function displayRecentProperties() {
+    console.log("Displaying property names on consent page...");
+    
+    const propertyList = document.getElementById("property-list-items");
+    const propertyListContainer = document.getElementById("property-list");
+
+    if (!propertyList || !propertyListContainer) {
+        console.error("Property list elements not found in DOM!");
+        return;
+    }
+
+    // Clear previous entries before adding new ones
+    propertyList.innerHTML = "";
+
+    if (filledProperties.length === 0) {
+        console.warn("No properties available to display!");
+        return;
+    }
+
+    filledProperties.forEach((property, index) => {
+        console.log(`Adding property to list: ${property.alias}`);
+        const listItem = document.createElement("li");
+        listItem.textContent = `${index + 1}. ${property.alias}`; // Use alias key correctly
+        propertyList.appendChild(listItem);
+    });
+
+    // Show the property list section
+    propertyListContainer.classList.remove("hidden");
+
+    console.log("Final Property List:", filledProperties);
+}
+
+/* ===========================================================
+   Handle 'Proceed to Consent' Button Click
+=========================================================== */
+const consentButton = document.querySelector(".consent-button");
+if (consentButton) {
+    consentButton.addEventListener("click", function () {
+        saveCurrentProperty();  // Save the latest property
+        showStep("consent");    // Navigate to consent page
+
+        // Add a slight delay to ensure the properties are stored before displaying them
+        setTimeout(displayRecentProperties, 200);
+    });
+} else {
+    console.warn('Element with class "consent-button" not found.');
+}
+
+/* ===========================================================
+   Reset Form Fields After Property is Added
+=========================================================== */
+function resetFormFields() {
+    document.getElementById("property-name").value = "";
+    document.getElementById("home-type").selectedIndex = 0;
+    document.getElementById("primary-heating-source").selectedIndex = 0;
+    document.getElementById("best-describes-you").selectedIndex = 0;
+    document.getElementById("solar-pv").selectedIndex = 0;
+    document.getElementById("ev-ownership").selectedIndex = 0;
+    document.getElementById("toggle-electricity").checked = false;
+    document.getElementById("toggle-gas").checked = false;
+    document.getElementById("toggle-broadband").checked = false;
 }
 
 /* ===========================================================
    Step Navigation & UI Updates
 =========================================================== */
 function showStep(step) {
-  console.log(`Showing step: ${step}`);
-  document.querySelectorAll('.step').forEach(el => el.classList.add('hidden'));
-  const nextStepElement = document.getElementById(step);
-  if (nextStepElement) {
-    nextStepElement.classList.remove('hidden');
-  } else {
-    console.error(`Step ${step} not found!`);
-  }
+    console.log(`Showing step: ${step}`);
 
+    document.querySelectorAll('.step').forEach(el => el.classList.add('hidden'));
+
+    const nextStepElement = document.getElementById(step);
+    if (nextStepElement) {
+        nextStepElement.classList.remove('hidden');
+    } else {
+        console.error(`Step ${step} not found!`);
+    }
   // Update step indicators if available
   const steps = ['property-setup', 'residence-check', 'property-alias', 'home-details', 'utilities', 'consent'];
   const stepLines = document.querySelectorAll('.step-line');
@@ -687,415 +1120,84 @@ function removeEV(evId) {
   }
 }
 
-/* ===========================================================
-   Content Loading & Sidebar Toggle
-=========================================================== */
-function loadContent(page) {
-  // Update the URL hash with the page name
-  location.hash = page;
-  
-  const contentArea = document.getElementById('content-area');
-  const sidebar = document.getElementById('default-sidebar');
-  const hamburgerIcon = document.getElementById('hamburger-icon');
-  const closeIcon = document.getElementById('close-icon');
-  
-  fetch(page)
-    .then(response => response.text())
-    .then(data => {
-      contentArea.innerHTML = data;
-      // Optionally, hide the sidebar if open
-      if (sidebar && !sidebar.classList.contains("-translate-x-full")) {
-        sidebar.classList.add("-translate-x-full");
-        hamburgerIcon?.classList.remove("hidden");
-        closeIcon?.classList.add("hidden");
-      }
-    })
-    .catch(error => {
-      console.error('Error loading content:', error);
-      contentArea.innerHTML = '<p class="text-red-500">Failed to load content. Please try again later.</p>';
-    });
+</script>
+<script>
+function handleCompleteButtonClick() {
+    console.log("✅ Complete button clicked...");
+
+    // Ensure at least one consent checkbox is checked
+    const consent1 = document.getElementById("consent-1").checked;
+    const consent2 = document.getElementById("consent-2").checked;
+    const consent3 = document.getElementById("consent-3").checked;
+
+    if (!consent1 || !consent2 || !consent3) {
+        alert("⚠️ Please accept all the required consents before proceeding.");
+        return;
+    }
+
+    // Check if the user selected multiple properties
+    const multipleProperties = sessionStorage.getItem("propertySetupSelection") === "yes";
+
+    console.log("Redirect Decision:", multipleProperties ? "my-properties.html" : "dashboard.html");
+
+    // Redirect based on multiple properties selection
+    if (multipleProperties) {
+        window.location.href = "my-properties.html";  // ✅ Correctly redirects
+    } else {
+        window.location.href = "dashboard.html";  // ✅ Correctly redirects
+    }
 }
-
-
-
-
-/* ===========================================================
-   Dropdown Functions
-=========================================================== */
-function toggleDropdown(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  const arrow = document.getElementById(`${dropdownId.split('-')[0]}-arrow`);
-  if (dropdown) {
-    dropdown.classList.toggle("hidden");
-  } else {
-    console.warn(`Dropdown element with ID "${dropdownId}" not found.`);
-  }
-  if (arrow) {
-    arrow.classList.toggle("rotate-180");
-  } else {
-    console.warn(`Arrow element with ID "${dropdownId.split('-')[0]}-arrow" not found.`);
-  }
-}
-
-function toggleModernDropdown(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  const arrow = document.getElementById(`${dropdownId}-arrow`);
-  if (dropdown) dropdown.classList.toggle("show");
-  if (arrow) arrow.classList.toggle("up");
-}
-
-// function setupDropdown(buttonId, contentId, arrowId) {
-//   const button = document.getElementById(buttonId);
-//   const content = document.getElementById(contentId);
-//   const arrow = document.getElementById(arrowId);
-//   if (button && content && arrow) {
-//     button.addEventListener('click', function (event) {
-//       content.classList.toggle('hidden');
-//       arrow.classList.toggle('rotate-180');
-//       event.stopPropagation();
-//     });
-//   }
-// }
-
-// const dropdowns = [
-//   { btn: 'broadbandDropdownButton', content: 'broadband-service-details', arrow: 'broadbandDropdownArrow' },
-//   { btn: 'evDropdownButton', content: 'evDropdownContent', arrow: 'evDropdownArrow' },
-//   { btn: 'solarDropdownButton', content: 'solarDropdownContent', arrow: 'solarDropdownArrow' },
-//   { btn: 'utilitiesDropdownButton', content: 'utilitiesDropdownContent', arrow: 'utilitiesDropdownArrow' },
-//   { btn: 'residenceDropdownButton', content: 'residenceDropdownContent', arrow: 'residenceDropdownArrow' },
-//   { btn: 'dropdownButton', content: 'dropdownContent', arrow: 'dropdownArrow' },
-//   { btn: 'homeDetailsDropdownButton', content: 'homeDetailsDropdownContent', arrow: 'homeDetailsDropdownArrow' }
-// ];
-
-// dropdowns.forEach(d => setupDropdown(d.btn, d.content, d.arrow));
-
-// window.addEventListener('click', function (e) {
-//   dropdowns.forEach(d => {
-//     if (!e.target.closest(`#${d.btn}`) && !e.target.closest(`#${d.content}`)) {
-//       document.getElementById(d.content)?.classList.add('hidden');
-//       document.getElementById(d.arrow)?.classList.remove('rotate-180');
-//     }
-//   });
-// });
-
-
-
-/* ===========================================================
-   Popup Handling
-=========================================================== */
-function showPopup() {
-  fetch("questionspopup.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("popupContent").innerHTML = html;
-      document.getElementById("questionModal").classList.remove("hidden");
-      setTimeout(attachEventListeners, 100);
-    })
-    .catch(error => console.error("Error loading popup:", error));
-}
-
-function closeModal() {
-  document.getElementById("questionModal").classList.add("hidden");
-}
-
-/* ===========================================================
-   Attach Event Listeners (Main)
-=========================================================== */
-function attachEventListeners() {
-  console.log("Attaching event listeners...");
-
-  // Next button (excluding add-property-button)
-  document.querySelectorAll(".next-button:not(.add-property-button)").forEach(button => {
-    button.addEventListener("click", function () {
-      const nextStepId = this.getAttribute("data-next");
-      if (nextStepId) {
-        console.log(`Navigating to ${nextStepId}`);
-        showStep(nextStepId);
-      }
-    });
-  });
-
-  // Add Property button
-  const addPropertyButton = document.querySelector(".add-property-button");
-  if (addPropertyButton) {
-    addPropertyButton.addEventListener("click", function () {
-      collectPropertyDetails();
-      alert("Property Added! You can now add a new property.");
-      resetFormFields();
-    });
-  } else {
-    console.warn('Element with class "add-property-button" not found.');
-  }
-
-  // Consent button
-  const consentButton = document.querySelector(".consent-button");
-  if (consentButton) {
-    consentButton.addEventListener("click", function () {
-      saveCurrentProperty();
-      showStep("consent");
-    });
-  } else {
-    console.warn('Element with class "consent-button" not found.');
-  }
-
-  // Previous button
-  document.querySelectorAll(".prev-button").forEach(button => {
-    button.addEventListener("click", function () {
-      const prevStepId = this.getAttribute("data-prev");
-      if (prevStepId) {
-        console.log(`Navigating back to ${prevStepId}`);
-        showStep(prevStepId);
-      }
-    });
-  });
-
-  // Yes/No buttons in Property Setup
-  document.querySelectorAll("#property-setup .yes-button, #property-setup .no-button").forEach(button => {
-    button.addEventListener("click", function () {
-      const nextStepId = this.getAttribute("data-next");
-      if (this.classList.contains("yes-button")) {
-        sessionStorage.setItem("propertySetupSelection", "yes");
-        sessionStorage.setItem("propertyAlias", "Main");
-      } else {
-        sessionStorage.setItem("propertySetupSelection", "no");
-      }
-      if (nextStepId) {
-        showStep(nextStepId);
-      }
-    });
-  });
-
-  // Yes/No buttons in Residence Check
-  document.querySelectorAll("#residence-check .yes-button, #residence-check .no-button").forEach(button => {
-    button.addEventListener("click", function () {
-      const nextStepId = this.getAttribute("data-next");
-      if (this.classList.contains("yes-button")) {
-        sessionStorage.setItem("residenceSelection", "yes");
-      } else {
-        sessionStorage.setItem("residenceSelection", "no");
-      }
-      if (nextStepId) {
-        showStep(nextStepId);
-      }
-    });
-  });
-
-  // Observer for Utilities section
-  const utilitiesSection = document.getElementById("utilities");
-  if (utilitiesSection) {
-    const observer = new MutationObserver(() => {
-      if (!utilitiesSection.classList.contains("hidden")) {
-        updateUtilitiesNextButton();
-      }
-    });
-    observer.observe(utilitiesSection, { attributes: true, attributeFilter: ["class"] });
-  }
-
-  // Property Alias input listener
-  const propertyInput = document.getElementById("property-name");
-  if (propertyInput) {
-    propertyInput.addEventListener("input", function () {
-      if (sessionStorage.getItem("residenceSelection") === "no") {
-        sessionStorage.setItem("propertyAlias", this.value.trim());
-      }
-      updateHeaderText();
-    });
-  }
-}
-
-/* ===========================================================
-   DOMContentLoaded – Initialization
-=========================================================== */
 
 
 </script>
 
-<script>
-function togglePropertyDropdown(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  const arrow = document.getElementById(`${dropdownId}-arrow`);
-
-  // Toggle visibility using Tailwind's "hidden" class
-  dropdown.classList.toggle('hidden');
-
-  // Optionally rotate the arrow 180° by toggling a class
-  arrow.classList.toggle('rotate-180');
-}
-
-
-</script>
-<script>
-function toggleResidenceCheck() {
-  // The container you want to show/hide
-  const dropdown = document.getElementById('residenceCheckMenu');
-  // The arrow icon you want to rotate
-  const arrow = document.getElementById('residenceCheckMenu-arrow');
-  
-  // Toggle Tailwind’s 'hidden' class to show/hide
-  dropdown.classList.toggle('hidden');
-  
-  // Optionally rotate the arrow (ensure you have a .rotate-180 { transform: rotate(180deg); } in your CSS)
-  arrow.classList.toggle('rotate-180');
-}
-
-
-</script>
-<script>
-  function toggleHomeDetails() {
-    const content = document.getElementById('homeDetailsDropdownContent');
-    const arrow = document.getElementById('homeDetailsDropdownArrow');
-    
-    // Show/hide the content by toggling Tailwind's 'hidden' class
-    content.classList.toggle('hidden');
-    
-    // Rotate the arrow by toggling a custom class (add the CSS below)
-    arrow.classList.toggle('rotate-180');
-  }
-</script>
-<script>
-  function toggleUtilities() {
-    const content = document.getElementById('utilitiesDropdownContent');
-    const arrow = document.getElementById('utilitiesDropdownArrow');
-
-    // Toggle Tailwind's 'hidden' class to show/hide the content
-    content.classList.toggle('hidden');
-
-    // Optionally rotate the arrow (add the .rotate-180 class in your CSS)
-    arrow.classList.toggle('rotate-180');
-  }
-  // Toggle for "Solar Setup"
-  function toggleSolar() {
-      const content = document.getElementById('solarDropdownContent');
-      const arrow = document.getElementById('solarDropdownArrow');
-      content.classList.toggle('hidden');
-      arrow.classList.toggle('rotate-180');
-    }
-
-    // Toggle for "Electric Vehicle"
-    function toggleEV() {
-      const content = document.getElementById('evDropdownContent');
-      const arrow = document.getElementById('evDropdownArrow');
-      content.classList.toggle('hidden');
-      arrow.classList.toggle('rotate-180');
-    }
-    
-
-    // Toggle for "Broadband"
-    function toggleBroadband() {
-      const content = document.getElementById('broadband-service-details');
-      const arrow = document.getElementById('broadbandDropdownArrow');
-      content.classList.toggle('hidden');
-      arrow.classList.toggle('rotate-180');
-    }
-</script>
 
 <script>
-  // Optional: toggles the collapsible content
-  function toggleEV() {
-    const evContent = document.getElementById("evDropdownContent");
-    const arrow = document.getElementById("evDropdownArrow");
-    evContent.classList.toggle("hidden");
-    arrow.classList.toggle("rotate-180");
-  }
-
-  // Debug: confirm script runs
-  console.log("EV script loaded.");
-
-  // Keep track of how many EVs we've added
-  let evCount = 1;
-
-  // The inline onclick function
-  function addAnotherEv() {
-    evCount++;
-    console.log("Add Another EV clicked. Now adding EV #" + evCount);
-
-    // Grab the container
-    const evDetailsContainer = document.getElementById("evDetails");
-    if (!evDetailsContainer) {
-      console.error("Could not find #evDetails container.");
-      return;
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to get URL parameter
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
     }
 
-    // Create the new EV block
-    const newEvDiv = document.createElement("div");
-    newEvDiv.className = "bg-white p-4 rounded-lg shadow space-y-4";
-    newEvDiv.innerHTML = `
-      <h3 class="text-lg font-semibold text-gray-800">EV ${evCount}</h3>
-      <label class="block text-gray-700 font-medium">EV Type</label>
-      <select class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
-        <option>Full Battery EV (BEV)</option>
-        <option>Plug-in Hybrid EV (PHEV)</option>
-        <option>Hybrid EV (HEV)</option>
-      </select>
+    // Get the selected location from URL
+    const locationName = getQueryParam("location");
 
-      <label class="block text-gray-700 font-medium">Battery Size (kWh)</label>
-      <input type="number" value="75"
-             class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
+    // If location is present, update the UI
+    if (locationName) {
+        const headerSection = document.querySelector(".herosec"); // Adjust if needed
 
-      <label class="block text-gray-700 font-medium">Annual Driving Distance (km)</label>
-      <input type="number" value="15000"
-             class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 focus:outline-none">
-    `;
+        // Create Back Button and Location Name
+        const locationHeader = `
+            <div class="flex items-center space-x-3 py-3">
+    <!-- Back Button with Interactive Effect -->
+    <button onclick="goBack()" 
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-200">
+        <svg class="w-6 h-6 text-gray-600 hover:text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
 
-    // Append the new EV block
-    evDetailsContainer.appendChild(newEvDiv);
-  }
-</script>
-<script>
- document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.getElementById("hamburger");
-    const sidebar = document.getElementById("default-sidebar");
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const closeIcon = document.getElementById("close-icon");
-    const body = document.body;
-    const userMenuButton = document.getElementById("user-menu-button");
-    const userDropdown = document.getElementById("user-dropdown");
+    <!-- Location Name with Elegant Styling -->
+    <h1 class="text-3xl font-extrabold text-gray-900 tracking-wide">
+        ${locationName}
+    </h1>
+</div>
 
-    function openSidebar() {
-        sidebar.classList.remove("-translate-x-full");
-        body.classList.add("overflow-hidden"); // Prevent scrolling
-    }
+        `;
 
-    function closeSidebar() {
-        sidebar.classList.add("-translate-x-full");
-        body.classList.remove("overflow-hidden"); // Enable scrolling
-    }
-
-    // Toggle Sidebar
-    if (hamburger && sidebar) {
-        hamburger.addEventListener("click", function () {
-            if (sidebar.classList.contains("-translate-x-full")) {
-                openSidebar();
-            } else {
-                closeSidebar();
-            }
-        });
-    }
-
-    // Close sidebar when clicking outside
-    document.addEventListener("click", function (event) {
-        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
-            closeSidebar();
-        }
-    });
-
-    // Toggle User Dropdown
-    if (userMenuButton && userDropdown) {
-        userMenuButton.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevent closing when clicking inside dropdown
-            userDropdown.classList.toggle("hidden");
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
-                userDropdown.classList.add("hidden");
-            }
-        });
+        // Insert Back Button & Location Name
+        headerSection.innerHTML = locationHeader + headerSection.innerHTML;
     }
 });
 
-  </script>
+// Go Back Function
+function goBack() {
+    window.location.href = "my-properties.html"; // Adjust based on actual page name
+}
+</script>
+
+
 
   
   <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>

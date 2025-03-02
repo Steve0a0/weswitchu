@@ -44,7 +44,7 @@
         </button>
     
         
-        <a href="#" class="flex items-center">
+        <a href="dashboard.html" class="flex items-center">
           <img src="images/weswitchu.png" class="h-8" alt="WeSwitchU.ie Logo">
         </a>
       </div>
@@ -61,8 +61,25 @@
             </div>
             <ul class="py-2">
               <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <!-- Cog Icon for Personal Settings -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l.368 1.135a1 1 0 00.95.69h1.2a1 1 0 01.592 1.806l-.966.7a1 1 0 000 1.607l.966.7a1 1 0 01-.592 1.806h-1.2a1 1 0 00-.95.69l-.368 1.135c-.3.921-1.603.921-1.902 0l-.368-1.135a1 1 0 00-.95-.69h-1.2a1 1 0 01-.592-1.806l.966-.7a1 1 0 000-1.607l-.966-.7a1 1 0 01.592-1.806h1.2a1 1 0 00.95-.69l.368-1.135z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Personal Settings
+                </a>
               </li>
+              <li>
+                <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <!-- Logout Icon for Sign out -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                  </svg>
+                  Sign out
+                </a>
+              </li>
+              
             </ul>
           </div>
         </div>
@@ -167,39 +184,30 @@
     <div class="space-y-2 herosec ml-20">
       <h1 class="text-2xl font-bold text-gray-900">Personal Settings</h1>
       <div class="flex items-center text-sm text-gray-500 space-x-2">
-        <span class="flex items-center space-x-1">
+        <a href="dashboard.html" class="flex items-center space-x-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
           </svg>
-        </span>
+        </a>
         <span>›</span>
         <a href="#" class="text-purple-600 hover:underline">Personal Settings</a>
       </div>
     </div>
   
-    <!-- Right Section: Emergency Alerts -->
-    <div class="flex flex-wrap items-center space-x-4 mt-4">
+    <div class="flex items-center space-x-4 mt-4">
       <!-- Gas Emergency Button -->
-      <button class="gasemer flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md hover:bg-red-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
-          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
-          <path d="M12 9v4"/>
-          <path d="M12 17h.01"/>
-        </svg>
-        <span>Gas Emergency</span>
-      </button>
+      <button
+      class="gasemer flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-md shadow-md hover:bg-red-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"> 
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>        
+      <span class="text-xs sm:text-sm">Gas Emergency</span>      </button>
   
       <!-- Electricity Emergency Button -->
-      <button class="elecemer flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
-          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
-          <path d="M12 9v4"/>
-          <path d="M12 17h.01"/>
-        </svg>
-        <span>Electricity Emergency</span>
+      <button
+      class="elecemer flex items-center space-x-2 bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md shadow-md hover:bg-yellow-100 hover:shadow-lg transition-all duration-300 emergency-btn sm:px-3 sm:py-1 sm:text-sm"      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <span class="text-xs sm:text-sm">Electricity Emergency</span>
       </button>
     </div>
-  </div>
   </div>
   <div class="flex flex-col items-center justify-center ">
   <div class=" bg-white p-2 rounded-lg shadow-lg flex">
@@ -244,10 +252,10 @@
           <label class="block font-medium text-gray-700">Contact New Password</label>
           <input type="password" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="••••••••">
       </div>
-      <div>
+      <!-- <div>
           <label class="block font-medium text-gray-700">Onebill Email</label>
           <input type="email" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="safiyebkkl@gmail.com">
-      </div>
+      </div> -->
       <div>
           <label class="block font-medium text-gray-700">Onebill Email Password</label>
           <input type="password" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="••••">
@@ -261,85 +269,91 @@
           <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="111">
       </div>
      
-      <div>
+      <!-- <div>
           <label class="block font-medium text-gray-700">Payment Frequency</label>
           <select class="w-full border rounded-lg px-3 py-2 mt-1">
               <option>Monthly</option>
               <option>Quarterly</option>
               <option>Yearly</option>
           </select>
-      </div>
+      </div> -->
   </div>
 </div>
 <!-- Accessibility Information Section -->
 <div class="accessibility-info w-full max-w-4xl bg-white shadow-lg rounded-lg mt-6 hidden">
-<div class="bg-gradient-to-r from-[#31264B] via-[#453A5E] to-[#6A5D83] p-4 rounded-t-lg text-white text-lg font-semibold flex items-center">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+  <div class="bg-gradient-to-r from-[#31264B] via-[#453A5E] to-[#6A5D83] p-4 rounded-t-lg text-white text-lg font-semibold flex items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18m-9-9v18" />
-  </svg>
-  Accessibility Information
+    </svg>
+    Accessibility Information
+  </div>
+  <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Advancing Age -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="advancingAge" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Advancing Age</span>
+      </label>
+    </div>
+    <!-- Dexterity Impaired -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="dexterityImpaired" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Dexterity Impaired</span>
+      </label>
+    </div>
+    <!-- Hearing Impaired -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="hearingImpaired" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Hearing Impaired</span>
+      </label>
+    </div>
+    <!-- Language Difficulty -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="languageDifficulty" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Language Difficulty</span>
+      </label>
+    </div>
+    <!-- Learning Difficulty -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="learningDifficulty" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Learning Difficulty</span>
+      </label>
+    </div>
+    <!-- Mental Health -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="mentalHealth" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Mental Health</span>
+      </label>
+    </div>
+    <!-- Mobility Impaired -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="mobilityImpaired" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Mobility Impaired</span>
+      </label>
+    </div>
+    <!-- Speech Impaired -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="speechImpaired" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Speech Impaired</span>
+      </label>
+    </div>
+    <!-- Visually Impaired -->
+    <div>
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" name="visuallyImpaired" class="form-checkbox text-blue-600">
+        <span class="block font-medium text-gray-700">Visually Impaired</span>
+      </label>
+    </div>
+  </div>
 </div>
-<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-  <div>
-      <label class="block font-medium text-gray-700">Advancing Age</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-          <option>Yes</option>
-          <option>No</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Dexterity Impaired</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-          <option>Yes</option>
-          <option>No</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Hearing Impaired</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Language Difficulty</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Learning Difficulty</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Mental Health</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Mobility Impaired</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Speech Impaired</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-      </select>
-  </div>
-  <div>
-      <label class="block font-medium text-gray-700">Visually Impaired</label>
-      <select class="w-full border rounded-lg px-3 py-2 mt-1">
-          <option>Select Option</option>
-      </select>
-  </div>
-</div>
-</div>
+
 <div class="flex justify-end mt-4">
 <button class="flex items-center gap-2 px-6 py-3 rounded-lg text-white bg-[#31264B] shadow-lg hover:scale-105 transition-transform duration-200">
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -352,104 +366,91 @@ Save Profile
 
   
 <script>
-   document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    /* Sidebar and User Dropdown Functionality */
     const hamburger = document.getElementById("hamburger");
     const sidebar = document.getElementById("default-sidebar");
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const closeIcon = document.getElementById("close-icon");
     const body = document.body;
     const userMenuButton = document.getElementById("user-menu-button");
     const userDropdown = document.getElementById("user-dropdown");
-
-    function openSidebar() {
-        sidebar.classList.remove("-translate-x-full");
-        body.classList.add("overflow-hidden"); // Prevent scrolling
-    }
-
-    function closeSidebar() {
-        sidebar.classList.add("-translate-x-full");
-        body.classList.remove("overflow-hidden"); // Enable scrolling
-    }
-
-    // Toggle Sidebar
-    if (hamburger && sidebar) {
-        hamburger.addEventListener("click", function () {
-            if (sidebar.classList.contains("-translate-x-full")) {
-                openSidebar();
-            } else {
-                closeSidebar();
-            }
-        });
-    }
-
-    // Close sidebar when clicking outside
-    document.addEventListener("click", function (event) {
-        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
-            closeSidebar();
-        }
+  
+    const openSidebar = () => {
+      sidebar?.classList.remove("-translate-x-full");
+      body.classList.add("overflow-hidden");
+    };
+  
+    const closeSidebar = () => {
+      sidebar?.classList.add("-translate-x-full");
+      body.classList.remove("overflow-hidden");
+    };
+  
+    // Toggle sidebar on hamburger click
+    hamburger?.addEventListener("click", () => {
+      sidebar?.classList.contains("-translate-x-full") ? openSidebar() : closeSidebar();
     });
-
-    // Toggle User Dropdown
-    if (userMenuButton && userDropdown) {
-        userMenuButton.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevent closing when clicking inside dropdown
-            userDropdown.classList.toggle("hidden");
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
-                userDropdown.classList.add("hidden");
-            }
-        });
-    }
-});
-
-    </script>
- 
- <script>
-    function toggleTab(selected) {
-      let tab1 = document.getElementById("tab1");
-      let tab2 = document.getElementById("tab2");
-      let personalInfo = document.querySelector(".personal-info");
-      let accessibilityInfo = document.querySelector(".accessibility-info");
-    
-      if (selected === 'tab1') {
-          tab1.classList.add("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
-          tab1.classList.remove("text-gray-700", "bg-transparent");
-          tab2.classList.add("text-gray-700", "bg-transparent");
-          tab2.classList.remove("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
   
-          personalInfo.classList.remove("hidden");
-          accessibilityInfo.classList.add("hidden");
-      } else {
-          tab2.classList.add("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
-          tab2.classList.remove("text-gray-700", "bg-transparent");
-          tab1.classList.add("text-gray-700", "bg-transparent");
-          tab1.classList.remove("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
-  
-          accessibilityInfo.classList.remove("hidden");
-          personalInfo.classList.add("hidden");
+    // Close sidebar if clicking outside of sidebar and hamburger
+    document.addEventListener("click", (event) => {
+      if (sidebar && hamburger && !sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+        closeSidebar();
       }
-  }
+    });
   
+    // Toggle user dropdown
+    userMenuButton?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      userDropdown?.classList.toggle("hidden");
+    });
+  
+    // Close user dropdown if clicking outside of it
+    document.addEventListener("click", (event) => {
+      if (userMenuButton && userDropdown && !userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+        userDropdown.classList.add("hidden");
+      }
+    });
+  
+    /* Tab Toggle Functionality */
+    window.toggleTab = (selected) => {
+      const tab1 = document.getElementById("tab1");
+      const tab2 = document.getElementById("tab2");
+      const personalInfo = document.querySelector(".personal-info");
+      const accessibilityInfo = document.querySelector(".accessibility-info");
+  
+      if (selected === "tab1") {
+        tab1.classList.add("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+        tab1.classList.remove("text-gray-700", "bg-transparent");
+        tab2.classList.add("text-gray-700", "bg-transparent");
+        tab2.classList.remove("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+        personalInfo.classList.remove("hidden");
+        accessibilityInfo.classList.add("hidden");
+      } else {
+        tab2.classList.add("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+        tab2.classList.remove("text-gray-700", "bg-transparent");
+        tab1.classList.add("text-gray-700", "bg-transparent");
+        tab1.classList.remove("text-white", "bg-gradient-to-r", "from-[#31264B]", "to-[#554C69]");
+        accessibilityInfo.classList.remove("hidden");
+        personalInfo.classList.add("hidden");
+      }
+    };
+  
+    /* Generic Dropdown Toggle Function */
+    window.toggleDropdown = (dropdownId) => {
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = document.getElementById(`${dropdownId.split('-')[0]}-arrow`);
+      if (dropdown) {
+        dropdown.classList.toggle("hidden");
+      } else {
+        console.warn(`Dropdown element with ID "${dropdownId}" not found.`);
+      }
+      if (arrow) {
+        arrow.classList.toggle("rotate-180");
+      } else {
+        console.warn(`Arrow element with ID "${dropdownId.split('-')[0]}-arrow" not found.`);
+      }
+    };
+  });
   </script>
-  <script>
-    function toggleDropdown(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  const arrow = document.getElementById(`${dropdownId.split('-')[0]}-arrow`);
-  if (dropdown) {
-    dropdown.classList.toggle("hidden");
-  } else {
-    console.warn(`Dropdown element with ID "${dropdownId}" not found.`);
-  }
-  if (arrow) {
-    arrow.classList.toggle("rotate-180");
-  } else {
-    console.warn(`Arrow element with ID "${dropdownId.split('-')[0]}-arrow" not found.`);
-  }
-}
-  </script>
+  
   <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
 </body>
 </html>
