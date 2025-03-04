@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Energy Savings Offer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+
+ 
+</head>
+<body class="bg-gray-100" >
+
+  <!-- Modal Container (Initial Offer) -->
+  <!-- Modal Container -->
+<div id="energyModal" tabindex="-1" aria-hidden="true" 
+class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" >
+
+<!-- Confetti Canvas (for sparkles) -->
+<!-- Confetti Canvas (for sparkles) -->
+<canvas id="confettiCanvas" class="absolute inset-0 pointer-events-none"></canvas>
+
+<div class="bg-[#F3F4F6] rounded-2xl shadow-xl p-6 max-w-sm w-full text-center relative">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" 
+       onclick="closeModal()">&times;</button>
+
+<!-- Icon -->
+<div class="flex justify-center mb-4">
+ <div class="bg-[#fef3c7] p-3 rounded-full">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d8ba41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trophy"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+ </div>
+</div>
+
+<!-- Title and Message -->
+<h2 class="text-2xl font-semibold text-[#1F2937]" onload="launchConfettiTwice()">Congratulations!</h2>
+<p class="text-[#10B981] font-medium mt-2">You could save <span class="font-bold">€350</span> by accepting the below deal!</p>
+
+<!-- Offer Box -->
+<div class="bg-[#E0E7FF] text-[#4338CA] p-4 rounded-lg mt-4">
+ <p class="font-semibold flex items-center justify-center">
+   <svg class="w-5 h-5 text-[#4338CA] mr-2" fill="none" stroke="currentColor" stroke-width="2" 
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+   </svg>
+   Best Value Energy Plan
+ </p>
+ <p class="text-sm mt-1">Switch today and start saving immediately with our exclusive offer.</p>
+</div>
+
+<!-- Buttons -->
+<button onclick="showProcessing()" 
+       class="mt-6 w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold py-2 rounded-lg">
+ Yes, Let's Switch and Save!
+</button>
+<button class="mt-3 w-full flex items-center justify-center gap-2 border border-[#6D28D9] text-[#6D28D9] 
+              hover:bg-[#EDE9FE] font-semibold py-2 rounded-lg">
+ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" 
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+      class="lucide lucide-phone-outgoing">
+   <polyline points="22 8 22 2 16 2"></polyline>
+   <line x1="16" y1="8" x2="22" y2="2"></line>
+   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 
+            19.79 19.79 0 0 1-8.63-3.07 
+            19.5 19.5 0 0 1-6-6 
+            19.79 19.79 0 0 1-3.07-8.67
+            A2 2 0 0 1 4.11 2h3
+            a2 2 0 0 1 2 1.72 
+            12.84 12.84 0 0 0 .7 2.81 
+            2 2 0 0 1-.45 2.11
+            L8.09 9.91a16 16 0 0 0 6 6
+            l1.27-1.27a2 2 0 0 1 2.11-.45 
+            12.84 12.84 0 0 0 2.81.7
+            A2 2 0 0 1 22 16.92z">
+   </path>
+ </svg>
+ Please Call Me to Discuss
+</button>
+</div>
+</div>
+  <!-- End of Initial Offer Modal -->
+
+  <!-- Processing Modal -->
+  <div id="processingModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center max-w-md w-full">
+      <div class="flex justify-center mb-4">
+        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+      </div>
+      <h2 class="text-xl font-semibold">Processing your switch...</h2>
+      <p class="text-gray-600 mt-2">Please wait while we prepare your switching details.</p>
+      <div class="mt-4 w-full bg-gray-300 rounded-full h-2">
+        <div id="progressBar" class="bg-blue-500 h-2 rounded-full w-0"></div>
+      </div>
+      <p class="text-gray-500 text-sm mt-2">Verifying eligibility and preparing your details...</p>
+    </div>
+  </div>
+  <!-- End of Processing Modal -->
+
+  <!-- Confirmation Form (Initially Hidden) -->
+  <!-- 
+       1) Use flex items-center justify-center to center the modal.
+       2) max-h-[80vh] with overflow-y-auto to make the modal content scrollable.
+  -->
+  <div id="confirmationForm" 
+  class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+  <div class="bg-white rounded-xl shadow-xl p-6 max-w-2xl w-full 
+              max-h-[80vh] overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-lg sm:text-2xl font-semibold text-gray-800">Confirm Your Details</h2>
+      <button class="text-gray-400 hover:text-gray-600" 
+              onclick="document.getElementById('confirmationForm').classList.add('hidden')">
+        &times;
+      </button>
+    </div>
+    <p class="text-sm sm:text-base text-gray-600">Please review and confirm your personal and payment information.</p>
+
+    <!-- Form Fields -->
+    <form id="detailsForm" class="mt-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Full Name -->
+        <div>
+          <label for="fullName" class="block text-sm sm:text-base text-gray-700 font-medium mb-1">Full Name</label>
+          <input type="text" id="fullName" name="fullName" 
+                 class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="John Doe" value="John Doe" />
+        </div>
+
+        <!-- IBAN -->
+        <div>
+          <label for="iban" class="block text-sm sm:text-base text-gray-700 font-medium mb-1">IBAN (For Direct Debit)</label>
+          <input type="text" id="iban" name="iban" 
+                 class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="IE29AIBK93115212345678" value="IE29AIBK93115212345678" />
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <label for="email" class="block text-sm sm:text-base text-gray-700 font-medium mb-1">Email Address</label>
+          <input type="email" id="email" name="email" 
+                 class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="john.doe@example.com" value="john.doe@example.com" />
+        </div>
+
+        <!-- How long with bank -->
+        <div>
+          <label for="bankDuration" class="block text-sm sm:text-base text-gray-700 font-medium mb-1">How long with your bank?</label>
+          <select id="bankDuration" name="bankDuration"
+                  class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>Less than 1 year</option>
+            <option>1-2 years</option>
+            <option>3-5 years</option>
+            <option selected>5+ years</option>
+          </select>
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label for="phone" class="block text-sm sm:text-base text-gray-700 font-medium mb-1">Phone Number</label>
+          <input type="tel" id="phone" name="phone" 
+                 class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="087 123 4567" value="087 123 4567" />
+        </div>
+
+        <!-- Address -->
+        <div>
+          <label for="address" class="block text-sm sm:text-base text-gray-700 font-medium mb-1">Address</label>
+          <input type="text" id="address" name="address" 
+                 class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="D01 F5P2" value="D01 F5P2" />
+        </div>
+
+        <!-- Date of Birth -->
+        <div>
+          <label for="dob" class="block text-sm sm:text-base text-gray-700 font-medium mb-1">Date of Birth</label>
+          <input type="date" id="dob" name="dob" 
+                 class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 value="1985-06-15" />
+        </div>
+
+        <!-- Meter Location -->
+        <div class="col-span-2">
+          <span class="block text-sm sm:text-base text-gray-700 font-medium mb-1">Meter Location</span>
+          <div class="flex items-center space-x-6 mt-2">
+            <label class="inline-flex items-center">
+              <input type="radio" name="meterLocation" value="Indoor" class="form-radio text-blue-500" checked />
+              <span class="ml-2 text-sm sm:text-base">Indoor</span>
+            </label>
+            <label class="inline-flex items-center">
+              <input type="radio" name="meterLocation" value="Outdoor" class="form-radio text-blue-500" />
+              <span class="ml-2 text-sm sm:text-base">Outdoor</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <div class="mt-6">
+        <button type="button" onclick="showFinalStep()" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg text-sm sm:text-base">
+          Next
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <!-- End of Confirmation Form -->
+
+  <!-- Final Step (Initially Hidden) -->
+  <!-- 
+       Same approach: flex container, inside card has max-h & overflow-y-auto 
+  -->
+  <div id="finalStep" 
+  class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+  <div class="bg-white rounded-xl shadow-xl p-6 max-w-xl w-full 
+              max-h-auto">
+    <!-- Header -->
+    <h2 class="text-lg sm:text-2xl font-semibold text-gray-800">Confirm Your Switch</h2>
+    <p class="text-sm sm:text-base text-gray-600 mt-1">Please review the details of your new plan before confirming.</p>
+    
+    <!-- Plan Summary Card -->
+    <div class="mt-6 border border-gray-200 rounded-lg p-4 bg-gray-50">
+      <div class="flex items-center mb-3">
+        <div class="bg-blue-100 p-2 rounded-full">
+          <svg class="w-5 sm:w-6 h-5 sm:h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" 
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div class="ml-3">
+          <h3 class="text-base sm:text-lg font-semibold text-gray-800">EcoEnergy Plus</h3>
+          <p class="text-xs sm:text-sm text-gray-500">Your new energy provider</p>
+        </div>
+      </div>
+      
+      <!-- Plan Details -->
+      <div class="text-gray-700 space-y-1 text-xs sm:text-sm">
+        <div class="flex justify-between">
+          <span>Plan Name:</span>
+          <span class="font-medium">Green Energy Saver</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Estimated Annual Savings:</span>
+          <span class="text-green-600 font-semibold">€350</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Contract Length:</span>
+          <span>12 months</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Unit Rate:</span>
+          <span>18.5c per kWh</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Standing Charge:</span>
+          <span>€0.35 per day</span>
+        </div>
+      </div>
+
+      <!-- Completion Date Notice -->
+      <div class="mt-4 bg-blue-50 text-blue-800 p-2 rounded-md text-xs sm:text-sm">
+        <p>Your switch will be completed by <strong>June 15, 2025</strong></p>
+      </div>
+    </div>
+    
+    <!-- Important Information -->
+    <div class="mt-4 border-l-4 border-yellow-400 bg-yellow-50 p-3 rounded-md text-xs sm:text-sm">
+      <div class="flex items-center mb-2">
+        <svg class="w-4 sm:w-5 h-4 sm:h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" stroke-width="2" 
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" 
+                d="M10.29 3.86L1.82 18a2 2 0 0 0 
+                   1.71 3h16.94a2 2 0 0 0 
+                   1.71-3l-8.47-14.14a2 2 0 0 0-3.42 0zM12 9v4m0 4h.01"/>
+        </svg>
+        <span class="font-semibold">Important Information</span>
+      </div>
+      <p class="text-gray-700">
+        By confirming this switch, you agree to a 12-month contract with EcoEnergy Plus.
+        Early termination fees may apply. Your first bill will be issued approximately
+        6 weeks after your switch date.
+      </p>
+    </div>
+    
+    <!-- Terms & Conditions Checkbox -->
+    <div class="mt-4">
+      <label class="inline-flex items-center text-xs sm:text-sm text-gray-700">
+        <input type="checkbox" class="form-checkbox text-blue-600" />
+        <span class="ml-2">
+          I agree to the 
+          <a href="#" class="text-blue-600 underline">Terms &amp; Conditions</a> 
+          and 
+          <a href="#" class="text-blue-600 underline">Privacy Policy</a>
+        </span>
+      </label>
+    </div>
+    
+    <!-- Buttons -->
+    <div class="mt-6 flex justify-between">
+      <button type="button" 
+              class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-lg text-xs sm:text-sm"
+              onclick="goBackToForm()">
+        Back
+      </button>
+      <button type="button" 
+              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg text-xs sm:text-sm"
+              onclick="finalizeSwitch()">
+        Confirm &amp; Submit
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- End of Final Step -->
+
+  <!-- JavaScript to handle progress and showing next screens -->
+ 
+</body>
+</html>

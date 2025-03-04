@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
   <style>
     .herosec{
         padding-left: 100px;
@@ -47,7 +48,7 @@
         </button>
     
         
-        <a href="#" class="flex items-center">
+        <a href="dashboard.html" class="flex items-center">
           <img src="images/weswitchu.png" class="h-8" alt="WeSwitchU.ie Logo">
         </a>
       </div>
@@ -439,6 +440,7 @@ sm:px-1 sm:py-0.5 sm:text-[7px] sm:rounded-md lg:px-4 lg:py-2 lg:text-xs lg:roun
       <!-- 1) Add Meter Reading -->
       <a 
         href="#"
+        id="openMeterModal"
         class="group flex items-center justify-between border border-purple-100 rounded-lg px-4 py-3 hover:bg-blue-50 transition-colors"
       >
         <div class="flex items-center space-x-3">
@@ -463,6 +465,7 @@ sm:px-1 sm:py-0.5 sm:text-[7px] sm:rounded-md lg:px-4 lg:py-2 lg:text-xs lg:roun
       <!-- 2) Upload Documents -->
       <a 
         href="#"
+        id="openModal"
         class="group flex items-center justify-between border border-purple-100 rounded-lg px-4 py-3 hover:bg-blue-50 transition-colors"
       >
         <div class="flex items-center space-x-3">
@@ -488,6 +491,7 @@ sm:px-1 sm:py-0.5 sm:text-[7px] sm:rounded-md lg:px-4 lg:py-2 lg:text-xs lg:roun
       <!-- 3) Add HDF -->
       <a 
         href="#"
+        id="openHdfModal"
         class="group flex items-center justify-between border border-purple-100 rounded-lg px-4 py-3 hover:bg-blue-50 transition-colors"
       >
         <div class="flex items-center space-x-3">
@@ -810,6 +814,114 @@ sm:px-1 sm:py-0.5 sm:text-[7px] sm:rounded-md lg:px-4 lg:py-2 lg:text-xs lg:roun
       <!-- Quick Actions Section -->
       
 </main>
+<div id="meterModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-96 md:w-[500px]">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold text-gray-900">Add Meter Reading</h2>
+          <button id="closeMeterModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+      </div>
+
+      <!-- Form Fields -->
+      <form id="meterForm">
+          <div class="grid grid-cols-2 gap-4">
+              <!-- Meter Number -->
+              <div>
+                  <label class="block text-gray-700 text-sm font-medium">Meter Number*</label>
+                  <input type="text" class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring focus:ring-purple-200" placeholder="Enter meter number" required>
+              </div>
+
+              <!-- Reading Type -->
+              <div>
+                  <label class="block text-gray-700 text-sm font-medium">Reading Type*</label>
+                  <select class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring focus:ring-purple-200">
+                      <option>Electric</option>
+                      <option>Gas</option>
+                      <option>Water</option>
+                  </select>
+              </div>
+
+              <!-- Reading Value -->
+              <div>
+                  <label class="block text-gray-700 text-sm font-medium">Reading Value*</label>
+                  <input type="number" class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring focus:ring-purple-200" placeholder="Enter reading value" required>
+              </div>
+
+              <!-- Reading Date -->
+              <div>
+                  <label class="block text-gray-700 text-sm font-medium">Reading Date*</label>
+                  <div class="relative">
+                      <input type="date" class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring focus:ring-purple-200" required>
+                      <span class="absolute right-3 top-3 text-gray-500">
+                          📅
+                      </span>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="mt-4">
+              <label class="block text-gray-700 text-sm font-medium">Notes (Optional)</label>
+              <textarea class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring focus:ring-purple-200" rows="3" placeholder="Add any additional information"></textarea>
+          </div>
+
+          <!-- Upload Meter Photo -->
+          <div class="mt-4">
+              <label class="block text-gray-700 text-sm font-medium">Meter Photo (Optional)</label>
+              <div id="uploadMeterPhoto" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer mt-2">
+                  <svg class="w-10 h-10 mx-auto text-purple-500" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M12 4v16M4 12h16"></path>
+                  </svg>
+                  <p class="text-gray-600 mt-2">Click to upload a photo of your meter</p>
+                  <p class="text-sm text-gray-500">JPG, PNG, or HEIC up to 10MB</p>
+                  <input type="file" id="meterPhotoInput" class="hidden" accept="image/png, image/jpeg, image/heic">
+              </div>
+          </div>
+
+          <!-- Modal Buttons -->
+          <div class="flex justify-end mt-4">
+              <button type="button" id="closeMeterModalBtn" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg mr-2">Cancel</button>
+              <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg">Submit Reading</button>
+          </div>
+      </form>
+  </div>
+</div>
+
+<!-- Modal Container -->
+<div id="uploadModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-100">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-semibold text-gray-900">Upload Documents</h2>
+      <button id="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+  </div>
+  <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer ">
+    <svg class="w-10 h-10 mx-auto text-purple-500" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+        <path d="M7 9l5-5 5 5M12 4v12"/>
+    </svg>
+    <p class="text-gray-600 mt-2">Drag and drop files here, or click to select files</p>
+    <p class="text-sm text-gray-500 mt-1">Allowed file types: <span class="font-medium">.pdf, .jpg, .jpeg, .png, .doc, .docx</span></p>
+    <p class="text-sm text-gray-500">Maximum file size: 10MB</p>
+    <input type="file" id="fileInput" class="hidden" multiple>
+</div>
+<div id="fileList" class="mt-4 hidden">
+  <p class="text-gray-700 font-medium">Selected Files <span id="fileCount" class="bg-purple-100 text-purple-600 px-2 py-1 text-xs rounded-lg ml-1">0/5</span></p>
+  <ul id="fileItems" class="mt-2 space-y-2"></ul>
+</div>
+<div class="flex justify-end mt-4">
+  <button id="uploadBtn" class="px-4 py-2 bg-purple-600 text-white rounded-lg disabled:opacity-50" disabled>Upload</button>
+</div>
+  </div>
+</div>
+
+
+<!-- Buttons -->
+<div class="flex justify-end mt-4">
+  <button id="closeModalBtn" class="px-4 py-2 bg-gray-300 rounded-lg mr-2">Cancel</button>
+  <button class="px-4 py-2 bg-purple-600 text-white rounded-lg">Upload</button>
+</div>
 <div id="questionModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-start pt-20 hidden">
   <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl mx-4 relative overflow-y-auto max-h-[80vh]">
       <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onclick="closeModal()">
@@ -818,6 +930,91 @@ sm:px-1 sm:py-0.5 sm:text-[7px] sm:rounded-md lg:px-4 lg:py-2 lg:text-xs lg:roun
       <div id="popupContent">Loading...</div>
   </div>
 </div>
+<div
+  id="congratulationsModal"
+  class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden"
+>
+  <!-- Disable body scrolling when modal is open -->
+    <!-- Close Button -->
+    <button
+      class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+      onclick="closeCongratulationsModal()"
+    >
+      &times;
+    </button>
+
+    <!-- Dynamic Content -->
+    <div id="congratulationsContent">Loading...</div>
+  </div>
+
+  <div id="hdfModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-gray-900 flex items-center">
+                Upload HDF Excel File
+            </h2>
+            <button id="closeHdfModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+        </div>
+
+        <!-- Drag and Drop File Upload -->
+        <div id="dropZonee" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer transition hover:border-purple-500">
+            <svg class="w-12 h-12 mx-auto text-green-500" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+                <path d="M7 9l5-5 5 5M12 4v12"/>
+            </svg>
+            <p class="text-gray-600 mt-2 font-medium">Drag & drop your HDF file here, or click to select</p>
+            <p class="text-sm text-gray-500 mt-1">Supported formats: <span class="font-medium">.csv, .xml</span></p>
+            <p class="text-sm text-gray-500">Max file size: 10MB</p>
+            <input type="file" id="hdfFileInput" class="hidden" accept=".csv,.xml">
+        </div>
+
+        <!-- Selected File Preview -->
+        <div id="filePreview" class="hidden mt-4 p-3 bg-gray-100 rounded-lg flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+                    <path d="M7 9l5-5 5 5M12 4v12"/>
+                </svg>
+                <div>
+                    <p class="text-gray-900 font-medium" id="fileName"></p>
+                    <p class="text-xs text-gray-500" id="fileSize"></p>
+                </div>
+            </div>
+            <button id="removeFile" class="text-gray-500 hover:text-red-600 text-lg">&times;</button>
+        </div>
+
+        <!-- Data Preview Table -->
+        <div id="dataPreview" class="hidden mt-4">
+            <p class="text-gray-700 font-medium">Data Preview (First 5 rows)</p>
+            <div class="relative overflow-x-auto mt-2 max-h-48 border rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr id="previewHeader"></tr>
+                    </thead>
+                    <tbody id="previewBody" class="bg-white"></tbody>
+                </table>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">Total rows in file: <span id="totalRows">0</span></p>
+        </div>
+
+        <!-- Important Note -->
+        <div class="mt-4 p-3 bg-yellow-100 text-yellow-800 text-sm rounded-lg flex items-start">
+            <span class="text-lg mr-2">⚠</span>
+            <p>Your Excel file should include columns for project details, hazard information, and contact information. Make sure all required fields are present in your spreadsheet.</p>
+        </div>
+
+        <!-- Modal Buttons -->
+        <div class="flex justify-end mt-4">
+            <button id="closeHdfModalBtn" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg mr-2 hover:bg-gray-400 transition">Cancel</button>
+            <button id="uploadHdfBtn" class="px-4 py-2 bg-purple-600 text-white rounded-lg disabled:opacity-50 transition" disabled>Upload HDF Data</button>
+        </div>
+    </div>
+</div>
+
+
 <!-- Share Modal -->
 <div id="share-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
   <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
@@ -859,6 +1056,276 @@ sm:px-1 sm:py-0.5 sm:text-[7px] sm:rounded-md lg:px-4 lg:py-2 lg:text-xs lg:roun
   <span>Referral link copied to clipboard!</span>
 </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const openHdfModalBtn = document.getElementById("openHdfModal");
+  const closeHdfModalBtn = document.getElementById("closeHdfModal");
+  const closeHdfModalBtn2 = document.getElementById("closeHdfModalBtn");
+  const hdfModal = document.getElementById("hdfModal");
+  const dropZone = document.getElementById("dropZonee");
+  const hdfFileInput = document.getElementById("hdfFileInput");
+  const filePreview = document.getElementById("filePreview");
+  const fileNameElem = document.getElementById("fileName");
+  const fileSizeElem = document.getElementById("fileSize");
+  const removeFileBtn = document.getElementById("removeFile");
+  const uploadHdfBtn = document.getElementById("uploadHdfBtn");
+  const previewHeader = document.getElementById("previewHeader");
+  const previewBody = document.getElementById("previewBody");
+  const dataPreview = document.getElementById("dataPreview");
+  const totalRowsElem = document.getElementById("totalRows");
+
+  openHdfModalBtn.addEventListener("click", () => hdfModal.classList.remove("hidden"));
+  function closeHdfModal() { 
+      hdfModal.classList.add("hidden"); 
+      resetUpload();
+  }
+  closeHdfModalBtn.addEventListener("click", closeHdfModal);
+  closeHdfModalBtn2.addEventListener("click", closeHdfModal);
+
+  dropZone.addEventListener("click", (event) => {
+    console.log("Drop zone clicked! Triggering file input...");
+    hdfFileInput.click()});
+
+  hdfFileInput.addEventListener("change", (event) => {
+      if (event.target.files.length > 0) {
+          const file = event.target.files[0];
+          
+          // Hide drag-drop section
+          dropZone.classList.add("hidden");
+
+          // Show file preview
+          fileNameElem.textContent = file.name;
+          fileSizeElem.textContent = `${(file.size / 1024).toFixed(1)} KB`;
+          filePreview.classList.remove("hidden");
+          uploadHdfBtn.disabled = false;
+
+          if (file.name.endsWith(".csv")) readCSVFile(file);
+      }
+  });
+
+  removeFileBtn.addEventListener("click", () => {
+      resetUpload();
+  });
+
+  function readCSVFile(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+          const rows = e.target.result.split("\n").map(row => row.split(","));
+          
+          // Hide drag-drop section, show table preview
+          previewHeader.innerHTML = rows[0].map(col => `<th class="p-3">${col.trim()}</th>`).join("");
+          previewBody.innerHTML = rows.slice(1, 6).map(row =>
+              `<tr>${row.map(col => `<td class="p-3">${col.trim()}</td>`).join("")}</tr>`
+          ).join("");
+          
+          totalRowsElem.textContent = rows.length;
+          dataPreview.classList.remove("hidden");
+      };
+      reader.readAsText(file);
+  }
+
+  function resetUpload() {
+      filePreview.classList.add("hidden");
+      dataPreview.classList.add("hidden");
+      dropZone.classList.remove("hidden");
+      hdfFileInput.value = "";
+      uploadHdfBtn.disabled = true;
+  }
+});
+
+  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const openModalBtn = document.getElementById("openModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const closeModalBtn2 = document.getElementById("closeModalBtn");
+    const modal = document.getElementById("uploadModal");
+    const body = document.body;
+
+    // Open modal and disable background scrolling
+    openModalBtn.addEventListener("click", () => {
+        modal.classList.remove("hidden");
+        body.classList.add("modal-open"); // Prevent scrolling
+    });
+
+    // Close modal and enable background scrolling
+    function closeModal() {
+        modal.classList.add("hidden");
+        body.classList.remove("modal-open"); // Enable scrolling again
+    }
+
+    closeModalBtn.addEventListener("click", closeModal);
+    closeModalBtn2.addEventListener("click", closeModal);
+
+    // Close when clicking outside the modal
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const openMeterModalBtn = document.getElementById("openMeterModal");
+      const closeMeterModalBtn = document.getElementById("closeMeterModal");
+      const closeMeterModalBtn2 = document.getElementById("closeMeterModalBtn");
+      const meterModal = document.getElementById("meterModal");
+      const body = document.body;
+
+      // Open modal
+      openMeterModalBtn.addEventListener("click", () => {
+          meterModal.classList.remove("hidden");
+          body.classList.add("modal-open");
+      });
+
+      // Close modal
+      function closeMeterModal() {
+          meterModal.classList.add("hidden");
+          body.classList.remove("modal-open");
+      }
+
+      closeMeterModalBtn.addEventListener("click", closeMeterModal);
+      closeMeterModalBtn2.addEventListener("click", closeMeterModal);
+
+      // Close when clicking outside the modal
+      window.addEventListener("click", (event) => {
+          if (event.target === meterModal) {
+              closeMeterModal();
+          }
+      });
+
+      // Upload Photo Click
+      const uploadMeterPhoto = document.getElementById("uploadMeterPhoto");
+      const meterPhotoInput = document.getElementById("meterPhotoInput");
+
+      uploadMeterPhoto.addEventListener("click", () => meterPhotoInput.click());
+
+      meterPhotoInput.addEventListener("change", (event) => {
+          if (event.target.files.length > 0) {
+              uploadMeterPhoto.innerHTML = `
+                  <div class="flex items-center space-x-3">
+                      <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
+                           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                          <path d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span class="text-gray-700">${event.target.files[0].name}</span>
+                  </div>
+              `;
+          }
+      });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const openModalBtn = document.getElementById("openModal");
+      const closeModalBtn = document.getElementById("closeModal");
+      const closeModalBtn2 = document.getElementById("closeModalBtn");
+      const modal = document.getElementById("uploadModal");
+      const body = document.body;
+
+      const dropZone = document.getElementById("dropZone");
+      const fileInput = document.getElementById("fileInput");
+      const fileList = document.getElementById("fileList");
+      const fileItems = document.getElementById("fileItems");
+      const fileCount = document.getElementById("fileCount");
+      const uploadBtn = document.getElementById("uploadBtn");
+
+      let files = [];
+
+      // Open modal and disable background scrolling
+      openModalBtn.addEventListener("click", () => {
+          modal.classList.remove("hidden");
+          body.classList.add("modal-open");
+      });
+
+      // Close modal and enable background scrolling
+      function closeModal() {
+          modal.classList.add("hidden");
+          body.classList.remove("modal-open");
+      }
+
+      closeModalBtn.addEventListener("click", closeModal);
+      closeModalBtn2.addEventListener("click", closeModal);
+
+      // Close when clicking outside the modal
+      window.addEventListener("click", (event) => {
+          if (event.target === modal) {
+              closeModal();
+          }
+      });
+
+      // Handle file selection
+      dropZone.addEventListener("click", () => fileInput.click());
+
+      fileInput.addEventListener("change", (event) => {
+          handleFiles(event.target.files);
+      });
+
+      dropZone.addEventListener("dragover", (event) => {
+          event.preventDefault();
+          dropZone.classList.add("border-purple-500");
+      });
+
+      dropZone.addEventListener("dragleave", () => {
+          dropZone.classList.remove("border-purple-500");
+      });
+
+      dropZone.addEventListener("drop", (event) => {
+          event.preventDefault();
+          dropZone.classList.remove("border-purple-500");
+          handleFiles(event.dataTransfer.files);
+      });
+
+      function handleFiles(selectedFiles) {
+          if (files.length + selectedFiles.length > 5) {
+              alert("You can only upload up to 5 files.");
+              return;
+          }
+
+          for (let file of selectedFiles) {
+              if (files.length >= 5) break;
+              files.push(file);
+          }
+
+          updateFileList();
+      }
+
+      function updateFileList() {
+          fileItems.innerHTML = "";
+          files.forEach((file, index) => {
+              const fileItem = document.createElement("li");
+              fileItem.className = "flex justify-between items-center bg-gray-100 p-2 rounded-lg";
+              fileItem.innerHTML = `
+                  <div class="flex items-center space-x-3">
+                      <div class="bg-purple-100 text-purple-600 p-2 rounded-full">
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+                              <path d="M7 9l5-5 5 5M12 4v12"/>
+                          </svg>
+                      </div>
+                      <div>
+                          <p class="text-gray-900 font-medium">${file.name}</p>
+                          <p class="text-xs text-gray-500">${(file.size / 1024).toFixed(1)} KB</p>
+                      </div>
+                  </div>
+                  <button class="text-gray-500 hover:text-red-600" onclick="removeFile(${index})">&times;</button>
+              `;
+              fileItems.appendChild(fileItem);
+          });
+
+          fileList.classList.toggle("hidden", files.length === 0);
+          fileCount.textContent = `${files.length}/5`;
+          uploadBtn.disabled = files.length === 0;
+      }
+
+      window.removeFile = (index) => {
+          files.splice(index, 1);
+          updateFileList();
+      };
+  });
+</script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document.getElementById("mccDropdownButton");
@@ -1602,7 +2069,134 @@ function goBack() {
     window.location.href = "my-properties.html"; // Adjust based on actual page name
 }
 </script>
+<script>
+  function showProcessing() {
+    // Hide the initial modal
+    document.getElementById('energyModal').style.display = 'none';
+    // Show the processing modal
+    document.getElementById('processingModal').classList.remove('hidden');
+    
+    let progressBar = document.getElementById('progressBar');
+    let width = 0;
+    let interval = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(interval);
+        // Hide processing
+        document.getElementById('processingModal').classList.add('hidden');
+        // Show the confirmation form
+        document.getElementById('confirmationForm').classList.remove('hidden');
+      } else {
+        width += 2;
+        progressBar.style.width = width + "%";
+      }
+    }, 50);
+  }
 
+  // Show the final step, hide the details form
+  function showFinalStep() {
+    document.getElementById('confirmationForm').classList.add('hidden');
+    document.getElementById('finalStep').classList.remove('hidden');
+  }
+
+  // Go back to the details form from the final step
+  function goBackToForm() {
+    document.getElementById('finalStep').classList.add('hidden');
+    document.getElementById('confirmationForm').classList.remove('hidden');
+  }
+
+  // Final submission logic (you can replace with real submission)
+  function finalizeSwitch() {
+    alert("Switch confirmed! Your details have been submitted.");
+    // Optionally hide the final step or redirect somewhere
+    document.getElementById('finalStep').classList.add('hidden');
+  }
+</script>
+
+<script>
+  // Grabs a parameter from the URL, e.g. ?showPopup=true
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Existing code that checks for ?showPopup=true, etc.
+
+  // Now ADD a check for ?showCongrats=true
+  if (getQueryParam("showCongrats") === "true") {
+    showCongratulationsPopup(); // We'll define this below
+  }
+});
+function showCongratulationsPopup() {
+  fetch("congratulations.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(html => {
+      document.getElementById("congratulationsContent").innerHTML = html;
+      document.getElementById("congratulationsModal").classList.remove("hidden");
+
+      // Disable scrolling on the body when modal is open
+      document.body.classList.add("overflow-hidden");
+    })
+    .catch(error => {
+      console.error("Error fetching congratulations popup:", error);
+      document.getElementById("congratulationsContent").innerHTML =
+        "<p class='text-red-500'>Failed to load congratulations popup.</p>";
+    });
+}
+
+function closeCongratulationsModal() {
+  document.getElementById("congratulationsModal").classList.add("hidden");
+
+  // Re-enable scrolling on the body when modal is closed
+  document.body.classList.remove("overflow-hidden");
+}
+
+
+function finalizeSwitch() {
+  window.location.href = "dashboard.html";
+}
+
+
+</script>
+
+
+
+<script>
+  function launchConfettiTwice() {
+      setTimeout(() => {
+          confetti({
+              particleCount: 150,
+              spread: 70,
+              origin: { y: 0.6 },
+          });
+      }, 100);
+
+      setTimeout(() => {
+          confetti({
+              particleCount: 150,
+              spread: 90,
+              origin: { y: 0.6 },
+          });
+      }, 1000);
+  }
+
+  function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+
+  // Ensure the script runs after everything is loaded
+  document.addEventListener("DOMContentLoaded", function () {
+      if (getQueryParam("showCongrats") === "true") {
+          launchConfettiTwice();
+      }
+  });
+</script>
 
 
   

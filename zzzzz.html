@@ -1,446 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Improved Responsive UI</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDF Upload Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-gray-100">
 
-  <!-- QUICK ACTIONS SECTION -->
-  <div class="container bg-white rounded-lg shadow-lg mx-auto px-4 py-8 mt-6">
-    <!-- Section Heading -->
-    <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
-
-    <!-- 3-Column Grid for Actions -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
-      <!-- 1) Add Meter Reading -->
-      <a 
-        href="#"
-        class="group flex items-center justify-between border border-purple-100 rounded-lg px-4 py-3 hover:bg-blue-50 transition-colors"
-      >
-        <div class="flex items-center space-x-3">
-          <!-- Icon Circle -->
-          <div class="bg-purple-100 text-purple-600 p-2 rounded-full">
-            <!-- Plus Icon -->
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" 
-                 stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-              <path d="M12 5v14M5 12h14"></path>
-            </svg>
-          </div>
-          <!-- Label -->
-          <span class="text-gray-700 font-medium">Add Meter Reading</span>
-        </div>
-        <!-- Arrow Icon -->
-        <svg class="text-gray-400 group-hover:text-gray-700 w-5 h-5" fill="none" stroke="currentColor" 
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <path d="M9 5l7 7-7 7"></path>
-        </svg>
-      </a>
-
-      <!-- 2) Upload Documents -->
-      <a 
-        href="#"
-        class="group flex items-center justify-between border border-purple-100 rounded-lg px-4 py-3 hover:bg-blue-50 transition-colors"
-      >
-        <div class="flex items-center space-x-3">
-          <!-- Icon Circle -->
-          <div class="bg-purple-100 text-purple-600 p-2 rounded-full">
-            <!-- Upload Icon -->
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
-              <path d="M7 9l5-5 5 5M12 4v12"/>
-            </svg>
-          </div>
-          <!-- Label -->
-          <span class="text-gray-700 font-medium">Upload Documents</span>
-        </div>
-        <!-- Arrow Icon -->
-        <svg class="text-gray-400 group-hover:text-gray-700 w-5 h-5" fill="none" stroke="currentColor" 
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <path d="M9 5l7 7-7 7"></path>
-        </svg>
-      </a>
-
-      <!-- 3) Add HDF -->
-      <a 
-        href="#"
-        class="group flex items-center justify-between border border-purple-100 rounded-lg px-4 py-3 hover:bg-blue-50 transition-colors"
-      >
-        <div class="flex items-center space-x-3">
-          <!-- Icon Circle -->
-          <div class="bg-purple-100 text-purple-600 p-2 rounded-full">
-            <!-- Gear Icon -->
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-              <path d="M10.325 4.317a1 1 0 0 1 .868-.505h1.614a1 1 0 0 1 .868.505l.845 1.49a1 1 0 0 0 .76.505l1.676.188a1 1 0 0 1 .882.88l.188 1.676a1 1 0 0 0 .505.76l1.49.845a1 1 0 0 1 .505.868v1.614a1 1 0 0 1-.505.868l-1.49.845a1 1 0 0 0-.505.76l-.188 1.676a1 1 0 0 1-.88.882l-1.676.188a1 1 0 0 0-.76.505l-.845 1.49a1 1 0 0 1-.868.505h-1.614a1 1 0 0 1-.868-.505l-.845-1.49a1 1 0 0 0-.76-.505l-1.676-.188a1 1 0 0 1-.882-.88l-.188-1.676a1 1 0 0 0-.505-.76l-1.49-.845a1 1 0 0 1-.505-.868v-1.614a1 1 0 0 1 .505-.868l1.49-.845a1 1 0 0 0 .505-.76l.188-1.676a1 1 0 0 1 .88-.882l1.676-.188a1 1 0 0 0 .76-.505l.845-1.49z"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-          </div>
-          <!-- Label -->
-          <span class="text-gray-700 font-medium">Add HDF</span>
-        </div>
-        <!-- Arrow Icon -->
-        <svg class="text-gray-400 group-hover:text-gray-700 w-5 h-5" fill="none" stroke="currentColor" 
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <path d="M9 5l7 7-7 7"></path>
-        </svg>
-      </a>
-
+    <!-- Add HDF Button -->
+    <div class="flex justify-center items-center h-screen">
+        <button id="openHdfModal" class="bg-purple-600 text-white px-5 py-2 rounded-lg shadow-lg hover:bg-purple-700 transition">
+            Add HDF
+        </button>
     </div>
-  </div>
 
-  <!-- METER READINGS SECTION -->
-  <div class="container bg-white rounded-lg shadow-lg mx-auto px-4 py-8 mt-6">
-    <div class="max-w-6xl mx-auto p-6">
-      <h2 class="text-2xl font-bold mb-4 text-gray-900">Meter Readings</h2>
+    <!-- HDF Upload Modal -->
+    <div id="hdfModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-gray-900 flex items-center">
+                    📂 Upload HDF Excel File
+                </h2>
+                <button id="closeHdfModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
 
-      <!-- Dropdown for MCC Selection -->
-      <div class="relative inline-block mb-4">
-        <button
-          id="mccDropdownButton"
-          onclick="toggleDropdown()"
-          class="px-4 py-2 bg-white border rounded-lg shadow-sm text-gray-700 hover:bg-gray-100 focus:ring focus:ring-gray-200 flex items-center justify-between w-44"
-        >
-          <span id="selectedMcc">Select MCC Type</span>
-          <svg
-            class="w-4 h-4 ml-2"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </button>
-
-        <!-- Dropdown Menu -->
-        <div
-          id="mccDropdown"
-          class="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-md hidden"
-        >
-          <ul class="py-2 text-sm text-gray-700">
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 hover:bg-gray-100"
-                onclick="selectMCC('MCC1')"
-              >
-                MCC1
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 hover:bg-gray-100"
-                onclick="selectMCC('MCC2')"
-              >
-                MCC2
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Info Alert -->
-      <div
-        id="infoAlert"
-        class="bg-purple-100 border-l-4 border-purple-500 text-purple-700 p-4 rounded mb-4"
-      >
-        <p>
-          <strong>MCC1 meters</strong> display a single '24 Hour' reading column.
-        </p>
-      </div>
-
-      <!-- Toggle Views -->
-      <div class="flex space-x-2 mb-4">
-        <button
-          id="tableViewBtn"
-          class="px-4 py-2 bg-gray-300 rounded text-gray-800"
-          onclick="toggleView('table')"
-        >
-          Table View
-        </button>
-        <button
-          id="cardViewBtn"
-          class="px-4 py-2 bg-gray-200 rounded text-gray-800"
-          onclick="toggleView('card')"
-        >
-          Card View
-        </button>
-      </div>
-
-      <!-- TABLE VIEW -->
-      <div
-        id="tableView"
-        class="relative overflow-x-auto bg-white p-4 rounded-lg shadow"
-      >
-        <table
-          class="w-full text-sm text-left text-gray-500"
-        >
-          <thead
-            class="text-xs text-gray-700 uppercase bg-gray-50"
-          >
-            <tr id="tableHeader">
-              <th scope="col" class="px-6 py-3">Meter Number</th>
-              <th scope="col" class="px-6 py-3">Date</th>
-              <th scope="col" class="px-6 py-3">24 Hour Reading</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <tr
-              class="bg-white border-b border-gray-200"
-            >
-              <th
-                scope="row"
-                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                M001
-              </th>
-              <td class="px-6 py-4">2025-05-01</td>
-              <td class="px-6 py-4">12345</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- CARD VIEW -->
-      <div
-        id="cardView"
-        class="hidden bg-white p-4 rounded-lg shadow mt-4"
-      >
-        <!-- Responsive Grid: 1 col on small, 2 on md, 3 on lg -->
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <!-- Card 1 -->
-          <div
-            class="bg-white shadow-lg rounded-lg p-4 transition-all duration-200 hover:shadow-xl"
-          >
-            <div
-              class="bg-purple-100 p-3 rounded-t-lg flex justify-between items-center"
-            >
-              <div class="flex items-center space-x-2 text-purple-600 font-semibold">
-                <!-- Calendar Icon -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M8 2v4" />
-                  <path d="M16 2v4" />
-                  <rect width="16" height="16" x="4" y="6" rx="2" />
-                  <path d="M16 10h4" />
-                  <path d="M4 10h4" />
-                  <path d="M10 14h4" />
-                  <path d="M12 12v4" />
+            <!-- Drag and Drop File Upload -->
+            <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer transition hover:border-purple-500">
+                <svg class="w-12 h-12 mx-auto text-green-500" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+                    <path d="M7 9l5-5 5 5M12 4v12"/>
                 </svg>
-                <span>1 May 2025</span>
-              </div>
-              <span
-                class="bg-purple-200 text-purple-700 text-sm px-3 py-1 rounded-full"
-              >
-                M004
-              </span>
+                <p class="text-gray-600 mt-2 font-medium">Drag & drop your HDF file here, or click to select</p>
+                <p class="text-sm text-gray-500 mt-1">Supported formats: <span class="font-medium">.csv, .xml</span></p>
+                <p class="text-sm text-gray-500">Max file size: 10MB</p>
+                <input type="file" id="hdfFileInput" class="hidden" accept=".csv,.xml">
             </div>
 
-            <div class="grid grid-cols-2 gap-4 p-4">
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  ⏱️ Day Reading
-                </span>
-                <p class="text-xl font-semibold">1234</p>
-              </div>
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  🌙 Night Reading
-                </span>
-                <p class="text-xl font-semibold">567</p>
-              </div>
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  📈 Peak Reading
-                </span>
-                <p class="text-xl font-semibold">890</p>
-              </div>
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  📊 Show Reading
-                </span>
-                <p class="text-xl font-semibold">123</p>
-              </div>
+            <!-- Selected File Preview -->
+            <div id="filePreview" class="hidden mt-4 p-3 bg-gray-100 rounded-lg flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+                        <path d="M7 9l5-5 5 5M12 4v12"/>
+                    </svg>
+                    <div>
+                        <p class="text-gray-900 font-medium" id="fileName"></p>
+                        <p class="text-xs text-gray-500" id="fileSize"></p>
+                    </div>
+                </div>
+                <button id="removeFile" class="text-gray-500 hover:text-red-600 text-lg">&times;</button>
             </div>
 
-            <div
-              class="p-4 border-t text-purple-600 text-sm flex items-center space-x-2 cursor-pointer hover:text-blue-800"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 5v14" />
-                <path d="M19 12H5" />
-              </svg>
-              <span>Export</span>
-            </div>
-          </div>
-          
-          <!-- Card 2 (Sample Data) -->
-          <div
-            class="bg-white shadow-lg rounded-lg p-4 transition-all duration-200 hover:shadow-xl"
-          >
-            <div
-              class="bg-purple-100 p-3 rounded-t-lg flex justify-between items-center"
-            >
-              <div class="flex items-center space-x-2 text-purple-600 font-semibold">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M8 2v4" />
-                  <path d="M16 2v4" />
-                  <rect width="16" height="16" x="4" y="6" rx="2" />
-                  <path d="M16 10h4" />
-                  <path d="M4 10h4" />
-                  <path d="M10 14h4" />
-                  <path d="M12 12v4" />
-                </svg>
-                <span>1 Apr 2025</span>
-              </div>
-              <span
-                class="bg-plurple-200 text-purple-700 text-sm px-3 py-1 rounded-full"
-              >
-                M004
-              </span>
+            <!-- Data Preview Table -->
+            <div id="dataPreview" class="hidden mt-4">
+                <p class="text-gray-700 font-medium">Data Preview (First 5 rows)</p>
+                <div class="relative overflow-x-auto mt-2 max-h-48 border rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr id="previewHeader"></tr>
+                        </thead>
+                        <tbody id="previewBody" class="bg-white"></tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">Total rows in file: <span id="totalRows">0</span></p>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 p-4">
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  ⏱️ Day Reading
-                </span>
-                <p class="text-xl font-semibold">1156</p>
-              </div>
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  🌙 Night Reading
-                </span>
-                <p class="text-xl font-semibold">498</p>
-              </div>
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  📈 Peak Reading
-                </span>
-                <p class="text-xl font-semibold">845</p>
-              </div>
-              <div class="bg-gray-50 p-3 rounded-lg text-center">
-                <span class="text-gray-500 text-sm flex items-center justify-center">
-                  📊 Show Reading
-                </span>
-                <p class="text-xl font-semibold">112</p>
-              </div>
+            <!-- Important Note -->
+            <div class="mt-4 p-3 bg-yellow-100 text-yellow-800 text-sm rounded-lg flex items-start">
+                <span class="text-lg mr-2">⚠</span>
+                <p>Your Excel file should include columns for project details, hazard information, and contact information. Make sure all required fields are present in your spreadsheet.</p>
             </div>
 
-            <div
-              class="p-4 border-t text-blue-600 text-sm flex items-center space-x-2 cursor-pointer hover:text-blue-800"
-            >
-              ⬇️ Export
+            <!-- Modal Buttons -->
+            <div class="flex justify-end mt-4">
+                <button id="closeHdfModalBtn" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg mr-2 hover:bg-gray-400 transition">Cancel</button>
+                <button id="uploadHdfBtn" class="px-4 py-2 bg-purple-600 text-white rounded-lg disabled:opacity-50 transition" disabled>✔ Upload HDF Data</button>
             </div>
-          </div>
-          
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- JavaScript for Dropdown & Toggle -->
-  <script>
-    function toggleDropdown() {
-      document.getElementById("mccDropdown").classList.toggle("hidden");
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const openHdfModalBtn = document.getElementById("openHdfModal");
+    const closeHdfModalBtn = document.getElementById("closeHdfModal");
+    const closeHdfModalBtn2 = document.getElementById("closeHdfModalBtn");
+    const hdfModal = document.getElementById("hdfModal");
+    const dropZone = document.getElementById("dropZone");
+    const hdfFileInput = document.getElementById("hdfFileInput");
+    const filePreview = document.getElementById("filePreview");
+    const fileNameElem = document.getElementById("fileName");
+    const fileSizeElem = document.getElementById("fileSize");
+    const removeFileBtn = document.getElementById("removeFile");
+    const uploadHdfBtn = document.getElementById("uploadHdfBtn");
+    const previewHeader = document.getElementById("previewHeader");
+    const previewBody = document.getElementById("previewBody");
+    const dataPreview = document.getElementById("dataPreview");
+    const totalRowsElem = document.getElementById("totalRows");
+
+    openHdfModalBtn.addEventListener("click", () => hdfModal.classList.remove("hidden"));
+    function closeHdfModal() { 
+        hdfModal.classList.add("hidden"); 
+        resetUpload();
+    }
+    closeHdfModalBtn.addEventListener("click", closeHdfModal);
+    closeHdfModalBtn2.addEventListener("click", closeHdfModal);
+
+    dropZone.addEventListener("click", () => hdfFileInput.click());
+
+    hdfFileInput.addEventListener("change", (event) => {
+        if (event.target.files.length > 0) {
+            const file = event.target.files[0];
+            
+            // Hide drag-drop section
+            dropZone.classList.add("hidden");
+
+            // Show file preview
+            fileNameElem.textContent = file.name;
+            fileSizeElem.textContent = `${(file.size / 1024).toFixed(1)} KB`;
+            filePreview.classList.remove("hidden");
+            uploadHdfBtn.disabled = false;
+
+            if (file.name.endsWith(".csv")) readCSVFile(file);
+        }
+    });
+
+    removeFileBtn.addEventListener("click", () => {
+        resetUpload();
+    });
+
+    function readCSVFile(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const rows = e.target.result.split("\n").map(row => row.split(","));
+            
+            // Hide drag-drop section, show table preview
+            previewHeader.innerHTML = rows[0].map(col => `<th class="p-3">${col.trim()}</th>`).join("");
+            previewBody.innerHTML = rows.slice(1, 6).map(row =>
+                `<tr>${row.map(col => `<td class="p-3">${col.trim()}</td>`).join("")}</tr>`
+            ).join("");
+            
+            totalRowsElem.textContent = rows.length;
+            dataPreview.classList.remove("hidden");
+        };
+        reader.readAsText(file);
     }
 
-    function selectMCC(mccType) {
-      document.getElementById("selectedMcc").textContent = mccType;
-      document.getElementById("mccDropdown").classList.add("hidden");
-
-      updateTable(mccType);
+    function resetUpload() {
+        filePreview.classList.add("hidden");
+        dataPreview.classList.add("hidden");
+        dropZone.classList.remove("hidden");
+        hdfFileInput.value = "";
+        uploadHdfBtn.disabled = true;
     }
+});
 
-    function updateTable(mccType) {
-      const tableHeader = document.getElementById("tableHeader");
-      const tableBody = document.getElementById("tableBody");
-      const infoAlert = document.getElementById("infoAlert");
-
-      if (mccType === "MCC1") {
-        infoAlert.innerHTML = "<p><strong>ℹ️ MCC1 meters</strong> display a single '24 Hour' reading column.</p>";
-        tableHeader.innerHTML = `
-          <th scope="col" class="px-6 py-3">Meter Number</th>
-          <th scope="col" class="px-6 py-3">Date</th>
-          <th scope="col" class="px-6 py-3">24 Hour Reading</th>`;
-        tableBody.innerHTML = `
-          <tr class="bg-white border-b border-gray-200">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">M001</th>
-            <td class="px-6 py-4">2025-05-01</td>
-            <td class="px-6 py-4">12345</td>
-          </tr>`;
-      } else {
-        infoAlert.innerHTML = "<p><strong>ℹ️ MCC2 meters</strong> display 'Day', 'Night', 'Peak', and 'Show' reading columns.</p>";
-        tableHeader.innerHTML = `
-          <th scope="col" class="px-6 py-3">Meter Number</th>
-          <th scope="col" class="px-6 py-3">Date</th>
-          <th scope="col" class="px-6 py-3">Day Reading</th>
-          <th scope="col" class="px-6 py-3">Night Reading</th>
-          <th scope="col" class="px-6 py-3">Peak Reading</th>
-          <th scope="col" class="px-6 py-3">Show Reading</th>`;
-        tableBody.innerHTML = `
-          <tr class="bg-white border-b border-gray-200">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">M004</th>
-            <td class="px-6 py-4">2025-05-01</td>
-            <td class="px-6 py-4">1234</td>
-            <td class="px-6 py-4">567</td>
-            <td class="px-6 py-4">890</td>
-            <td class="px-6 py-4">123</td>
-          </tr>`;
-      }
-    }
-
-    function toggleView(view) {
-      document.getElementById("tableView").classList.toggle("hidden", view !== "table");
-      document.getElementById("cardView").classList.toggle("hidden", view !== "card");
-
-      // Optional: highlight the active button
-      document.getElementById("tableViewBtn").classList.toggle("bg-gray-300", view === "table");
-      document.getElementById("tableViewBtn").classList.toggle("bg-gray-200", view !== "table");
-      document.getElementById("cardViewBtn").classList.toggle("bg-gray-300", view === "card");
-      document.getElementById("cardViewBtn").classList.toggle("bg-gray-200", view !== "card");
-    }
-  </script>
+    </script>
 
 </body>
 </html>
