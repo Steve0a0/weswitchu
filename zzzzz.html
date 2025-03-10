@@ -3,163 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HDF Upload Modal</title>
+    <title>Available Offers</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 p-6">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-gray-900">Available Offers</h2>
+            <a href="#" class="text-blue-600 text-sm font-medium hover:underline">Accept All</a>
+        </div>
 
-    <!-- Add HDF Button -->
-    <div class="flex justify-center items-center h-screen">
-        <button id="openHdfModal" class="bg-purple-600 text-white px-5 py-2 rounded-lg shadow-lg hover:bg-purple-700 transition">
-            Add HDF
-        </button>
-    </div>
-
-    <!-- HDF Upload Modal -->
-    <div id="hdfModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
-            <!-- Modal Header -->
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-semibold text-gray-900 flex items-center">
-                    📂 Upload HDF Excel File
-                </h2>
-                <button id="closeHdfModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-
-            <!-- Drag and Drop File Upload -->
-            <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer transition hover:border-purple-500">
-                <svg class="w-12 h-12 mx-auto text-green-500" fill="none" stroke="currentColor" stroke-width="2"
-                     stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
-                    <path d="M7 9l5-5 5 5M12 4v12"/>
-                </svg>
-                <p class="text-gray-600 mt-2 font-medium">Drag & drop your HDF file here, or click to select</p>
-                <p class="text-sm text-gray-500 mt-1">Supported formats: <span class="font-medium">.csv, .xml</span></p>
-                <p class="text-sm text-gray-500">Max file size: 10MB</p>
-                <input type="file" id="hdfFileInput" class="hidden" accept=".csv,.xml">
-            </div>
-
-            <!-- Selected File Preview -->
-            <div id="filePreview" class="hidden mt-4 p-3 bg-gray-100 rounded-lg flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
-                        <path d="M7 9l5-5 5 5M12 4v12"/>
-                    </svg>
-                    <div>
-                        <p class="text-gray-900 font-medium" id="fileName"></p>
-                        <p class="text-xs text-gray-500" id="fileSize"></p>
-                    </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Electricity Offer -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                        ⚡ Electricity
+                    </h3>
+                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
                 </div>
-                <button id="removeFile" class="text-gray-500 hover:text-red-600 text-lg">&times;</button>
+                <p class="text-gray-600 text-sm">EcoEnergy Plus</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Plan Name</p>
+                <p class="text-gray-700">Green Energy Saver</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Estimated Annual Savings</p>
+                <p class="text-green-600 font-bold">€350</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Contract Length</p>
+                <p class="text-gray-700">12 months</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Rate</p>
+                <p class="text-gray-700">18.5c per kWh</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Standing Charge</p>
+                <p class="text-gray-700">€0.35 per day</p>
             </div>
 
-            <!-- Data Preview Table -->
-            <div id="dataPreview" class="hidden mt-4">
-                <p class="text-gray-700 font-medium">Data Preview (First 5 rows)</p>
-                <div class="relative overflow-x-auto mt-2 max-h-48 border rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                            <tr id="previewHeader"></tr>
-                        </thead>
-                        <tbody id="previewBody" class="bg-white"></tbody>
-                    </table>
+            <!-- Gas Offer -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                        🔥 Gas
+                    </h3>
+                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
                 </div>
-                <p class="text-xs text-gray-500 mt-1">Total rows in file: <span id="totalRows">0</span></p>
+                <p class="text-gray-600 text-sm">GasWorks Energy</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Plan Name</p>
+                <p class="text-gray-700">Home Heating Plus</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Estimated Annual Savings</p>
+                <p class="text-green-600 font-bold">€280</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Contract Length</p>
+                <p class="text-gray-700">12 months</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Rate</p>
+                <p class="text-gray-700">7.2c per kWh</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Standing Charge</p>
+                <p class="text-gray-700">€0.30 per day</p>
             </div>
 
-            <!-- Important Note -->
-            <div class="mt-4 p-3 bg-yellow-100 text-yellow-800 text-sm rounded-lg flex items-start">
-                <span class="text-lg mr-2">⚠</span>
-                <p>Your Excel file should include columns for project details, hazard information, and contact information. Make sure all required fields are present in your spreadsheet.</p>
-            </div>
-
-            <!-- Modal Buttons -->
-            <div class="flex justify-end mt-4">
-                <button id="closeHdfModalBtn" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg mr-2 hover:bg-gray-400 transition">Cancel</button>
-                <button id="uploadHdfBtn" class="px-4 py-2 bg-purple-600 text-white rounded-lg disabled:opacity-50 transition" disabled>✔ Upload HDF Data</button>
+            <!-- Broadband Offer -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                        📶 Broadband
+                    </h3>
+                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                </div>
+                <p class="text-gray-600 text-sm">SpeedNet</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Plan Name</p>
+                <p class="text-gray-700">Fiber Max 500</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Estimated Annual Savings</p>
+                <p class="text-green-600 font-bold">€180</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Contract Length</p>
+                <p class="text-gray-700">12 months</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Rate</p>
+                <p class="text-gray-700">500Mbps</p>
+                <p class="text-sm font-medium text-gray-900 mt-2">Standing Charge</p>
+                <p class="text-gray-700">€45 per month</p>
             </div>
         </div>
     </div>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const openHdfModalBtn = document.getElementById("openHdfModal");
-    const closeHdfModalBtn = document.getElementById("closeHdfModal");
-    const closeHdfModalBtn2 = document.getElementById("closeHdfModalBtn");
-    const hdfModal = document.getElementById("hdfModal");
-    const dropZone = document.getElementById("dropZone");
-    const hdfFileInput = document.getElementById("hdfFileInput");
-    const filePreview = document.getElementById("filePreview");
-    const fileNameElem = document.getElementById("fileName");
-    const fileSizeElem = document.getElementById("fileSize");
-    const removeFileBtn = document.getElementById("removeFile");
-    const uploadHdfBtn = document.getElementById("uploadHdfBtn");
-    const previewHeader = document.getElementById("previewHeader");
-    const previewBody = document.getElementById("previewBody");
-    const dataPreview = document.getElementById("dataPreview");
-    const totalRowsElem = document.getElementById("totalRows");
-
-    openHdfModalBtn.addEventListener("click", () => hdfModal.classList.remove("hidden"));
-    function closeHdfModal() { 
-        hdfModal.classList.add("hidden"); 
-        resetUpload();
-    }
-    closeHdfModalBtn.addEventListener("click", closeHdfModal);
-    closeHdfModalBtn2.addEventListener("click", closeHdfModal);
-
-    dropZone.addEventListener("click", () => hdfFileInput.click());
-
-    hdfFileInput.addEventListener("change", (event) => {
-        if (event.target.files.length > 0) {
-            const file = event.target.files[0];
-            
-            // Hide drag-drop section
-            dropZone.classList.add("hidden");
-
-            // Show file preview
-            fileNameElem.textContent = file.name;
-            fileSizeElem.textContent = `${(file.size / 1024).toFixed(1)} KB`;
-            filePreview.classList.remove("hidden");
-            uploadHdfBtn.disabled = false;
-
-            if (file.name.endsWith(".csv")) readCSVFile(file);
-        }
-    });
-
-    removeFileBtn.addEventListener("click", () => {
-        resetUpload();
-    });
-
-    function readCSVFile(file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const rows = e.target.result.split("\n").map(row => row.split(","));
-            
-            // Hide drag-drop section, show table preview
-            previewHeader.innerHTML = rows[0].map(col => `<th class="p-3">${col.trim()}</th>`).join("");
-            previewBody.innerHTML = rows.slice(1, 6).map(row =>
-                `<tr>${row.map(col => `<td class="p-3">${col.trim()}</td>`).join("")}</tr>`
-            ).join("");
-            
-            totalRowsElem.textContent = rows.length;
-            dataPreview.classList.remove("hidden");
-        };
-        reader.readAsText(file);
-    }
-
-    function resetUpload() {
-        filePreview.classList.add("hidden");
-        dataPreview.classList.add("hidden");
-        dropZone.classList.remove("hidden");
-        hdfFileInput.value = "";
-        uploadHdfBtn.disabled = true;
-    }
-});
-
-    </script>
-
 </body>
 </html>
